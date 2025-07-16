@@ -6,8 +6,9 @@
 .hero-video-section {
     position: relative;
     max-width: 100%;
-    margin: 0 auto;
-    height: 50vh;
+    /* margin: 0 auto; */
+    height: 25vh;
+    overflow: hidden;
 }
 .hero-video {
     position: absolute;
@@ -83,7 +84,7 @@
 .speaker-icon {
     position: absolute;
     top: 1rem;
-    right: 2rem;
+    left: 1rem;
     z-index: 99;
     width: 16px;
     height: 14px;

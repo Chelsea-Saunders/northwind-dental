@@ -1,10 +1,11 @@
+
 /* HEADER CONTAINER */
 .global-header {
     display: flex;
     flex-direction: column;
     align-items: center;
     width: 100%;
-    background-color: var(--bs-header-text-color);
+    background-color: var(--bs-header-background-color);
     color: var(--bs-text-color-light);
     padding: 0;
 }
@@ -16,10 +17,6 @@
     padding: 0;
     width: 100%;
 }
-/* .logo {
-    height: 60px;
-    width: auto;
-} */
 /* TOGGLE MENU BUTTON */
 #toggle-menu {
     display: flex;
@@ -27,13 +24,21 @@
     justify-content: center;
     gap: 0.4rem;
     padding: 0.3rem;
-    background-color: var(--bs-button-background-color);
+    background-color: var(--bs-link-color);
     color: var(--bs-text-color-light);
     border: none;
     border-radius: var(--bs-border-radius-small);
     cursor: pointer;
     z-index: 10;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+#toggle-menu:hover {
+    background-color: var(--bs-button-background-color);
+    color: var(--bs-text-color-light);
+}
+/* MAKE OPEN AND CLOSE HIDDEN */
+.visually-hidden {
+    display: none;
 }
 /* HAMBURGER MENU ICON */
 .hamburger {
@@ -86,6 +91,34 @@
     list-style: none;
     padding: 0;
     margin: 0;
+}
+.global-nav {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    margin: 0 auto;
+    text-align: center;
+}
+.global-nav a {
+    text-decoration: none;
+    color: var(--bs-body-text-color);
+    font-family: var(--bs-body-font);
+    font-size: var(--bs-body-font-size);
+    font-weight: var(--bs-body-font-weight);
+    line-height: var(--bs-body-line-height);
+    margin: 0.4rem 0;
+}
+.contact-button {
+    background-color: var(--bs-button-background-color);
+    color: var(--bs-text-color-light);
+    padding: 0.3rem 0.75rem;
+    border: none;
+    border-radius: var(--bs-border-radius);
+    font-size: 0.7rem;
+    cursor: pointer;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s ease;
 }
 
 /* HIDE/SHOW TOGGLE LOGIC */
