@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Friendly and professional dental care for the whole family in Wasilla, Alaska. Offering gentle, compassionate, restorative, and advanced dentistry with personalized care for patients of all ages. With comprehensive dental services: cleanings, fillings, implants, cosmetic dentistry and emergency care for everyone.">
+    <meta name="authot" content="Chelsea Saunders"> <!-- OPEN GRAPH: social sharing -->
+    <meta property="og:title" content="Page Title">
+    <meta property="og:description" content="Your trusted family dentist in Wasilla, Alaska. Comprehensive dental care for children and adults, including cleanings, fillings, crowns, and more.">
+    <meta property="og:image" content="">
+    <meta property="og:url" content="https://...">
+    <meta property="og:type" content="website">
+    <!-- <meta http-equiv="Content-Security-Policy" content="default-src 'self';"> Content Security Policy (CSP) -->
+    <meta name="robots" content="index, follow"> <!-- This will help search engins know if they should index your page -->
+    <title>Northwind Dental, Wasilla, Alaska</title>
+    <link rel="icon" href="favicon.ico" type="image/x-icon"> <!-- This will be a bookmark icon -->
+    <link rel="stylesheet" href="src/css/style.css">
+    <link rel="stylesheet" href="src/css/index.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&family=Inconsolata:wght@200..900&family=Roboto:ital,wght@0,100..900;1,100..900&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
+    <script type="module" src="./src/js/main.mjs" defer></script>
+    <script type="module" src="./src/js/index.js" defer></script>
+</head>
+<body>
+    <!-- <div class="skip-links" aria-label="short-cut links" roll="navigation">
+        <ul>
+            <li>
+                <a href="#global-nav" aria-label="Skip to global navigation">
+                    Skip to global navigation</a>
+            </li>
+            <li>
+                <a href="main" aria-label="Skip to main navigation">
+                    Skip to main navigation
+                </a>
+            </li>
+            <li>
+                <a href="#contact-nav" aria-label="skip to contact navigation">
+                    Skip to contact navigation</a>
+            </li>
+            <li>
+                <a href="#dental-footer" aria-label="skip to footer navigation">
+                    Skip to footer navigation</a>
+            </li>
+        </ul>
+    </div> -->
+    <header>
+        <section class="global-header">
+            <a href="index.html" class="site-home">
+                <img src="./src/images/images/screenshot-logo.png" alt="Northwind Dental Logo" class="logo">
+                <!-- <span class="northwind-dental">Northwind Dental</span> -->
+            </a>
+            <button
+                id="toggle-menu"
+                class="global-nav__toggle"
+                aria-expanded="false"
+                aria-label="Toggle Menu"
+                data-menu-open="false"
+            >
+                <span class="global-nav__toggle-menu-open">
+                    <div class="hamburger">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                    <span class="visually-hidden">Open</span>
+                </span>
+                <span class="global-nav__toggle-menu-closed">
+                    <div class="x-icon">
+                        <span></span>
+                        <span></span>
+                    </div> 
+                    <span class="visually-hidden">Close</span>
+                </span>
+            </button>
+            <nav id="global-nav" class="global-nav" aria-label="main-navigation">
+                <ul>
+                    <li><a href="index.html">HOME</a></li>
+                    <li><a href="featured-services.html">SERVICES</a></li>
+                    <li><a href="meet-the-team.html">OUR TEAM</a></li>
+                    <li><a href="downloadable-forms.html">FORMS</a></li>
+                    <li>
+                        <button class="contact-button">CONTACT US</button>
+                    </li>
+                </ul>
+            </nav>
+        </section>
+    </header>
+    <section class="hero-video-section" aria-label="Introduction to Northwind Dental office and staff">
+        <div class="hero-wrapper">
+            <iframe
+                src="https://www.youtube.com/embed/zyYbDoMD_1o?autoplay=1&mute=1&controls=0&loop=1&playlist=zyYbDoMD_1o&modestbranding=1&rel=0&showinfo=0"
+                title="Office Tour" 
+                frameborder="0" 
+                allow=" autoplay; encrypted-media" 
+                referrerpolicy="strict-origin-when-cross-origin" 
+                allowfullscreen
+                ></iframe>
+        </div>
+        <!-- <video autoplay muted loop playsinline class="hero-video" poster="/src/images/video/OfficeTour_NwD_Phone.mov">
+            <source src="/src/images/video/NEW_OfficeTour_Northwind Dental_720p30.mp4" type="video/mp4"/>
+            Your browser does not support the video tag.
+        </video> -->
+        <div class="speaker-icon" id="speaker-toggle" aria-label="sound on/off" role="button" tabindex="0">
+            <div class="speaker-shape"></div>
+        </div>
+        <div class="hero-content">
+            <h1>Our Family,</h1>
+            <h2>Caring For Yours</h2>
+        </div>
+    </section>
+    <!-- <button class="request-appt" id="appt-req-homepage" aria-label="Request an appointment button">
+        <div class="appt-request">REQUEST AN APPOINTMENT TODAY! CALL US AT (907) 373-2440</div>
+    </button> -->
+    <p class="hero-msg">
+        We know how good it feels to smile with confidence, and at Northwind Dental 
+        we are committed to helping our patients of all ages, experience top quality 
+        dental care that you will want to smile about!
+    </p>
+    <main>
+
+    </main>
+</body>
+</html>

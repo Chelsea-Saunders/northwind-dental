@@ -1,0 +1,19 @@
+/* 
+#appt-req-homepage {
+    position: fixed;
+    bottom: 1rem;
+    left: 1rem;
+    background-color: var(--bs-button-background-color);
+    color: var(--bs-text-color-light);
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: var(--bs-border-radius);
+    font-size: 0.5rem;
+    cursor: pointer;
+    z-index: 10;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+#appt-req-homepage:hover  {
+    background-color: var(--bs-hover-background-color);
+    color: var(--bs-text-color-dark);
+} */

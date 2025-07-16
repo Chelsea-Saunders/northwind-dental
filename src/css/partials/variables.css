@@ -1,0 +1,33 @@
+
+:root {
+    --bs-body-font: "Inter", "Rubik", Arial, sans-serif;
+    --bs-title-font: "JetBrains Mono", "Inconsolata", "Roboto";
+
+    --bs-body-font-size: 1rem;
+    --bs-body-font-weight: 400;
+    --bs-body-line-height: 1;
+    --bs-title-font-size: 1.5rem;
+    --bs-title-font-weight: 700;
+    --bs-title-line-height: 1.2;
+
+    --bs-background-color: #FCFFF5;
+    --bs-header-background-color: #AFC7E6;
+    --bs-header-text-color: #0E1F2D;
+    --bs-body-text-color: #0E1F2D;
+    --bs-hover-color: #104025;
+    --bs-hover-background-color: #91ABFF;
+    --bs-link-color: #1A3A5A;
+    --bs-link-hover-color: #008080;
+    --bs-button-background-color: #008080;
+    --bs-text-color-light: #FCFFF5;
+    --bs-text-color-dark: #0E1F2D;
+
+    --bs-border-width: 1px;
+    --bs-border-style: solid;
+    --bs-border-color: #0E1F2D;
+    --bs-border-radius: 5px;
+    --bs-border-radius-small: 2.5px;
+    --bs-border-radius-large: 20px;
+
+    
+}
