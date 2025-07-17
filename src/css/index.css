@@ -50,7 +50,7 @@
 }
 /* HERO MESSAGE */
 .hero-msg {
-    margin: 1.5rem;
+    margin: 0.5rem 1.5rem;
     max-width: 60ch;
     text-align: left;
     font-family: var(--bs-body-font);
