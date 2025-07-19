@@ -12,6 +12,7 @@ function toggleReadMore() {
 
     if (moreText && toggleButton && modalContent) {
         moreText.classList.toggle("hidden");
+        moreText.style.opacity = "1";
         toggleButton.style.display = "none";
         toggleButton.setAttribute("aria-expanded", "true");
 

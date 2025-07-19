@@ -209,6 +209,15 @@
     text-align: left;
     min-height: auto;
 }
+
+/* smooth transition */
+.more-text {
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+.more-text.hidden {
+    opacity: 0;
+    transform: translateY(-10px);
+}
 /* Hidden text in the welcome modal */
 .hidden {
     display: none;
