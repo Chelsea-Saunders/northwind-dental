@@ -1,13 +1,15 @@
 
 * {
     background-color: var(--bs-body-background-color);
+    margin: 0;
 }
 /* HERO VIDEO */
 .hero-video-section {
     position: relative;
-    max-width: 100%;
-    /* margin: 0 auto; */
-    height: 25vh;
+    width: 100%;
+    object-fit: cover;
+    /* max-width: 100%; */
+    height: clamp(25vh, 40vh, 60vh, 80vh);
     overflow: hidden;
 }
 .hero-video {
@@ -43,7 +45,7 @@
 .hero-content h2 {
     margin: 0;
     font-size: 1.3rem;
-    color: var(--bs-link-hover-color);
+    color: var(--bs-text-color-dark);
 }
 .hero-content h1 {
     font-size: 1.1rem;
@@ -113,8 +115,6 @@
     border-radius: 50%;
     transform: translateX(4px) translateY(-50%);
     background-color: transparent;
-    /* background: red; */
-    /* z-index: 400; */
 }
 /* outter wave */
 .speaker-icon::after {
@@ -139,6 +139,70 @@
 .speaker-icon.muted::after {
     display: none;
 }
+
+/* REQUEST APPT BUTTON */
+#appt-req-homepage {
+    position: relative;
+    display: flex;
+    padding: 0.5rem 1.5rem;
+    background-color: var(--bs-header-background-color);
+    color: var(--bs-text-color-dark);
+    border: none;
+    border-radius: 35px;
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0, 128, 128, 0.3); /* teal tint */
+    font-size: 0.7rem;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    text-align: center;
+    margin: 3rem auto;
+}
+
+/* WELCOME MODAL WITH PARALLAX EFFECT */
+.modal-wrapper {
+    padding-top: 0;
+    border: none;
+    overflow: hidden;
+    position: relative;
+    margin: 5rem 0;
+}
+.modal-c-band {
+    background-image: url("../images/images/alaska-sunset.jpg");
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: center;
+    min-height: 100vh;
+    /* overflow: auto; */
+    padding: 0;
+    color: var(--bs-text-color-light);
+}
+
+.welcome-modal-content {
+    position: relative;
+    z-index: 1;
+    background-color: rgba(26, 35, 54, 0.419);
+    padding: 2rem;
+    font-family: var(--bs-body-font);
+    padding: 6rem 4rem;
+}
+.happy {
+    font-size: 0.7rem;
+}
+#welcome {
+    font-size: 1.5rem;
+    font-weight: 500;
+    margin-bottom: 1rem;
+}
+/* Hidden text in the welcome modal */
+.hidden {
+    display: none;
+}
+.read-more {
+    color: var(--bs-text-color-light);
+    cursor: pointer;
+    font-weight: bold;
+    text-decoration: underline;
+}
+
 
 @media screen and (min-width: 768px) {
     .hero-content h1, 
