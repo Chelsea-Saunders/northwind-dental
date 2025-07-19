@@ -192,15 +192,39 @@
     font-weight: 500;
     margin-bottom: 1rem;
 }
+/* initial centered layout: before ...read more is clicked */
+.welcome-modal-content.initial-state {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 80vh;
+    text-align: center;
+    padding: 6rem 4rem
+}
+
+/* when expanded, revert back to normal block flow */
+.welcome-modal-content.expanded-state {
+    display: block;
+    text-align: left;
+    min-height: auto;
+}
 /* Hidden text in the welcome modal */
 .hidden {
     display: none;
 }
 .read-more {
+    background-color: none;
+    border: none;
+    padding: 0;
     color: var(--bs-text-color-light);
     cursor: pointer;
     font-weight: bold;
     text-decoration: underline;
+}
+.read-more:hover, 
+.read-more:focus {
+    text-decoration: none;
 }
 
 
