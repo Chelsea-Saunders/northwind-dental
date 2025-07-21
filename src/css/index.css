@@ -145,8 +145,8 @@
     position: relative;
     display: flex;
     padding: 0.5rem 1.5rem;
-    background-color: var(--bs-header-background-color);
-    color: var(--bs-text-color-dark);
+    background-color: var(--bs-link-color);
+    color: var(--bs-text-color-light);
     border: none;
     border-radius: 35px;
     cursor: pointer;
@@ -154,7 +154,11 @@
     font-size: 0.7rem;
     transition: background-color 0.3s ease, color 0.3s ease;
     text-align: center;
-    margin: 3rem auto;
+    margin: 1.5rem auto;
+}
+#appt-req-homepage:hover {
+    background-color: var(--bs-hover-color);
+    color: var(--bs-text-color-light);
 }
 
 /* WELCOME MODAL WITH PARALLAX EFFECT */
@@ -236,7 +240,113 @@
     text-decoration: none;
 }
 
+/* INFO MODAL BUTTONS */
+.info-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.9rem;
+    margin: 1rem 0;
+}
+/* each button */
+button[data-modal] {
+    background-color: var(--bs-link-color);
+    color: var(--bs-text-color-light);
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: var(--bs-border-radius-large)
+}
+/* RESNIK MODAL WITH PARALLAX EFFECT */
+.resnik-wrapper {
+    padding-top: 0;
+    border: none;
+    overflow: hidden;
+    position: relative;
+    margin: 5rem 0;
+}
+.resnik-modal-c-band {
+    background-image: url("../images/images/resnik-img.png");
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: center;
+    min-height: 100vh;
+    /* overflow: auto; */
+    padding: 0;
+    color: var(--bs-text-color-light);
+}
 
+.resnik-modal-content {
+    position: relative;
+    z-index: 1;
+    background-color: rgba(26, 35, 54, 0.419);
+    padding: 2rem;
+    font-family: var(--bs-body-font);
+    padding: 6rem 4rem;
+}
+.resnik {
+    font-size: 0.7rem;
+}
+#resnik-img {
+    width: 70%;
+    padding-bottom: 2rem;
+}
+/* initial centered layout: before ...read more is clicked */
+.resnik-modal-content.initial-state {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 80vh;
+    text-align: center;
+    padding: 6rem 4rem
+}
+
+/* when expanded, revert back to normal block flow */
+.resnik-modal-content.expanded-state {
+    display: block;
+    text-align: left;
+    min-height: auto;
+}
+.resnik-modal-content p {
+    font-size: 0.7rem;
+}
+/* smooth transition */
+.more-text-resnik {
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+.more-text-resnik.hidden {
+    opacity: 0;
+    transform: translateY(-10px);
+}
+/* Hidden text in the resnik modal */
+.hidden {
+    display: none;
+}
+.read-more-resnik {
+    background-color: transparent;
+    border: none;
+    padding: 0;
+    color: var(--bs-text-color-light);
+    cursor: pointer;
+    font-weight: bold;
+    text-decoration: underline;
+}
+.read-more-resnik:hover, 
+.read-more-resnik:focus {
+    text-decoration: none;
+}
+
+@media (min-width: 500px) {
+    button[data-modal] {
+        width: 120px;
+        height: 120px;
+        padding: 0;
+        font-size: 0.8rem;
+        align-items: center;
+        justify-content: center;
+        border-radius: 50%;
+    }
+}
 @media screen and (min-width: 768px) {
     .hero-content h1, 
     .hero-content h2 {
@@ -246,5 +356,19 @@
     }
     .hero-content h1 {
         font-size: 1.1rem;
+    }
+    /* INFO MODAL BUTTONS */
+    .info-buttons {
+        gap: 1.5rem;
+    }
+    /* each button */
+    button[data-modal] {
+        width: 120px;
+        height: 120px;
+        padding: 0;
+        font-size: 0.8rem;
+        align-items: center;
+        justify-content: center;
+        border-radius: 50%;
     }
 }

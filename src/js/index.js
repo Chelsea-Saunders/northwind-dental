@@ -23,6 +23,24 @@ function toggleReadMore() {
     return false; // Prevent default action if needed
 }
 
+// RESNIK IMPLANT INSTITUTE ...READ MORE CLICK
+function toggleReadMoreResnik() {
+    const moreText = document.querySelector (".more-text-resnik");
+    const toggleButton = document.querySelector(".read-more-resnik-toggle");
+    const modalContent = document.querySelector(".resnik-modal-content");
+
+    if (moreText && toggleButton && modalContent) {
+        moreText.classList.toggle("hidden");
+        moreText.style.opacity = "1";
+        toggleButton.style.display = "none";
+        toggleButton.setAttribute("aria-expanded", "true");
+
+        modalContent.classList.toggle("initial-state");
+        modalContent.classList.add("expanded-state");
+    }
+    return false; // Prevent default action if needed
+}
+
 
 // INIT FUNCTION TO ATTACH EVENT LISTENERS
 function init() {
