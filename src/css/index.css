@@ -141,9 +141,12 @@
 }
 
 /* REQUEST APPT BUTTON */
-#appt-req-homepage {
+/* #appt-req-homepage, */
+.request-appt{
     position: relative;
     display: flex;
+    align-items: center;
+    justify-content: center;
     padding: 0.5rem 1.5rem;
     background-color: var(--bs-link-color);
     color: var(--bs-text-color-light);
@@ -154,10 +157,11 @@
     font-size: 0.7rem;
     transition: background-color 0.3s ease, color 0.3s ease;
     text-align: center;
-    margin: 1.5rem auto;
+    margin: 0 auto;
+    width: 90%;
 }
-#appt-req-homepage:hover {
-    background-color: var(--bs-hover-color);
+.request-appt:hover {
+    background-color: var(--bs-link-hover-color);
     color: var(--bs-text-color-light);
 }
 
@@ -168,6 +172,15 @@
     overflow: hidden;
     position: relative;
     margin: 5rem 0;
+}
+.modal-wrapper p {
+    font-size: 0.7rem;
+    line-height: 1.5;
+    margin: 0.5rem 0;
+    color: var(--bs-text-color-light);
+}
+.modal-wrapper h3 {
+    font-size: 1.5rem;
 }
 .modal-c-band {
     background-image: url("../images/images/alaska-sunset.jpg");
@@ -262,10 +275,10 @@ button[data-modal] {
     border: none;
     overflow: hidden;
     position: relative;
-    margin: 5rem 0;
+    margin: 5rem 0 0 0;
 }
 .resnik-modal-c-band {
-    background-image: url("../images/images/resnik-img.png");
+    background-image: url("../images/images/Resnik-squared.png");
     background-attachment: fixed;
     background-size: cover;
     background-position: center;
@@ -335,6 +348,9 @@ button[data-modal] {
 .read-more-resnik:focus {
     text-decoration: none;
 }
+#appt-req-footer {
+    margin-bottom: 2rem;
+}
 
 @media (min-width: 500px) {
     button[data-modal] {
@@ -345,6 +361,15 @@ button[data-modal] {
         align-items: center;
         justify-content: center;
         border-radius: 50%;
+    }
+    .modal-wrapper p {
+        font-size: 1rem;
+        line-height: 1.5;
+        margin: 0.5rem 0;
+        color: var(--bs-text-color-light);
+    }
+    .modal-wrapper h3 {
+        font-size: 3rem;
     }
 }
 @media screen and (min-width: 768px) {
@@ -360,6 +385,17 @@ button[data-modal] {
     /* INFO MODAL BUTTONS */
     .info-buttons {
         gap: 1.5rem;
+    }.hero-section {
+        max-width: 1200px;
+        width: 100%;
+        margin: 0 auto;
+        padding: 1rem 2rem;
+    }
+    .hero-msg {
+        width: 100%;
+        margin: 1rem auto;
+        font-size: 1.25rem;
+        line-height: 1.6;
     }
     /* each button */
     button[data-modal] {
@@ -370,5 +406,29 @@ button[data-modal] {
         align-items: center;
         justify-content: center;
         border-radius: 50%;
+    }
+    .modal-wrapper p {
+        font-size: 1rem;
+        line-height: 1.5;
+        margin: 0.5rem 0;
+        color: var(--bs-text-color-light);
+    }
+    .modal-wrapper h3 {
+        font-size: 3rem;
+    }
+    .resnik-modal-c-band {
+    background-image: url("../images/images/resnik.png");
+    }
+    #resnik-img {
+        width: 40%;
+        padding-bottom: 2rem;
+    }
+    #appt-req-homepage {
+        /* margin-top: 4rem; */
+        margin: 4rem auto;
+    }
+    
+    .footer-right {
+        margin: 0;
     }
 }

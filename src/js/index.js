@@ -26,7 +26,7 @@ function toggleReadMore() {
 // RESNIK IMPLANT INSTITUTE ...READ MORE CLICK
 function toggleReadMoreResnik() {
     const moreText = document.querySelector (".more-text-resnik");
-    const toggleButton = document.querySelector(".read-more-resnik-toggle");
+    const toggleButton = document.querySelector("#read-more-resnik-toggle");
     const modalContent = document.querySelector(".resnik-modal-content");
 
     if (moreText && toggleButton && modalContent) {
@@ -46,6 +46,7 @@ function toggleReadMoreResnik() {
 function init() {
     const speaker = document.querySelector(".speaker-icon");
     const readMoreButton = document.querySelector("#read-more-toggle");
+    const readMoreResnikButton = document.querySelector("#read-more-resnik-toggle");
 
     // event listener for toggleSpeaker
     if (speaker) {
@@ -55,6 +56,11 @@ function init() {
     // event listener for toggleReadMore
     if (readMoreButton) {
         readMoreButton.addEventListener("click", toggleReadMore);
+    }
+
+    // event listener for toggleReadMoreResnik
+    if (readMoreResnikButton) {
+        readMoreResnikButton.addEventListener("click", toggleReadMoreResnik);
     }
 }
 
