@@ -18,7 +18,7 @@
     <link rel="stylesheet" href="src/css/index.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&family=Inconsolata:wght@200..900&family=Roboto:ital,wght@0,100..900;1,100..900&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
     <script type="module" src="./src/js/main.mjs" defer></script>
-    <script type="module" src="./src/js/index.js" defer></script>
+    <script type="module" src="./src/js/index.mjs" defer></script>
 </head>
 <body>
     <!-- <div class="skip-links" aria-label="short-cut links" roll="navigation">
@@ -78,7 +78,7 @@
                     <li><a href="meet-the-team.html">OUR TEAM</a></li>
                     <li><a href="downloadable-forms.html">FORMS</a></li>
                     <li>
-                        <button class="contact-button">CONTACT US</button>
+                        <button class="modal-button" data-modal="request-appt-modal" id="contact-header" aria-label="Contact Us">CONTACT US</button>
                     </li>
                 </ul>
             </nav>
@@ -109,7 +109,7 @@
         dental care that you will want to smile about!
     </p>
     
-    <button class="request-appt" id="appt-req-homepage" aria-label="Request an appointment button">
+    <button class="modal-button" data-modal="request-appt-modal" id="appt-req-homepage" aria-label="Request an appointment button">
         <div class="appt-request">REQUEST AN APPOINTMENT TODAY!<br>
             CALL US AT (907) 373-2440</div>
     </button>
@@ -143,11 +143,11 @@
         </div>
     </section>
     <div class="info-buttons">
-        <button class="modal-trigger" data-modal="insurance-modal">INSURANCE</button>
-        <button class="modal-trigger" data-modal="google-reviews-modal">GOOGLE REVIEWS</button>
-        <button class="modal-trigger" data-modal="services-offered-modal">SERVICES OFFERED</button>
-        <button class="modal-trigger" data-modal="meet-the-dr-modal">MEET THE TEAM</button>
-        <button class="modal-trigger" data-modal="request-appt-modal">REQUEST AN APPOINTMENT</button>
+        <button class="modal-button" data-modal="insurance-modal">INSURANCE</button>
+        <button class="modal-button" data-modal="google-reviews-modal">GOOGLE REVIEWS</button>
+        <button class="modal-button" data-modal="services-offered-modal">SERVICES OFFERED</button>
+        <button class="modal-button" data-modal="meet-the-team-modal">MEET THE TEAM</button>
+        <button class="modal-button" data-modal="request-appt-modal">REQUEST AN APPOINTMENT</button>
     </div>
     <section class="resnik-wrapper">
         <div class="resnik-modal-c-band">
@@ -188,7 +188,7 @@
                 </p>
             </div>
             <div class="footer-right">
-                <button class="request-appt" id="appt-req-footer" aria-label="Request an appointment button">
+                <button class="modal-button" data-modal="request-appt-modal" id="appt-req-footer" aria-label="Request an appointment button">
                     <div class="appt-request">REQUEST AN APPOINTMENT</div>
                 </button>
                 <img src="./src/images/images/screenshot-logo.png" alt="Northwind dental logo">

@@ -141,26 +141,23 @@
 }
 
 /* REQUEST APPT BUTTON */
-/* #appt-req-homepage, */
-.request-appt{
-    position: relative;
+#contact-header{
     display: flex;
     align-items: center;
     justify-content: center;
     padding: 0.5rem 1.5rem;
+    font-size: 0.7rem;
     background-color: var(--bs-link-color);
     color: var(--bs-text-color-light);
-    border: none;
     border-radius: 35px;
     cursor: pointer;
     box-shadow: 0 4px 8px rgba(0, 128, 128, 0.3); /* teal tint */
-    font-size: 0.7rem;
-    transition: background-color 0.3s ease, color 0.3s ease;
     text-align: center;
     margin: 0 auto;
     width: 90%;
+    height: 2.5rem;
 }
-.request-appt:hover {
+#contact-header:hover {
     background-color: var(--bs-link-hover-color);
     color: var(--bs-text-color-light);
 }
@@ -253,6 +250,25 @@
     text-decoration: none;
 }
 
+/* CONTACT US BUTTON MID PAGE */
+#appt-req-homepage {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 4rem auto;
+    padding: 0.5rem 1.5rem;
+    font-size: 0.7rem;
+    background-color: var(--bs-link-color);
+    color: var(--bs-text-color-light);
+    border: none;
+    border-radius: 35px;
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0, 128, 128, 0.3); /* teal tint */
+    text-align: center;
+    width: 90%;
+    height: 2.8rem;
+}
+
 /* INFO MODAL BUTTONS */
 .info-buttons {
     display: flex;
@@ -267,7 +283,8 @@ button[data-modal] {
     color: var(--bs-text-color-light);
     padding: 0.5rem 1rem;
     border: none;
-    border-radius: var(--bs-border-radius-large)
+    border-radius: var(--bs-border-radius-large);
+    cursor: pointer;
 }
 /* RESNIK MODAL WITH PARALLAX EFFECT */
 .resnik-wrapper {
@@ -348,9 +365,7 @@ button[data-modal] {
 .read-more-resnik:focus {
     text-decoration: none;
 }
-#appt-req-footer {
-    margin-bottom: 2rem;
-}
+
 
 @media (min-width: 500px) {
     button[data-modal] {
@@ -377,7 +392,7 @@ button[data-modal] {
     .hero-content h2 {
         margin: 0;
         font-size: var(--bs-title-font-size);
-        color: var(--bs-link-hover-color);
+        color: var(--bs-text-color-dark);
     }
     .hero-content h1 {
         font-size: 1.1rem;
@@ -395,7 +410,7 @@ button[data-modal] {
         width: 100%;
         margin: 1rem auto;
         font-size: 1.25rem;
-        line-height: 1.6;
+        line-height: 1.2;
     }
     /* each button */
     button[data-modal] {
@@ -424,7 +439,6 @@ button[data-modal] {
         padding-bottom: 2rem;
     }
     #appt-req-homepage {
-        /* margin-top: 4rem; */
         margin: 4rem auto;
     }
     

@@ -24,6 +24,12 @@ h4 {
 #footer-phone {
     padding-top: 1em;
 }
+#appt-req-footer {
+    margin-bottom: 2rem;
+    height: 2.5rem;
+    border-radius: 35px;
+    width: 90%;
+}
 #copyright {
     padding-top: 1rem;
     grid-column: 1 / -1;
@@ -53,7 +59,7 @@ h4 {
         text-align: center;
         align-self: flex-start;
     }
-    .request-appt {
+    #contact-header {
         margin-top: 0;
     }
     #appt-req-homepage {
