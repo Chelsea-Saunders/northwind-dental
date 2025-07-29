@@ -182,14 +182,25 @@
     font-size: 1.5rem;
 }
 .modal-c-band {
+    /* background-image: url("../images/images/alaska-sunset.jpg"); */
+    /* background-attachment: fixed;
+    background-size: cover; */
+    position: relative;
+    overflow: hidden;
+    z-index: 0;
+    /* min-height: 100vh; */
+    /* padding: 0; */
+    color: var(--bs-text-color-light);
+}
+.modal-c-band::before {
+    content: "";
+    position: absolute;
+    inset: 0;
     background-image: url("../images/images/alaska-sunset.jpg");
-    background-attachment: fixed;
     background-size: cover;
     background-position: center;
-    min-height: 100vh;
-    /* overflow: auto; */
-    padding: 0;
-    color: var(--bs-text-color-light);
+    background-repeat: no-repeat;
+    z-index: -1;
 }
 
 .welcome-modal-content {
@@ -297,20 +308,27 @@ button[data-modal] {
     margin: 5rem 0 0 0;
 }
 .resnik-modal-c-band {
-    background-image: url("../images/images/Resnik-squared.png");
-    background-attachment: fixed;
-    background-size: cover;
-    background-position: center;
-    min-height: 100vh;
-    /* overflow: auto; */
-    padding: 0;
+    position: relative;
+    overflow: hidden;
+    z-index: 0;
     color: var(--bs-text-color-light);
+    background-color: #434242;
+}
+.resnik-modal-c-band::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image: url("../images/images/resnik.png");
+    background-size: contain;
+    background-position: top center;
+    background-repeat: no-repeat;
+    z-index: -1;
 }
 
 .resnik-modal-content {
     position: relative;
     z-index: 1;
-    background-color: rgba(26, 35, 54, 0.419);
+    background-color: rgba(20, 28, 45, 0.364);
     padding: 2rem;
     font-family: var(--bs-body-font);
     padding: 6rem 4rem;
@@ -330,7 +348,7 @@ button[data-modal] {
     justify-content: center;
     min-height: 80vh;
     text-align: center;
-    padding: 6rem 4rem
+    padding: 6rem 4rem;
 }
 
 /* when expanded, revert back to normal block flow */
@@ -370,6 +388,21 @@ button[data-modal] {
 
 
 @media (min-width: 500px) {
+    /* Welcome message/image */
+    .modal-c-band {
+        background-image: url("../images/images/alaska-sunset.jpg");
+        background-attachment: fixed;
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        min-height: 100vh;
+        /* overflow: auto; */
+        padding: 0;
+        color: var(--bs-text-color-light);
+    }
+    .modal-c-band::before {
+        content: none;
+    }
     button[data-modal] {
         width: 120px;
         height: 120px;
@@ -387,6 +420,24 @@ button[data-modal] {
     }
     .modal-wrapper h3 {
         font-size: 3rem;
+    }
+    /* RESNIK MODAL WITH PARALLAX EFFECT */
+    .resnik-modal-c-band {
+        background-image: url("../images/images/Resnik-squared.png");
+        background-attachment: fixed;
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        min-height: 100vh;
+        /* overflow: auto; */
+        padding: 0;
+        color: var(--bs-text-color-light);
+    }
+    .resnik-modal-c-band::before {
+        content: none;
+    }
+    .resnik-modal-content p {
+        font-size: 1rem;
     }
 }
 @media screen and (min-width: 768px) {
@@ -414,6 +465,21 @@ button[data-modal] {
         font-size: 1.25rem;
         line-height: 1.2;
     }
+        /* Welcome message/image */
+    .modal-c-band {
+        background-image: url("../images/images/alaska-sunset.jpg");
+        background-attachment: fixed;
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        min-height: 100vh;
+        /* overflow: auto; */
+        padding: 0;
+        color: var(--bs-text-color-light);
+    }
+    .modal-c-band::before {
+        content: none;
+    }
     /* each button */
     button[data-modal] {
         width: 120px;
@@ -433,12 +499,27 @@ button[data-modal] {
     .modal-wrapper h3 {
         font-size: 3rem;
     }
+        /* RESNIK MODAL WITH PARALLAX EFFECT */
     .resnik-modal-c-band {
-    background-image: url("../images/images/resnik.png");
+        background-image: url("../images/images/resnik.png");
+        background-attachment: fixed;
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        min-height: 100vh;
+        /* overflow: auto; */
+        padding: 0;
+        color: var(--bs-text-color-light);
+    }
+    .resnik-modal-c-band {
+    background-image: url;
     }
     #resnik-img {
         width: 40%;
         padding-bottom: 2rem;
+    }
+    .resnik-modal-content p {
+        font-size: 1rem;
     }
     #appt-req-homepage {
         margin: 4rem auto;
