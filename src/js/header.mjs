@@ -1,4 +1,4 @@
-console.log("toggling menu");
+
 // function to toggle header visibility
 export function toggleMenuHandler() {
     const toggleButton = document.querySelector("#toggle-menu");

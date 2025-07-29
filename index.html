@@ -19,6 +19,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&family=Inconsolata:wght@200..900&family=Roboto:ital,wght@0,100..900;1,100..900&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
     <script type="module" src="./src/js/main.mjs" defer></script>
     <script type="module" src="./src/js/index.mjs" defer></script>
+    <script src="https://www.youtube.com/iframe_api"></script>
 </head>
 <body>
     <!-- <div class="skip-links" aria-label="short-cut links" roll="navigation">
@@ -86,8 +87,11 @@
     </header>
     <section class="hero-video-section" aria-label="Introduction to Northwind Dental office and staff">
         <div class="hero-wrapper">
+            <!-- YouTube IFrame Embed -->
+            <!-- <div id="player"></div> -->
             <iframe
-                src="https://www.youtube.com/embed/zyYbDoMD_1o?autoplay=1&mute=1&controls=0&loop=1&playlist=zyYbDoMD_1o&modestbranding=1&rel=0&showinfo=0"
+                id="youtube-video"
+                src="https://www.youtube.com/embed/zyYbDoMD_1o?autoplay=1&mute=1&controls=0&loop=1&playlist=zyYbDoMD_1o&modestbranding=1&rel=0&showinfo=0&enablejsapi=1"
                 title="Office Tour" 
                 frameborder="0" 
                 allow=" autoplay; encrypted-media" 
@@ -95,6 +99,7 @@
                 allowfullscreen
                 ></iframe>
         </div>
+        <!-- Speaker Icon -->
         <div class="speaker-icon" id="speaker-toggle" aria-label="sound on/off" role="button" tabindex="0">
             <div class="speaker-shape"></div>
         </div>

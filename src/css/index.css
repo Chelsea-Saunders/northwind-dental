@@ -134,6 +134,8 @@
 /* speaker muted */
 .speaker-icon.muted .speaker-shape{
     background-color: gray;
+    opacity: 0.4;
+    cursor: pointer;
 }
 .speaker-icon.muted::before, 
 .speaker-icon.muted::after {

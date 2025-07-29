@@ -1,10 +1,40 @@
+
 import { requestAppointmentForm } from "./global.mjs";
 
 const focusableSelectors = 'a[href], button:not([disabled]), textarea, input, select, [tabindex]:not([tabindex="-1"])';
 
 // MUTE/UNMUTE LOGIC
-function toggleSpeaker(button) {
-    button.classList.toggle("muted");
+function initYouTubePlayer() {
+    const speakerToggle = document.querySelector("#speaker-toggle");
+    const iframe = document.querySelector("#youtube-video");
+    if (!iframe || ! speakerToggle) {
+        console.log("YouTube iframe or speaker toggle not found");
+        return;
+    }
+
+    let isMuted = true;
+
+    speakerToggle.addEventListener("click", function() {
+        console.log("speaker icon clicked");
+        if (isMuted) {
+            console.log("unmuting and replacing iframe");
+            // replace iframe with unmuted version
+            const newIframe = iframe.cloneNode(true);
+            newIframe.src = iframe.src.replace("mute=1", "mute=0");
+            iframe.parentNode.replaceChild(newIframe, iframe);
+
+            speakerToggle.classList.remove("muted");
+        } else {
+            console.log("muting and replacing iframe");
+            //reload muted version
+            const newIframe = iframe.cloneNode(true);
+            newIframe.src = iframe.src.replace("mute=0", "mute=1");
+            iframe.parentNode.replaceChild(newIframe, iframe);
+
+            speakerToggle.classList.add("muted");
+        }
+        isMuted = !isMuted;
+    });
 }
 
 // WELCOME MESSAGE ...READ MORE CLICK
@@ -138,6 +168,7 @@ function openModal(modalType) {
         });
     }
 
+
     // close button
     function closeModal() {
         modal.remove();
@@ -160,16 +191,9 @@ function openModal(modalType) {
 
 // INIT FUNCTION TO ATTACH EVENT LISTENERS
 function init() {
-    console.log("init running");
-
-    const speaker = document.querySelector(".speaker-icon");
+    // const speaker = document.querySelector(".speaker-icon");
     const readMoreButton = document.querySelector("#read-more-toggle");
     const readMoreResnikButton = document.querySelector("#read-more-resnik-toggle");
-
-    // event listener for toggleSpeaker
-    if (speaker) {
-        speaker.addEventListener("click", () => toggleSpeaker(speaker));
-    }
 
     // event listener for toggleReadMore
     if (readMoreButton) {
@@ -191,6 +215,17 @@ function init() {
     });
 }
 init();
+
+//DOMContent Loaded Event
+document.addEventListener("DOMContentLoaded", () => {
+    console.log("DOM loaded");
+
+    setTimeout(() => {
+        console.log("running initYouTubePlayer()");
+        initYouTubePlayer();
+    }, 300);
+});
+
 
 
 
