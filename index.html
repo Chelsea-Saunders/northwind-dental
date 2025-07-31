@@ -46,7 +46,7 @@
     <header>
         <section class="global-header">
             <a href="index.html" class="logo-link">
-                <img src="./src/images/images/screenshot-logo.png" alt="Northwind Dental Logo" class="logo">
+                <img src="./src/images/logos/screenshot-logo.png" alt="Northwind Dental Logo" class="logo">
                 <!-- <span class="northwind-dental">Northwind Dental</span> -->
             </a>
             <button
@@ -154,10 +154,34 @@
         <button class="modal-button" data-modal="meet-the-team-modal">MEET THE TEAM</button>
         <button class="modal-button" data-modal="request-appt-modal">REQUEST AN APPOINTMENT</button>
     </div>
+    <!-- INSURANCE MODAL PLACEHOLDER -->
+    <div id="insurance-modal" class="modal hidden" aria-hidden="true">
+        <div class="modal-content">
+            <span class="close-modal" role="button" aria-label="Close model">&times;</span>
+            <h2 id="ins-h2">Accepted Insurance Providers</h2>
+            <div id="insurance-logos" class="logo-grid"></div>
+        </div>
+    </div>
+    <!-- GOOGLE REVIEWS MODAL PLACEHOLDER -->
+    <div id="google-reviews-modal" class="modal hidden" aria-hidden="true">
+        <div class="modal-content">
+            <span class="close-modal" role="button" aria-label="Close modal">&times;</span>
+            <h2 id="g-rev">Google Reviews</h2>
+            <iframe 
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1898.3495935159203!2d-149.35981578695956!3d61.58864662806921!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x56c8e0843c7feec1%3A0x7dcaf09dba0957df!2sNorthwind%20Dental!5e0!3m2!1sen!2sus!4v1753987631002!5m2!1sen!2sus" 
+                width="400" 
+                height="300" 
+                style="border:0;" 
+                allowfullscreen="" 
+                loading="lazy" 
+                referrerpolicy="no-referrer-when-downgrade">
+            </iframe>
+        </div>
+    </div>
     <section class="resnik-wrapper">
         <div class="resnik-modal-c-band">
             <div class="resnik-modal-content initial-state">
-                <img src="./src/images/images/resnik-implant-institute.png" alt="Resnik Implant Institute logo" id="resnik-img">
+                <img src="./src/images/resnik/resnik-implant-institute.png" alt="Resnik Implant Institute logo" id="resnik-img">
                 <p class="resnik">Dr. Dawson has met the requirements and has completed the Resnik Implant Institute Surgical Continuum.
                     This rigorous program is recognized by both the Academy of General Dentistry, 
                     and the ADA-CERP continuing education recognition program.
@@ -196,7 +220,7 @@
                 <button class="modal-button" data-modal="request-appt-modal" id="appt-req-footer" aria-label="Request an appointment button">
                     <div class="appt-request">REQUEST AN APPOINTMENT</div>
                 </button>
-                <img src="./src/images/images/screenshot-logo.png" alt="Northwind dental logo">
+                <img src="./src/images/logos/screenshot-logo.png" alt="Northwind dental logo" id="footer-logo">
             </div>
         </div>
         <div class="copyright">

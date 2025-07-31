@@ -74,45 +74,47 @@ function toggleReadMoreResnik() {
     return false; // Prevent default action if needed
 }
 // MODAL CONTENT FOR ALL ROUND BUTTONS
-const modalContent = {
-    "insurance-modal": `
-        <button class="close-modal" aria-label="Close modal">&times;</button>
-        <h2 class="modal-h2">Insurance</h2>
-        <p class="modal-p">We accept this wide range of insurance plans</p>
-        <ul class="ins-ul-img">
-            <li class="ins-li"><img src="./images/cigna-dental.png" alt="Cigna Dental Logo" class="cigna"></li>
-            <li class="ins-li"><img src="./images/bluecross-blueshield.png" alt="Blue Cross Blue Shield Logo" class="bcbs"></li>
-            <li class="ins-li"><img src="./images/delta-dental_moda-health.png" alt="Delta Dental Logo" class="delta"></li>
-            <li class="ins-li"><img src="./images/united-concordia-dental.png" alt="United Concordia Dental Logo" class="ucd"></li>
-            <li class="ins-li"><img src="./images/metlife.png" alt="MetLife Logo" class="metlife"></li>
-            <li class="ins-li"><img src="./images/premera-bluecross.png" alt="Premera Blue Cross Logo" class="premera"></li>
-        </ul>
-        <button class="contact-us-button" onclick="window.location.href='#'" aria-label="Contact Us">Contact Us</button>
-        `,
-        "google-reviews-modal": `
-        <button class="close-modal" aria-label="Close modal">&times;</button>
-        <h2 class="modal-h2">Google Reviews</h2>
-        <p class="modal-p">Here's what our patients are saying about us:</p>
-        <p><a href="https://www.google.com/search?q=Northwind+Dental+Wasilla+alaska&sca_esv=9dae32fe7ce8d20d&ei=1QCAaIz6Af290PEPsZ7sqQ8&ved=0ahUKEwjMuMrlstGOAxX9HjQIHTEPO_UQ4dUDCBA&uact=5&oq=Northwind+Dental+Wasilla+alaska&gs_lp=Egxnd3Mtd2l6LXNlcnAiH05vcnRod2luZCBEZW50YWwgV2FzaWxsYSBhbGFza2EyBhAAGBYYHjILEAAYgAQYhgMYigUyCxAAGIAEGIYDGIoFMgsQABiABBiGAxiKBTIIEAAYgAQYogQyCBAAGIAEGKIEMgUQABjvBUi5KVC6BVjEJHABeACQAQCYAWqgAboLqgEEMTkuMbgBA8gBAPgBAZgCFaACgQzCAgsQABiABBiwAxiiBMICCxAAGLADGKIEGIkFwgIIEAAYsAMY7wXCAgUQIRigAcICBRAhGKsCwgIIEAAYogQYiQWYAwCIBgGQBgSSBwQyMC4xoAfVYrIHBDE5LjG4B_0LwgcGMC4xNy40yAcy&sclient=gws-wiz-serp#lrd=0x56c8e0843c7feec1:0x7dcaf09dba0957df,1,,,,"
-            target="_blank" 
-            rel="noopener noreferrer">
-            Read our Google Reviews
-            </a></p>
-        `,
-        "services-offered-modal": `
-        <button class="close-modal" aria-label="Close modal">&times;</button>
-        <h2 class="modal-h2">Services</h2>
-        <p class="modal-p">We offer a wide range of dental services to meet your needs:</p>
-        <p><a href="services.html" class="services-link" aria-label="Services">Services Offered</a></p>
-        `,
-        "meet-the-team-modal": `
-        <button class="close-modal" aria-label="Close modal">&times;</button>
-        <h2 class="modal-h2">Meet the Team</h2>
-        <p class="modal-p">Our dedicated team is here to provide you with the best dental care:</p>
-        <p><a href="team.html" class="meet-team-link" aria-label="Meet the Team">Meet the Team</a></p>
-        `,
-        "request-appt-modal": requestAppointmentForm
-}
+// const modalContent = {
+//     "insurance-modal": `
+//         <button class="close-modal" aria-label="Close modal">&times;</button>
+//         <h2 class="modal-h2">Insurance</h2>
+//         <p class="modal-p">We accept this wide range of insurance plans</p>
+//         // <ul class="ins-ul-img">
+//         //     <li class="ins-li"><img src="./src/images/insurance-logos/cigna-dental.png" alt="Cigna Dental Logo" class="cigna"></li>
+//         //     <li class="ins-li"><img src="./src/images/insurance-logos/bluecross-blueshield.png" alt="Blue Cross Blue Shield Logo" class="bcbs"></li>
+//         //     <li class="ins-li"><img src="./src/images/insurance-logos/moda.png" alt="Moda Health Insurance Logo" class="moda"></li>
+//         //     <li class="ins-li"><img src="./src/images/insurance-logos/delta-dental.jpg" alt="Delta Dental Logo" class="delta"></li>
+//         //     <li class="ins-li"><img src="./src/images/insurance-logos/united-concordia-dental.png" alt="United Concordia Dental Logo" class="ucd"></li>
+//         //     <li class="ins-li"><img src="./src/images/insurance-logos/metlife.png" alt="MetLife Logo" class="metlife"></li>
+//         //     <li class="ins-li"><img src="./src/images/insurance-logos/premera-bluecross.png" alt="Premera Blue Cross Logo" class="premera"></li>
+//         //     <li class="ins-li"><img src="./src/images/insurance-logos/aetna.svg" alt="Aetna Logo" class="aetna"></li>
+//         // </ul>
+//         <button class="contact-us-button" onclick="window.location.href='#'" aria-label="Contact Us">Contact Us</button>
+//         `,
+//         "google-reviews-modal": `
+//         <button class="close-modal" aria-label="Close modal">&times;</button>
+//         <h2 class="modal-h2">Google Reviews</h2>
+//         <p class="modal-p">Here's what our patients are saying about us:</p>
+//         <p><a href="https://www.google.com/search?q=Northwind+Dental+Wasilla+alaska&sca_esv=9dae32fe7ce8d20d&ei=1QCAaIz6Af290PEPsZ7sqQ8&ved=0ahUKEwjMuMrlstGOAxX9HjQIHTEPO_UQ4dUDCBA&uact=5&oq=Northwind+Dental+Wasilla+alaska&gs_lp=Egxnd3Mtd2l6LXNlcnAiH05vcnRod2luZCBEZW50YWwgV2FzaWxsYSBhbGFza2EyBhAAGBYYHjILEAAYgAQYhgMYigUyCxAAGIAEGIYDGIoFMgsQABiABBiGAxiKBTIIEAAYgAQYogQyCBAAGIAEGKIEMgUQABjvBUi5KVC6BVjEJHABeACQAQCYAWqgAboLqgEEMTkuMbgBA8gBAPgBAZgCFaACgQzCAgsQABiABBiwAxiiBMICCxAAGLADGKIEGIkFwgIIEAAYsAMY7wXCAgUQIRigAcICBRAhGKsCwgIIEAAYogQYiQWYAwCIBgGQBgSSBwQyMC4xoAfVYrIHBDE5LjG4B_0LwgcGMC4xNy40yAcy&sclient=gws-wiz-serp#lrd=0x56c8e0843c7feec1:0x7dcaf09dba0957df,1,,,,"
+//             target="_blank" 
+//             rel="noopener noreferrer">
+//             Read our Google Reviews
+//             </a></p>
+//         `,
+//         "services-offered-modal": `
+//         <button class="close-modal" aria-label="Close modal">&times;</button>
+//         <h2 class="modal-h2">Services</h2>
+//         <p class="modal-p">We offer a wide range of dental services to meet your needs:</p>
+//         <p><a href="services.html" class="services-link" aria-label="Services">Services Offered</a></p>
+//         `,
+//         "meet-the-team-modal": `
+//         <button class="close-modal" aria-label="Close modal">&times;</button>
+//         <h2 class="modal-h2">Meet the Team</h2>
+//         <p class="modal-p">Our dedicated team is here to provide you with the best dental care:</p>
+//         <p><a href="team.html" class="meet-team-link" aria-label="Meet the Team">Meet the Team</a></p>
+//         `,
+//         "request-appt-modal": requestAppointmentForm
+// }
 // OPEN MODAL FOR ALL ROUND BUTTONS
 function openModal(modalType) {
     const content = modalContent[modalType];
@@ -187,7 +189,51 @@ function openModal(modalType) {
     }
     document.addEventListener("keydown", escapeListener);
 }
-    
+// INSURANCE MODAL
+function insuranceModal() {
+    const insuranceLogos = [
+        { name: "Premera Blue Cross", src: "./src/images/insurance-logos/premera-bluecross.png", alt: "Premera Blue Cross Insurance Logo" },
+        { name: "cigna-dental", src: "./src/images/insurance-logos/cigna-dental.png", alt: "Cigna Dental Insurance Logo" },
+        { name: "bluecross-blueshield", src: "./src/images/insurance-logos/bluecross-blueshield.png", alt: "Blue Cross Blue Shield Insurance Logo" },
+        { name: "moda-health", src: "./src/images/insurance-logos/moda.png", alt: "Moda Health Insurance Logo" },
+        { name: "delta-dental", src: "./src/images/insurance-logos/delta-dental.jpg", alt: "Delta Dental Insurance Logo" },
+        { name: "united-concordia-dental", src: "./src/images/insurance-logos/united-concordia-dental.png", alt: "United Cordia Dental Insurance Logo" },
+        { name: "metlife", src: "./src/images/insurance-logos/metlife.png", alt: "MetLife Insurance Logo" }, 
+        { name: "aetna", src: "./src/images/insurance-logos/aetna.svg", alt: "Aetna Insurance Logo" }
+    ];
+
+    const logoContainer = document.getElementById("insurance-logos");
+    logoContainer.innerHTML = ""; // Clear existing logos
+    insuranceLogos.forEach(logo => {
+        const img = document.createElement("img");
+        img.src = logo.src;
+        img.alt = logo.alt;
+        logoContainer.appendChild(img);
+    });
+}
+// TOGGLE MODAL OPEN
+document.querySelectorAll(".modal-button").forEach(button => {
+    button.addEventListener("click", () => {
+        const modalId = button.getAttribute("data-modal");
+        const modal = document.getElementById(modalId);
+        if (modal) modal.classList.remove("hidden");
+    });
+});
+//TOGGLE MODAL CLOSED
+document.querySelectorAll(".close-modal").forEach(closeButton => {
+    closeButton.addEventListener("click", () => {
+        const modal = closeButton.closest(".modal");
+        if (modal) modal.classList.add("hidden");
+    });
+});
+// TOGGLE MENU CLOSED WITH ESCAPE KEY
+document.addEventListener("keydown", event => {
+    if (event.key === "Escape") {
+        document.querySelectorAll(".modal").forEach(modal => {
+            modal.classList.add("hidden");
+        });
+    }
+});
 
 // INIT FUNCTION TO ATTACH EVENT LISTENERS
 function init() {
@@ -218,12 +264,13 @@ init();
 
 //DOMContent Loaded Event
 document.addEventListener("DOMContentLoaded", () => {
-    console.log("DOM loaded");
 
     setTimeout(() => {
-        console.log("running initYouTubePlayer()");
         initYouTubePlayer();
     }, 300);
+
+    //  toggle insurance modal
+    insuranceModal();
 });
 
 
