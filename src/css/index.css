@@ -315,6 +315,7 @@ button[data-modal]:hover {
     display: none;
 }
 .modal-content {
+    position: relative;
     background: white;
     padding: 1.5rem;
     width: 70%;
@@ -322,7 +323,6 @@ button[data-modal]:hover {
     max-height: 90vh;
     overflow-y: auto;
     border-radius: var(--bs-border-radius-large);
-    overflow-y: auto;
 }
 #ins-h2 {
     font-family: var(--bs-header-font);
@@ -351,7 +351,8 @@ button[data-modal]:hover {
 /* CLOSE MODAL BUTTON */
 .close-modal {
     position: absolute;
-    right: 12%;
+    top: 1rem;
+    right: 1rem;
     background-color: transparent;
     border: none;
     cursor: pointer;
@@ -360,7 +361,12 @@ button[data-modal]:hover {
     color: var(--bs-link-hover-color);
 }
 /* REQUEST AN APPTOINTMENT */
-h2#appt-h2 {
+#request-appt-modal .modal-content {
+    max-width: 600px;
+    width: 70%;
+    margin: 0 auto;
+}
+#appt-h2 {
     font-family: var(--bs-header-font);
     font-size: 1rem;
     margin: auto 0;
@@ -552,9 +558,6 @@ textarea#appt-form-message {
     .modal-wrapper h3 {
         font-size: 3rem;
     }
-    .close-modal {
-        right: 15%;
-    }
     /* RESNIK MODAL WITH PARALLAX EFFECT */
     .resnik-modal-c-band {
         background-image: url("../images/resnik/Resnik-squared.png");
@@ -638,9 +641,6 @@ textarea#appt-form-message {
     }
     .modal-wrapper h3 {
         font-size: 3rem;
-    }
-        .close-modal {
-        right: 15%;
     }
     /* RESNIK MODAL WITH PARALLAX EFFECT */
     .resnik-modal-c-band {

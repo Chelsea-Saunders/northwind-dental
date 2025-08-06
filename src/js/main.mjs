@@ -7,8 +7,4 @@ document.addEventListener("DOMContentLoaded", () => {
     if (toggleButton) {
         toggleButton.addEventListener("click", toggleMenuHandler);
     }
-    // const appointmentContainer = document.querySelector("#appointment-form-container");
-    // if (appointmentContainer) {
-    //     appointmentContainer.innerHTML = requestAppointmentForm;
-    // }
 });
