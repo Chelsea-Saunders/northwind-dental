@@ -584,6 +584,12 @@ textarea#appt-form-message {
     .hero-content h1 {
         font-size: 1.1rem;
     }
+    .hero-msg {
+        padding: 1rem 2rem;
+        font-size: 1rem;
+        line-height: 1;
+        max-width: 90%;
+    }
     /* INFO MODAL BUTTONS */
     .info-buttons {
         gap: 1.5rem;
