@@ -17,8 +17,8 @@
     --bs-hover-color: #104025;
     --bs-hover-background-color: #91ABFF;
     --bs-link-color: #1A3A5A;
+    --bs-button-background-color: #1A3A5A;
     --bs-link-hover-color: #008080;
-    /* --bs-button-background-color: #1a2998; */
     --bs-text-color-light: #FCFFF5;
     --bs-text-color-dark: #0E1F2D;
 
@@ -27,6 +27,7 @@
     --bs-border-color: #0E1F2D;
     --bs-border-radius: 5px;
     --bs-border-radius-small: 2.5px;
+    --bs-border-radius-medium: 5px;
     --bs-border-radius-large: 20px;
 
     

@@ -73,122 +73,73 @@ function toggleReadMoreResnik() {
     }
     return false; // Prevent default action if needed
 }
-// MODAL CONTENT FOR ALL ROUND BUTTONS
-// const modalContent = {
-//     "insurance-modal": `
-//         <button class="close-modal" aria-label="Close modal">&times;</button>
-//         <h2 class="modal-h2">Insurance</h2>
-//         <p class="modal-p">We accept this wide range of insurance plans</p>
-//         // <ul class="ins-ul-img">
-//         //     <li class="ins-li"><img src="./src/images/insurance-logos/cigna-dental.png" alt="Cigna Dental Logo" class="cigna"></li>
-//         //     <li class="ins-li"><img src="./src/images/insurance-logos/bluecross-blueshield.png" alt="Blue Cross Blue Shield Logo" class="bcbs"></li>
-//         //     <li class="ins-li"><img src="./src/images/insurance-logos/moda.png" alt="Moda Health Insurance Logo" class="moda"></li>
-//         //     <li class="ins-li"><img src="./src/images/insurance-logos/delta-dental.jpg" alt="Delta Dental Logo" class="delta"></li>
-//         //     <li class="ins-li"><img src="./src/images/insurance-logos/united-concordia-dental.png" alt="United Concordia Dental Logo" class="ucd"></li>
-//         //     <li class="ins-li"><img src="./src/images/insurance-logos/metlife.png" alt="MetLife Logo" class="metlife"></li>
-//         //     <li class="ins-li"><img src="./src/images/insurance-logos/premera-bluecross.png" alt="Premera Blue Cross Logo" class="premera"></li>
-//         //     <li class="ins-li"><img src="./src/images/insurance-logos/aetna.svg" alt="Aetna Logo" class="aetna"></li>
-//         // </ul>
-//         <button class="contact-us-button" onclick="window.location.href='#'" aria-label="Contact Us">Contact Us</button>
-//         `,
-//         "google-reviews-modal": `
-//         <button class="close-modal" aria-label="Close modal">&times;</button>
-//         <h2 class="modal-h2">Google Reviews</h2>
-//         <p class="modal-p">Here's what our patients are saying about us:</p>
-//         <p><a href="https://www.google.com/search?q=Northwind+Dental+Wasilla+alaska&sca_esv=9dae32fe7ce8d20d&ei=1QCAaIz6Af290PEPsZ7sqQ8&ved=0ahUKEwjMuMrlstGOAxX9HjQIHTEPO_UQ4dUDCBA&uact=5&oq=Northwind+Dental+Wasilla+alaska&gs_lp=Egxnd3Mtd2l6LXNlcnAiH05vcnRod2luZCBEZW50YWwgV2FzaWxsYSBhbGFza2EyBhAAGBYYHjILEAAYgAQYhgMYigUyCxAAGIAEGIYDGIoFMgsQABiABBiGAxiKBTIIEAAYgAQYogQyCBAAGIAEGKIEMgUQABjvBUi5KVC6BVjEJHABeACQAQCYAWqgAboLqgEEMTkuMbgBA8gBAPgBAZgCFaACgQzCAgsQABiABBiwAxiiBMICCxAAGLADGKIEGIkFwgIIEAAYsAMY7wXCAgUQIRigAcICBRAhGKsCwgIIEAAYogQYiQWYAwCIBgGQBgSSBwQyMC4xoAfVYrIHBDE5LjG4B_0LwgcGMC4xNy40yAcy&sclient=gws-wiz-serp#lrd=0x56c8e0843c7feec1:0x7dcaf09dba0957df,1,,,,"
-//             target="_blank" 
-//             rel="noopener noreferrer">
-//             Read our Google Reviews
-//             </a></p>
-//         `,
-//         "services-offered-modal": `
-//         <button class="close-modal" aria-label="Close modal">&times;</button>
-//         <h2 class="modal-h2">Services</h2>
-//         <p class="modal-p">We offer a wide range of dental services to meet your needs:</p>
-//         <p><a href="services.html" class="services-link" aria-label="Services">Services Offered</a></p>
-//         `,
-//         "meet-the-team-modal": `
-//         <button class="close-modal" aria-label="Close modal">&times;</button>
-//         <h2 class="modal-h2">Meet the Team</h2>
-//         <p class="modal-p">Our dedicated team is here to provide you with the best dental care:</p>
-//         <p><a href="team.html" class="meet-team-link" aria-label="Meet the Team">Meet the Team</a></p>
-//         `,
-//         "request-appt-modal": requestAppointmentForm
-// }
-// OPEN MODAL FOR ALL ROUND BUTTONS
-function openModal(modalType) {
-    const content = modalContent[modalType];
 
-    console.log("modal type:", modalType);
-    console.log("modal content:", content);
+// TOGGLE ALL ROUND BUTTONS
+function toggleModal (modalId, show = true) {
+    const modal = document.getElementById(modalId);
+    if (!modal) return;
 
-    if (!content) {
-        console.warn("no content found for modal:", modalType);
-        return;
-    }
+    modal.classList.toggle("hidden", !show);
+    modal.setAttribute("aria-hidden", String(!show));
+    document.body.classList.toggle("modal-open", show);
 
-    // create modal element
-    const modal = document.createElement("div");
-    modal.classList.add("modal");
-    modal.innerHTML = `
-        <div class="modal-box">
-            <button class="close-modal" aria-label="Close modal">&times;</button>
-            ${content}
-        </div>
-    `;
-
-    // add modal to DOM
-    document.body.appendChild(modal);
-
-    const closeButton = modal.querySelector(".close-modal");
-    document.body.classList.add("modal-open");
-
-    const focusableElements = modal.querySelectorAll(focusableSelectors);
-    const firstElement = focusableElements[0];
-    const lastElement = focusableElements[focusableElements.length - 1];
-
-    // tab navigation within the modal
-    if (firstElement && lastElement) {
-        firstElement.focus();
-
-        modal.addEventListener("keydown", function(event) {
-            if (event.key === "Tab") {
-                if (event.shiftKey) {
-                    // shift + tab
-                    if (document.activeElement === firstElement) {
-                        event.preventDefault();
-                        lastElement.focus();
-                    }
-                } else {
-                    // tab only
-                    if (document.activeElement === lastElement) {
-                        event.preventDefault();
-                        firstElement.focus();
-                    }
-                }
-            }
-        });
-    }
-
-
-    // close button
-    function closeModal() {
-        modal.remove();
-        document.body.classList.remove("modal-open");
-        document.removeEventListener("keydown", escapeListener);
-    }
-
-    // close with button
-    closeButton.addEventListener("click", closeModal);
- 
-    // close modal with escape key
-    function escapeListener(event) {
-        if (event.key === "Escape") {
-            closeModal();
+    //  dynamically add appt modal
+    if (show && modalId === "request-appt-modal") {
+        const container = document.querySelector("#appointment-form-container");
+        if (container && container.innerHTML.trim() === "") {
+            container.innerHTML = requestAppointmentForm;
         }
     }
-    document.addEventListener("keydown", escapeListener);
+
+    if (show) {
+        const focusableElements = modal.querySelectorAll(focusableSelectors);
+        const firstElement = focusableElements[0];
+        const lastElement = focusableElements[focusableElements.length - 1];
+
+        // focus the first element
+        firstElement?.focus();
+
+        function trapTab(event) {
+            if (event.key !== "Tab") return;
+
+            if (event.shiftKey) {
+                if(document.activeElement === firstElement) {
+                    event.preventDefault();
+                    lastElement.focus();
+                }
+            } else {
+                if (document.activeElement === lastElement) {
+                    event.preventDefault();
+                    firstElement.focus();
+                }
+            }
+        }
+
+        // add keydown for tab navigation
+        modal.addEventListener("keydown", trapTab);
+
+        // remove tab on modal close
+        const removeTrapTab = () => {
+            modal.removeEventListener("keydown", trapTab);
+        };
+
+        // remove tab on escape key
+        const escListener = (event) => {
+            if (event.key === "Escape") {
+                toggleModal(modalId, false);
+                removeTrapTab();
+                document.removeEventListener("keydown", escListener);
+            }
+        };
+        document.addEventListener("keydown", escListener);
+
+        // remove tab trap on close button click
+        modal.querySelectorAll(".close-modal").forEach(button => {
+            button.addEventListener("click", removeTrapTab, { once: true });
+        });
+    }
 }
+
 // INSURANCE MODAL
 function insuranceModal() {
     const insuranceLogos = [
@@ -235,11 +186,105 @@ document.addEventListener("keydown", event => {
     }
 });
 
+// REQUEST APPOINTMENT MODAL 
+// MAKE APPT MODAL TEXTAREA AUTO-RESIZE
+document.querySelectorAll("textarea").forEach(textarea => {
+    textarea.addEventListener("input", () => {
+        textarea.style.height = "auto";
+        textarea.style.height = textarea.scrollHeight + "px";
+    });
+});
+// error handling for required fields
+function validateForm(form) {
+    const requiredFields = form.querySelectorAll("[required]");
+    let isValid = true;
+
+    requiredFields.forEach(field => {
+        if (!field.value.trim()) {
+            field.classList.add("error");
+            isValid = false;
+        } else {
+            field.classList.remove("error");
+        }
+
+        // email validation
+        if (field.type === "email" && !validateEmail(field.value)) {
+            field.classList.add("error");
+            isValid = false;
+        } 
+        // phone number formatting
+        if (field.type === "tel" && field.value.replace(/\D/g, "").length < 10) {
+            field.classList.add("error");
+            isValid = false;
+        }
+    });
+    return isValid;
+}
+// function to make text area auto-size
+function autoGrowTextarea(textarea) {
+    textarea.style.height = "auto";
+    textarea.style.height = textarea.scrollHeight + "px";
+}
+// VALIDATE EMAIL FORMAT
+function validateEmail(email) {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return emailRegex.test(email);
+}
+
+// VALIDATE PHONE NUMBER FORMAT
+function formatPhoneNumberString(input) {
+    //only get numbers
+    // const input = event.target.value;
+    const numbers = input.replace(/\D/g, ""); // removes anything that isn't a digit
+
+    // format as 123-456-7890
+    let formatted = "";
+
+    if (numbers.length > 0) {
+        formatted += numbers.substring(0, 3);
+    }
+    if (numbers.length >= 4) {
+        formatted += "-" + numbers.substring(3, 6);
+    }
+    if (numbers.length >= 7) {
+        formatted += "-" + numbers.substring(6, 10);
+    }
+    // set the formatted value back to the input
+    return formatted;
+}
+// input event handler (for live formatting)
+function formatPhoneNumber(event) {
+    event.target.value = formatPhoneNumberString(event.target.value);
+}
+// CLEAR FORM FIELDS
+function clearFormFields(form) {
+    form.querySelectorAll("input, textarea, select").forEach(field => {
+        if (field.type === "checkbox" || field.type === "radio") {
+            field.checked = false;
+        } else {
+            field.value = "";
+        }
+        field.classList.remove("error");
+    });
+}
+// SUBMISSION MESSAGE
+function showSubmissionMessage(message) {
+    const messageContainer = document.createElement("div");
+    messageContainer.className = "submission-message";
+    messageContainer.textContent = message;
+    document.body.appendChild(messageContainer);
+
+    setTimeout(() => {
+        messageContainer.remove();
+    }, 2000);
+}
+
 // INIT FUNCTION TO ATTACH EVENT LISTENERS
 function init() {
-    // const speaker = document.querySelector(".speaker-icon");
     const readMoreButton = document.querySelector("#read-more-toggle");
     const readMoreResnikButton = document.querySelector("#read-more-resnik-toggle");
+    const form = document.querySelector("#appointment-form");
+    const phoneInput = form?.querySelector("#appt-form-phone");
 
     // event listener for toggleReadMore
     if (readMoreButton) {
@@ -254,13 +299,68 @@ function init() {
     // event listeners for modal buttons
     document.querySelectorAll(".modal-button").forEach(button => {
         button.addEventListener("click", () => {
-            const modalType = button.dataset.modal;
-            console.log("Modal button clicked:", modalType);
-            openModal(modalType);
+            const modalId = button.dataset.modal;
+            console.log("open static modal:", modalId);
+            toggleModal(modalId, true);
         });
     });
+
+    // Make appointment form textarea auto-resize
+    document.addEventListener("input", event => {
+        if (event.target.id === "appt-form-message") {
+            autoGrowTextarea(event.target);
+        }
+    })
+    
+    // event listener for clear page
+    const clearButton = document.querySelector(".clear-form-button");
+    if (clearButton) {
+        clearButton.addEventListener("click", () => {
+            const form = document.querySelector(".appointment-form");
+            if (form) {
+                clearFormFields(form);
+            }
+        });
+    }
+
+    // event listener for phone number formatting
+    if (phoneInput) {
+        phoneInput.addEventListener("input", formatPhoneNumber);
+    }
+    // submit validation
+    if (form) {
+        form.addEventListener("submit", event => {
+            event.preventDefault();
+            if (validateForm(form)) {
+                // if valid, show success message
+                showSubmissionMessage("Form submitted successfully!");
+                clearFormFields(form);
+            } else {
+                // if invalid, show error message
+                showSubmissionMessage("Please fix the errors in the form.");
+            }
+        })
+    }
+
 }
-init();
+
+// CLOSE MODAL ON X OR ESCAPE
+document.addEventListener("click",(event) => {
+    if (event.target.classList.contains("close-modal")) {
+        const modal = event.target.closest(".modal");
+        if (modal) {
+            toggleModal(modal.id, false);
+        }
+    }
+});
+// escape key to close modal
+document.addEventListener("keydown", event => {
+    if (event.key === "Escape") {
+        document.querySelectorAll(".modal").forEach(modal => {
+            toggleModal(modal.id, false);
+        });
+    }
+});
 
 //DOMContent Loaded Event
 document.addEventListener("DOMContentLoaded", () => {
@@ -271,6 +371,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
     //  toggle insurance modal
     insuranceModal();
+
+    // run init after form is inserted
+    init();
 });
 
 

@@ -327,13 +327,13 @@ button[data-modal]:hover {
 #ins-h2 {
     font-family: var(--bs-header-font);
     font-size: 1.5rem;
-    margin: 1.5rem 0;
+    margin: 1rem 0;
     color: white;
     background-color: var(--bs-link-color);
     text-align: center;
-    box-shadow: 0 0 20px rgba(3, 0, 0, 0.296);
+    box-shadow: 2px 0 5px rgba(3, 0, 0, 0.296);
     border-radius: var(--bs-border-radius-large);
-    padding: 0.9rem 0;
+    padding: 0.5rem 0;
     width: 100%;
 }
 .logo-grid {
@@ -359,8 +359,71 @@ button[data-modal]:hover {
 .close-modal:hover {
     color: var(--bs-link-hover-color);
 }
-/* GOOGLE MODAL */
-
+/* REQUEST AN APPTOINTMENT */
+h2#appt-h2 {
+    font-family: var(--bs-header-font);
+    font-size: 1rem;
+    margin: auto 0;
+    background-color: var(--bs-button-background-color);
+    color: var(--bs-text-color-light);
+    text-align: center;
+    padding: 0.5rem;
+    width: 90%;
+    box-shadow: 0 2px 5px rgba(3, 0, 0, 0.5);
+    border-radius: var(--bs-border-radius-large);
+}
+#appointment-form {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 1rem 1rem 0 1rem;
+}
+label {
+    font-size: 0.9rem;
+    color: var(--bs-text-color-dark);
+    font-family: var(--bs-body-font);
+}
+input#full-name, 
+input#appt-form-email,
+input#appt-form-phone  {
+    border: 1px solid var(--bs-border-color);
+    border-radius: var(--bs-border-radius-medium);
+    padding: 0.2rem;
+    font-size: 0.8rem;
+    font-family: var(--bs-body-font);
+    color: var(--bs-text-color-dark);
+}
+textarea#appt-form-message {
+    border: 1px solid var(--bs-border-color);
+    border-radius: var(--bs-border-radius-medium);
+    padding: 0.2rem;
+    font-size: 0.8rem;
+    font-family: var(--bs-body-font);
+    color: var(--bs-text-color-dark);
+    overflow-y: auto;
+    resize: none;
+    min-height: 100px;
+}
+.warning {
+    color: red;
+    font-size: 0.8rem;
+    margin-bottom: 0.5rem;
+}
+.appt-form-submit-button {
+    background-color: var(--bs-button-background-color);
+    color: var(--bs-text-color-light);
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: var(--bs-border-radius-medium);
+    font-size: 0.8rem;
+    cursor: pointer;
+    box-shadow: 0 2px 5px rgba(3, 0, 0, 0.5);
+    transition: background-color 0.3s ease;
+    width: 50%;
+    margin: 0 auto;
+}
 
 /* RESNIK MODAL WITH PARALLAX EFFECT */
 .resnik-wrapper {
