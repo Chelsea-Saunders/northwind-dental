@@ -46,7 +46,7 @@
     <header>
         <section class="global-header">
             <a href="index.html" class="logo-link">
-                <img src="./src/images/logos/screenshot-logo.png" alt="Northwind Dental Logo" class="logo">
+                <img src="./src/images/logos/logo.jpg" alt="Northwind Dental Logo" class="logo">
                 <!-- <span class="northwind-dental">Northwind Dental</span> -->
             </a>
             <button
@@ -75,11 +75,13 @@
             <nav id="global-nav" class="global-nav" aria-label="main-navigation">
                 <ul>
                     <li><a href="index.html">HOME</a></li>
-                    <li><a href="featured-services.html">SERVICES</a></li>
+                    <li><a href="services.html">SERVICES</a></li>
                     <li><a href="meet-the-team.html">OUR TEAM</a></li>
                     <li><a href="downloadable-forms.html">FORMS</a></li>
                     <li>
-                        <button class="modal-button" data-modal="request-appt-modal" id="contact-header" aria-label="Contact Us">CONTACT US</button>
+                        <button class="modal-button glowing-button" data-modal="request-appt-modal" id="contact-header" aria-label="Contact Us">
+                            CONTACT US
+                        </button>
                     </li>
                 </ul>
             </nav>
@@ -118,41 +120,45 @@
         <div class="appt-request">REQUEST AN APPOINTMENT TODAY!<br>
             CALL US AT (907) 373-2440</div>
     </button>
-    <section class="modal-wrapper">
+    <section class="welcome-wrapper">
         <div class="modal-c-band">
             <div class="welcome-modal-content initial-state">
                 <h3 id="welcome">Welcome</h3>
-                <p class="happy">We're happy you found us!
-                <p class="happy">​We love to see patients of all ages at Northwind Dental, and we take special interest 
+                <p class="welcome">We're happy you found us!
+                <p class="welcome">​We love to see patients of all ages at Northwind Dental, and we take special interest 
                     in making it fun for kids to go to the dentist. You can trust Dr. Dawson to take time to answer your 
                     questions, and give you honest and professional answers to any concerns you may have.
-                </p><br>
-                <!-- read more button -->
-                    <button class="read-more" id="read-more-toggle" role="button" aria-expanded="false">...Read more</button>
-                </p><br>
-
-                <div id="more-text" class="more-text hidden">
-                    
-                    <p class="happy">We understand that going to the dentist isn’t something that most people look forward to, 
-                        so we are committed to making each visit as pleasant and worry-free as possible. Whether you’re in pain, 
-                        interested in Invisalign, or are looking for someone who can help you improve your routine oral health, 
-                        you can relax, knowing you’re in good hands. At Northwind Dental you can expect to be treated like family, 
-                        because seeing you is the best part of our day!
-                    </p><br>
-                    <p class="happy">If you’re looking for a remarkable dentist in Wasilla, who is gentle, compassionate and will 
-                        listen to your concerns, you will find it with Dr. Dawson.
-                    </p><br>
-                    <p class="happy">We welcome new patients and look forward to meeting you</p>
+                </p>
+                <p class="welcome">We understand that going to the dentist isn’t something that most people look forward to, 
+                    so we are committed to making each visit as pleasant and worry-free as possible. Whether you’re in pain, 
+                    interested in Invisalign, or are looking for someone who can help you improve your routine oral health, 
+                    you can relax, knowing you’re in good hands. At Northwind Dental you can expect to be treated like family, 
+                    because seeing you is the best part of our day!
+                </p>
+                <p class="welcome">If you’re looking for a remarkable dentist in Wasilla, who is gentle, compassionate and will 
+                    listen to your concerns, you will find it with Dr. Dawson.
+                </p>
+                <p class="welcome">We welcome new patients and look forward to meeting you</p>
                 </div>
             </div>
         </div>
     </section>
     <div class="info-buttons">
-        <button class="modal-button" data-modal="insurance-modal">INSURANCE</button>
-        <button class="modal-button" data-modal="google-reviews-modal">GOOGLE REVIEWS</button>
-        <button class="modal-button" data-modal="services-offered-modal">SERVICES OFFERED</button>
-        <button class="modal-button" data-modal="meet-the-team-modal">MEET THE TEAM</button>
-        <button class="modal-button" data-modal="request-appt-modal">REQUEST AN APPOINTMENT</button>
+        <button class="modal-button special-button" data-modal="insurance-modal">
+            <div class="inside-circle">INSURANCE</div>
+        </button>
+        <button class="modal-button special-button" data-modal="google-reviews-modal">
+            <div class="inside-circle">GOOGLE REVIEWS</div>
+        </button>
+        <button class="modal-button special-button" data-modal="services-offered-modal">
+            <div class="inside-circle">SERVICES OFFERED</div>
+        </button>
+        <button class="modal-button special-button" data-modal="meet-the-team-modal">
+            <div class="inside-circle">MEET THE TEAM</div>
+        </button>
+        <button class="modal-button special-button" data-modal="request-appt-modal">
+            <div class="inside-circle">REQUEST APPOINTMENT</div>
+        </button>
     </div>
     <!-- INSURANCE MODAL PLACEHOLDER -->
     <div id="insurance-modal" class="modal hidden" aria-hidden="true">
@@ -178,16 +184,19 @@
             </iframe>
         </div>
     </div>
+    <!-- SERVICES OFFERED -->
+     <div id="services-offered" class="modal hidden" aria-hidden="true">
+        <div class="modal-content" id="services-container"></div>
+     </div>
     <!-- REQUEST AN APPOINTMENT MODAL -->
      <div id="request-appt-modal" class="modal hidden" aria-hidden="true">
-        <div class="modal-content" id="appointment-form-container">
-        </div>
+        <div class="modal-content" id="appointment-form-container"></div>
      </div>
      <!-- RESNIK SECTION -->
     <section class="resnik-wrapper">
         <div class="resnik-modal-c-band">
             <div class="resnik-modal-content initial-state">
-                <img src="./src/images/resnik/resnik-implant-institute.png" alt="Resnik Implant Institute logo" id="resnik-img">
+                <img src="./src/images/resnik/resnik-logo.png" alt="Resnik Implant Institute logo" id="resnik-img">
                 <p class="resnik">Dr. Dawson has met the requirements and has completed the Resnik Implant Institute Surgical Continuum.
                     This rigorous program is recognized by both the Academy of General Dentistry, 
                     and the ADA-CERP continuing education recognition program.
@@ -226,7 +235,7 @@
                 <button class="modal-button" data-modal="request-appt-modal" id="appt-req-footer" aria-label="Request an appointment button">
                     <div class="appt-request">REQUEST AN APPOINTMENT</div>
                 </button>
-                <img src="./src/images/logos/screenshot-logo.png" alt="Northwind dental logo" id="footer-logo">
+                <img src="./src/images/logos/logo.jpg" alt="Northwind dental logo" id="footer-logo">
             </div>
         </div>
         <div class="copyright">

@@ -54,8 +54,9 @@
 .hero-msg {
     margin: 0.5rem 1.5rem;
     max-width: 60ch;
-    text-align: left;
-    font-family: var(--bs-body-font);
+    text-align: center;
+    font-family: var(--bs-welcome-font);
+    font-size: 1rem;
 }
 /* PLAY BUTTON ON THE HERO VIDEO */
 .hero-wrapper {
@@ -165,20 +166,20 @@
 }
 
 /* WELCOME MODAL WITH PARALLAX EFFECT */
-.modal-wrapper {
+.welcome-wrapper {
     padding-top: 0;
     border: none;
     overflow: hidden;
     position: relative;
     margin: 5rem 0;
 }
-.modal-wrapper p {
+.welcome-wrapper p {
     font-size: 0.7rem;
     line-height: 1.5;
     margin: 0.5rem 0;
     color: var(--bs-text-color-light);
 }
-.modal-wrapper h3 {
+.welcome-wrapper h3 {
     font-size: 1.5rem;
 }
 .modal-c-band {
@@ -240,25 +241,8 @@
     opacity: 0;
     transform: translateY(-10px);
 }
-/* Hidden text in the welcome modal */
-.hidden {
-    display: none;
-}
-.read-more {
-    background-color: none;
-    border: none;
-    padding: 0;
-    color: var(--bs-text-color-light);
-    cursor: pointer;
-    font-weight: bold;
-    text-decoration: underline;
-}
-.read-more:hover, 
-.read-more:focus {
-    text-decoration: none;
-}
 
-/* CONTACT US BUTTON MID PAGE */
+/* CONTACT US BUTTON */
 #appt-req-homepage {
     display: flex;
     align-items: center;
@@ -286,17 +270,46 @@
     margin: 1rem 0;
 }
 /* each button */
-button[data-modal] {
-    background-color: var(--bs-link-color);
+#appt-req-homepage {
+    background: linear-gradient(180deg, #028cb2, #00d5ff, #055a7b);
     color: var(--bs-text-color-light);
-    padding: 0.5rem 1rem;
     border: none;
-    border-radius: var(--bs-border-radius-large);
+    border-radius: 1.5rem;
+    padding: 1rem 2rem;
+    font-size: 0.9rem;
+    text-align: center;
     cursor: pointer;
+    
+    box-shadow:
+        inset 0 0 8px rgba(255, 255, 255, 0.5),
+        0 4px 8px rgba(0, 0, 0, 0.3),
+        0 0 12px rgba(0, 191, 255, 0.7);
+
+    transition: all 0.3s ease;
+    width: fit-content;
+    height: fit-content;
+    margin: auto;
+    border: 5px solid rgb(98, 206, 230);
 }
-button[data-modal]:hover {
-    background-color: var(--bs-link-hover-color);
+#appt-req-homepage:hover {
+    background: linear-gradient(145deg, #00bfff, #025ab2, #05407b);
     color: var(--bs-text-color-light);
+    box-shadow:
+        inset 0 0 8px rgba(255, 255, 255, 0.5),
+        0 4px 8px rgba(0, 0, 0, 0.597),
+        0 0 12px rgba(0, 191, 255, 0.83);
+    transform: translateY(-2px);
+    border: 5px solid rgba(88, 190, 238, 0.672);
+}
+.appt-request {
+    line-height: 1.2;
+    font-size: 0.8rem;
+    text-shadow: 0 1px 2px rgba(4, 40, 66, 0.775)
+}
+
+.modal-button.special-button {
+    border: 5px solid rgb(98, 190, 230);
+    /* border-radius: 1px; */
 }
 /* INSURANCE MODAL */
 .modal {
@@ -456,7 +469,7 @@ textarea#appt-form-message {
     content: "";
     position: absolute;
     inset: 0;
-    background-image: url("../images/resnik/resnik.png");
+    background-image: url("../images/resnik/resnik-cropped.png");
     background-size: cover;
     background-position: top center;
     background-repeat: no-repeat;
@@ -488,12 +501,38 @@ textarea#appt-form-message {
     text-align: center;
     padding: 6rem 4rem;
 }
+/* Hidden text */
+.hidden {
+    display: none;
+}
+.read-more {
+    background-color: none;
+    border: none;
+    padding: 0;
+    color: var(--bs-text-color-light);
+    cursor: pointer;
+    font-weight: bold;
+    text-decoration: underline;
+}
+.read-more:hover, 
+.read-more:focus {
+    text-decoration: none;
+}
 
 /* when expanded, revert back to normal block flow */
 .resnik-modal-content.expanded-state {
     display: block;
     text-align: left;
     min-height: auto;
+}
+#resnik-img {
+    width: 100px;
+    background-color: rgba(128, 128, 128, 0.366);
+    border-radius: var(--bs-border-radius-medium);
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+    z-index: 10;
 }
 .resnik-modal-content p {
     font-size: 0.7rem;
@@ -540,6 +579,9 @@ textarea#appt-form-message {
     .modal-c-band::before {
         content: none;
     }
+    .welcome {
+        font-size: 0.9rem !important;
+    }
     button[data-modal] {
         width: 120px;
         height: 120px;
@@ -549,24 +591,55 @@ textarea#appt-form-message {
         justify-content: center;
         border-radius: 50%;
     }
-    .modal-wrapper p {
+    .welcome-wrapper p {
         font-size: 1rem;
         line-height: 1.5;
         margin: 0.5rem 0;
         color: var(--bs-text-color-light);
     }
-    .modal-wrapper h3 {
+    .welcome-wrapper h3 {
         font-size: 3rem;
+    }
+    /* buttons */
+        .modal-button.special-button {
+        width: 120px;
+        height: 120px;
+        background-color: rgb(98, 190, 230);
+        border: none;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0;
+        cursor: pointer;
+        position: relative;
+        border-radius: 1px;
+    }
+    .inside-circle {
+        width: 110px;
+        height: 110px;
+        border-radius: 50%;
+        background-color: var(--bs-button-background-color);
+        color: var(--bs-text-color-light);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 0.8rem;
+        text-align: center;
+        padding: 10px;
+        white-space: normal;
+        word-break: break-word;
+        line-height: 1.2;
+        aspect-ratio: 1 / 1;
+        border: 5px solid rgb(98, 190, 230);
     }
     /* RESNIK MODAL WITH PARALLAX EFFECT */
     .resnik-modal-c-band {
-        background-image: url("../images/resnik/Resnik-squared.png");
+        background-image: url("../images/resnik/resnik-cropped.png");
         background-attachment: fixed;
         background-size: cover;
         background-position: center;
         background-repeat: no-repeat;
         min-height: 100vh;
-        /* overflow: auto; */
         padding: 0;
         color: var(--bs-text-color-light);
     }
@@ -593,10 +666,7 @@ textarea#appt-form-message {
         line-height: 1;
         max-width: 90%;
     }
-    /* INFO MODAL BUTTONS */
-    .info-buttons {
-        gap: 1.5rem;
-    }.hero-section {
+    .hero-section {
         max-width: 1200px;
         width: 100%;
         margin: 0 auto;
@@ -608,7 +678,11 @@ textarea#appt-form-message {
         font-size: 1.25rem;
         line-height: 1.2;
     }
-        /* Welcome message/image */
+    /* INFO MODAL BUTTONS */
+    .info-buttons {
+        gap: 2rem;
+    }
+    /* Welcome message/image */
     .modal-c-band {
         background-image: url("../images/alaska-sunset.jpg");
         background-attachment: fixed;
@@ -616,7 +690,6 @@ textarea#appt-form-message {
         background-position: center;
         background-repeat: no-repeat;
         min-height: 100vh;
-        /* overflow: auto; */
         padding: 0;
         color: var(--bs-text-color-light);
     }
@@ -625,26 +698,64 @@ textarea#appt-form-message {
     }
     /* each button */
     button[data-modal] {
-        width: 120px;
-        height: 120px;
-        padding: 0;
-        font-size: 0.8rem;
+        background-color: var(--bs-link-color);
+        color: var(--bs-text-color-light);
+        padding: 0.5rem 1rem;
+        border: 5px solid rgb(98, 190, 230);
+        border-radius: var(--bs-border-radius-large);
+        cursor: pointer;
+    }
+    button[data-modal]:hover {
+        background-color: var(--bs-link-hover-color);
+        color: var(--bs-text-color-light);
+    }
+    .modal-button.special-button {
+        width: 140px;
+        height: 140px;
+        background-color: rgb(98, 190, 230);
+        border: none;
+        display: flex;
         align-items: center;
         justify-content: center;
-        border-radius: 50%;
+        padding: 0;
+        cursor: pointer;
+        position: relative;
+        border-radius: 1px;
     }
-    .modal-wrapper p {
+    .inside-circle {
+        width: 125px;
+        height: 125px;
+        border-radius: 50%;
+        background-color: var(--bs-button-background-color);
+        color: var(--bs-text-color-light);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 0.8rem;
+        text-align: center;
+        padding: 10px;
+        white-space: normal;
+        word-break: break-word;
+        line-height: 1.2;
+        aspect-ratio: 1 / 1;
+        border: 5px solid rgb(98, 190, 230);
+    }
+    /* WELCOME SECTION */
+    .welcome {
+        font-size: 1rem !important;
+    }
+    .welcome-wrapper p {
         font-size: 1rem;
         line-height: 1.5;
         margin: 0.5rem 0;
         color: var(--bs-text-color-light);
     }
-    .modal-wrapper h3 {
+    .welcome-wrapper h3 {
         font-size: 3rem;
     }
     /* RESNIK MODAL WITH PARALLAX EFFECT */
     .resnik-modal-c-band {
-        background-image: url("../images/resnik/resnik.png");
+        background-image: url("../images/resnik/resnik-fullscreen.png");
         background-attachment: fixed;
         background-size: cover;
         background-position: center;
@@ -658,7 +769,7 @@ textarea#appt-form-message {
     background-image: url;
     }
     #resnik-img {
-        width: 40%;
+        width: 20%;
         padding-bottom: 2rem;
     }
     .resnik-modal-content p {

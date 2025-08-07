@@ -1,5 +1,5 @@
 
-import { requestAppointmentForm } from "./global.mjs";
+import { requestAppointmentForm } from "./request-appointment.mjs";
 
 const focusableSelectors = 'a[href], button:not([disabled]), textarea, input, select, [tabindex]:not([tabindex="-1"])';
 
@@ -35,25 +35,6 @@ function initYouTubePlayer() {
         }
         isMuted = !isMuted;
     });
-}
-
-// WELCOME MESSAGE ...READ MORE CLICK
-function toggleReadMore() {
-    const moreText = document.querySelector(".more-text");
-    const toggleButton = document.querySelector(".read-more");
-    const modalContent = document.querySelector(".welcome-modal-content");
-
-    if (moreText && toggleButton && modalContent) {
-        moreText.classList.toggle("hidden");
-        moreText.style.opacity = "1";
-        toggleButton.style.display = "none";
-        toggleButton.setAttribute("aria-expanded", "true");
-
-        modalContent.classList.toggle("initial-state");
-        modalContent.classList.add("expanded-state");
-    }
-
-    return false; // Prevent default action if needed
 }
 
 // RESNIK IMPLANT INSTITUTE ...READ MORE CLICK
