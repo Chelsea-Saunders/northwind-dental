@@ -397,15 +397,18 @@
 }
 #appt-h2 {
     font-family: var(--bs-header-font);
-    font-size: 1rem;
-    margin: auto 0;
-    background-color: var(--bs-button-background-color);
-    color: var(--bs-text-color-light);
+    font-size: 1.5rem;
+    font-weight: 800;
     text-align: center;
     padding: 0.5rem;
     width: 90%;
-    box-shadow: 0 2px 5px rgba(3, 0, 0, 0.5);
-    border-radius: var(--bs-border-radius-large);
+    /* gradient text */
+    background: linear-gradient(90deg, #032a5a,#0050b3, #0392be, #3a8de8, #0050b3, #032a5a);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    /* letter glow/shadow */
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2),
+        0 0 8px rgba(0, 195, 255, 0.3);
 }
 #appointment-form {
     display: flex;
@@ -447,17 +450,28 @@ textarea#appt-form-message {
     margin-bottom: 0.5rem;
 }
 .appt-form-submit-button {
-    background-color: var(--bs-button-background-color);
+    background: linear-gradient(180deg, #032a5a,#0050b3, #0392be, #3a8de8, #0050b3, #032a5a);
     color: var(--bs-text-color-light);
     padding: 0.5rem 1rem;
     border: none;
-    border-radius: var(--bs-border-radius-medium);
+    border-radius: var(--bs-border-radius-large);
     font-size: 0.8rem;
     cursor: pointer;
     box-shadow: 0 2px 5px rgba(3, 0, 0, 0.5);
     transition: background-color 0.3s ease;
     width: 50%;
     margin: 0 auto;
+
+    box-shadow:
+        inset 0 0 8px rgba(255, 255, 255, 0.5),
+        0 4px 8px rgba(0, 0, 0, 0.3),
+        0 0 12px rgba(0, 191, 255, 0.7);
+
+    transition: all 0.3s ease;
+    width: fit-content;
+    height: fit-content;
+    margin: auto;
+    border: 2px solid rgb(141, 193, 245);
 }
 
 /* RESNIK MODAL WITH PARALLAX EFFECT */
