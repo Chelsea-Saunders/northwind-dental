@@ -499,7 +499,7 @@ textarea#appt-form-message {
     content: "";
     position: absolute;
     inset: 0;
-    background-image: url("../images/resnik/resnik-cropped.png");
+    background-image: url("../images/resnik/resnik-fullscreen.png");
     background-size: cover;
     background-position: top center;
     background-repeat: no-repeat;

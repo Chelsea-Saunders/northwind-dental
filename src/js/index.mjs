@@ -15,9 +15,7 @@ function initYouTubePlayer() {
     let isMuted = true;
 
     speakerToggle.addEventListener("click", function() {
-        console.log("speaker icon clicked");
         if (isMuted) {
-            console.log("unmuting and replacing iframe");
             // replace iframe with unmuted version
             const newIframe = iframe.cloneNode(true);
             newIframe.src = iframe.src.replace("mute=1", "mute=0");
@@ -293,7 +291,6 @@ function init() {
     document.querySelectorAll(".modal-button").forEach(button => {
         button.addEventListener("click", () => {
             const modalId = button.dataset.modal;
-            console.log("open static modal:", modalId);
             toggleModal(modalId, true);
         });
     });

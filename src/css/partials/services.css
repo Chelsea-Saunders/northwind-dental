@@ -1,0 +1,14 @@
+/* remove the X from using modal in index pages */
+.close-modal {
+    display: none;
+}
+
+* {
+    list-style: none;
+}
+#services-h2 {
+    margin: 2rem;
+    text-align: center;
+    font-size: 2rem;
+    
+}
