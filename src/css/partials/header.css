@@ -5,6 +5,7 @@
     display: flex; 
     flex-direction: row;
     align-items: center;
+    justify-content: space-between;
     width: 100%;
     background-color: var(--bs-header-background-color);
     color: var(--bs-text-color-light);
@@ -22,9 +23,11 @@
 .logo-link {
     display: flex;
     align-items: center;
-    justify-content: center;
+    /* justify-content: center; */
     padding: 0;
     width: 85px;
+    height: 100%;
+    z-index: 2;
     transition: opacity 0.3s ease
 }
 .logo {
@@ -40,17 +43,19 @@
     justify-content: center;
     gap: 0.4rem;
     padding: 0.3rem;
-    background-color: var(--bs-link-color);
+    background: linear-gradient(180deg, #028cb2, #00d5ff, #055a7b);
     color: var(--bs-text-color-light);
     border: none;
     border-radius: var(--bs-border-radius-small);
     cursor: pointer;
     z-index: 10;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-    position: static;
+    position: absolute;
+    /* position: static; */
     margin: 1rem auto;
     left: 50%;
-    transform: none;
+    /* transform: none; */
+    transform: translateX(-50%);
     text-align: center;
 }
 #toggle-menu:hover {
@@ -228,9 +233,6 @@
 }
 /* MID-SIZE SCREENS */
 @media (min-width: 460px) {
-    #toggle-menu {
-        display: none;
-    }
     .global-header {
         display: flex;
         flex-direction: row;
@@ -253,6 +255,9 @@
         margin: 0;
         display: block;
         align-self: left;
+    }
+    #toggle-menu {
+        display: none;
     }
     #global-nav {
         flex: 1; 

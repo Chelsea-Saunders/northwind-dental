@@ -52,6 +52,7 @@
 }
 /* HERO MESSAGE */
 .hero-msg {
+    padding: 2.5rem 0;
     margin: 0.5rem 1.5rem;
     max-width: 60ch;
     text-align: center;
@@ -207,10 +208,8 @@
     font-family: var(--bs-body-font);
     padding: 6rem 4rem;
 }
-.happy {
-    font-size: 0.7rem;
-}
-#welcome {
+
+.welcome {
     font-size: 1.5rem;
     font-weight: 500;
     margin-bottom: 1rem;
@@ -261,7 +260,7 @@
     height: 2.8rem;
 }
 
-/* INFO MODAL BUTTONS */
+/* INFO BUTTONS MODALS */
 .info-buttons {
     display: flex;
     flex-wrap: wrap;
@@ -309,7 +308,24 @@
 
 .modal-button.special-button {
     border: 5px solid rgb(98, 190, 230);
-    /* border-radius: 1px; */
+    background: linear-gradient(180deg, #028cb2, #00d5ff, #055a7b);
+    color: var(--bs-text-color-light);
+    border-radius: 1.5rem;
+    padding: 0.5rem 1rem;
+    font-size: 0.9rem;
+    text-align: center;
+    cursor: pointer;
+    
+    box-shadow:
+        inset 0 0 8px rgba(255, 255, 255, 0.5),
+        0 4px 8px rgba(0, 0, 0, 0.3),
+        0 0 12px rgba(0, 191, 255, 0.7);
+
+    transition: all 0.3s ease;
+    width: fit-content;
+    height: fit-content;
+    margin: auto;
+    border: 5px solid rgb(98, 206, 230);
 }
 /* INSURANCE MODAL */
 .modal {
@@ -604,8 +620,8 @@ textarea#appt-form-message {
         .modal-button.special-button {
         width: 120px;
         height: 120px;
-        background-color: rgb(98, 190, 230);
-        border: none;
+        background: linear-gradient(135deg, #8fd3f4, #70c1e8);;
+        border: 5px solid rgba(172, 228, 251, 0.722) !important;
         display: flex;
         align-items: center;
         justify-content: center;
@@ -613,12 +629,36 @@ textarea#appt-form-message {
         cursor: pointer;
         position: relative;
         border-radius: 1px;
+        box-shadow:
+            0 0 0 5px rgba(172, 228, 251, 0.722),
+            0 0 10px 3px rgba (98, 190, 230, 0.4);
+            /* 0 4px 8px rgba(0, 0, 0, 0.46),
+            0 0 8px rgba(98, 190, 230, 0.6); */
+        transition: transform 0.3s ease
+    }
+    .modal-button.special-button::before {
+        content: "";
+        position: absolute;
+        top: 2px;
+        right: 2px;
+        bottom: 2px;
+        left: 2px;
+        background: linear-gradient(to bottom, #028cb2, #00d5ff, #055a7b);
+        border-radius:calc(1rem-2px);
+        z-index: -1;
+    }
+    .modal-button.special-button:hover {
+        background: linear-gradient(135deg, #70c1e8, #8fd3f4);
+        transform: translateY(-2px);
+        box-shadow:
+            0 6px 12px rgba(0, 0, 0, 0.46),
+            0 0 10px rgba(98, 190, 230, 1);
     }
     .inside-circle {
         width: 110px;
         height: 110px;
         border-radius: 50%;
-        background-color: var(--bs-button-background-color);
+        background: linear-gradient(145deg, #05407b, #025ab2, #00bfff, #025ab2, #05407b);
         color: var(--bs-text-color-light);
         display: flex;
         align-items: center;
@@ -631,6 +671,16 @@ textarea#appt-form-message {
         line-height: 1.2;
         aspect-ratio: 1 / 1;
         border: 5px solid rgb(98, 190, 230);
+        box-shadow: 
+            inset 0 0 10px rgba(255, 255, 255, 0.41), 
+            0 0 12px rgba(0, 191, 255, 0.5);
+        transition: all 0.3s ease;
+    }
+    .modal-button.special-button:hover .inside-circle {
+        background: linear-gradient(145deg, #00d5ff, #025ab2, #05407b);
+        box-shadow:
+            inset 0 0 12px rgba(255, 255, 255, 0.25),
+            0 0 14px rgba(0, 191, 255, 0.8)
     }
     /* RESNIK MODAL WITH PARALLAX EFFECT */
     .resnik-modal-c-band {

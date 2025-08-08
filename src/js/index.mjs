@@ -143,29 +143,41 @@ function insuranceModal() {
         logoContainer.appendChild(img);
     });
 }
-// TOGGLE MODAL OPEN
-document.querySelectorAll(".modal-button").forEach(button => {
-    button.addEventListener("click", () => {
-        const modalId = button.getAttribute("data-modal");
-        const modal = document.getElementById(modalId);
-        if (modal) modal.classList.remove("hidden");
-    });
-});
-//TOGGLE MODAL CLOSED
-document.querySelectorAll(".close-modal").forEach(closeButton => {
-    closeButton.addEventListener("click", () => {
-        const modal = closeButton.closest(".modal");
-        if (modal) modal.classList.add("hidden");
-    });
-});
-// TOGGLE MENU CLOSED WITH ESCAPE KEY
-document.addEventListener("keydown", event => {
-    if (event.key === "Escape") {
-        document.querySelectorAll(".modal").forEach(modal => {
-            modal.classList.add("hidden");
-        });
-    }
-});
+// // TOGGLE MODAL OPEN
+// button.addEventListener("click", () => {
+//     const modalId = button.getAttribute("data-modal");
+//     toggleModal(modalId, true);
+// });
+
+// //TOGGLE MODAL CLOSED
+// closeButton.addEventListener("click", () => {
+//     const modal = closeButton.closest(".modal");
+//     if (modal) {
+//         toggleModal(modal.id, false);
+//     }
+// });
+// document.querySelectorAll(".modal-button").forEach(button => {
+//     button.addEventListener("click", () => {
+//         const modalId = button.getAttribute("data-modal");
+//         const modal = document.getElementById(modalId);
+//         if (modal) modal.classList.remove("hidden");
+//     });
+// });
+// //TOGGLE MODAL CLOSED
+// document.querySelectorAll(".close-modal").forEach(closeButton => {
+//     closeButton.addEventListener("click", () => {
+//         const modal = closeButton.closest(".modal");
+//         if (modal) modal.classList.add("hidden");
+//     });
+// });
+// // TOGGLE MENU CLOSED WITH ESCAPE KEY
+// document.addEventListener("keydown", event => {
+//     if (event.key === "Escape") {
+//         document.querySelectorAll(".modal").forEach(modal => {
+//             modal.classList.add("hidden");
+//         });
+//     }
+// });
 
 // REQUEST APPOINTMENT MODAL 
 // MAKE APPT MODAL TEXTAREA AUTO-RESIZE
@@ -356,44 +368,3 @@ document.addEventListener("DOMContentLoaded", () => {
     // run init after form is inserted
     init();
 });
-
-
-
-
-
-/* <ul class="services-list">
-            <li class="service-item" id="preventative">Preventitive Care</li>
-            <li class="service-item">Dental Cleanings</li>
-            <li class="service-item">Comprehensive Oral Exams</li>
-            <li class="service-item">Digital X-rays</li>
-            <li class="service-item">Floride Treatments</li>
-            <li class="service-item">Dental Sealants</li>
-            
-            <li class="service-item" id="resotrative">Restorative Care</li>
-            <li class="service-item">Fillings</li>
-            <li class="service-item">Crowns</li>
-            <li class="service-item">Bridges</li>
-            <li class="service-item">Dentures(partial and full)</li>
-            <li class="service-item">Root Canals Therapy</li>
-            <li class="service-item">Dental Implants</li>
-            
-            <li class="service-item" id="cosmetic">Cosmetic Care</li>
-            <li class="service-item">Teeth Whitening</li>
-            <li class="service-item">Porcelain Veneers</li>
-
-            <li class="service-item" id="periodontal">Periodontal Care</li>
-            <li class="service-item">Gum Disease Treatment</li>
-            <li class="service-item">Deep Cleanings</li>
-            <li class="service-item">Periodontal Maintenance</li>
-
-            <li class="service-item" id="emergency">Emergency Care</li>
-            <li class="service-item">Same-Day Appointments</li>
-            <li class="service-item">Tooth Extractions</li>
-            <li class="service-item">Pain Management</li>
-            <li class="service-item">Trauma Care</li>
-
-            <li class="service-item" id="sedation">Sedation Options</li>
-            <li class="service-item">Nitrous Oxide</li>
-            <li class="service-item">Oral Sedation</li>
-            <li class="service-item">IV Sedation</li>
-        </ul> */
