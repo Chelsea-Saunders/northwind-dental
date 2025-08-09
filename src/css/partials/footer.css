@@ -42,7 +42,7 @@ h4 {
 }
 #appt-req-footer.modal-button {
     margin-bottom: 0.75rem;
-    background: linear-gradient(180deg, #028cb2, #00d5ff, #055a7b);
+    background: linear-gradient(145deg, #05407b, #025ab2, #00bfff, #025ab2, #05407b);
     color: var(--bs-text-color-light);
     border: none;
     border-radius: 1.5rem;
@@ -119,7 +119,7 @@ h4 {
     }
     #appt-req-footer.modal-button {
         margin-bottom: 0.75rem;
-        background: linear-gradient(180deg, #028cb2, #00d5ff, #055a7b);
+        background: linear-gradient(180deg, #05407b, #025ab2, #00bfff, #025ab2, #05407b);
         color: var(--bs-text-color-light);
         border: none;
         border-radius: 1.5rem;
@@ -137,7 +137,7 @@ h4 {
         width: fit-content;
         height: fit-content;
         margin: auto;
-        border: 5px solid rgb(98, 206, 230);
+        border: 5px solid rgba(0, 191, 255, 0.561);
     }
     #appt-req-footer.modal-button:hover {
         background: linear-gradient(145deg, #00bfff, #025ab2, #05407b);

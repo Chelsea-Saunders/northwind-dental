@@ -18,17 +18,17 @@
     background-color: var(--bs-header-background-color);
     color: var(--bs-text-color-light);
     padding: 0;
+    padding-right: 20px
 }
 /* LOGO */
 .logo-link {
     display: flex;
     align-items: center;
-    /* justify-content: center; */
     padding: 0;
     width: 85px;
     height: 100%;
     z-index: 2;
-    transition: opacity 0.3s ease
+    transition: opacity 0.3s ease;
 }
 .logo {
     width: 100%;
@@ -161,29 +161,28 @@
     display: inline-block;
     margin: 0 auto;
 }
-#contact-header.modal-button.glowing-button {
+/* #contact-header.modal-button.glowing-button {
     border: 5px solid #05afd1;
     display: flex;
-
-}
+} */
 .glowing-button {
-    background: linear-gradient(180deg, #028cb2, #00d5ff, #055a7b);
     color: var(--bs-text-color-light);
     border: none;
     border-radius: var(--bs-border-radius-large);
     padding: 0.8rem 1.5rem;
     font-size: 0.9rem;
     text-align: center;
-
+    background: linear-gradient(180deg, #032a5a,#0050b3, #0392be, #3a8de8, #0050b3, #032a5a);
     box-shadow:
         inset 0 0 8px rgba(255, 255, 255, 0.5),
         0 4px 8px rgba(0, 0, 0, 0.3),
         0 0 12px rgba(0, 191, 255, 0.7);
 
-    transition: box-shadow 0.3s ease, transform 0.3s ease;
+    transition: all 0.3s ease;
     width: fit-content;
+    height: fit-content;
     margin: auto;
-    cursor: pointer;
+    border: 5px solid rgba(0, 136, 255, 0.561);
 }
 .glowing-button:hover {
     background: linear-gradient(180deg, #028cb2, #00d5ff, #055a7b);
@@ -195,17 +194,6 @@
     transform: translateY(-2px);
     border: 2px solid rgba(0, 191, 255, 0.7);
 }
-/* .contact-button {
-    background-color: var(--bs-button-background-color);
-    color: var(--bs-text-color-light);
-    padding: 0.3rem 0.75rem;
-    border: none;
-    border-radius: var(--bs-border-radius);
-    font-size: 0.7rem;
-    cursor: pointer;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-    transition: background-color 0.3s ease;
-} */
 
 /* HIDE/SHOW TOGGLE LOGIC */
 .global-nav__toggle-menu-closed {
@@ -288,7 +276,7 @@
         font-size: 0.6rem !important;
    }
    .glowing-button {
-        background: linear-gradient(180deg, #028cb2, #00d5ff, #055a7b);
+        background: linear-gradient(180deg, #05407b, #025ab2, #00bfff, #025ab2, #05407b);
         color: var(--bs-text-color-light);
         border: none;
         border-radius: var(--bs-border-radius-large);
@@ -363,7 +351,7 @@
         padding: 0.25rem 0.5rem !important;
     }
     .glowing-button {
-        background: linear-gradient(180deg, #028cb2, #00d5ff, #055a7b);
+        background: linear-gradient(180deg, #05407b, #025ab2, #00bfff, #025ab2, #05407b);
         color: var(--bs-text-color-light);
         border: none;
         border-radius: var(--bs-border-radius-large);
@@ -390,17 +378,6 @@
             0 0 12px rgba(0, 191, 255, 0.83);
         transform: translateY(-2px);
         border: 2px solid rgba(0, 191, 255, 0.7);
-    }
-    /* .contact-button {
-        background-color: var(--bs-link-color);
-        padding: 0.5rem 1.5rem !important;
-        cursor: pointer;
-        font-size: 0.9rem !important;
-        cursor: pointer;
-    } */
-    .contact-button:hover {
-        background-color: var(--bs-link-hover-color);
-        color: var(--bs-text-color-light);
     }
     #contact-header {
         padding: 0.5rem 1.5rem !important;
