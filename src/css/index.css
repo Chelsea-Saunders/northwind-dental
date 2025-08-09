@@ -404,6 +404,7 @@
     width: 90%;
     /* gradient text */
     background: linear-gradient(90deg, #032a5a,#0050b3, #0392be, #3a8de8, #0050b3, #032a5a);
+    background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     /* letter glow/shadow */
