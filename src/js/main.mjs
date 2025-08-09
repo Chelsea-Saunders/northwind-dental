@@ -13,6 +13,12 @@ document.addEventListener("DOMContentLoaded", () => {
     document.querySelectorAll(".modal-button").forEach(button => {
         button.addEventListener("click", () => {
             const modalId = button.dataset.modal;
+
+            // skip this if modalId is services-offered
+            // if (button.id === "services-offered") {
+            //     window.location.href ="./services.html";
+            //     return;
+            // }
             if (modalId) toggleModal(modalId);
         });
     });

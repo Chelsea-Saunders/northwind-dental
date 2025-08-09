@@ -172,27 +172,21 @@
     padding: 0.8rem 1.5rem;
     font-size: 0.9rem;
     text-align: center;
-    background: linear-gradient(180deg, #032a5a,#0050b3, #0392be, #3a8de8, #0050b3, #032a5a);
-    box-shadow:
-        inset 0 0 8px rgba(255, 255, 255, 0.5),
-        0 4px 8px rgba(0, 0, 0, 0.3),
-        0 0 12px rgba(0, 191, 255, 0.7);
+    background: var(--bs-gradient-buttons);
+    box-shadow: var(--bs-box-shadow-buttons);
 
     transition: all 0.3s ease;
     width: fit-content;
     height: fit-content;
     margin: auto;
-    border: 5px solid rgba(0, 136, 255, 0.561);
+    border: var(--bs-button-border);
 }
 .glowing-button:hover {
-    background: linear-gradient(180deg, #028cb2, #00d5ff, #055a7b);
+    background: var(--bs-gradient-buttons-hover);
     color: var(--bs-text-color-light);
-    box-shadow:
-        inset 0 0 8px rgba(255, 255, 255, 0.5),
-        0 4px 8px rgba(0, 0, 0, 0.597),
-        0 0 12px rgba(0, 191, 255, 0.83);
+    box-shadow: var(--bs-box-shadow-button-hover);
     transform: translateY(-2px);
-    border: 2px solid rgba(0, 191, 255, 0.7);
+    border: var(--bs-button-hover-border);
 }
 
 /* HIDE/SHOW TOGGLE LOGIC */

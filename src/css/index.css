@@ -172,13 +172,14 @@ html {
 /* WELCOME MODAL WITH PARALLAX EFFECT */
 #welcome {
     text-align: center;
-    font-size: 3.5rem;
-    font-family: var(--bs-header-font);
+    font-family: "Montserrat Alternates", "Arial Narrow";
     font-weight: 800;
-    padding: 0.5rem;
+    padding: clamp(0.25rem, 2vh, 0.5rem);
     width: 90%;
 
     display: inline-block;
+
+    font-size: clamp(1.2rem, 7vh, 3.5rem);
 
     /* gradient text */
     background: linear-gradient(180deg, #ccedec, #035a54, #0095b3, #03b2be, #78bfb7, #8ff1f4, #cceced);
@@ -285,7 +286,7 @@ html {
     flex-wrap: wrap;
     justify-content: center;
     gap: 0.9rem;
-    margin: 1rem 0;
+    margin: 1rem;
 }
 /* each button */
 #appt-req-homepage {
@@ -372,17 +373,35 @@ html {
     overflow-y: auto;
     border-radius: var(--bs-border-radius-large);
 }
-#ins-h2 {
+.ins-headers {
     font-family: var(--bs-header-font);
-    font-size: 1.5rem;
     margin: 1rem 0;
-    color: white;
-    background-color: var(--bs-link-color);
+    color: var(--bs-text-color-dark);
+    background-color: none;
     text-align: center;
-    box-shadow: 2px 0 5px rgba(3, 0, 0, 0.296);
-    border-radius: var(--bs-border-radius-large);
-    padding: 0.5rem 0;
     width: 100%;
+}
+#ins-h2 {
+    /* gradient text */
+    background: linear-gradient(180deg, #ccedec, #035a54, #0095b3, #03b2be, #78bfb7);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    /* letter glow/shadow */
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2),
+        0 0 2px rgba(139, 174, 185, 0.3);
+}
+#prefered {
+    font-size: 0.9rem;
+    font-family: var(--bs-body-font);
+    color: #035a54;
+    margin-top: 0.5rem;
+}
+#services-link {
+    text-decoration: none;
+    color: var(--bs-text-color-light);
+    font-family: var(--bs-body-font);
+    font-size: var(--bs-body-font-size);
 }
 .logo-grid {
     display: grid;
@@ -397,6 +416,7 @@ html {
     height: auto;
 }
 /* CLOSE MODAL BUTTON */
+
 .close-modal {
     position: absolute;
     top: 1rem;
@@ -404,6 +424,11 @@ html {
     background-color: transparent;
     border: none;
     cursor: pointer;
+    font-size: 2rem;
+    font-weight: bold;
+    color: #333;
+    line-height: 1;
+    z-index: 100000;
 }
 .close-modal:hover {
     color: var(--bs-link-hover-color);
@@ -768,7 +793,9 @@ textarea#appt-form-message {
     }
     /* INFO MODAL BUTTONS */
     .info-buttons {
+        max-width: 70%;
         gap: 2rem;
+        margin: 2rem auto;
     }
     /* Welcome message/image */
     .modal-c-band {

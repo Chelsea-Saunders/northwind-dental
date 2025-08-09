@@ -31,5 +31,16 @@
     --bs-border-radius-medium: 5px;
     --bs-border-radius-large: 20px;
 
-    
+    --bs-gradient-buttons: linear-gradient(180deg, #032a5a, #0050b3, #0392be, #3a8de8, #0050b3, #032a5a);
+    --bs-box-shadow-buttons: 
+        inset 0 0 8px rgba(255, 255, 255, 0.5),
+        0 4px 8px rgba(0, 0, 0, 0.3),
+        0 0 12px rgba(0, 191, 255, 0.7);
+    --bs-button-border: 5px solid rgba(0, 136, 255, 0.561);
+    --bs-gradient-buttons-hover: linear-gradient(180deg, #028cb2, #00d5ff, #055a7b);
+    --bs-box-shadow-button-hover: 
+        inset 0 0 8px rgba(255, 255, 255, 0.5),
+        0 4px 8px rgba(0, 0, 0, 0.597),
+        0 0 12px rgba(0, 191, 255, 0.83);
+    --bs-button-hover-border:2px solid rgba(0, 191, 255, 0.7);
 }

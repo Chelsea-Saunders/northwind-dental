@@ -1,7 +1,4 @@
 /* remove the X from using modal in index pages */
-.close-modal {
-    display: none;
-}
 
 * {
     list-style: none;
