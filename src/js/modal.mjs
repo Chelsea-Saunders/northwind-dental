@@ -38,6 +38,7 @@ export function toggleModal (modalId, show = true) {
         trapFocus(modal);
     } else {
         untrapFocus(modal);
+        modal.querySelectorAll("*").forEach(element => element.blur());
         modal.classList.add("hidden");
         modal.setAttribute("aria-hidden", "true");
         // document.body.classList.remove("modal-open");

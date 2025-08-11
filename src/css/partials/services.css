@@ -1,9 +1,13 @@
 /* remove the X from using modal in index pages */
 
 * {
-    list-style: none;
+    /* list-style: none; */
     padding: 0;
     margin: 0;
+}
+.circle-image.modal-button {
+    display: inline-block;
+    align-items: center;;
 }
 #contact-header.modal-button {
     color: var(--bs-text-color-light);
@@ -36,10 +40,69 @@
         border-radius: var(--bs-border-radius-large)
 }
 #services-offered-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    /* gap: 2rem; */
+    list-style: none;
+    padding-left: 0;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+#services-offered-list li {
+    background: white;
+    border-radius: 50%;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
     display: flex;
     flex-direction: column;
-    gap: 2rem;
+    
+}
+#services-offered-list li > * {
+    display: flex;
+    justify-content: center;
+}
+#services-offered-list img {
+    max-width: 70%;
+    height: auto;
+}
+#services-offered-list {
+    list-style: none; 
+    padding-left: 0;
+}
+.feature-list {
+    list-style-type: square;
+    list-style-position: outside;
+    padding-left: 1.5rem;
+    margin-top: 1rem;
+    align-self: flex-start;
+    max-width: 500px;
+}
+.feature-list li::marker {
+    color: #0b4a6b;
+}
+.modal-content {
     align-items: center;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    text-align: left;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+/* SERVICES MODAL */
+.circle-img-wrapper {
+    display: inline-block;
+}
+.circle-img-wrapper img {
+    display: block;
+    align-items: center;
+    justify-content: center;
+    width: 60%;
+    height: auto;
 }
 #services-h2 {
     margin: 2rem;
@@ -105,7 +168,7 @@
     transition: all 0.3s ease;
     border: 1px solid var(--bs-header-background-color);
 }
-.dentures {
+.removable {
     width: 200px;
     border-radius: 50%;
     box-shadow:
@@ -134,6 +197,20 @@
     /* letter glow/shadow */
     text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2),
         0 0 2px rgba(139, 174, 185, 0.3);
+}
+.service-img {
+    display: flex;
+    width: 50%;
+    height: auto;
+    border-radius: 50%;
+    box-shadow:
+        inset 0 0 8px rgba(255, 255, 255, 0.5),
+        0 4px 8px rgba(0, 0, 0, 0.3),
+        0 0 18px rgba(1, 4, 60, 0.852);
+    transition: all 0.3s ease;
+    margin: 2rem;
+    align-items: center;
+    justify-content: center;
 }
 
 /* larger screens */

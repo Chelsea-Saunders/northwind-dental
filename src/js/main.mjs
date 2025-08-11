@@ -10,16 +10,19 @@ document.addEventListener("DOMContentLoaded", () => {
     }
     
     // add event listeners for modal buttons
-    document.querySelectorAll(".modal-button").forEach(button => {
-        button.addEventListener("click", () => {
+    document.addEventListener("click", (event) => {
+        const button = event.target.closest(".modal-button");
+        if (button) {
             const modalId = button.dataset.modal;
-
-            // skip this if modalId is services-offered
-            // if (button.id === "services-offered") {
-            //     window.location.href ="./services.html";
-            //     return;
-            // }
-            if (modalId) toggleModal(modalId);
-        });
+            if (modalId) {
+                toggleModal(modalId);
+            }
+        }
     });
+
+    // // temporary:
+    // document.addEventListener("click", (event) => {
+    //     console.log("clicked element:", event.target);
+    //     console.log("found modal button:", event.target.closest(".modal-button"));
+    // })
 });
