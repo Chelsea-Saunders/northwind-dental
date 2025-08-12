@@ -147,28 +147,6 @@ html {
     display: none;
 }
 
-/* REQUEST APPT BUTTON */
-#contact-header{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 0.5rem 1.5rem;
-    font-size: 0.7rem;
-    background-color: var(--bs-link-color);
-    color: var(--bs-text-color-light);
-    border-radius: 35px;
-    cursor: pointer;
-    box-shadow: 0 4px 8px rgba(0, 128, 128, 0.3); /* teal tint */
-    text-align: center;
-    margin: 0 auto;
-    width: 90%;
-    height: 2.5rem;
-}
-#contact-header:hover {
-    background-color: var(--bs-link-hover-color);
-    color: var(--bs-text-color-light);
-}
-
 /* WELCOME MODAL WITH PARALLAX EFFECT */
 #welcome {
     text-align: center;
@@ -621,9 +599,9 @@ textarea#appt-form-message {
     }
     button[data-modal] {
         width: 120px;
-        height: 120px;
+        /* height: 120px; */
         padding: 0;
-        font-size: 0.8rem;
+        /* font-size: 0.8rem; */
         align-items: center;
         justify-content: center;
         border-radius: 50%;

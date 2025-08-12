@@ -80,31 +80,31 @@ const servicesOfferedModal = `
     <ul id="services-offered-list">
         <li>
             <div class="circle-img-wrapper modal-button" data-modal="preventative-content">
-                <img src="src/images/img-links/smile.png" alt="Image of a bright smile" class="preventative-smile">
+                <img src="src/images/img-links/smile.png" alt="Image of a bright smile" id="preventative" class="service-icon">
             </div>
             <h3 class="serv-h3">Preventative Care</h3>
         </li>
         <li>
             <div class="circle-img-wrapper modal-button" data-modal="restorative-content">
-                <img src="src/images/img-links/implants.png" alt="Image of a dental implant bridge" class="restorative">
+                <img src="src/images/img-links/implants.png" alt="Image of a dental implant bridge" id="restorative" class="service-icon">
             </div>
             <h3 class="serv-h3">Restorative Care</h3>
         </li>
         <li>
             <div class="circle-img-wrapper modal-button" data-modal="emergency-content">
-                <img src="src/images/img-links/emergency.png" alt="Image of a person with a toothache" class="emergency">
+                <img src="src/images/img-links/emergency.png" alt="Image of a person with a toothache" id="emergency" class="service-icon">
             </div>
             <h3 class="serv-h3">Emergency Care</h3>
         </li>
         <li>
             <div class="circle-img-wrapper modal-button" data-modal="cosmetic-content">
-                <img src="src/images/img-links/whitening.png" alt="Image of digitally whitened teeth" class="whitening">
+                <img src="src/images/img-links/whitening.png" alt="Image of digitally whitened teeth" id="whitening" class="service-icon">
             </div>
             <h3 class="serv-h3">Cosmetic Dentistry</h3>
         </li>
         <li>
             <div class="circle-img-wrapper modal-button" data-modal="removable-content">
-                <img src="src/images/img-links/dentures.png" alt="Image of a set of dentures" class="removable">
+                <img src="src/images/img-links/dentures.png" alt="Image of a set of dentures" id="removable" class="service-icon">
             </div>
             <h3 class="serv-h3">Removable Prosthetics</h3>
         </li>
