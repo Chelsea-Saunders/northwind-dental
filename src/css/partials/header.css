@@ -4,6 +4,7 @@
 .global-header {
     display: flex; 
     flex-direction: row;
+    flex-wrap: wrap;
     align-items: center;
     justify-content: space-between;
     width: 100%;
@@ -12,6 +13,7 @@
     position: relative;
     color: var(--bs-body-text-color-dark);
     padding-right: 20px;
+    box-sizing: border-box;
 }
 /* LOGO */
 .logo-link {
@@ -135,10 +137,6 @@
 #global-nav li{
     width: 100%;
     text-align: center;
-}
-#global-nav .modal-button {
-    display: inline-block;
-    margin: 0 auto;
 } 
 
 #global-nav a,
@@ -156,25 +154,7 @@
     border: none;
     cursor: pointer;
 }
-/* REQUEST APPT BUTTON */
-#global-nav .contact-button-header{
-    /* padding: 0.5rem 1.5rem; */
-    font-size: 0.7rem;
-    /* text-align: center; */
-    background: var(--bs-gradient-buttons);
-    color: var(--bs-text-color-light);
-    box-shadow: var(--bs-box-shadow-buttons);
-    transition: box-shadow 0.3s ease, transform 0.3s, background 0.3s ease;
-    height: 2.5rem;
-    width: fit-content;
-    border-radius: var(--bs-border-radius-large);
-}
-#global-nav .contact-button-header:hover {
-    background-color: var(--bs-gradient-buttons-hover);
-    color: var(--bs-text-color-dark);
-    box-shadow: var(--bs-box-shadow-button-hover);
-    transform: translateY(-2px);
-}
+
 
 /* HIDE/SHOW TOGGLE LOGIC */
 .global-nav__toggle-menu-closed {
@@ -270,32 +250,26 @@
         padding: 0;
         font-size: 0.7rem;
     }
-    #global-nav .contact-button-header {
-        background: var(--bs-gradient-buttons);
-        color: var(--bs-text-color-light);
-        box-shadow: var(--bs-box-shadow-buttons);
-        transition: box-shadow 0.3s ease, transform 0.3s, background 0.3s ease;
-    }
-    #global-nav .contact-button-header:hover {
-        background: var(--bs-gradient-buttons-hover);
-        color: var(--bs-text-color-dark);
-        box-shadow: var(--bs-box-shadow-button-hover);
-        transform: translateY(-2px);
-    }
+    
    #contact-header {
         padding: 0 0.5rem !important;
         margin: 0;
         font-size: 0.6rem !important;
    }
 }
+/* SCREEN ADJUSTMENT FOR HEADER LAYOUT IN MID SIZE SCREENS */
+@media (max-width: 530px) {
+    
+    #global-nav a {
+        gap: 0;
+        padding: 0;
+    }
+}
 /* WIDE-SIZE SCREENS */
 @media (min-width: 810px) {
     #toggle-menu {
         display: none;
     }
-    /* .logo-link { 
-        display: flex; 
-    } */
     .global-header {
         display: flex;
         flex-direction: row;

@@ -13,12 +13,7 @@
     align-items: center;
     justify-content: center;
 } */
-/* BUTTON AT TOP */
-.circle-image.modal-button {
-    display: flex;
-    align-items: center;
-    gap: 0;
-}
+
  /* WHOLE SERVICES.HTML BODY CONTAINER */
 #services-offered-list ul{
     gap: 0;
@@ -44,6 +39,8 @@
 }
 
 .feature-list {
+    display: flex;
+    flex-direction: column;
     list-style-type: square;
     list-style-position: outside;
     padding-left: 1.5rem;
@@ -51,46 +48,22 @@
     max-width: 500px;
     text-align: left;
 }
-/* #services-offered-list li {
-    background: white;
+ul.feature-list {
+    width: 100%;
+    max-width: 600px;
+    text-align: left;
+    align-items: flex-start;
     display: flex;
     flex-direction: column;
-    gap: 0.5rem;
-    text-align: left;
-    align-items: flex-start;;
-    padding-bottom: 2rem;
-
-} */
+} 
 .feature-list li::marker {
     color: #0b4a6b;
 }
-.modal-content {
-    align-items: center;
-    display: flex;
-    flex-direction: column;
-    text-align: left;
-    overflow-y: auto;
-    overflow-x: hidden;
-    font-family: var(--bs-body-font);
-}
-.modal-content h2 {
-    font-family: var(--bs-header-font);
-    font-size: var(--bs-title-font-size);
-    font-weight: var(--bs-title-font-weight);
-}
-.modal-content p {
-    font-family: var(--bs-body-font);
-    font-size: var(--bs-body-font-size);
-    font-weight: var(--bs-body-font-weight);
-}
-.modal-content li {
-    font-family: var(--bs-body-font);
-    font-size: var(--bs-body-font-size);
-    font-weight: var(--bs-body-font-weight);
-    margin-bottom: 0.5rem;
+p {
+    margin-bottom: 1rem;
 }
 
-/* SERVICES MODAL */
+/* INSIDE EACH SERVICE OFFERED MODAL */
 .circle-img-wrapper {
     width: 140px;
     aspect-ratio: 1 / 1;

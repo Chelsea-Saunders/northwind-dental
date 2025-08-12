@@ -3,28 +3,15 @@ import { buildAppointment } from "./request-appointment.mjs";
 
 registerModal("request-appt-modal", buildAppointment);
 
-// MUTE/UNMUTE LOGIC
-function initYouTubePlayer() {
-    const speakerToggle = document.querySelector("#speaker-toggle");
-    let iframe = document.querySelector("#youtube-video");
-    if (!iframe || ! speakerToggle) return;
 
-    let isMuted = true;
-
-    speakerToggle.addEventListener("click", () => {
-        const nextSrc = iframe.src.replace(
-            isMuted ? "mute=0" : "mute=1",
-            isMuted ? "mute=1" : "mute=0"
-        )
-        const newIframe = iframe.cloneNode(true);
-        newIframe.src = nextSrc;
-
-        iframe.parentNode.replaceChild(newIframe, iframe);
-        iframe = newIframe;
-
-        speakerToggle.classList.toggle("muted", isMuted);
-        speakerToggle.setAttribute("aria-pressed", String(!isMuted));
-        isMuted = !isMuted;
+window.onYouTubeIframeAPIReady = function () {
+    player = new YT.Player("youtube-video", {
+        events: {
+            onReady: () => {
+                player.mute();
+                player.playVideo();
+            }
+        }
     });
 }
 
@@ -75,7 +62,8 @@ function insuranceModal() {
 //DOMContent Loaded Event
 document.addEventListener("DOMContentLoaded", () => {
 
-    setTimeout( initYouTubePlayer, 300);
+    // setTimeout( initYouTubePlayer, 300);
+    // setTimeout( onYouTubeIframeAPIReady, 300);
     requestAnimationFrame(insuranceModal);
     insuranceModal();
 
@@ -84,3 +72,31 @@ document.addEventListener("DOMContentLoaded", () => {
         toggleReadMoreResnik();
     });
 });
+
+
+
+
+// MUTE/UNMUTE LOGIC
+// function initYouTubePlayer() {
+//     const speakerToggle = document.querySelector("#speaker-toggle");
+//     let iframe = document.querySelector("#youtube-video");
+//     if (!iframe || ! speakerToggle) return;
+
+//     let isMuted = true;
+
+//     speakerToggle.addEventListener("click", () => {
+//         const nextSrc = iframe.src.replace(
+//             isMuted ? "mute=0" : "mute=1",
+//             isMuted ? "mute=1" : "mute=0"
+//         )
+//         const newIframe = iframe.cloneNode(true);
+//         newIframe.src = nextSrc;
+
+//         iframe.parentNode.replaceChild(newIframe, iframe);
+//         iframe = newIframe;
+
+//         speakerToggle.classList.toggle("muted", isMuted);
+//         speakerToggle.setAttribute("aria-pressed", String(!isMuted));
+//         isMuted = !isMuted;
+//     });
+// }

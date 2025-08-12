@@ -16,6 +16,7 @@
     display: none;
 }
 .modal-content {
+    display: flex;
     position: relative;
     background: white;
     padding: 1.5rem;
@@ -24,6 +25,33 @@
     max-height: 90vh;
     overflow-y: auto;
     border-radius: var(--bs-border-radius-large);
+    align-items: center;
+    flex-direction: column;
+    align-items: center;
+    text-align: left;
+    overflow-x: hidden;
+    font-family: var(--bs-body-font);
+}
+.modal-content h2 {
+    font-family: var(--bs-header-font);
+    font-size: var(--bs-title-font-size);
+    font-weight: var(--bs-title-font-weight);
+}
+.modal-content p {
+    font-family: var(--bs-body-font);
+    font-size: var(--bs-body-font-size);
+    font-weight: var(--bs-body-font-weight);
+}
+.modal-content li {
+    font-family: var(--bs-body-font);
+    font-size: var(--bs-body-font-size);
+    font-weight: var(--bs-body-font-weight);
+    margin-bottom: 0.5rem;
+    align-items: left;
+}
+
+body.modal-open {
+    overflow: hidden;
 }
 
 /* CLOSE MODAL BUTTON */
@@ -47,4 +75,226 @@
 /* prevent background scrolling when modal is open */
 body.modal-open {
     overflow: hidden;
+}
+.modal-button.special-button {
+    border: 5px solid rgb(98, 190, 230);
+    background: linear-gradient(180deg, #028cb2, #00d5ff, #055a7b);
+    color: var(--bs-text-color-light);
+    border-radius: 1.5rem;
+    padding: 0.5rem 1rem;
+    font-size: 0.9rem;
+    text-align: center;
+    cursor: pointer;
+    
+    box-shadow:
+        inset 0 0 8px rgba(255, 255, 255, 0.5),
+        0 4px 8px rgba(0, 0, 0, 0.3),
+        0 0 12px rgba(0, 191, 255, 0.7);
+
+    transition: all 0.3s ease;
+    width: fit-content;
+    height: fit-content;
+    margin: auto;
+    border: 5px solid rgb(98, 206, 230);
+}
+/* buttons */
+.modal-button.special-button {
+    width: 120px;
+    height: 120px;
+    background: linear-gradient(135deg, #8fd3f4, #70c1e8);;
+    border: 5px solid rgba(172, 228, 251, 0.722) !important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    cursor: pointer;
+    position: relative;
+    border-radius: 1px;
+    box-shadow:
+        0 0 0 5px rgba(172, 228, 251, 0.722),
+        0 0 10px 3px rgba (98, 190, 230, 0.4);
+        /* 0 4px 8px rgba(0, 0, 0, 0.46),
+        0 0 8px rgba(98, 190, 230, 0.6); */
+    transition: transform 0.3s ease
+}
+.modal-button.special-button::before {
+    content: "";
+    position: absolute;
+    top: 2px;
+    right: 2px;
+    bottom: 2px;
+    left: 2px;
+    background: linear-gradient(to bottom, #028cb2, #00d5ff, #055a7b);
+    border-radius:calc(1rem-2px);
+    z-index: -1;
+}
+.modal-button.special-button:hover {
+    background: linear-gradient(135deg, #70c1e8, #8fd3f4);
+    transform: translateY(-2px);
+    box-shadow:
+        0 6px 12px rgba(0, 0, 0, 0.46),
+        0 0 10px rgba(98, 190, 230, 1);
+}
+.modal-button.special-button:hover .inside-circle {
+    background: linear-gradient(145deg, #00d5ff, #025ab2, #05407b);
+    box-shadow:
+        inset 0 0 12px rgba(255, 255, 255, 0.25),
+        0 0 14px rgba(0, 191, 255, 0.8)
+}
+/* BUTTON AT TOP */
+.circle-image.modal-button {
+    display: flex;
+    align-items: center;
+    gap: 0;
+}
+
+/* MODAL FOR HEADER */
+#global-nav .modal-button {
+    display: inline-block;
+    margin: 0 auto;
+}
+/* REQUEST APPT BUTTON */
+#global-nav .contact-button-header{
+    font-size: 0.7rem;
+    background: var(--bs-gradient-buttons);
+    color: var(--bs-text-color-light);
+    box-shadow: var(--bs-box-shadow-buttons);
+    transition: box-shadow 0.3s ease, transform 0.3s, background 0.3s ease;
+    height: 2.5rem;
+    width: fit-content;
+    border-radius: var(--bs-border-radius-large);
+    max-width: 100%;
+    min-width: 0;
+    /* white-space: nowrap; */
+    overflow: hidden;
+    text-overflow: ellipsis;
+    box-sizing: border-box;
+    /* flex-shrink: 1; */
+}
+#global-nav .contact-button-header:hover {
+    background-color: var(--bs-gradient-buttons-hover);
+    color: var(--bs-text-color-dark);
+    box-shadow: var(--bs-box-shadow-button-hover);
+    transform: translateY(-2px);
+}
+
+/* MODAL FOR FOOTER */
+#appt-req-footer {
+    margin-bottom: 2rem;
+    height: 2.5rem;
+    border-radius: 35px;
+    width: 90%;
+}
+#appt-req-footer.modal-button {
+    margin-bottom: 0.75rem;
+    background: linear-gradient(145deg, #05407b, #025ab2, #00bfff, #025ab2, #05407b);
+    color: var(--bs-text-color-light);
+    border: none;
+    border-radius: 1.5rem;
+    padding: 0.5rem 1rem;
+    font-size: 0.9rem;
+    text-align: center;
+    cursor: pointer;
+    
+    box-shadow:
+        inset 0 0 8px rgba(255, 255, 255, 0.5),
+        0 4px 8px rgba(0, 0, 0, 0.3),
+        0 0 12px rgba(0, 191, 255, 0.7);
+
+    transition: all 0.3s ease;
+    width: fit-content;
+    height: fit-content;
+    margin: auto;
+    border: 5px solid rgba(65, 183, 237, 0.672);
+}
+#appt-req-footer.modal-button:hover {
+    background: linear-gradient(145deg, #00bfff, #025ab2, #05407b);
+    color: var(--bs-text-color-light);
+    box-shadow:
+        inset 0 0 8px rgba(255, 255, 255, 0.5),
+        0 4px 8px rgba(0, 0, 0, 0.597),
+        0 0 12px rgba(0, 191, 255, 0.83);
+    transform: translateY(-2px);
+    border: 5px solid rgba(88, 190, 238, 0.672);
+}
+
+/* CONTACT.HTML */
+#request-appt-modal .modal-content {
+    max-width: 600px;
+    width: 70%;
+    margin: 0 auto;
+}
+.appt-request {
+    line-height: 1.2;
+    font-size: 0.8rem;
+    text-shadow: 0 1px 2px rgba(4, 40, 66, 0.775);
+}
+
+@media (min-width: 460px) {
+    #global-nav .contact-button-header {
+        background: var(--bs-gradient-buttons);
+        color: var(--bs-text-color-light);
+        box-shadow: var(--bs-box-shadow-buttons);
+        transition: box-shadow 0.3s ease, transform 0.3s, background 0.3s ease;
+    }
+    #global-nav .contact-button-header:hover {
+        background: var(--bs-gradient-buttons-hover);
+        color: var(--bs-text-color-dark);
+        box-shadow: var(--bs-box-shadow-button-hover);
+        transform: translateY(-2px);
+    }
+}
+@media (min-width: 500px) {
+    #appt-req-footer.modal-button {
+        margin-bottom: 0.75rem;
+        background: linear-gradient(180deg, #05407b, #025ab2, #00bfff, #025ab2, #05407b);
+        color: var(--bs-text-color-light);
+        border: none;
+        border-radius: 1.5rem;
+        padding: 0.5rem 1rem;
+        font-size: 0.9rem;
+        text-align: center;
+        cursor: pointer;
+        
+        box-shadow:
+            inset 0 0 8px rgba(255, 255, 255, 0.5),
+            0 4px 8px rgba(0, 0, 0, 0.3),
+            0 0 12px rgba(0, 191, 255, 0.7);
+
+        transition: all 0.3s ease;
+        width: fit-content;
+        height: fit-content;
+        margin: auto;
+        border: 5px solid rgba(0, 191, 255, 0.561);
+    }
+    #appt-req-footer.modal-button:hover {
+        background: var(--bs-gradient-buttons-hover);
+        color: var(--bs-text-color-dark);
+        box-shadow:
+            inset 0 0 8px rgba(255, 255, 255, 0.5),
+            0 4px 8px rgba(0, 0, 0, 0.597),
+            0 0 12px rgba(0, 191, 255, 0.83);
+        transform: translateY(-2px);
+        border: 5px solid rgba(88, 190, 238, 0.672);
+        border-radius: 1.5rem;
+    }
+    #global-nav .contact-button-header {
+        font-size: 0.65rem;
+        padding: 0.4rem 0.8rem;
+    }
+}
+@media (min-width: 768px) {
+    .modal-button.special-button {
+        width: 140px;
+        height: 140px;
+        background-color: rgb(98, 190, 230);
+        border: none;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0;
+        cursor: pointer;
+        position: relative;
+        border-radius: 1px;
+    }
 }

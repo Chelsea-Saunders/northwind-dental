@@ -207,9 +207,9 @@ html {
     padding: 6rem 4rem;
 }
 
-.welcome {
-    font-size: 1.5rem;
-    font-weight: 500;
+#welcome {
+    font-size: 2rem;
+    font-weight: 900;
     margin-bottom: 1rem;
 }
 /* initial centered layout: before ...read more is clicked */
@@ -239,25 +239,6 @@ html {
     transform: translateY(-10px);
 }
 
-/* CONTACT US BUTTON */
-#appt-req-homepage {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin: 4rem auto;
-    padding: 0.5rem 1.5rem;
-    font-size: 0.7rem;
-    background-color: var(--bs-link-color);
-    color: var(--bs-text-color-light);
-    border: none;
-    border-radius: 35px;
-    cursor: pointer;
-    box-shadow: 0 4px 8px rgba(0, 128, 128, 0.3); /* teal tint */
-    text-align: center;
-    width: 90%;
-    height: 2.8rem;
-}
-
 /* INFO BUTTONS MODALS */
 .info-buttons {
     display: flex;
@@ -265,65 +246,6 @@ html {
     justify-content: center;
     gap: 0.9rem;
     margin: 1rem;
-}
-/* each button */
-#appt-req-homepage {
-    background: linear-gradient(180deg, #05407b, #025ab2, #00bfff, #025ab2, #05407b);
-    color: var(--bs-text-color-light);
-    border: none;
-    border-radius: 1.5rem;
-    padding: 1rem 2rem;
-    font-size: 0.9rem;
-    text-align: center;
-    cursor: pointer;
-    
-    box-shadow:
-        inset 0 0 8px rgba(255, 255, 255, 0.5),
-        0 4px 8px rgba(0, 0, 0, 0.3),
-        0 0 12px rgba(0, 191, 255, 0.7);
-
-    transition: all 0.3s ease;
-    width: fit-content;
-    height: fit-content;
-    margin: auto;
-    border: 5px solid rgb(0, 191, 255, 0.7);
-}
-#appt-req-homepage:hover {
-    background: linear-gradient(145deg, #00bfff, #025ab2, #05407b);
-    color: var(--bs-text-color-light);
-    box-shadow:
-        inset 0 0 8px rgba(255, 255, 255, 0.5),
-        0 4px 8px rgba(0, 0, 0, 0.597),
-        0 0 12px rgba(0, 191, 255, 0.83);
-    transform: translateY(-2px);
-    border: 5px solid rgba(88, 190, 238, 0.672);
-}
-.appt-request {
-    line-height: 1.2;
-    font-size: 0.8rem;
-    text-shadow: 0 1px 2px rgba(4, 40, 66, 0.775)
-}
-
-.modal-button.special-button {
-    border: 5px solid rgb(98, 190, 230);
-    background: linear-gradient(180deg, #028cb2, #00d5ff, #055a7b);
-    color: var(--bs-text-color-light);
-    border-radius: 1.5rem;
-    padding: 0.5rem 1rem;
-    font-size: 0.9rem;
-    text-align: center;
-    cursor: pointer;
-    
-    box-shadow:
-        inset 0 0 8px rgba(255, 255, 255, 0.5),
-        0 4px 8px rgba(0, 0, 0, 0.3),
-        0 0 12px rgba(0, 191, 255, 0.7);
-
-    transition: all 0.3s ease;
-    width: fit-content;
-    height: fit-content;
-    margin: auto;
-    border: 5px solid rgb(98, 206, 230);
 }
 
 .ins-headers {
@@ -367,92 +289,6 @@ html {
 .logo-grid img {
     max-width: 100%;
     height: auto;
-}
-
-/* REQUEST AN APPTOINTMENT */
-#request-appt-modal .modal-content {
-    max-width: 600px;
-    width: 70%;
-    margin: 0 auto;
-}
-#appt-h2 {
-    font-family: var(--bs-header-font);
-    font-size: 1.5rem;
-    font-weight: 800;
-    text-align: center;
-    padding: 0.5rem;
-    width: 90%;
-    /* gradient text */
-    background: linear-gradient(90deg, #032a5a,#0050b3, #0392be, #3a8de8, #0050b3, #032a5a);
-    background-clip: text;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    /* letter glow/shadow */
-    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2),
-        0 0 8px rgba(0, 195, 255, 0.3);
-}
-#appointment-form {
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
-    max-width: 600px;
-    margin: 0 auto;
-    padding: 1rem 1rem 0 1rem;
-}
-label {
-    font-size: 0.9rem;
-    color: var(--bs-text-color-dark);
-    font-family: var(--bs-body-font);
-}
-input#full-name, 
-input#appt-form-email,
-input#appt-form-phone  {
-    border: 1px solid var(--bs-border-color);
-    border-radius: var(--bs-border-radius-medium);
-    padding: 0.2rem;
-    font-size: 0.8rem;
-    font-family: var(--bs-body-font);
-    color: var(--bs-text-color-dark);
-}
-textarea#appt-form-message {
-    border: 1px solid var(--bs-border-color);
-    border-radius: var(--bs-border-radius-medium);
-    padding: 0.2rem;
-    font-size: 0.8rem;
-    font-family: var(--bs-body-font);
-    color: var(--bs-text-color-dark);
-    overflow-y: auto;
-    resize: none;
-    min-height: 100px;
-}
-.warning {
-    color: red;
-    font-size: 0.8rem;
-    margin-bottom: 0.5rem;
-}
-.appt-form-submit-button {
-    background: linear-gradient(180deg, #032a5a,#0050b3, #0392be, #3a8de8, #0050b3, #032a5a);
-    color: var(--bs-text-color-light);
-    padding: 0.5rem 1rem;
-    border: none;
-    border-radius: var(--bs-border-radius-large);
-    font-size: 0.8rem;
-    cursor: pointer;
-    box-shadow: 0 2px 5px rgba(3, 0, 0, 0.5);
-    transition: background-color 0.3s ease;
-    width: 50%;
-    margin: 0 auto;
-
-    box-shadow:
-        inset 0 0 8px rgba(255, 255, 255, 0.5),
-        0 4px 8px rgba(0, 0, 0, 0.3),
-        0 0 12px rgba(0, 191, 255, 0.7);
-
-    transition: all 0.3s ease;
-    width: fit-content;
-    height: fit-content;
-    margin: auto;
-    border: 2px solid rgb(141, 193, 245);
 }
 
 /* RESNIK MODAL WITH PARALLAX EFFECT */
@@ -594,8 +430,8 @@ textarea#appt-form-message {
     .modal-c-band::before {
         content: none;
     }
-    .welcome {
-        font-size: 0.9rem !important;
+    #welcome {
+        font-size: 3rem
     }
     button[data-modal] {
         width: 120px;
@@ -612,47 +448,8 @@ textarea#appt-form-message {
         margin: 0.5rem 0;
         color: var(--bs-text-color-light);
     }
-    .welcome-wrapper h3 {
-        font-size: 3rem;
-    }
-    /* buttons */
-        .modal-button.special-button {
-        width: 120px;
-        height: 120px;
-        background: linear-gradient(135deg, #8fd3f4, #70c1e8);;
-        border: 5px solid rgba(172, 228, 251, 0.722) !important;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        padding: 0;
-        cursor: pointer;
-        position: relative;
-        border-radius: 1px;
-        box-shadow:
-            0 0 0 5px rgba(172, 228, 251, 0.722),
-            0 0 10px 3px rgba (98, 190, 230, 0.4);
-            /* 0 4px 8px rgba(0, 0, 0, 0.46),
-            0 0 8px rgba(98, 190, 230, 0.6); */
-        transition: transform 0.3s ease
-    }
-    .modal-button.special-button::before {
-        content: "";
-        position: absolute;
-        top: 2px;
-        right: 2px;
-        bottom: 2px;
-        left: 2px;
-        background: linear-gradient(to bottom, #028cb2, #00d5ff, #055a7b);
-        border-radius:calc(1rem-2px);
-        z-index: -1;
-    }
-    .modal-button.special-button:hover {
-        background: linear-gradient(135deg, #70c1e8, #8fd3f4);
-        transform: translateY(-2px);
-        box-shadow:
-            0 6px 12px rgba(0, 0, 0, 0.46),
-            0 0 10px rgba(98, 190, 230, 1);
-    }
+    
+    /* for the modal buttons on index.html only */
     .inside-circle {
         width: 110px;
         height: 110px;
@@ -675,12 +472,7 @@ textarea#appt-form-message {
             0 0 12px rgba(0, 191, 255, 0.5);
         transition: all 0.3s ease;
     }
-    .modal-button.special-button:hover .inside-circle {
-        background: linear-gradient(145deg, #00d5ff, #025ab2, #05407b);
-        box-shadow:
-            inset 0 0 12px rgba(255, 255, 255, 0.25),
-            0 0 14px rgba(0, 191, 255, 0.8)
-    }
+    
     /* RESNIK MODAL WITH PARALLAX EFFECT */
     .resnik-modal-c-band {
         background-image: url("../images/resnik/resnik-cropped.png");
@@ -760,19 +552,7 @@ textarea#appt-form-message {
         background-color: var(--bs-link-hover-color);
         color: var(--bs-text-color-light);
     }
-    .modal-button.special-button {
-        width: 140px;
-        height: 140px;
-        background-color: rgb(98, 190, 230);
-        border: none;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        padding: 0;
-        cursor: pointer;
-        position: relative;
-        border-radius: 1px;
-    }
+    
     .inside-circle {
         width: 125px;
         height: 125px;

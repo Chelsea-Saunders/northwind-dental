@@ -19,6 +19,7 @@
     <script type="module" src="./src/js/services.mjs" defer></script>
     <script type="module" src="./src/js/main.mjs" defer></script>
     <script type="modal" src="./src/js/modal.mjs" defer></script>
+    <!-- <script type="module" src="./src/js/request-appointment.mjs" defer></script> -->
 </head>
 <body>
     <header>
@@ -120,6 +121,10 @@
         <div class="modal-content">
             <span class="close-modal" role="button" aria-label="Close modal">&times;</span>
         </div>
+     </div>
+     <!-- REQUEST AN APPOINTMENT MODAL -->
+     <div id="request-appt-modal" class="modal hidden" aria-hidden="true">
+        <div class="modal-content" id="appointment-form-container"></div>
      </div>
 </body>
 </html>
