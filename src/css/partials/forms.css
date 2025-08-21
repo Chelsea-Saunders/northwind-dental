@@ -1,5 +1,5 @@
 
-
+/* WHILE PAGE IS UNDER CONSTRUCTION */
 .construction {
     text-align: center;
     font-size: 3rem;
@@ -11,4 +11,34 @@
     font-size: 2.5rem;
     color: navy;
     padding: 3rem;
+}
+
+/* H2 LAYOUT */
+.printable-forms {
+    text-align: center;
+    font-family: var(--bs-body-font);
+    font-size: 2rem;
+    color: navy;
+    margin: 4rem 0;
+}
+
+/* FORMS LINKS */
+.form-links ul {
+    list-style: none;
+    text-align: center;
+    padding-bottom: 4rem;
+}
+.form-links li {
+    margin: 1rem 0;
+    font-size: 1rem;
+    font-family: var(--bs-body-font);
+    color: var(--bs-body-text-color);
+    cursor: pointer;
+}
+.form-links a {
+    text-decoration: none;
+    color: navy;
+}
+.form-links a:hover {
+    color: var(--bs-link-hover-color);
 }

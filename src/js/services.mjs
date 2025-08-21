@@ -126,7 +126,7 @@ function buildModal(service) {
 
 document.addEventListener("DOMContentLoaded", () => {
     // create service list
-    const container = document.getElementById("services-container");
+    const container = document.getElementById("services-offered-container");
 
     container.innerHTML = servicesOfferedModal;
 
