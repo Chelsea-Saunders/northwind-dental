@@ -3,17 +3,33 @@ import { buildAppointment } from "./request-appointment.mjs";
 
 registerModal("request-appt-modal", buildAppointment);
 
+// let player;
 
-window.onYouTubeIframeAPIReady = function () {
-    player = new YT.Player("youtube-video", {
-        events: {
-            onReady: () => {
-                player.mute();
-                player.playVideo();
-            }
-        }
-    });
-}
+// window.onYouTubeIframeAPIReady = function () {
+//     player = new YT.Player("youtube-video", {
+//         events: {
+//             onReady: () => {
+//                 player.mute();
+//                 player.playVideo();
+
+//                 const speakerToggle = document.querySelector("#speaker-toggle");
+//                 let isMuted = true;
+
+//                 speakerToggle.addEventListener("click", () => {
+//                     if (isMuted) {
+//                         player.unMute();
+//                     } else {
+//                         player.mute();
+//                     }
+
+//                     speakerToggle.classList.toggle("muted", isMuted);
+//                     speakerToggle.setAttribute("aria-pressed", String(!isMuted));
+//                     isMuted = !isMuted;
+//                 });
+//             }
+//         }
+//     });
+// };
 
 // RESNIK IMPLANT INSTITUTE ...READ MORE CLICK
 function toggleReadMoreResnik() {
