@@ -23,6 +23,9 @@ export function toggleModal (modalId, show = true) {
     if (!modal) return;
 
     if (show) {
+
+        modal._lastActiveElement = document.activeElement;
+
         const builder = registry.get(modalId);
         if (builder) {
             const container = modal.querySelector(".modal-content");
@@ -33,16 +36,24 @@ export function toggleModal (modalId, show = true) {
         }
 
         modal.classList.remove("hidden");
+        modal.removeAttribute("inert");
         modal.setAttribute("aria-hidden", "false");
         document.body.classList.add("modal-open");
+
         trapFocus(modal);
     } else {
         untrapFocus(modal);
         modal.querySelectorAll("*").forEach(element => element.blur());
         modal.classList.add("hidden");
         modal.setAttribute("aria-hidden", "true");
-        // document.body.classList.remove("modal-open");
 
+        // restore focus to the opener button
+        if (modal._lastActiveElement) {
+            modal._lastActiveElement.focus();
+            modal._lastActiveElement = null;
+        }
+
+        // run cleanup if it exists
         if (typeof modal._cleanup === "function") {
             modal._cleanup();
             modal._cleanup = null;

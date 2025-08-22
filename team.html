@@ -16,8 +16,9 @@
     <link rel="icon" href="favicon.ico" type="image/x-icon"> <!-- This will be a bookmark icon -->
     <link rel="stylesheet" href="src/css/components.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&family=Inconsolata:wght@200..900&family=Roboto:ital,wght@0,100..900;1,100..900&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
+    <script type="module" src="./src/js/team.mjs" defer></script>
     <script type="module" src="./src/js/main.mjs" defer></script>
-    <script type="modal" src="./src/js/modal.mjs" defer></script>
+    <script type="module" src="./src/js/modal.mjs" defer></script>
     <!-- <script type="module" src="./src/js/request-appointment.mjs" defer></script> -->
 </head>
 <body>
@@ -25,7 +26,6 @@
         <section class="global-header">
             <a href="index.html" class="logo-link">
                 <img src="./src/images/logos/logo.jpg" alt="Northwind Dental Logo" class="logo">
-                <!-- <span class="northwind-dental">Northwind Dental</span> -->
             </a>
             <button
                 id="toggle-menu"
@@ -66,8 +66,41 @@
         </section>
     </header>
     <main>
-        <p class="construction">This page is under construction</p><br>
-        <p class="construction-one">Please come back to visit this page when it's finished!!</p>
+        <h2 class="meet-our-team">Meet Our Team</h2>
+        <p class="about-team">We have the best dental team, here at Northwind Dental. Check us out below!</p>
+        <img src="/src/images/team/team.png" alt="Northwind Dental Team Photo" class="team-photo">
+        <div class="meet-the-team-button-container">
+            <div class="wrap">
+                <button class="modal-button" data-modal="dentist">
+                    <img src="/src/images/team/thayne/drDawson.jpg" class="dr-thayne">
+                </button>
+                <h3 id="dr" class="h3">Dr. Thayne Dawson</h3>
+            </div>
+            <div class="wrap">
+                <button class="modal-button" data-modal="hygienist">
+                    <img src="/src/images/team/alyssa-hygienist/Alyssa3.png" alt="Image of Hygienist: Alyssa" class="hyg">
+                </button>
+                <h3 id="hyg-1" class="h3">Hygienist: Alyssa</h3>
+            </div>
+            <div class="wrap">
+                <button class="modal-button" data-modal="assistant-1">
+                    <img src="/src/images/team/beth-assistant/beth.jpg" alt="Image of Dental Assistant: Beth" class="assist-1">
+                </button>
+                <h3 id="assist-1" class="h3">Dental Assistant: Beth</h3>
+            </div>
+            <div class="wrap">
+                <button class="modal-button" data-modal="assistant-2">
+                    <img src="/src/images/team/shania-assistant/butterfly.png" alt="Image of Dental Assistant: Shania" class="assist-2">
+                </button>
+                <h3 id="assist-2" class="h3">Dental Assistant: Shania</h3>
+            </div>
+            <div class="wrap">
+                <button class="modal-button" data-modal="receptionist">
+                    <img src="/src/images/team/jessica-receptionist/jessica2.jpg" alt="Image of Receptionist: Jessica" class="recept">
+                </button>
+                <h3 id="recept" class="h3">Receptionist: Jessica</h3>
+            </div>
+        </div>
     </main>
     <footer>
         <div class="main-footer">
@@ -98,5 +131,15 @@
             <p id="copyright">&copy 2025 Northwind Dental. All Rights Reserved.</p>
         </div>
     </footer>
+
+    <!-- MODAL FOR TEAM MEMBERS -->
+    <div id="teamModal" class="modal hidden" aria-hidden="true">
+        <div class="modal-content"></div>
+    </div>
+
+    <!-- APPOINTMENT REQUEST FOR HEADER/FOOTER -->
+     <div id="request-appt-modal" class="modal hidden" aria-hidden="true">
+        <div class="modal-content" id="appointment-form-container"></div>
+     </div>
 </body>
 </html>
