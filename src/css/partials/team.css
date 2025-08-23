@@ -28,6 +28,7 @@ h2.meet-our-team {
     font-family: var(--bs-body-font);
     font-size: var(--bs-body-font-size);
 }
+
 /* TEAM CONTAINER */
 .meet-the-team-button-container {
     display: flex;
@@ -159,7 +160,6 @@ h2.meet-our-team {
     align-items: center;
     justify-content: center;
 }
-
 
 @media (min-width: 500px) {
     .meet-the-team-button-container {
