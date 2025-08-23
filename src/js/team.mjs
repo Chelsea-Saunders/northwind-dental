@@ -45,7 +45,7 @@ const teamMembers = [
             The Oregon coast was one of her favorite places to explore until she discovered Alaska and moved here in 2020 with her husband. They are living life to the fullest and checking off their bucket-list, climbing glaciers and discovering the beauty of Alaska.`,
         img: [
             { src: "./src/images/team/jessica-receptionist/jessica2.jpg", alt: "Jessica" },
-            { src: "./src/images/team/jessica-receptionist/Jessica3.jpg", alt: "Jessica" },
+            { src: "./src/images/team/jessica-receptionist/jessica3.jpg", alt: "Jessica" },
             { src: "./src/images/team/jessica-receptionist/Jessica1.jpg", alt: "Jessica" },
             { src: "./src/images/team/jessica-receptionist/jessica11.jpg", alt: "Jessica" },
         ]
@@ -166,6 +166,21 @@ registerModal("teamModal", (container) => {
             image.src = img.src;
             image.alt = img.alt;
 
+
+
+
+            // TEMPORARY TO FIGURE OUT IMAGE ISSUES
+            image.addEventListener('error', () =>
+            console.error('IMG ERROR:', image.currentSrc || image.src)
+            );
+            image.addEventListener('load', () =>
+            console.log('IMG LOADED:', image.currentSrc || image.src, image.naturalWidth + 'x' + image.naturalHeight)
+            );
+
+
+
+
+
             slide.appendChild(image);
             track.appendChild(slide);
 
@@ -247,11 +262,10 @@ registerModal("teamModal", (container) => {
     };
 });
 
-
 // EVENT LISTENERS FOR TEAM MEMBER MODAL BUTTONS
 document.addEventListener("DOMContentLoaded", () => {
     const modal = document.getElementById("teamModal");
-const modalContent = modal?.querySelector(".modal-content");
+    const modalContent = modal?.querySelector(".modal-content");
 
     document.querySelectorAll(".modal-button").forEach(button => {
         button.addEventListener("click", () => {
