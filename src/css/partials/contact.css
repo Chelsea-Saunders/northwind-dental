@@ -119,6 +119,7 @@ textarea#appt-form-message {
     width: fit-content;
     height: fit-content;
     margin: auto;
+    margin-top: 1rem;
     border: 2px solid rgb(141, 193, 245);
 }
 
@@ -140,6 +141,17 @@ textarea#appt-form-message {
     transition: opacity 0.3s ease-in-out;
     opacity: 0;
     animation: fadeIn 0.3s forwards;    
+}
+#contact {
+    text-align: center;
+    font-family: var(--bs-body-font);
+    font-size: 0.9rem;
+    margin-top: 1rem;
+    color: var(--bs-text-color-dark);
+}
+.phone-number-link {
+    color: #008080;
+    text-decoration: none;
 }
 @media (min-width: 500px) {
     #appt-req-homepage {

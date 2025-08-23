@@ -1,6 +1,6 @@
 import { toggleMenuHandler } from "./header.mjs";
 import { toggleModal } from "./modal.mjs";
-import { buildAppointment } from "./request-appointment.mjs";
+import { buildAppointment } from "./contact.mjs";
 
 // add event listener
 document.addEventListener("DOMContentLoaded", () => {

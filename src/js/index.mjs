@@ -1,35 +1,7 @@
 import { registerModal } from "./modal.mjs";
-import { buildAppointment } from "./request-appointment.mjs";
+import { buildAppointment } from "./contact.mjs";
 
 registerModal("request-appt-modal", buildAppointment);
-
-// let player;
-
-// window.onYouTubeIframeAPIReady = function () {
-//     player = new YT.Player("youtube-video", {
-//         events: {
-//             onReady: () => {
-//                 player.mute();
-//                 player.playVideo();
-
-//                 const speakerToggle = document.querySelector("#speaker-toggle");
-//                 let isMuted = true;
-
-//                 speakerToggle.addEventListener("click", () => {
-//                     if (isMuted) {
-//                         player.unMute();
-//                     } else {
-//                         player.mute();
-//                     }
-
-//                     speakerToggle.classList.toggle("muted", isMuted);
-//                     speakerToggle.setAttribute("aria-pressed", String(!isMuted));
-//                     isMuted = !isMuted;
-//                 });
-//             }
-//         }
-//     });
-// };
 
 // RESNIK IMPLANT INSTITUTE ...READ MORE CLICK
 function toggleReadMoreResnik() {
@@ -88,31 +60,3 @@ document.addEventListener("DOMContentLoaded", () => {
         toggleReadMoreResnik();
     });
 });
-
-
-
-
-// MUTE/UNMUTE LOGIC
-// function initYouTubePlayer() {
-//     const speakerToggle = document.querySelector("#speaker-toggle");
-//     let iframe = document.querySelector("#youtube-video");
-//     if (!iframe || ! speakerToggle) return;
-
-//     let isMuted = true;
-
-//     speakerToggle.addEventListener("click", () => {
-//         const nextSrc = iframe.src.replace(
-//             isMuted ? "mute=0" : "mute=1",
-//             isMuted ? "mute=1" : "mute=0"
-//         )
-//         const newIframe = iframe.cloneNode(true);
-//         newIframe.src = nextSrc;
-
-//         iframe.parentNode.replaceChild(newIframe, iframe);
-//         iframe = newIframe;
-
-//         speakerToggle.classList.toggle("muted", isMuted);
-//         speakerToggle.setAttribute("aria-pressed", String(!isMuted));
-//         isMuted = !isMuted;
-//     });
-// }
