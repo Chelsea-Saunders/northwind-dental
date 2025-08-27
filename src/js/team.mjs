@@ -90,6 +90,7 @@ registerModal("teamModal", (container) => {
     container.innerHTML = `
         <span class="close-modal" aria-label="Close Modal">&times;</span>
         <div class="team-modal-content">
+            <img src="" alt="Team Member Photo" class="team-member-photo">
             <h2 class="team-member-name"></h2>
             <h3 class="team-member-role"></h3>
             <div class=team-member-description></div>
