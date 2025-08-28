@@ -10,6 +10,13 @@ h2.meet-our-team {
     text-align: center;
     padding-top: 2rem;
 }
+.meet-your-nw-dental-team {
+    text-align: center;
+    font-family: var(--bs-body-font);
+    font-size: var(--bs-title-font-size);
+    color: var(--bs-body-text-color);
+    margin: 2rem;
+}
 .team-photo {
     width: 70%;
     margin: 0 auto;

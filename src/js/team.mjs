@@ -76,9 +76,9 @@ const teamMembers = [
         id: "assistant-2",
         name: "Shania", 
         role: "Dental Assistant",
-        description: `More about Shania coming soon!`,
+        description: `Shania has been a dental assistant for about 3 years in Hawaii and Alaska! Shania was born and raised in Alaska between Fairbanks and Wasilla. She loves traveling with her family and sitting on a warm beach with a poke bowl. She enjoys getting to know patients of all ages and can’t wait to see you all in our office!`,
         img: [
-            { src: "./src/images/team/shania-assistant/butterfly.png", alt: "Shania" }
+            { src: "./src/images/team/shania-assistant/shania.png", alt: "Shania" }
         ]
     }
 ]
@@ -90,7 +90,6 @@ registerModal("teamModal", (container) => {
     container.innerHTML = `
         <span class="close-modal" aria-label="Close Modal">&times;</span>
         <div class="team-modal-content">
-            <img src="" alt="Team Member Photo" class="team-member-photo">
             <h2 class="team-member-name"></h2>
             <h3 class="team-member-role"></h3>
             <div class=team-member-description></div>
