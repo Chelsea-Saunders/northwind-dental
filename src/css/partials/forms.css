@@ -1,17 +1,4 @@
 
-/* WHILE PAGE IS UNDER CONSTRUCTION */
-/* .construction {
-    text-align: center;
-    font-size: 3rem;
-    color: red;
-    padding: 3rem;
-}
-.construction-one {
-    text-align: center;
-    font-size: 2.5rem;
-    color: navy;
-    padding: 3rem;
-} */
 
 /* H2 LAYOUT */
 .printable-forms {
@@ -41,4 +28,6 @@
 }
 .form-links a:hover {
     color: var(--bs-link-hover-color);
+    font-weight: 500;
+    transform: translateY(-5px);
 }

@@ -76,27 +76,6 @@ body.modal-open {
 body.modal-open {
     overflow: hidden;
 }
-.modal-button.special-button {
-    border: 5px solid rgb(98, 190, 230);
-    background: linear-gradient(180deg, #028cb2, #00d5ff, #055a7b);
-    color: var(--bs-text-color-light);
-    border-radius: 1.5rem;
-    padding: 0.5rem 1rem;
-    font-size: 0.9rem;
-    text-align: center;
-    cursor: pointer;
-    
-    box-shadow:
-        inset 0 0 8px rgba(255, 255, 255, 0.5),
-        0 4px 8px rgba(0, 0, 0, 0.3),
-        0 0 12px rgba(0, 191, 255, 0.7);
-
-    transition: all 0.3s ease;
-    width: fit-content;
-    height: fit-content;
-    margin: auto;
-    border: 5px solid rgb(98, 206, 230);
-}
 /* buttons */
 .modal-button.special-button {
     width: 120px;
@@ -174,6 +153,7 @@ body.modal-open {
 #global-nav .contact-button-header:hover {
     background-color: var(--bs-gradient-buttons-hover);
     color: var(--bs-text-color-dark);
+    font-weight: 600;
     box-shadow: var(--bs-box-shadow-button-hover);
     transform: translateY(-2px);
 }
