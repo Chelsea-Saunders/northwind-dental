@@ -23,6 +23,8 @@
     cursor: pointer;
 }
 .form-links a {
+    display: inline-block;
+    transition: transform 0.2s ease;
     text-decoration: none;
     color: navy;
 }
