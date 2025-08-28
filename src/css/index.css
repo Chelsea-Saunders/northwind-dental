@@ -278,27 +278,38 @@ html {
     font-family: var(--bs-body-font);
     font-size: var(--bs-body-font-size);
 }
-.modal-button.special-button,
-#services-link.modal-button.special-button,
-#meet-the-team-modal.modal-button.special-button {
-    border-radius: var(--bs-border-radius-large);
+
+.modal-button.special-button.info-btn, 
+#services-link,
+#meet-the-team-modal {
+    border-radius: var(--bs-border-radius-large) !important;
     text-decoration: none;
     font-family: var(--bs-body-font);
     font-size: var(--bs-body-font-size);
-    background: linear-gradient(190deg, #a1e8ff, #426a92, #a1e8ff);
+    background: linear-gradient(190deg, #a1e8ff, #426a92, #a1e8ff) !important;
     border: none;
     cursor: pointer;
     color: var(--bs-text-color-light);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    position: relative;
 }
-.modal-button.special-button:hover,
-#services-link.modal-button.special-button:hover,
-#meet-the-team-modal.modal-button.special-button:hover {
+.modal-button.special-button.info-btn:hover, 
+#services-link:hover,
+#meet-the-team-modal:hover {
     background: linear-gradient(145deg, #00bfff, #025ab2, #05407b);
+    border-radius: var(--bs-border-radius-large);
+    transform: translateY(-2px);
     box-shadow: 
         inset 0 0 10px rgba(255, 255, 255, 0.7), 
-        0 0 12px rgba(0, 191, 255, 0.8);
-    transform: translateY(-2px);
-    cursor: pointer;
+        0 0 12px rgba(38, 65, 74, 0.8);
+}
+.modal-button.special-button.info-btn::before, 
+#services-link::before,
+#meet-the-team-modal::before {
+    content: none !important;
 }
 .inside-circle {
     width: 110px;
@@ -329,6 +340,8 @@ html {
         inset 0 0 10px rgba(255, 255, 255, 0.7), 
         0 0 12px rgba(0, 191, 255, 0.8);
     transform: translateY(-2px);
+    cursor: pointer;
+    border-radius: 50%;
 }
 .logo-grid {
     display: grid;

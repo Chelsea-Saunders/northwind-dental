@@ -5,27 +5,29 @@
     padding: 0;
     margin: 0;
 }
-/* #services-container {
+#services-container {
     width: 100%;
     height: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-} */
+}
 
  /* WHOLE SERVICES.HTML BODY CONTAINER */
 #services-offered-list ul{
     gap: 0;
-    padding-bottom: 3rem;
+    padding-bottom: 1rem 3rem;
 }
 /* SERVICES GRID FOR SERVICES.HTML PAGE */
 #services-offered-list {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 1rem;
     list-style: none;
     max-width: 1200px;
     margin: 0 auto;
+    padding: 1rem;
 }
 /* EACH CARD */
 #services-offered-list li {
@@ -35,7 +37,15 @@
     gap: 0.5rem;
     text-align: center;
     align-items: center;
-    padding: 2rem 0;
+    padding: 1rem;
+}
+#services-offered-list li:hover .service-icon {
+    transform: scale(1.05);
+    box-shadow:
+        inset 0 0 8px rgba(255, 255, 255, 0.7),
+        0 6px 12px rgba(0, 0, 0, 0.4),
+        0 0 16px rgba(0, 191, 255, 0.9);
+    cursor: pointer;
 }
 
 .feature-list {
@@ -157,11 +167,11 @@ p {
 @media (min-width: 500px) {
     #services-offered-list {
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-        gap: 3rem;
+        grid-template-columns: repeat(auto-fit, minmax(175px, 1fr));
+        gap: 1rem;
         padding: 0 2rem;
     }
-    ul#services-offered-list {
+    #services-offered-list ul {
         padding-bottom: 1rem;
     }
 }
