@@ -278,6 +278,58 @@ html {
     font-family: var(--bs-body-font);
     font-size: var(--bs-body-font-size);
 }
+.modal-button.special-button,
+#services-link.modal-button.special-button,
+#meet-the-team-modal.modal-button.special-button {
+    border-radius: var(--bs-border-radius-large);
+    text-decoration: none;
+    font-family: var(--bs-body-font);
+    font-size: var(--bs-body-font-size);
+    background: linear-gradient(190deg, #a1e8ff, #426a92, #a1e8ff);
+    border: none;
+    cursor: pointer;
+    color: var(--bs-text-color-light);
+}
+.modal-button.special-button:hover,
+#services-link.modal-button.special-button:hover,
+#meet-the-team-modal.modal-button.special-button:hover {
+    background: linear-gradient(145deg, #00bfff, #025ab2, #05407b);
+    box-shadow: 
+        inset 0 0 10px rgba(255, 255, 255, 0.7), 
+        0 0 12px rgba(0, 191, 255, 0.8);
+    transform: translateY(-2px);
+    cursor: pointer;
+}
+.inside-circle {
+    width: 110px;
+    height: 110px;
+    cursor: pointer;
+    border-radius: 50%;
+    background: linear-gradient(145deg, #05407b, #025ab2, #00bfff, #025ab2, #05407b);
+    color: var(--bs-text-color-light);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.7rem;
+    text-align: center;
+    padding: 10px;
+    white-space: normal;
+    word-break: break-word;
+    line-height: 1.2;
+    aspect-ratio: 1 / 1;
+    border: 5px solid rgb(98, 190, 230);
+    box-shadow: 
+        inset 0 0 10px rgba(255, 255, 255, 0.41), 
+        0 0 12px rgba(0, 191, 255, 0.5);
+    transition: all 0.3s ease;
+}
+.inside-circle:hover {
+    background: linear-gradient(145deg, #00bfff, #025ab2, #05407b);
+    box-shadow: 
+        inset 0 0 10px rgba(255, 255, 255, 0.7), 
+        0 0 12px rgba(0, 191, 255, 0.8);
+    transform: translateY(-2px);
+}
 .logo-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
