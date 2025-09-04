@@ -63,7 +63,7 @@ const services = [
         name: "Removable Prosthetics",
         img: "src/images/img-links/dentures.png",
         alt: "Image of a set of dentures",
-        description: "Custom-made dentures and partials to restore oral function and aesthetics.",
+        description: "Prosthetics are custom-made dentures or partial dentures which help restore oral function and aesthetics.",
         list: [
             "Full Dentures",
             "Partial Dentures",
@@ -79,7 +79,7 @@ const procedures = {
         title: "Comprehensive Exams", 
         img: "", 
         alt: "", 
-        description: "A comprehensive dental exam is a complete check of your overall oral health. During this visit, the Dr Dawson will look at your teeth, gums, bite, and soft tissues, checking for cavities, gum disease, jaw issues, and early signs of oral cancer. X-rays or digital images may also be taken to see what’s happening below the surface, such as tooth roots or bone health. This exam gives Dr. Dawson a clear picture of your mouth so we can create a personalized plan for care, whether that’s preventive tips, routine cleanings, or treatment recommendations. It’s an important step in protecting both your smile and your overall health."
+        description: "A comprehensive dental exam is a complete check of your overall oral health. During this visit, Dr Dawson will look at your teeth, gums, bite, and soft tissues, checking for cavities, gum disease, jaw issues, and early signs of oral cancer. X-rays or digital images may also be taken to see what’s happening below the surface, such as tooth roots or bone health. This exam gives Dr. Dawson a clear picture of your mouth so we can create a personalized plan for care, whether that’s preventive tips, routine cleanings, or treatment recommendations. It’s an important step in protecting both your smile and your overall health."
     },
     "professional-cleanings": {
         title: "Professional Cleanings", 
@@ -91,7 +91,7 @@ const procedures = {
         title: "Fluoride Treatments", 
         img: "",
         alt: "", 
-        description: "A fluoride treatment is a quick and simple way to strengthen your teeth and help prevent cavities. The our hygienist applies a concentrated form of fluoride—usually as a varnish, foam, or gel—that soaks into the enamel and makes your teeth more resistant to decay. It only takes a few minutes and is especially helpful for children, but adults at higher risk for cavities can benefit too. Think of it as a protective shield for your teeth that adds an extra layer of defense against everyday wear and acids."
+        description: "A fluoride treatment is a quick and simple way to strengthen your teeth and help prevent cavities. Our hygienist applies a concentrated form of fluoride—usually as a varnish, foam, or gel—that soaks into the enamel and makes your teeth more resistant to decay. It only takes a few minutes and is especially helpful for children, but adults at higher risk for cavities can benefit too. Think of it as a protective shield for your teeth that adds an extra layer of defense against everyday wear and acids."
     },
     "dental-sealants": {
         title: "Dental Sealants", 
@@ -109,7 +109,7 @@ const procedures = {
         title: "X-rays", 
         img: "", 
         alt: "", 
-        description: "Dental X-rays are special images that let Dr. Dawson see what’s happening beneath the surface of your teeth and gums. They help identify hidden problems like cavities between teeth, infections in the bone, impacted teeth, or issues with developing teeth. X-rays are quick, safe. Depending on your age, health, and risk for dental problems, we may take X-rays every year or every few years to keep a close eye on your oral health."
+        description: "Dental X-rays are special images that let Dr. Dawson see what’s happening beneath the surface of your teeth and gums. They help identify hidden problems like cavities between teeth, infections in the bone, impacted teeth, or issues with developing teeth. X-rays are quick and safe. Depending on your age, health, and risk for dental problems, we may take X-rays every year as needed to keep a close eye on your oral health."
     },
     "fillings": {
         title: "Fillings", 
@@ -145,7 +145,7 @@ const procedures = {
         title: "Chipped or Broken Teeth", 
         img: "", 
         alt: "",
-        description: "If you chip or break a tooth, your Dr. Dawson can restore it with treatments like bonding, veneers, crowns, or other restorations depending on the size and location of the damage. These repairs not only improve the appearance of your smile but also protect the tooth from further harm. Quick treatment is key to preventing pain or additional damage."
+        description: "If you chip or break a tooth, Dr. Dawson can restore it with treatments like bonding, veneers, crowns, or other restorations depending on the size and location of the damage. These repairs not only improve the appearance of your smile but also protect the tooth from further harm. Quick treatment is key to preventing pain or additional damage."
     },
     "lost-fillings-or-crowns": {
         title: "Lost Fillings or Crowns", 

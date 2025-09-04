@@ -3,6 +3,9 @@ import { buildAppointment } from "./contact.mjs";
 
 registerModal("request-appt-modal", buildAppointment);
 
+const API_KEY = import.meta.env.VITE_GOOGLE_PLACES_API_KEY;
+const container = document.getElementById("reviews-container");
+
 // RESNIK IMPLANT INSTITUTE ...READ MORE CLICK
 function toggleReadMoreResnik() {
     const moreText = document.querySelector (".more-text-resnik");
@@ -46,6 +49,12 @@ function insuranceModal() {
         logoContainer.appendChild(img);
     });
 }
+
+// GOOGLE REVIEWS
+// fetch(`https://maps.googleapis.com/maps/api/place/details/json?place_id=YOUR_PLACE_ID&key=${API_KEY}`)
+//     .then(response => response.json())
+//     .then(data => console.log(data))
+//     .catch(error => console.error(error));
 
 //DOMContent Loaded Event
 document.addEventListener("DOMContentLoaded", () => {

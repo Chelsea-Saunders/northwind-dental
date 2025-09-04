@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Friendly and professional dental care for the whole family in Wasilla, Alaska. Offering gentle, compassionate, restorative, and advanced dentistry with personalized care for patients of all ages. With comprehensive dental services: cleanings, fillings, implants, cosmetic dentistry and emergency care for everyone.">
-    <meta name="authot" content="Chelsea Saunders"> <!-- OPEN GRAPH: social sharing -->
+    <meta name="author" content="Chelsea Saunders"> <!-- OPEN GRAPH: social sharing -->
     <meta property="og:title" content="Page Title">
     <meta property="og:description" content="Your trusted family dentist in Wasilla, Alaska. Comprehensive dental care for children and adults, including cleanings, fillings, crowns, and more.">
     <meta property="og:image" content="">
@@ -204,15 +204,9 @@
         <div class="modal-content">
             <span class="close-modal" role="button" aria-label="Close modal">&times;</span>
             <h2 id="g-rev">Google Reviews</h2>
-            <iframe 
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1898.3495935159203!2d-149.35981578695956!3d61.58864662806921!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x56c8e0843c7feec1%3A0x7dcaf09dba0957df!2sNorthwind%20Dental!5e0!3m2!1sen!2sus!4v1753987631002!5m2!1sen!2sus" 
-                width="400" 
-                height="300" 
-                style="border:0;" 
-                allowfullscreen="" 
-                loading="lazy" 
-                referrerpolicy="no-referrer-when-downgrade">
-            </iframe>
+            <div id="reviews-container">
+                <p>Loading reviews...</p>
+            </div>
         </div>
     </div>
     <!-- SERVICES OFFERED -->
@@ -275,5 +269,92 @@
             <p id="copyright">&copy 2025 Northwind Dental. All Rights Reserved.</p>
         </div>
     </footer>
+    <script type="module">
+        import.meta.env; // make sure Vite processes this script
+        const API_KEY = import.meta.env.VITE_GOOGLE_PLACES_API_KEY;
+        const PLACE_ID = "ChIJwe5_PITgyFYR31cJup3wyn0";
+
+        // function to load maps JS API & Places Library
+        function loadMaps() {
+            return new Promise((resolve) => {
+                if (window.google?.maps?.importLibrary) return resolve();
+                window.initPlaces = () => resolve();
+                const script = document.createElement("script");
+                script.src = `https://maps.googleapis.com/maps/api/js?key=${API_KEY}&libraries=places&callback=initPlaces&loading=async`;
+                script.async = true;
+                script.defer = true;
+                document.head.appendChild(script);
+            });
+        }
+
+        async function getPlaceDetails(placeId) {
+            await loadMaps();
+            const { Place } = await google.maps.importLibrary("places");
+
+            const place = new Place({ id: placeId });
+            await place.fetchFields({
+                fields: [
+                    "displayName", 
+                    "rating", 
+                    "userRatingCount", 
+                    "reviews"
+                ]
+            });
+
+            return place;
+        }
+
+        function renderReviews(place, container) {
+            const name = place.displayName?.text ?? place.displayName ?? "Our Office";
+            const rating = place.rating ?? "N/A";
+            const count = place.userRatingCount ?? 0;
+            const mapsUrl = `https://www.google.com/maps/search/?api=1&query_place_id=${PLACE_ID}`;
+
+            const reviews = Array.isArray(place.reviews) ? place.reviews.slice(0, 3) : [];
+
+            container.innerHTML = `
+                <h3>${name}</h3>
+                <p>⭐ ${rating} (${count} reviews)</p>
+                ${
+                    reviews.length
+                        ? `<ul>
+                            ${reviews.map(r => `
+                                <li>
+                                    <strong>${r.authorAttribution?.displayName ?? "Anonymous"}</strong><br>
+                                    "${r.text?.text ?? r.text ?? ""}"
+                                    ${r.rating ? `<div>Rating: ${r.rating}</div>` : ""}
+                                    ${r.relativePublishTimeDescription ? `<div>${r.relativePublishTimeDescription}</div>` : ""}
+                                </li>
+                            `).join("")}
+                        </ul>`
+                        : `<p>No public Google reviews available yet.</p>`
+                    }
+                    <p><a href ="${mapsUrl}" target="_blank" rel="noopener">View on Google</a></p>
+            `;
+        }
+
+        let reviewsLoaded = false;
+        async function initReviews() {
+            const container = document.getElementById("reviews-container");
+            if (!container || reviewsLoaded) return;
+            reviewsLoaded = true;
+
+            container.innerHTML = "<p>Loading reviews...</p>";
+            try {
+                const place = await getPlaceDetails(PLACE_ID);
+                renderReviews(place, container);
+            } catch (e) {
+                console.error(e);
+                container.innerHTML = `<p class="error">Couldn't load reviews (${e}).</p>`;
+            }
+        }
+
+        document.addEventListener("DOMContentLoaded", () => {
+            document
+                .querySelectorAll('[data-modal="google-reviews-modal"]')
+                .forEach(button => button.addEventListener("click", initReviews, { once: true }));
+        });
+
+    </script>
 </body>
 </html>
