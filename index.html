@@ -14,8 +14,6 @@
     <meta name="robots" content="index, follow"> <!-- This will help search engins know if they should index your page -->
     <title>Northwind Dental, Wasilla, Alaska</title>
     <link rel="icon" href="favicon.ico" type="image/x-icon"> <!-- This will be a bookmark icon -->
-    <link rel="stylesheet" href="src/css/components.css">
-    <link rel="stylesheet" href="src/css/index.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&family=Inconsolata:wght@200..900&family=Roboto:ital,wght@0,100..900;1,100..900&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Roboto+Flex:opsz,wght@8..144,100..1000&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat+Alternates:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
@@ -49,8 +47,8 @@
             });
         };
     </script>    
-    <script type="module" src="./src/js/main.mjs" defer></script>
-    <script type="module" src="./src/js/index.mjs" defer></script>
+  <script type="module" crossorigin src="/assets/index-sTjP-nL0.js"></script>
+  <link rel="stylesheet" crossorigin href="/assets/index-CE3dlp4N.css">
 </head>
 <body>
     <!-- <div class="skip-links" aria-label="short-cut links" roll="navigation">
@@ -77,7 +75,7 @@
     <header>
         <section class="global-header">
             <a href="index.html" class="logo-link">
-                <img src="./src/images/logos/logo.jpg" alt="Northwind Dental Logo" class="logo">
+                <img src="/assets/logo-Ds-rmfIC.jpg" alt="Northwind Dental Logo" class="logo">
             </a>
             <button
                 id="toggle-menu"
@@ -221,7 +219,7 @@
     <section class="resnik-wrapper">
         <div class="resnik-modal-c-band">
             <div class="resnik-modal-content initial-state">
-                <img src="./src/images/resnik/resnik-logo.png" alt="Resnik Implant Institute logo" id="resnik-img">
+                <img src="/assets/resnik-logo-CLQgJpSt.png" alt="Resnik Implant Institute logo" id="resnik-img">
                 <p class="resnik">Dr. Dawson has completed his fellowship in the Resnik Implant Institute. 
                     This rigorous program is recognized by both the Academy of General Dentistry, 
                     and the ADA-CERP Continuing Education Recognition Program. 
@@ -262,99 +260,12 @@
                 <button class="modal-button" data-modal="request-appt-modal" id="appt-req-footer" aria-label="Request an appointment button">
                     <div class="appt-request">CONTACT US</div>
                 </button>
-                <img src="./src/images/logos/logo.jpg" alt="Northwind dental logo" id="footer-logo">
+                <img src="/assets/logo-Ds-rmfIC.jpg" alt="Northwind dental logo" id="footer-logo">
             </div>
         </div>
         <div class="copyright">
             <p id="copyright">&copy 2025 Northwind Dental. All Rights Reserved.</p>
         </div>
     </footer>
-    <script type="module">
-        import.meta.env; // make sure Vite processes this script
-        const API_KEY = import.meta.env.VITE_GOOGLE_PLACES_API_KEY;
-        const PLACE_ID = "ChIJwe5_PITgyFYR31cJup3wyn0";
-
-        // function to load maps JS API & Places Library
-        function loadMaps() {
-            return new Promise((resolve) => {
-                if (window.google?.maps?.importLibrary) return resolve();
-                window.initPlaces = () => resolve();
-                const script = document.createElement("script");
-                script.src = `https://maps.googleapis.com/maps/api/js?key=${API_KEY}&libraries=places&callback=initPlaces&loading=async`;
-                script.async = true;
-                script.defer = true;
-                document.head.appendChild(script);
-            });
-        }
-
-        async function getPlaceDetails(placeId) {
-            await loadMaps();
-            const { Place } = await google.maps.importLibrary("places");
-
-            const place = new Place({ id: placeId });
-            await place.fetchFields({
-                fields: [
-                    "displayName", 
-                    "rating", 
-                    "userRatingCount", 
-                    "reviews"
-                ]
-            });
-
-            return place;
-        }
-
-        function renderReviews(place, container) {
-            const name = place.displayName?.text ?? place.displayName ?? "Our Office";
-            const rating = place.rating ?? "N/A";
-            const count = place.userRatingCount ?? 0;
-            const mapsUrl = `https://www.google.com/maps/search/?api=1&query_place_id=${PLACE_ID}`;
-
-            const reviews = Array.isArray(place.reviews) ? place.reviews.slice(0, 3) : [];
-
-            container.innerHTML = `
-                <h3>${name}</h3>
-                <p>⭐ ${rating} (${count} reviews)</p>
-                ${
-                    reviews.length
-                        ? `<ul>
-                            ${reviews.map(r => `
-                                <li>
-                                    <strong>${r.authorAttribution?.displayName ?? "Anonymous"}</strong><br>
-                                    "${r.text?.text ?? r.text ?? ""}"
-                                    ${r.rating ? `<div>Rating: ${r.rating}</div>` : ""}
-                                    ${r.relativePublishTimeDescription ? `<div>${r.relativePublishTimeDescription}</div>` : ""}
-                                </li>
-                            `).join("")}
-                        </ul>`
-                        : `<p>No public Google reviews available yet.</p>`
-                    }
-                    <p><a href ="${mapsUrl}" target="_blank" rel="noopener">View on Google</a></p>
-            `;
-        }
-
-        let reviewsLoaded = false;
-        async function initReviews() {
-            const container = document.getElementById("reviews-container");
-            if (!container || reviewsLoaded) return;
-            reviewsLoaded = true;
-
-            container.innerHTML = "<p>Loading reviews...</p>";
-            try {
-                const place = await getPlaceDetails(PLACE_ID);
-                renderReviews(place, container);
-            } catch (e) {
-                console.error(e);
-                container.innerHTML = `<p class="error">Couldn't load reviews (${e}).</p>`;
-            }
-        }
-
-        document.addEventListener("DOMContentLoaded", () => {
-            document
-                .querySelectorAll('[data-modal="google-reviews-modal"]')
-                .forEach(button => button.addEventListener("click", initReviews, { once: true }));
-        });
-
-    </script>
 </body>
 </html>
