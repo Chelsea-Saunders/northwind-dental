@@ -1,0 +1,30 @@
+{
+  "name": "northwind-dental",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "date-fns": "^4.1.0",
+    "validator": "^13.15.15"
+  },
+  "devDependencies": {
+    "vite": "^7.1.4"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Chelsea-Saunders/northwind-dental.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Chelsea-Saunders/northwind-dental/issues"
+  },
+  "homepage": "https://github.com/Chelsea-Saunders/northwind-dental#readme"
+}

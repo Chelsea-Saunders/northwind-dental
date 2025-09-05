@@ -1,0 +1,413 @@
+
+import { toggleModal } from "./modal.mjs";
+
+// WHAT EACH MODAL CONTENT WILL BE
+const services = [
+    {
+        id: "preventative-content", 
+        name: "Preventative Care", 
+        img: "src/images/img-links/smile.png",
+        alt: "Image of a bright smile", 
+        description: "Regular exams, cleanings and preventative treatments keep your smile healthy.",
+        list: [
+            "Comprehensive Exams", 
+            "Professional Cleanings", 
+            "Fluoride Treatments",
+            "Dental Sealants",
+            "Oral Cancer Screenings",
+            "X-rays"
+        ]
+    },
+    {
+        id: "restorative-content", 
+        name: "Restorative Care", 
+        img: "src/images/img-links/implants.png",
+        alt: "Image of a dental implant bridge",
+        description: "Restorative dentistry repairs and restores damaged or missing teeth.", 
+        list: [
+            "Fillings",
+            "Same Day Crowns", 
+            "Bridges", 
+            "Implants"
+        ]
+    },
+    {
+        id: "emergency-content", 
+        name: "Emergency Care",
+        img: "src/images/img-links/emergency.png",
+        alt: "Image of a person with a toothache",
+        description: "We provide prompt care for dental emergencies to relieve pain and restore function.",
+        list: [
+            "Toothaches",
+            "Chipped or Broken Teeth",
+            "Lost Fillings or Crowns",
+            "Abscesses",
+            "Oral Trauma",
+            "Root Canals", 
+            "Extractions"
+        ]
+    },
+    {
+        id: "cosmetic-content", 
+        name: "Cosmetic Dentistry",
+        img: "src/images/img-links/whitening.png",
+        alt: "Image of digitally whitened teeth",
+        description: "Enhance your smile with our cosmetic dentistry services.",
+        list: [
+            "Teeth Whitening",
+            "Veneers"
+        ]
+    },
+    {
+        id: "removable-content",
+        name: "Removable Prosthetics",
+        img: "src/images/img-links/dentures.png",
+        alt: "Image of a set of dentures",
+        description: "Prosthetics are custom-made dentures or partial dentures which help restore oral function and aesthetics.",
+        list: [
+            "Full Dentures",
+            "Partial Dentures",
+            "Implant-Supported Dentures", 
+            "Flippers"
+        ]
+    }
+]
+
+//PROCEDURES (CHILD MODAL CONTENT)
+const procedures = {
+    "comprehensive-exams": {
+        title: "Comprehensive Exams", 
+        img: "", 
+        alt: "", 
+        description: "A comprehensive dental exam is a complete check of your overall oral health. During this visit, Dr Dawson will look at your teeth, gums, bite, and soft tissues, checking for cavities, gum disease, jaw issues, and early signs of oral cancer. X-rays or digital images may also be taken to see what’s happening below the surface, such as tooth roots or bone health. This exam gives Dr. Dawson a clear picture of your mouth so we can create a personalized plan for care, whether that’s preventive tips, routine cleanings, or treatment recommendations. It’s an important step in protecting both your smile and your overall health."
+    },
+    "professional-cleanings": {
+        title: "Professional Cleanings", 
+        img: "", 
+        alt: "", 
+        description: "A professional dental cleaning is a thorough cleaning of your teeth that goes beyond what you can do at home with brushing and flossing. During this visit, our hygienist gently removes plaque and hardened tartar from your teeth, polishes away surface stains, and flosses between your teeth to leave your mouth feeling fresh and healthy. In some cases, a fluoride treatment may be added to give your teeth extra protection. Regular cleanings are an important part of preventing cavities, keeping your gums healthy, and maintaining a bright smile."
+    },
+    "fluoride-treatments": {
+        title: "Fluoride Treatments", 
+        img: "",
+        alt: "", 
+        description: "A fluoride treatment is a quick and simple way to strengthen your teeth and help prevent cavities. Our hygienist applies a concentrated form of fluoride—usually as a varnish, foam, or gel—that soaks into the enamel and makes your teeth more resistant to decay. It only takes a few minutes and is especially helpful for children, but adults at higher risk for cavities can benefit too. Think of it as a protective shield for your teeth that adds an extra layer of defense against everyday wear and acids."
+    },
+    "dental-sealants": {
+        title: "Dental Sealants", 
+        img: "", 
+        alt: "",
+        description: "Dental sealants are a thin, protective coating placed on the chewing surfaces of the back teeth to keep food and bacteria out of the deep grooves where cavities often start. The process is quick and painless: the tooth is cleaned, prepared, and then painted with a tooth-colored resin that’s hardened with a special light. Once applied, sealants act like a shield, making it easier to keep those hard-to-reach teeth healthy. Sealants are especially useful for children and teens, but adults with deep grooves in their teeth can benefit too."
+    },
+    "oral-cancer-screenings": {
+        title: "Oral Cancer Screenings", 
+        img: "", 
+        alt: "",
+        description: "An oral cancer screening is a fast, painless exam that helps detect early signs of cancer or precancer in the mouth. During the screening, Dr. Dawson looks at your lips, tongue, cheeks, and throat for any unusual spots, lumps, or changes, and may gently feel your neck and jaw for swelling. Most of the time nothing is found, but the exam gives peace of mind and ensures that if anything is detected, it’s caught early when it’s easiest to treat. This simple step is an important part of protecting your overall health."
+    },
+    "x-rays": {
+        title: "X-rays", 
+        img: "", 
+        alt: "", 
+        description: "Dental X-rays are special images that let Dr. Dawson see what’s happening beneath the surface of your teeth and gums. They help identify hidden problems like cavities between teeth, infections in the bone, impacted teeth, or issues with developing teeth. X-rays are quick and safe. Depending on your age, health, and risk for dental problems, we may take X-rays every year as needed to keep a close eye on your oral health."
+    },
+    "fillings": {
+        title: "Fillings", 
+        img: "", 
+        alt: "", 
+        description: "A dental filling is used to restore a tooth that has been damaged by a cavity or minor fracture. After removing the decay, Dr. Dawson places a tooth-colored material that blends naturally with your smile, sealing and protecting the tooth from further damage. Fillings are a simple, effective way to stop cavities from spreading and to keep your teeth healthy and strong."
+    },
+    "same-day-crowns": {
+        title: "Same Day Crowns", 
+        img: "",
+        alt: "", 
+        description: "Same day crowns are custom-made restorations designed and placed in a single visit, eliminating the need for temporary crowns and multiple appointments. Using advanced digital technology, Dr. Dawson creates a precise, tooth-colored crown that restores strength, function, and appearance right away. This convenient option means you leave the office with a fully restored smile in just one day."
+    },
+    "bridges": {
+        title: "Bridges", 
+        img: "",
+        alt: "", 
+        description: "A dental bridge is used to replace one or more missing teeth by anchoring a false tooth to the natural teeth or crowns on either side of the gap. Bridges not only restore your smile but also help maintain proper bite alignment and make chewing and speaking easier. With modern materials, bridges can look natural and blend seamlessly with your existing teeth."
+    },
+    "implants": {
+        title: "Implants",
+        img: "", 
+        alt: "", 
+        description: "Dental implants are a long-lasting solution for missing teeth that look, feel, and function like natural teeth. An implant is a small titanium post placed in the jawbone, which serves as a sturdy foundation for a crown, bridge, or denture. Implants help preserve bone health, restore confidence, and provide a stable and comfortable fit compared to traditional tooth replacements."
+    },
+    "toothaches": {
+        title: "Toothaches", 
+        img: "",
+        alt: "", 
+        description: "A toothache is a sign that something is wrong, whether it’s a cavity, infection, or gum problem. During a visit, Dr. Dawson will carefully examine the tooth, take X-rays if needed, and provide the right treatment to relieve pain and address the underlying cause. Prompt care is important, since ignoring tooth pain can allow problems to worsen."
+    },
+    "chipped-or-broken-teeth": {
+        title: "Chipped or Broken Teeth", 
+        img: "", 
+        alt: "",
+        description: "If you chip or break a tooth, Dr. Dawson can restore it with treatments like bonding, veneers, crowns, or other restorations depending on the size and location of the damage. These repairs not only improve the appearance of your smile but also protect the tooth from further harm. Quick treatment is key to preventing pain or additional damage."
+    },
+    "lost-fillings-or-crowns": {
+        title: "Lost Fillings or Crowns", 
+        img: "",
+        alt: "",
+        description: "If a filling or crown falls out, it leaves your tooth vulnerable to sensitivity, decay, and further damage. Dr. Dawson can quickly restoration the tooth with a new filling or re-cement or replace the crown to protect your tooth and restore normal function. It’s best to address this right away to avoid discomfort or complications."
+    },
+    "abscesses": {
+        title: "Abscesses", 
+        img: "",
+        alt: "", 
+        description: "A dental abscess is a serious infection that forms around the root of a tooth or in the gums, often causing pain, swelling, and sensitivity. Dr. Dawson may drain the abscess, prescribe antibiotics, and perform treatments such as a root canal or extraction to remove the source of infection. Because abscesses can spread if left untreated, prompt care is very important."
+    }, 
+    "oral-trauma": {
+        title: "Oral Trauma", 
+        img: "", 
+        alt: "", 
+        description: "Oral trauma, such as a knocked-out tooth, cut, or injury to the jaw, requires immediate attention. Your Dr. Dawson will assess the damage, manage pain, and determine the best treatment to restore your oral health. In emergencies, acting quickly can make a big difference in saving a tooth or preventing complications."
+    },
+    "root-canals": {
+        title: "Root Canals", 
+        img: "",
+        alt: "", 
+        description: "A root canal is a treatment used to save a tooth that is severely infected or damaged. During the procedure, Dr. Dawson removes the infected pulp from inside the tooth roots, cleans and disinfects the area, and then fills and seals it to prevent further infection. After a root canal, a crown is often placed on the tooth to restore its strength and function. This procedure helps relieve pain and allows you to keep your natural tooth."
+    },
+    "extractions": {
+        title: "Extractions", 
+        img: "",
+        alt: "", 
+        description: "A tooth extraction is the removal of a tooth that is too damaged, decayed, or crowded to be saved. Dr. Dawson will carefully numb the area to keep you comfortable, then remove the tooth and provides instructions for healing. While it’s usually a last resort, an extraction can relieve pain and protect your overall oral health."
+    },
+    "full-dentures": {
+        title: "Full Dentures", 
+        img: "",
+        alt: "", 
+        description: "Full dentures replace an entire arch of missing teeth, restoring your ability to chew, speak, and smile with confidence. Modern dentures are custom-made for comfort and a natural appearance. They help support your facial structure and are a reliable option for patients who have lost most or all of their teeth."
+    },
+    "partial-dentures": {
+        title: "Partial Dentures", 
+        img: "",
+        alt: "", 
+        description: "Partial dentures are removable appliances that replace several missing teeth while fitting around your natural teeth. They help fill gaps, restore function, and prevent your remaining teeth from shifting out of place. They are designed to match your smile and are a simple and effective solution for multiple tooth loss."
+    },
+    "implant-supported-dentures": {
+        title: "Implant-Supported Dentures", 
+        img: "",
+        alt: "",
+        description: "Implant-supported dentures combine the stability of dental implants with the coverage of dentures. Small titanium posts anchor the denture securely in place, preventing slipping or shifting. This option provides better chewing power, comfort, and confidence compared to traditional removable dentures."
+    },
+    "flippers": {
+        title: "Flippers",
+        img: "", 
+        alt: "", 
+        description: "A flipper is a temporary, removable denture used to replace one or more missing teeth while waiting for a permanent solution such as an implant, bridge, or full denture. Lightweight and easy to wear, flippers restore appearance and function in the short term, helping you smile confidently during treatment."
+    },
+    "teeth-whitening": {
+        title: "Teeth Whitening", 
+        img: "",
+        alt: "", 
+        description: "Professional teeth whitening is a safe and effective way to brighten your smile by several shades. Here at Northwind Dental, we can lighten stains caused by coffee, tea, tobacco, or natural aging. The result is a noticeably whiter, refreshed smile in a short amount of time."
+    },
+    "veneers": {
+        title: "Veneers", 
+        img: "",
+        alt: "", 
+        description: "Veneers are thin, custom-made shells bonded to the front of teeth to improve their shape, size, or color. They’re a popular cosmetic option for fixing chips, gaps, stains, or uneven teeth. Veneers create a natural-looking, bright, and uniform smile that can last for many years with proper care."
+    }
+};
+
+// SERVICES OFFERED MODAL
+const servicesOfferedModal = `
+    <h2 id="services-h2">Services Offered</h2>
+    <ul id="services-offered-list">
+        <li>
+            <div class="circle-img-wrapper modal-button" data-modal="preventative-content">
+                <img src="src/images/img-links/smile.png" alt="Image of a bright smile" id="preventative" class="service-icon">
+            </div>
+            <h3 class="serv-h3">Preventative Care</h3>
+        </li>
+        <li>
+            <div class="circle-img-wrapper modal-button" data-modal="restorative-content">
+                <img src="src/images/img-links/implants.png" alt="Image of a dental implant bridge" id="restorative" class="service-icon">
+            </div>
+            <h3 class="serv-h3">Restorative Care</h3>
+        </li>
+        <li>
+            <div class="circle-img-wrapper modal-button" data-modal="emergency-content">
+                <img src="src/images/img-links/emergency.png" alt="Image of a person with a toothache" id="emergency" class="service-icon">
+            </div>
+            <h3 class="serv-h3">Emergency Care</h3>
+        </li>
+        <li>
+            <div class="circle-img-wrapper modal-button" data-modal="cosmetic-content">
+                <img src="src/images/img-links/whitening.png" alt="Image of digitally whitened teeth" id="whitening" class="service-icon">
+            </div>
+            <h3 class="serv-h3">Cosmetic Dentistry</h3>
+        </li>
+        <li>
+            <div class="circle-img-wrapper modal-button" data-modal="removable-content">
+                <img src="src/images/img-links/dentures.png" alt="Image of a set of dentures" id="removable" class="service-icon">
+            </div>
+            <h3 class="serv-h3">Removable Prosthetics</h3>
+        </li>
+    </ul>
+`;
+
+// ensure a modal container exists once and has .modal-content
+function ensureModalContainer(modalId) {
+    let modal = document.getElementById(modalId);
+    if (!modal) {
+        modal = document.createElement("div");
+        modal.id = modalId;
+        modal.className = "modal hidden";
+        modal.setAttribute("role", "dialog");
+        modal.setAttribute("aria-modal", "true");
+        modal.setAttribute("aria-hidden", "true");
+        modal.setAttribute("aria-labelledby", `${modalId}-title`);
+        modal.innerHTML = `<div class="modal-content"></div>`;
+        document.body.appendChild(modal);
+    } else if (!modal.querySelector(".modal-content")) {
+        modal.innerHTML = `<div class="modal-content"></div>`;
+    }
+    return modal;
+}
+
+// BUILD ONLY INNER CONTENT FOR EACH PROCEDURE MODAL
+function buildProcedureModal(procedureId) {
+    const p = procedures[procedureId];
+    if (!p) {
+        return `
+            <button class="close-modal" data-close aria-label="Close">&times;</button>
+            <h2>Details coming soon</h2>
+            <p>We're working to add more information about this procedure. Please check back later!</p>
+        `;
+    }
+    return `
+        <button class="close-modal" data-close aria-label="Close">&times;</button>
+        <h2 id="${procedureId}-title">${p.title}</h2>
+        ${p.img ? `<img src="${p.img}" alt="${p.alt || ""}" class="procedure-img">` : ""}
+        <p>${p.description}</p>
+        ${p.list ? `<ul>${p.list.map(item => `<li>${item}</li>`).join("")}</ul>` : ""}
+    `;
+}
+
+//FIND THE CURRENT OPEN MODAL
+function getActiveModal() {
+    return document.querySelector(".modal:not(.hidden)");
+}
+
+// FUNTION TO MAKE ID's FOR LABELS
+function slugify(text) {
+    return text.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
+}
+
+// CREATE THE MODAL CONTENT
+function buildModal(service) {
+  return `
+    <span class="close-modal" role="button" aria-label="Close Modal" data-close>&times;</span>
+    <h2 id="${service.id}-title">${service.name}</h2>
+    <img src="${service.img}" alt="${service.alt}" class="service-img">
+    <p>${service.description}</p>
+    <ul class="feature-list">
+      ${service.list.map(label => {
+        const id = slugify(label);
+        return `
+          <li>
+            <button class="procedure-link"
+                    data-modal-target="${id}"
+                    aria-controls="${id}"
+                    aria-label="More about ${label}">
+              ${label}
+            </button>
+          </li>`;
+      }).join("")}
+    </ul>
+  `;
+}
+
+
+// Build Modals from services array
+services.forEach(service => {
+    document.body.insertAdjacentHTML("beforeend", `
+        <div id="${service.id}" class="modal hidden" aria-hidden="true"
+                role="dialog" aria-modal="true" aria-labelledby="${service.id}-title">
+            <div class="modal-content">
+                <span class="close-modal" role="button" aria-label="Close Modal">&times;</span>
+                <h2 id="${service.id}-title">${service.name}</h2>
+                <img src="${service.img}" alt="${service.alt}" class="service-img">
+                <p>${service.description}</p>
+                <ul>
+                    ${service.list.map(item => `<li>${item}</li>`).join("")}
+                </ul>
+            </div>
+        </div>
+    `);
+});
+
+// OPEN CHILD (PROCEDURE) MODAL AS A STACK (PAGE-LOCAL CONTROL)
+document.addEventListener("click", (event) => {
+    const link = event.target.closest(".procedure-link[data-modal-target]");
+    if (!link) return;
+
+    event.preventDefault();
+
+    const childId = link.getAttribute("data-modal-target");
+    const parent = getActiveModal();
+    const parentId = parent?.id;
+
+    // hide parent modal so only one modal is visible at a time
+    if (parentId) {
+        toggleModal(parentId, false);
+    }
+
+    // ensure child modal exists, then fill it
+    const child = ensureModalContainer(childId);
+    child.querySelector(".modal-content").innerHTML = buildProcedureModal(childId);
+
+    // give <h2> an id that matches aria-labelledby
+    const h2 = child.querySelector("h2");
+    if (h2 && !h2.id) h2.id = `${childId}-title`;
+
+    // intercept the child's close (X) and restore parent modal
+    const closeBtn = child.querySelector(".close-modal");
+    if (closeBtn) {
+        closeBtn.onclick = (e) => {
+            e.preventDefault();
+            e.stopPropagation();
+            toggleModal(childId, false);
+            if (parentId) toggleModal(parentId, true);
+        };
+    }
+    // intercept ESC key to close child and restore parent
+    child.onkeydown = (e) => {
+        if (e.key === "Escape") {
+            e.stopPropagation();
+            toggleModal(childId, false);
+            if (parentId) toggleModal(parentId, true);
+        }
+    };
+    // open the child modal
+    toggleModal(childId, true);
+});
+
+document.addEventListener("DOMContentLoaded", () => {
+    // create service list
+    const container = document.getElementById("services-offered-container");
+    if (!container) return;
+
+    container.innerHTML = servicesOfferedModal;
+
+    // click handler for grid buttons
+    container.querySelectorAll(".modal-button").forEach(button => {
+        button.addEventListener("click", () => {
+            const modalId = button.getAttribute("data-modal");
+            const service = services.find(serv => serv.id === modalId);
+
+            if (service) {
+                const modal = document.getElementById(modalId);
+                const modalContent = modal.querySelector(".modal-content");
+                modalContent.innerHTML = buildModal(service);
+                toggleModal(modalId, true);
+            }
+        });
+    });
+});

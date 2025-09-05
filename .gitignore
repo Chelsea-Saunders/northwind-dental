@@ -1,0 +1,12 @@
+*.zip
+
+# macOS
+.DS_Store
+src/.DS_Store
+src/css/.DS_Store
+# Archives
+*.zip
+.env
+.env.*.local
+.env.production
+node_modules/

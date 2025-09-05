@@ -1,0 +1,46 @@
+
+:root {
+    --bs-body-font: "Inter", "Rubik", Arial, sans-serif;
+    --bs-title-font: "Inconsolata", "Roboto";
+    --bs-welcome-font: PT Sans Narrow;
+
+    --bs-body-font-size: 0.9rem;
+    --bs-body-font-weight: 400;
+    --bs-body-line-height: 1;
+    --bs-title-font-size: 1.5rem;
+    --bs-title-font-weight: 700;
+    --bs-title-line-height: 1.2;
+
+    --bs-background-color: #FCFFF5;
+    --bs-header-background-color: #AFC7E6;
+    --bs-header-text-color: #0E1F2D;
+    --bs-body-text-color: #0E1F2D;
+    --bs-hover-color: #104025;
+    --bs-hover-background-color: #91ABFF;
+    --bs-link-color: #1A3A5A;
+    --bs-button-background-color: #1A3A5A;
+    --bs-link-hover-color: #008080;
+    --bs-text-color-light: #FCFFF5;
+    --bs-text-color-dark: #0E1F2D;
+
+    --bs-border-width: 1px;
+    --bs-border-style: solid;
+    --bs-border-color: #0E1F2D;
+    --bs-border-radius: 5px;
+    --bs-border-radius-small: 2.5px;
+    --bs-border-radius-medium: 5px;
+    --bs-border-radius-large: 20px;
+
+    --bs-gradient-buttons: linear-gradient(180deg, #032a5a, #0050b3, #0392be, #3a8de8, #0050b3, #032a5a);
+    --bs-box-shadow-buttons: 
+        inset 0 0 8px rgba(255, 255, 255, 0.5),
+        0 4px 8px rgba(0, 0, 0, 0.3),
+        0 0 12px rgba(0, 191, 255, 0.7);
+    --bs-button-border: 5px solid rgba(0, 136, 255, 0.561);
+    --bs-gradient-buttons-hover: linear-gradient(180deg, #028cb2, #00d5ff, #055a7b);
+    --bs-box-shadow-button-hover: 
+        inset 0 0 8px rgba(255, 255, 255, 0.5),
+        0 4px 8px rgba(0, 0, 0, 0.597),
+        0 0 12px rgba(0, 191, 255, 0.83);
+    --bs-button-hover-border:2px solid rgba(0, 191, 255, 0.7);
+}
