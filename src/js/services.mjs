@@ -71,7 +71,7 @@ const services = [
             "Flippers"
         ]
     }
-]
+] 
 
 //PROCEDURES (CHILD MODAL CONTENT)
 const procedures = {
