@@ -27,7 +27,12 @@ jobs:
           cache: 'npm'
 
       - run: npm ci
-      - run: npm run build
+      - name: Build (Vite, inject Maps key)
+        run: npm run build
+        env:
+          VITE_GOOGLE_PLACES_API_KEY: ${{ secrets.VITE_GOOGLE_PLACES_API_KEY }}
+
+
       - run: echo "northwinddentalak.com" > dist/CNAME
 
       - uses: actions/upload-pages-artifact@v3
