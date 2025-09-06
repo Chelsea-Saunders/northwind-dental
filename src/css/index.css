@@ -191,7 +191,7 @@ html {
     content: "";
     position: absolute;
     inset: 0;
-    background-image: url("../images/alaska-sunset.jpg");
+    background-image: url("/images/alaska-sunset.jpg");
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -381,7 +381,7 @@ html {
     content: "";
     position: absolute;
     inset: 0;
-    background-image: url("../images/resnik/resnik-fullscreen.png");
+    background-image: url("/images/resnik/resnik-fullscreen.png");
     background-size: cover;
     background-position: top center;
     background-repeat: no-repeat;
@@ -482,7 +482,7 @@ html {
 @media (min-width: 500px) {
     /* Welcome message/image */
     .modal-c-band {
-        background-image: url("../images/alaska-sunset.jpg");
+        background-image: url("/images/alaska-sunset.jpg");
         background-attachment: fixed;
         background-size: cover;
         background-position: center;
@@ -540,7 +540,7 @@ html {
     
     /* RESNIK MODAL WITH PARALLAX EFFECT */
     .resnik-modal-c-band {
-        background-image: url("../images/resnik/resnik-cropped.png");
+        background-image: url("/images/resnik/resnik-cropped.png");
         background-attachment: fixed;
         background-size: cover;
         background-position: center;
@@ -592,7 +592,7 @@ html {
     }
     /* Welcome message/image */
     .modal-c-band {
-        background-image: url("../images/alaska-sunset.jpg");
+        background-image: url("/images/alaska-sunset.jpg");
         background-attachment: fixed;
         background-size: cover;
         background-position: center;
@@ -651,7 +651,7 @@ html {
     }
     /* RESNIK MODAL WITH PARALLAX EFFECT */
     .resnik-modal-c-band {
-        background-image: url("../images/resnik/resnik-fullscreen.png");
+        background-image: url("/images/resnik/resnik-fullscreen.png");
         background-attachment: fixed;
         background-size: cover;
         background-position: center;
@@ -660,9 +660,6 @@ html {
         /* overflow: auto; */
         padding: 0;
         color: var(--bs-text-color-light);
-    }
-    .resnik-modal-c-band {
-    background-image: url;
     }
     #resnik-img {
         width: 20%;
