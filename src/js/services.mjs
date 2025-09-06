@@ -6,7 +6,7 @@ const services = [
     {
         id: "preventative-content", 
         name: "Preventative Care", 
-        img: "src/images/img-links/smile.png",
+        img: "/images/img-links/smile.png",
         alt: "Image of a bright smile", 
         description: "Regular exams, cleanings and preventative treatments keep your smile healthy.",
         list: [
@@ -21,7 +21,7 @@ const services = [
     {
         id: "restorative-content", 
         name: "Restorative Care", 
-        img: "src/images/img-links/implants.png",
+        img: "/images/img-links/implants.png",
         alt: "Image of a dental implant bridge",
         description: "Restorative dentistry repairs and restores damaged or missing teeth.", 
         list: [
@@ -34,7 +34,7 @@ const services = [
     {
         id: "emergency-content", 
         name: "Emergency Care",
-        img: "src/images/img-links/emergency.png",
+        img: "/images/img-links/emergency.png",
         alt: "Image of a person with a toothache",
         description: "We provide prompt care for dental emergencies to relieve pain and restore function.",
         list: [
@@ -50,7 +50,7 @@ const services = [
     {
         id: "cosmetic-content", 
         name: "Cosmetic Dentistry",
-        img: "src/images/img-links/whitening.png",
+        img: "/images/img-links/whitening.png",
         alt: "Image of digitally whitened teeth",
         description: "Enhance your smile with our cosmetic dentistry services.",
         list: [
@@ -61,7 +61,7 @@ const services = [
     {
         id: "removable-content",
         name: "Removable Prosthetics",
-        img: "src/images/img-links/dentures.png",
+        img: "/images/img-links/dentures.png",
         alt: "Image of a set of dentures",
         description: "Prosthetics are custom-made dentures or partial dentures which help restore oral function and aesthetics.",
         list: [
