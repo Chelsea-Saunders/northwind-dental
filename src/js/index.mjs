@@ -60,13 +60,6 @@ function insuranceModal() {
     });
 }
 
-// GOOGLE REVIEWS
-
-// fetch(`https://maps.googleapis.com/maps/api/place/details/json?place_id=YOUR_PLACE_ID&key=${API_KEY}`)
-//     .then(response => response.json())
-//     .then(data => console.log(data))
-//     .catch(error => console.error(error));
-
 //DOMContent Loaded Event
 document.addEventListener("DOMContentLoaded", () => {
 

@@ -15,25 +15,25 @@ const teamMembers = [
             In addition to dentistry, Dr. Dawson loves spending time with his family, camping, fishing, hiking, hunting and enjoying the great outdoors. He has been married to his wife Kiama for 18 years, and together they have 5 kids.
             Dr. Dawson is a member of the American Dental Association, the Academy of General Dentistry, the Alaska Dental Society and the Matanuska-Susitna Dental Society.`,
         img: [
-            { src: "./src/images/team/thayne/DSC_0772.jpg", alt: "Dr. Thayne Dawson" },
-            { src: "./src/images/team/thayne/DawsonFamily-20.jpg", alt: "Dawson Family" },
-            { src: "./src/images/team/thayne/DawsonFamily-73.jpg", alt: "Dawson Family" },
-            { src: "./src/images/team/thayne/IMG-0412.jpg", alt: "Dr. Thayne Dawson" },
-            { src: "./src/images/team/thayne/drDawson.jpg", alt: "Dr. Thayne Dawson" },
-            { src: "./src/images/team/thayne/fam_edited.jpg", alt: "Dawson Family Ice Skating" },
-            { src: "./src/images/team/thayne/dentistry1.png", alt: "Dr. Dawson with Patient" },
-            { src: "./src/images/team/thayne/fam1.jpg", alt: "Dr. Thayne Dawson" },
-            { src: "./src/images/team/thayne/family2020.jpg", alt: "Dr. Thayne Dawson" },
-            { src: "./src/images/team/thayne/hiking.jpg", alt: "Dr. Thayne Dawson" },
-            { src: "./src/images/team/thayne/DSC_0724.jpg", alt: "Dr. Thayne Dawson" },
-            { src: "./src/images/team/thayne/IMG-9469.jpg", alt: "Dr. Thayne Dawson" },
-            { src: "./src/images/team/thayne/IMG-9625.jpg", alt: "Dr. Thayne Dawson" },
-            { src: "./src/images/team/thayne/shed.jpg", alt: "Dr. Thayne Dawson" },
-            { src: "./src/images/team/thayne/thayne-fish.jpg", alt: "Dr. Thayne Dawson" },
-            { src: "./src/images/team/thayne/thayne-grad-20.jpg", alt: "Dr. Thayne Dawson" },
-            { src: "./src/images/team/thayne/DSC_0761.jpg", alt: "Mrs. Dr. Thayne Dawson" },
-            { src: "./src/images/team/thayne/IMG-0505.png", alt: "Dr. Thayne Dawson" },
-            { src: "./src/images/team/thayne/IMG-9410.png", alt: "Dr. Thayne Dawson" }
+            { src: "/images/team/thayne/DSC_0772.jpg", alt: "Dr. Thayne Dawson" },
+            { src: "/images/team/thayne/DawsonFamily-20.jpg", alt: "Dawson Family" },
+            { src: "/images/team/thayne/DawsonFamily-73.jpg", alt: "Dawson Family" },
+            { src: "/images/team/thayne/IMG-0412.jpg", alt: "Dr. Thayne Dawson" },
+            { src: "/images/team/thayne/drDawson.jpg", alt: "Dr. Thayne Dawson" },
+            { src: "/images/team/thayne/fam_edited.jpg", alt: "Dawson Family Ice Skating" },
+            { src: "/images/team/thayne/dentistry1.png", alt: "Dr. Dawson with Patient" },
+            { src: "/images/team/thayne/fam1.jpg", alt: "Dr. Thayne Dawson" },
+            { src: "/images/team/thayne/family2020.jpg", alt: "Dr. Thayne Dawson" },
+            { src: "/images/team/thayne/hiking.jpg", alt: "Dr. Thayne Dawson" },
+            { src: "/images/team/thayne/DSC_0724.jpg", alt: "Dr. Thayne Dawson" },
+            { src: "/images/team/thayne/IMG-9469.jpg", alt: "Dr. Thayne Dawson" },
+            { src: "/images/team/thayne/IMG-9625.jpg", alt: "Dr. Thayne Dawson" },
+            { src: "/images/team/thayne/shed.jpg", alt: "Dr. Thayne Dawson" },
+            { src: "/images/team/thayne/thayne-fish.jpg", alt: "Dr. Thayne Dawson" },
+            { src: "/images/team/thayne/thayne-grad-20.jpg", alt: "Dr. Thayne Dawson" },
+            { src: "/images/team/thayne/DSC_0761.jpg", alt: "Mrs. Dr. Thayne Dawson" },
+            { src: "/images/team/thayne/IMG-0505.png", alt: "Dr. Thayne Dawson" },
+            { src: "/images/team/thayne/IMG-9410.png", alt: "Dr. Thayne Dawson" }
         ]
     },
     {
@@ -44,10 +44,10 @@ const teamMembers = [
             Jessica was born and raised in Wenatchee, WA, which is known for being the apple capital of the world. She grew up always playing outside and climbing the tall pine trees.
             The Oregon coast was one of her favorite places to explore until she discovered Alaska and moved here in 2020 with her husband. They are living life to the fullest and checking off their bucket-list, climbing glaciers and discovering the beauty of Alaska.`,
         img: [
-            { src: "./src/images/team/jessica-receptionist/jessica2.jpg", alt: "Jessica" },
-            { src: "./src/images/team/jessica-receptionist/jessica3.jpg", alt: "Jessica" },
-            { src: "./src/images/team/jessica-receptionist/Jessica1.jpg", alt: "Jessica" },
-            { src: "./src/images/team/jessica-receptionist/jessica11.jpg", alt: "Jessica" },
+            { src: "/images/team/jessica-receptionist/jessica2.jpg", alt: "Jessica" },
+            { src: "/images/team/jessica-receptionist/jessica3.jpg", alt: "Jessica" },
+            { src: "/images/team/jessica-receptionist/Jessica1.jpg", alt: "Jessica" },
+            { src: "/images/team/jessica-receptionist/jessica11.jpg", alt: "Jessica" },
         ]
     },
     {
@@ -56,7 +56,7 @@ const teamMembers = [
         role: "Dental Hygienist", 
         description: `Alyssa was born in Minnesota and raised in Wasilla, Alaska. She graduated from the University of Alaska Anchorage. When she isn’t cleaning teeth, she enjoys spending time with her husband and dogs, gardening, and traveling. `,
         img: [
-            { src: "./src/images/team/alyssa-hygienist/Alyssa3.png", alt: "Alyssa" }
+            { src: "/images/team/alyssa-hygienist/Alyssa3.png", alt: "Alyssa" }
         ]
     },
     {
@@ -69,7 +69,7 @@ const teamMembers = [
             Utah and Idaho before making her way back to Alaska and the Mat-Su Valley in 2002. Over the years she has continued to increase her knowledge, as techniques and materials have advanced, by attending CE courses and dental conferences online and around the US. As a highly skilled and compassionate dental assistant, Beth always strives to make your visit feel like you’re simply hanging out with friends.
             Beth has been happily married for 28 years and has two grown sons who are her pride and joy. Her oldest serves our community and our country as a local firefighter and an Army Guard medic and her youngest is a current college student studying special education and former college football player. When not in the office, Beth enjoys spending time with her family and pets in the outdoors, hiking, hunting and fishing. She is an active member in her church, teaching Sunday school to 14-15 year old's and volunteering for projects in the community. Her passion is travel and she hopes to do much more of it once she retires.`,
         img: [
-            { src: "./src/images/team/beth-assistant/beth.jpg", alt: "Beth" }
+            { src: "/images/team/beth-assistant/beth.jpg", alt: "Beth" }
         ]
     },
     {
@@ -78,7 +78,7 @@ const teamMembers = [
         role: "Dental Assistant",
         description: `Shania has been a dental assistant for about 3 years in Hawaii and Alaska! Shania was born and raised in Alaska between Fairbanks and Wasilla. She loves traveling with her family and sitting on a warm beach with a poke bowl. She enjoys getting to know patients of all ages and can’t wait to see you all in our office!`,
         img: [
-            { src: "./src/images/team/shania-assistant/shania.png", alt: "Shania" }
+            { src: "/images/team/shania-assistant/shania.png", alt: "Shania" }
         ]
     }
 ]
