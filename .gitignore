@@ -14,3 +14,4 @@ node_modules/dist/
 gh-pages/
 /assets/
 node_modules/
+dist/
