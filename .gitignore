@@ -7,6 +7,7 @@ src/css/.DS_Store
 # Archives
 *.zip
 .env
+.env*
 .env.*.local
 .env.production
 node_modules/dist/

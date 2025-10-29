@@ -2,53 +2,76 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="Friendly and professional dental care for the whole family in Wasilla, Alaska. Offering gentle, compassionate, restorative, and advanced dentistry with personalized care for patients of all ages. With comprehensive dental services: cleanings, fillings, implants, cosmetic dentistry and emergency care for everyone.">
-    <meta name="authot" content="Chelsea Saunders"> <!-- OPEN GRAPH: social sharing -->
-    <meta property="og:title" content="Free Printable Medical Forms - Download and Print Instantly - Easy PDF Downloads Online - Northwind Dental in Wasilla, Alaska">
-    <meta property="og:description" content="Printable PDF Medical Forms for Northwind Dental in Wasilla, Alaska.">
+    <meta name="author" content="Chelsea Saunders">
+    <meta property="og:title" content="Page Title">
+    <meta property="og:description" content="Your trusted family dentist in Wasilla, Alaska. Comprehensive dental care for children and adults, including cleanings, fillings, crowns, and more.">
     <meta property="og:image" content="">
     <meta property="og:url" content="https://www.northwinddentalak.com">
     <meta property="og:type" content="website">
-    <!-- <meta http-equiv="Content-Security-Policy" content="default-src 'self';"> Content Security Policy (CSP) -->
-    <meta name="robots" content="index, follow"> <!-- This will help search engins know if they should index your page -->
+    <meta name="robots" content="index, follow">
     <title>Northwind Dental, Wasilla, Alaska</title>
-    <link rel="icon" href="/favicon.png" sizes="32x32" type="image/png"> <!-- This will be a bookmark icon -->
-    <link rel="apple-touch-icon" href="/favicon.png">
-    <link rel="stylesheet" href="src/css/components.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&family=Inconsolata:wght@200..900&family=Roboto:ital,wght@0,100..900;1,100..900&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
-    <script type="module" src="./src/js/services.mjs" defer></script>
-    <script type="module" src="./src/js/main.mjs" defer></script>
-    <script type="module" src="./src/js/modal.mjs" defer></script>
-    <!-- <script type="module" src="./src/js/request-appointment.mjs" defer></script> -->
+    <link rel="icon" href="/favicon-32.png" sizes="32x32" type="image/png">
+    <link rel="icon" href="/favicon-16.png" sizes="16x16" type="image/png">
+    <link rel="apple-touch-icon" href="/favicon-32.png" sizes="180x180">
+
+    <!-- Preconnects -->
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <!-- Base CSS -->
+    <link rel="stylesheet" href="/src/css/components.css">
+
+    <!-- Font Awesome: non-blocking -->
+    <link rel="preload"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+        as="style" crossorigin
+        integrity="sha512-<paste-cdnjs-hash-here>"
+        onload="this.onload=null;this.rel='stylesheet'">
+    <noscript>
+    <link rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+            crossorigin
+            integrity="sha512-<same-hash-here>">
+    </noscript>
+
+    <!-- Google Fonts (single request; keep only what you actually use) -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Flex:opsz,wght@8..144,300..700&display=swap" rel="stylesheet">
+
+    <!-- YouTube API (async so it doesn't block) -->
+    <script async src="https://www.youtube.com/iframe_api"></script>
 </head>
+
 <body>
     <header>
-        <section class="global-header">
+        <div class="global-header">
             <a href="index.html" class="logo-link">
                 <img src="/images/logos/logo.jpg" alt="Northwind Dental Logo" class="logo">
-                <!-- <span class="northwind-dental">Northwind Dental</span> -->
             </a>
             <button
                 id="toggle-menu"
                 class="global-nav__toggle"
+                type="button"
+                aria-controls="global-nav"
                 aria-expanded="false"
-                aria-label="Toggle Menu"
+                aria-label="Open menu"
                 data-menu-open="false"
             >
                 <span class="global-nav__toggle-menu-open">
-                    <div class="hamburger">
+                    <span class="hamburger" aria-hidden="true">
                         <span></span>
                         <span></span>
                         <span></span>
-                    </div>
+                    </span>
                     <span class="visually-hidden">Open</span>
                 </span>
                 <span class="global-nav__toggle-menu-closed">
-                    <div class="x-icon">
+                    <span class="x-icon" aria-hidden="true">
                         <span></span>
                         <span></span>
-                    </div> 
+                    </span> 
                     <span class="visually-hidden">Close</span>
                 </span>
             </button>
@@ -65,17 +88,44 @@
                     </li>
                 </ul>
             </nav>
-        </section>
+        </div>
     </header>
     <main>
         <h2 class="printable-forms">Printable Forms</h2>
         <div class="form-links">
             <ul>
-                <li><a href="./pdf-forms/NW-patient-info.pdf">Download Patient Information Form (PDF)</a></li>
-                <li><a href="./pdf-forms/NW-healthform.pdf"> Download Patient Health Form (PDF)</a></li>
-                <li><a href="./pdf-forms/NW-cancelation.pdf">Download Cancelation Policy (PDF)</a></li>
-                <li><a href="./pdf-forms/NW-hipaa.pdf">Download HIPAA Acknowledgement Form (PDF)</a></li>
+                <li>
+                    <a href="/np-pdf.html" data-bypass
+                    aria-label="Download Northwind Dental's New Patient Information form in PDF format here" 
+                    >📄   Download Patient Information Form (PDF)</a>
+                </li>
+                <li>
+                    <a href="/hf-pdf.html" data-bypass
+                    aria-label="Download Northwind Dental's Patient Health form in PDF format here" 
+                    >📄   Download Patient Health Form (PDF)</a>
+                </li>
+                <li>
+                    <a href="/cancel-pdf.html" data-bypass
+                    aria-label="Download Northwind Dental's Cancellation Policy in PDF format here"
+                    >📄   Download Cancellation Policy (PDF)</a>
+                </li>
+                <li>
+                    <a href="/hipaa-pdf.html" data-bypass
+                    aria-label="Download Northwind Dental's HIPAA Acknowledgement Form in PDF format here" 
+                    >📄  Download HIPAA Acknowledgement Form (PDF)</a>
+                </li>
             </ul>
+        </div>
+        <!-- REQUEST AN APPOINTMENT MODAL -->
+        <div 
+            id="request-appt-modal" 
+            class="modal hidden"
+            role="dialog" 
+            aria-modal="true"
+            aria-labelledby="request-appt-modal"
+            tabindex="-1"
+            >
+            <div class="modal-content" id="appointment-form-container"></div>
         </div>
     </main>
     <footer>
@@ -93,25 +143,45 @@
                     Wednesday: 9AM-5PM<br>
                     Thursday: 9AM-5PM<br>
                     Friday: CLOSED<br>
-                    Saturday: CLOSED<br></p>
+                    Saturday: CLOSED<br>
                 </p>
             </div>
             <div class="footer-right">
                 <button class="modal-button" data-modal="request-appt-modal" id="appt-req-footer" aria-label="Request an appointment button">
-                    <div class="appt-request">CONTACT US</div>
+                    <span class="appt-request">CONTACT US</span>
                 </button>
-                <img src="/images/logos/logo.jpg" alt="Northwind dental logo" id="footer-logo">
+                <nav class="social-media" aria-label="Social media">
+                    <a class="sm ig" href="https://www.instagram.com/northwinddental/" target="_blank" rel="noopener">
+                        <i class="fa-brands fa-instagram"></i>
+                    </a>
+                    <a class="sm fb" href="https://www.facebook.com/northwinddental" target="_blank" rel="noopener">
+                        <i class="fa-brands fa-facebook"></i>
+                    </a>
+                    <a class="sm gg" href="https://g.page/northwinddental" target="_blank" rel="noopener">
+                        <i class="fa-brands fa-google"></i>
+                    </a>
+                </nav>
+                
+                <!-- <img src="/images/logos/logo.jpg" alt="Northwind dental logo" id="footer-logo"> -->
             </div>
         </div>
         <div class="copyright">
             <p id="copyright">&copy; 2025 Northwind Dental. All Rights Reserved.</p>
         </div>
     </footer>
-
-    <!-- APPOINTMENT REQUEST FOR HEADER/FOOTER -->
-     <div id="request-appt-modal" class="modal hidden" aria-hidden="true">
-        <div class="modal-content" id="appointment-form-container"></div>
-     </div>
-     
+     <!-- FLOATING CHAT BUBBLE -->
+    <button
+        id="chat-bubble"
+        class="modal-button"
+        data-open-modal="request-appt-modal"
+        aria-haspopup="dialog"
+        aria-controls="request-appt-modal"
+        aria-expanded="false"
+        >
+        <!-- icon -->
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M21 15a3 3 0 0 1-3 3H9l-4 3v-3H6a3 3 0 0 1-3-3V7a3 3 0 0 1 3-3h12a3 3 0 0 1 3 3v8Z" fill="currentColor"/>
+        </svg>
+    </button>
 </body>
 </html>

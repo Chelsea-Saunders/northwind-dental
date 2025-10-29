@@ -1,41 +1,33 @@
 import { registerModal } from "./modal.mjs";
 import { buildAppointment } from "./contact.mjs";
-import premera   from '../images/insurance-logos/premera-bluecross.png';
-import cigna     from '../images/insurance-logos/cigna-dental.png';
-import bcbs      from '../images/insurance-logos/bluecross-blueshield.png';
-import moda      from '../images/insurance-logos/moda.png';
-import delta     from '../images/insurance-logos/delta-dental.jpg';
-import united    from '../images/insurance-logos/united-concordia-dental.png';
-import metlife   from '../images/insurance-logos/metlife.png';
-import aetna     from '../images/insurance-logos/aetna.svg';
 
+function onDomReady(fn) {
+    if (document.readyState === "loading") {
+        document.addEventListener("DOMContentLoaded", fn, { once: true });
+    } else {
+        fn();
+    }
+}
+
+// Insurance Logos
+const  premera = '/images/insurance-logos/premera-bluecross.png';
+const cigna = '/images/insurance-logos/cigna-dental.png';
+const bcbs = '/images/insurance-logos/bluecross-blueshield.png';
+const moda = '/images/insurance-logos/moda.png';
+const delta = '/images/insurance-logos/delta-dental.jpg';
+const united = '/images/insurance-logos/united-concordia-dental.png';
+const metlife = '/images/insurance-logos/metlife.png';
+const aetna = '/images/insurance-logos/aetna.svg';
 
 registerModal("request-appt-modal", buildAppointment);
 
 // used for google reviews (API)
-const API_KEY = import.meta.env.VITE_GOOGLE_PLACES_API_KEY;
-const container = document.getElementById("reviews-container");
+// const API_KEY = import.meta.env.VITE_GOOGLE_PLACES_API_KEY;
 
-// RESNIK IMPLANT INSTITUTE ...READ MORE CLICK
-function toggleReadMoreResnik() {
-    const moreText = document.querySelector (".more-text-resnik");
-    const toggleButton = document.querySelector("#read-more-resnik-toggle");
-    const modalContent = document.querySelector(".resnik-modal-content");
-
-    if (moreText && toggleButton && modalContent) {
-        moreText.classList.toggle("hidden");
-        moreText.style.opacity = "1";
-        toggleButton.style.display = "none";
-        toggleButton.setAttribute("aria-expanded", "true");
-
-        modalContent.classList.toggle("initial-state");
-        modalContent.classList.add("expanded-state");
-    }
-    return false; // Prevent default action if needed
-}
 // INSURANCE MODAL
 function insuranceModal() {
     const logoContainer = document.getElementById("insurance-logos");
+    const section = document.querySelector(".resnik-section");
     if (!logoContainer) return;
 
     const insuranceLogos = [
@@ -58,18 +50,15 @@ function insuranceModal() {
         img.decoding = "async";
         logoContainer.appendChild(img);
     });
+    if (section) {
+        const io = new IntersectionObserver(([entry]) => {
+            section.classList.toggle("resnik-in", entry.isIntersecting);
+        }, { threshold: 0.15 });
+        io.observe(section);
+    }
 }
 
-//DOMContent Loaded Event
-document.addEventListener("DOMContentLoaded", () => {
-
-    // setTimeout( initYouTubePlayer, 300);
-    // setTimeout( onYouTubeIframeAPIReady, 300);
+onDomReady(() => {
+    registerModal("request-appt-modal", insuranceModal);
     requestAnimationFrame(insuranceModal);
-    insuranceModal();
-
-    document.querySelector("#read-more-resnik-toggle")?.addEventListener("click", (event) => {
-        event.preventDefault();
-        toggleReadMoreResnik();
-    });
-});
+})

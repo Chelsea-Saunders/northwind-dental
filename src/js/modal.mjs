@@ -1,8 +1,10 @@
+import { onModalClose, initReviews, resetReviews } from "./reviews.mjs";
 
 const focusableSelectors = 
     'a[href], button:not([disabled]), textarea, input, select, [tabindex]:not([tabindex="-1"])';
 
 const registry = new Map();
+const modalStack = [];
 
 export function registerModal(modalId, builder) {
     registry.set(modalId, builder);
@@ -13,17 +15,32 @@ export function registerModal(modalId, builder) {
 * @param {(container:HTMLElement) => (void|function)} builder
 */
 
+// ESCAPE KEY HANDLER
+
 export function registerModalBuilder(modalId, builder) {
     registry.set(modalId, builder);
 }
 
 // TOGGLE MODALS
-export function toggleModal (modalId, show = true) {
+export function toggleModal (modalId, show = true, opts = {}) {
+    const asChild = opts?.asChild ?? false;
     const modal = document.getElementById(modalId);
     if (!modal) return;
 
     if (show) {
+        // if opening a child modal, hide parent but keep on stack
+        const parentId = modalStack[modalStack.length - 1];
+        if (asChild && parentId) {
+            const parent = document.getElementById(parentId);
+            if (parent && !parent.classList.contains("hidden")) {
+                // hide parent but keep on stack
+                untrapFocus(parent);
+                parent.classList.add("hidden");
+                parent.setAttribute("aria-hidden", "true");
+            }
+        }
 
+        // Open modal
         modal._lastActiveElement = document.activeElement;
 
         const builder = registry.get(modalId);
@@ -35,56 +52,155 @@ export function toggleModal (modalId, show = true) {
             }
         }
 
+        // current modal
+        modal._lastActiveElement = document.activeElement;
         modal.classList.remove("hidden");
         modal.removeAttribute("inert");
         modal.setAttribute("aria-hidden", "false");
         document.body.classList.add("modal-open");
-
+        modal.setAttribute("tabindex", "-1");
+        modal.focus();
         trapFocus(modal);
+
+        // push to stack
+        if (modalStack[modalStack.length -1] !== modalId) {
+            modalStack.push(modalId);
+            if (modalStack.length === 1) {
+                getEscape?.();
+            }
+        }
+
+        // page specific init
+        if (modalId === "google-reviews-modal") {
+            initReviews();
+        }
+
     } else {
+        // Close modal
         untrapFocus(modal);
         modal.querySelectorAll("*").forEach(element => element.blur());
-        modal.classList.add("hidden");
+        modal.setAttribute("inert", "");
         modal.setAttribute("aria-hidden", "true");
-
-        // restore focus to the opener button
-        if (modal._lastActiveElement) {
-            modal._lastActiveElement.focus();
-            modal._lastActiveElement = null;
-        }
+        modal.classList.add("hidden");
 
         // run cleanup if it exists
         if (typeof modal._cleanup === "function") {
             modal._cleanup();
             modal._cleanup = null;
         }
-        // only close last opened modal
-        const openedModal = document.querySelector(".modal:not(.hidden)");
-        if (!openedModal) {
+
+        // reset only for reviews modal
+        if (modalId === "google-reviews-modal") {
+            onModalClose(); // clears map DOM / class
+            resetReviews(); // allows re-init on next open
+        }
+
+        while (modalStack.length && modalStack[modalStack.length - 1] !== modalId) {
+            modalStack.pop();
+        }
+        if (modalStack.length && modalStack[modalStack.length - 1] === modalId) {
+            modalStack.pop();
+        }
+
+        // restore the parent element if there was one hidden
+        const parentId = modalStack[modalStack.length -1];
+        if (parentId) {
+            const parent = document.getElementById(parentId);
+            if (parent) {
+                parent.classList.remove("hidden");
+                parent.setAttribute("aria-hidden", "false");
+                // resotre focus where user left off on parent element
+                (parent._lastActiveElement || parent).focus();
+                trapFocus(parent);
+            }
+        } else {
+            // no more modals open
             document.body.classList.remove("modal-open");
+            releaseEscape?.();
+            if (modal._lastActiveElement) {
+                modal._lastActiveElement.focus();
+                modal._lastActiveElement = null;
+            }
         }
     }
 }
 
+//close modal after delay and reload the page
+export function closeAndReload(modalId, delayMs = 1000) {
+    setTimeout(() => {
+        toggleModal(modalId, false);
+        // incase anything goes wrong, make sure scroll is restored
+        document.body.classList.remove("modal-open");
+        setTimeout(() => {
+            window.location.reload();
+        }, 150);
+    }, delayMs);
+}
+
+// closing modals 
+function closeTopmostModal() {
+    const openModals = [...document.querySelectorAll(".modal:not(.hidden)")];
+    if (!openModals.length) return;
+    const top = openModals[openModals.length - 1];
+    toggleModal(top.id, false);
+}
+
+// close with escape key
+const escapeHandler = (event) => {
+    const k = event.key || event.code;
+    if (k === "Escape" || k === "Esc") {
+        // prevent whatever is trying to swallow it so it'll close
+        event.stopPropagation();
+        event.preventDefault();
+        closeTopmostModal();
+    }
+};
+
+let _escCount = 0;
+function getEscape() {
+    if (_escCount === 0) {
+        document.addEventListener("keydown", escapeHandler, true); // capture phase
+    }
+    _escCount++;
+}
+function releaseEscape() {
+    _escCount = Math.max(0, _escCount - 1);
+    if (_escCount === 0) {
+        document.removeEventListener("keydown", escapeHandler, true);
+    }
+}
+
 function trapFocus(modal) {
-    const elements = [...modal.querySelectorAll(focusableSelectors)]
+    let elements = [...modal.querySelectorAll(focusableSelectors)]
         .filter(element => !element.disabled && element.offsetParent !== null);
     
     if (!elements.length) {
         modal.setAttribute("tabindex", "-1");
         modal.focus();
-        return;
+    } else {
+        elements[0].focus();
     }
-    const first = elements[0];
-    const last = elements[elements.length - 1];
-
-    first?.focus();
 
     function onKeydown(event) {
         if (event.key !== "Tab") return;
 
+        elements = getFocusable(modal);
+        if (elements.length === 0) {
+            // nothing to focus/trap
+            modal.setAttribute("tabindex", "-1");
+            modal.focus();
+            event.preventDefault();
+            return;
+        }
+
+
+        const first = elements[0];
+        const last = elements[elements.length - 1];
+
+        // focus issue on services page see if fixes
+
         if (event.shiftKey) {
-            if (document.activeElement === first) {
+            if (document.activeElement === first || document.activeElement === modal) {
                 event.preventDefault();
                 last.focus();
             }
@@ -104,21 +220,59 @@ function untrapFocus(modal) {
         modal._trapHandler = null;
     }
 }
+// // OPEN CHAT BUBBLE MODAL
+// document.addEventListener("click", (event) => {
+//     const opener = event.target.closest("[data-modal], [data-open-modal]");
+//     if (!opener) return;
 
-// CLOSE MODAL ON X OR ESCAPE
-document.addEventListener("click",(event) => {
-    if (event.target.classList?.contains("close-modal")) {
+//     const id = 
+//     opener.getAttribute("data-modal") ||
+//     opener.getAttribute("data-open-modal");
+//     if (!id) return;
+
+//     // if there's an <a>, stop navigation
+//     const a = opener.tagName === "A" || opener.closest("a") === opener;
+//     if (a) event.preventDefault();
+
+//     opener.setAttribute("aria-expanded", "true");
+//     // remember the opener for later focus restoration
+//     const modal = document.getElementById(id);
+//     if (modal) modal._returnTo = opener;
+
+//     toggleModal(id, true);
+// });
+
+// CLOSE (X BUTTON OR EXCAPE KEY)
+document.addEventListener("click", (event) => {
+    // X buttons
+    if (event.target.closest(".close-modal")) {
         const modal = event.target.closest(".modal");
-        if (modal?.id) {
-            toggleModal(modal.id, false);
-        }
+        if (modal) closeModalAndReset(modal);
+        return;
     }
 });
-// escape key to close modal
-document.addEventListener("keydown", event => {
-    if (event.key === "Escape") {
-        document.querySelectorAll(".modal:not(.hidden)").forEach(modal => {
-            toggleModal(modal.id, false);
-        });
+
+function closeModalAndReset(modal) {
+    // restore focus to the opener button
+    if (modal._returnTo) {
+        modal._returnTo.setAttribute("aria-expanded", "false");
+        modal._returnTo.focus?.();
     }
+    toggleModal(modal.id, false);
+    modal._returnTo = null;
+}
+
+// document.addEventListener("keydown", escapeHandler, { capture: true });
+
+document.addEventListener("click", (event) => {
+    const opener = event.target.closest("[data-modal], [data-open-modal]");
+    if (!opener) return;
+    const id = opener.getAttribute("data-modal") || opener.getAttribute("data-open-modal");
+    if (!id) return;
+
+    if (opener.tagName === "A") event.preventDefault();
+    opener.setAttribute("aria-expanded", "true");
+
+    const inModal = !!opener.closest(".modal:not(.hidden)");
+    toggleModal(id, true, { asChild: inModal });
 });

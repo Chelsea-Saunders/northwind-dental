@@ -4,9 +4,9 @@ import {
     autoGrowTextarea,
     validateEmail,
     formatPhoneNumber,
-    clearFormFields,
     showSubmissionMessage
 } from "./form-utilities.mjs";
+import { closeAndReload } from "./modal.mjs";
 
 // REQUEST APPOINTMENT MODAL
 export function buildAppointment(container) {
@@ -21,12 +21,21 @@ export function buildAppointment(container) {
             <input type="email" id="appt-form-email" name="appt-form-email" autocomplete="email" placeholder="email@email.com" required>
             
             <label for="appt-form-phone">Phone Number:</label>
-            <input type="tel" id="appt-form-phone" inputmode="tel" maxlength="12" name="appt-form-phone" autocomplete="tel" placeholder="(123)456-7890" required>
+            <input type="tel" id="appt-form-phone" inputmode="tel" name="appt-form-phone" autocomplete="tel" placeholder="(123)456-7890" required>
             
             <label for="appt-form-message">Reason or Comments:</label>
             <textarea id="appt-form-message" name="appt-form-message" placeholder="Your message here..." required></textarea>
             
-            <button type="submit" class="appt-form-submit-button">Submit</button>
+            <!-- honeypot field -->
+            <div class="honeypot-trap" aria-hidden="true">
+                <label for="website">Website</label>
+                <input type="text" id="website" class="visually-hidden" name="website" tabindex="-1" autocomplete="off" />
+            </div>
+            
+            <!-- submission timetrap -->
+            <input type="hidden" id="timestamp" name="timestamp" />
+
+            <button type="submit" class="appt-form-submit-button">Send</button>
             <p id="form-feedback" aria-live="polite" class="hidden"></p>
 
             <p id="contact">
@@ -38,57 +47,138 @@ export function buildAppointment(container) {
         </form>
     `;
 
+    // LOOKUPS
     const form = container.querySelector("#appointment-form");
+    const name = container.querySelector("#full-name");
     const email = container.querySelector("#appt-form-email");
     const phone = container.querySelector("#appt-form-phone");
     const message = container.querySelector("#appt-form-message");
+    const website = container.querySelector("#website");
+    const timestamp = container.querySelector("#timestamp");
     const feedback = container.querySelector("#form-feedback");
+    const contact = container.querySelector(".appt-form-submit-button");
 
-    [email, phone, message].forEach(field => {
-        field?.addEventListener("input", () => feedback?.classList.add("hidden"));
+    // MODAL HELPERS (LOCAL)
+
+    // function to toggle busy state
+    function setBusy(isBusy) {
+        if (!contact || !form) return;
+        if (!contact.dataset.label) contact.dataset.label = contact.textContent.trim();
+        contact.disabled = isBusy;
+        form.toggleAttribute("aria-busy", isBusy);
+        contact.textContent = isBusy ? "Sending..." : (contact.dataset.label || "Send");
+    }
+
+    // function to show feedback message
+    function showFeedback(text) {
+        if (!feedback) return;
+        feedback.textContent = text;
+        feedback.classList.remove("hidden");
+        clearTimeout(showFeedback.timeout);
+        showFeedback.timeout = setTimeout(() => {
+            feedback.classList.add("hidden"), 4000;
+        });
+    }
+
+    // function to get form data
+    function getFormData() {
+        const body = new FormData();
+        body.set("name",     name?.value || "");
+        body.set("email",    email?.value || "");
+        body.set("phone",    phone?.value || "");
+        body.set("message",  message?.value || "");
+        body.set("website",  website?.value.trim() || "");
+        body.set("timestamp", timestamp?.value || "");
+        return body;
+    }
+
+    // anti-span function
+    function antiSpamCheck() {
+        const honeypot = website?.value.trim() || "";
+        const started = Number(timestamp?.value || 0);
+        const spam = started && (Date.now() - started < 1500);
+        if (timestamp) timestamp.value = String(Date.now()); // reset for next submit
+        return !!honeypot || !!spam;
+    }
+
+    // validate fields function
+    function validateFormFields() {
+        // validate email
+        email?.addEventListener("input", () => {
+            const ok = validateEmail(email.value);
+            email.classList.toggle("error", !ok);
+            email.setAttribute("aria-invalid", String(!ok));
+            feedback.classList.add("hidden");
+        });
+
+        // phone formatting
+        phone?.addEventListener("input", (event) => {
+            event.target.value = formatPhoneNumber(event.target.value);
+            feedback.classList.add("hidden");
+        });
+
+        // auto-grow message textarea
+        if (message) {
+            autoGrowTextarea(message);
+            message.addEventListener("input", () => {
+                autoGrowTextarea(message);
+            });
+        }
+
+        // clear form
+        function clearForm() {
+            form?.reset();
+            if (message) autoGrowTextarea(message);
+        }
+        return { clearForm };
+    }
+
+    // INITIALIZE FORM
+    if (timestamp && !timestamp.value) timestamp.value = String(Date.now());
+    
+    const { clearForm } = validateFormFields();
+
+    // SUBMIT HANDLER
+    form?.addEventListener("submit", async (event) => {
+        event.preventDefault();
+
+        if (!validateForm(form)) {
+            showFeedback("Please fix errors in the form.");
+            showSubmissionMessage("Please fix these errors!");
+            return;
+        }
+
+        if (antiSpamCheck()) {
+            clearForm();
+            showFeedback("Message sent. Thank you!");
+            showSubmissionMessage("Message sent. Thank you!");
+            return;
+        }
+
+        setBusy(true);
+        try {
+            const body = getFormData();
+            const response = await fetch("/backend/sendmail.php", {
+                method: "POST", 
+                body, 
+                headers: { "X-Requested-With": "fetch" }
+            });
+            let json = {};
+            try { json = await response.json(); } catch {}
+            if (!response.ok || !json.ok) throw new Error(json?.error || "Send failed");
+
+            // success
+            showFeedback("Message Sent. Thank you!");
+            showSubmissionMessage("Message Sent. Thank you!");
+            clearForm();
+            closeAndReload("request-appt-modal", 1000);
+        } catch (error) {
+            showFeedback("Something went wrong. Please try again.");
+            showSubmissionMessage("Something went wrong. Please try again.");
+        } finally {
+            setBusy(false);
+        }
     });
 
-    if (message) {
-        autoGrowTextarea(message);
-        message.addEventListener("input", () => autoGrowTextarea(message));
-    }
-    if (phone) {
-        phone.addEventListener("input", (event) => {
-            const position = event.target.selectionStart;
-            const previous = event.target.value;
-            event.target.value = formatPhoneNumber(previous);
-            event.target.selectionStart = event.target.selectionEnd = Math.min(position, event.target.value.length);
-        });
-    }
-    if (email) {
-        email.addEventListener("input", () => {
-        email.classList.toggle("error", !validateEmail(email.value));
-        email.setAttribute("aria-invalid", !validateEmail(email.value));
-        });
-    }
-
-    if (form) {
-        form.addEventListener("submit", event => {
-            event.preventDefault();
-            if (validateForm(form)) {
-                if (feedback) {
-                    feedback.textContent = "Form submitted successfully!";
-                    feedback.classList.remove("hidden");
-                }
-                showSubmissionMessage("Form submitted successfully!");
-                clearFormFields(form);
-                if (feedback) feedback.classList.add("hidden");
-                if (message) {
-                    autoGrowTextarea(message);
-                }
-            } else {
-                if (feedback) {
-                    feedback.textContent = "Please fix these errors";
-                    feedback.classList.remove("hidden");
-                }
-                showSubmissionMessage("Please fix these errors");
-            }
-        });
-    }
-    return () => {};
+    return() => {};
 }

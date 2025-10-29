@@ -1,106 +1,156 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <meta http-equiv="Content-Security-Policy" content="
+        default-src 'self';
+        base-uri 'self';
+        object-src 'none';
+        upgrade-insecure-requests;
+        script-src 'self' 'unsafe-inline' 
+            https://www.youtube.com 
+            https://www.youtube-nocookie.com 
+            https://cdnjs.cloudflare.com 
+            https://fonts.googleapis.com 
+            https://fonts.gstatic.com 
+            https://maps.googleapis.com 
+            https://maps.gstatic.com;
+        connect-src 'self' 
+            https://www.youtube.com 
+            https://maps.googleapis.com 
+            https://maps.gstatic.com 
+            https://places.googleapis.com;
+        frame-src 
+            https://www.youtube-nocookie.com 
+            https://www.youtube.com 
+            https://www.google.com;
+        img-src 'self' data: 
+            https://i.ytimg.com 
+            https://maps.gstatic.com 
+            https://maps.googleapis.com 
+            https://lh3.googleusercontent.com 
+            https://lh4.googleusercontent.com 
+            https://lh5.googleusercontent.com 
+            https://lh6.googleusercontent.com;
+        style-src 'self' 'unsafe-inline' 
+            https://fonts.googleapis.com 
+            https://cdnjs.cloudflare.com;
+        font-src 'self' 
+            https://fonts.gstatic.com 
+            https://cdnjs.cloudflare.com 
+            data:;
+        ">
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Friendly and professional dental care for the whole family in Wasilla, Alaska. Offering gentle, compassionate, restorative, and advanced dentistry with personalized care for patients of all ages. With comprehensive dental services: cleanings, fillings, implants, cosmetic dentistry and emergency care for everyone.">
-    <meta name="author" content="Chelsea Saunders"> <!-- OPEN GRAPH: social sharing -->
+    <meta name="author" content="Chelsea Saunders"> 
+    <meta name="google-maps-key" content="AIzaSyBtdfm5e3WDM3Caq6zR5DEQjh2em-gdjxs">
     <meta property="og:title" content="Page Title">
     <meta property="og:description" content="Your trusted family dentist in Wasilla, Alaska. Comprehensive dental care for children and adults, including cleanings, fillings, crowns, and more.">
     <meta property="og:image" content="">
     <meta property="og:url" content="https://www.northwinddentalak.com">
     <meta property="og:type" content="website">
-    <!-- <meta http-equiv="Content-Security-Policy" content="default-src 'self';"> Content Security Policy (CSP) -->
     <meta name="robots" content="index, follow"> <!-- This will help search engins know if they should index your page -->
     <title>Northwind Dental, Wasilla, Alaska</title>
-    <link rel="icon" href="/favicon.png" sizes="32x32" type="image/png"> <!-- This will be a bookmark icon -->
-    <link rel="apple-touch-icon" href="/favicon.png">
-    <link rel="stylesheet" href="src/css/components.css">
-    <link rel="stylesheet" href="src/css/index.css">
+    <!-- favicons -->
+    <link rel="icon" href="/favicon-32.png" sizes="32x32" type="image/png">
+    <link rel="icon" href="/favicon-16.png" sizes="16x16" type="image/png">
+    <link rel="apple-touch-icon" href="/favicon-32.png" sizes="180x180">
+    <!-- css -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"><!-- social media -->
+    <link rel="stylesheet" href="/src/css/components.css">
+    <link rel="stylesheet" href="/src/css/index.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&family=Inconsolata:wght@200..900&family=Roboto:ital,wght@0,100..900;1,100..900&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Roboto+Flex:opsz,wght@8..144,100..1000&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat+Alternates:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
-    <script src="https://www.youtube.com/iframe_api"></script>
+    <!-- YouTube IFrame API -->
+    <script src="https://www.youtube.com/iframe_api" async defer></script>
     <script>
         let player;
 
         window.onYouTubeIframeAPIReady = function () {
-            player = new YT.Player("youtube-video", {
-                events: {
-                    onReady: () => {
-                        player.mute();
-                        player.playVideo();
+        player = new YT.Player("youtube-video", {
+            events: {
+            onReady: () => {
+                try { player.mute(); } catch (e) {}
+                try { player.playVideo(); } catch (e) {}
 
-                        const speakerToggle = document.querySelector("#speaker-toggle");
-                        let isMuted = true;
-
-                        speakerToggle.addEventListener("click", () => {
-                            if (isMuted) {
-                                player.unMute();
-                            } else {
-                                player.mute();
-                            }
-
-                            speakerToggle.classList.toggle("muted", isMuted);
-                            speakerToggle.setAttribute("aria-pressed", String(!isMuted));
-                            isMuted = !isMuted;
-                        });
-                    }
+                try {
+                const iframe = player.getIframe();
+                if (iframe?.setAttribute) {
+                    iframe.setAttribute("allow", "autoplay; encrypted-media; picture-in-picture; fullscreen");
                 }
-            });
+                } catch (e) {}
+
+                // Speaker toggle 
+                const speakerToggle = document.querySelector("#speaker-toggle");
+
+                if (speakerToggle) {
+                const syncUI = () => {
+                    const muted = player.isMuted();
+                    speakerToggle.classList.toggle("muted", muted);
+                    speakerToggle.setAttribute("aria-pressed", String(!muted));
+                };
+                syncUI();
+
+                const toggleMute = () => {
+                    if (player.isMuted()) {
+                    player.unMute();
+                    try { player.playVideo(); } catch (e) {}
+                    } else {
+                    player.mute();
+                    }
+                    syncUI();
+                };
+
+                speakerToggle.addEventListener("click", toggleMute);
+                speakerToggle.addEventListener("keydown", (e) => {
+                    if (e.key === "Enter" || e.key === " ") {
+                    e.preventDefault();
+                    toggleMute();
+                    }
+                });
+                }
+            }
+            }
+        });
         };
-    </script>    
-    <script type="module" src="./src/js/main.mjs" defer></script>
-    <script type="module" src="./src/js/index.mjs" defer></script>
-    <script type="module" src="/src/js/reviews.mjs" defer></script>
+        </script>
+   
+    <script type="module">
+        import "/src/js/main.mjs";
+        import "/src/js/index.mjs";
+        import "/src/js/reviews.mjs";
+        import "/src/js/pdf.mjs";
+    </script> 
 </head>
 <body>
-    <!-- <div class="skip-links" aria-label="short-cut links" roll="navigation">
-        <ul>
-            <li>
-                <a href="#global-nav" aria-label="Skip to global navigation">
-                    Skip to global navigation</a>
-            </li>
-            <li>
-                <a href="main" aria-label="Skip to main navigation">
-                    Skip to main navigation
-                </a>
-            </li>
-            <li>
-                <a href="#contact-nav" aria-label="skip to contact navigation">
-                    Skip to contact navigation</a>
-            </li>
-            <li>
-                <a href="#dental-footer" aria-label="skip to footer navigation">
-                    Skip to footer navigation</a>
-            </li>
-        </ul>
-    </div> -->
     <header>
-        <section class="global-header">
+        <div class="global-header">
             <a href="index.html" class="logo-link">
                 <img src="/images/logos/logo.jpg" alt="Northwind Dental Logo" class="logo">
             </a>
             <button
                 id="toggle-menu"
                 class="global-nav__toggle"
+                type="button"
+                aria-controls="global-nav"
                 aria-expanded="false"
-                aria-label="Toggle Menu"
+                aria-label="Open menu"
                 data-menu-open="false"
             >
                 <span class="global-nav__toggle-menu-open">
-                    <div class="hamburger">
+                    <span class="hamburger" aria-hidden="true">
                         <span></span>
                         <span></span>
                         <span></span>
-                    </div>
+                    </span>
                     <span class="visually-hidden">Open</span>
                 </span>
                 <span class="global-nav__toggle-menu-closed">
-                    <div class="x-icon">
+                    <span class="x-icon" aria-hidden="true">
                         <span></span>
                         <span></span>
-                    </div> 
+                    </span> 
                     <span class="visually-hidden">Close</span>
                 </span>
             </button>
@@ -117,17 +167,20 @@
                     </li>
                 </ul>
             </nav>
-        </section>
+        </div>
     </header>
     <section class="hero-video-section" aria-label="Introduction to Northwind Dental office and staff">
         <div class="hero-wrapper">
             <!-- YouTube IFrame Embed -->
             <!-- <div id="player"></div> -->
+
+            <!-- CHANGE RSCEB.ORG AT THE END OF SRC BELOW TO NWD WHEN PUBLISHED -->
+
             <iframe
                 id="youtube-video"
-                src="https://www.youtube.com/embed/zyYbDoMD_1o?autoplay=1&mute=1&controls=0&loop=1&playlist=zyYbDoMD_1o&modestbranding=1&rel=0&showinfo=0&enablejsapi=1"
-                allow="autoplay; encrypted-media" 
-                allowfullscreen
+                src="https://www.youtube-nocookie.com/embed/zyYbDoMD_1o?autoplay=1&mute=1&controls=0&loop=1&playlist=zyYbDoMD_1o&modestbranding=1&rel=0&showinfo=0&enablejsapi=1&playsinline=1&origin=https://www.rsceb.org" 
+                allow="autoplay; encrypted-media; picture-in-picture; fullscreen" 
+                title="Northwind Dental intro"
                 ></iframe>
         </div>
         <!-- Speaker Icon -->
@@ -141,42 +194,41 @@
     </section>
     <p class="hero-msg">
         We know how good it feels to smile with confidence, and at Northwind Dental 
-        we are committed to helping our patients of all ages, experience top quality 
+        we are committed to helping our patients of all ages experience top quality 
         dental care that you will want to smile about!
     </p>
     
     <button class="modal-button" data-modal="request-appt-modal" id="appt-req-homepage" aria-label="Request an appointment button">
-        <div class="appt-request">CALL US TODAY! (907) 373-2440</div>
+        <span class="appt-request">CALL US TODAY! (907) 373-2440</span>
     </button>
     <section class="welcome-wrapper">
         <div class="modal-c-band">
             <div class="welcome-modal-content initial-state">
                 <h3 id="welcome">Welcome</h3>
-                <p class="welcome">We're happy you found us!
-                <p class="welcome">​We love to see patients of all ages at Northwind Dental, and we take special interest 
+                <p class="welcome">We're happy you found us!</p>
+                <p class="welcome">​We love to see patients of all ages at Northwind Dental and we take special interest 
                     in making it fun for kids to go to the dentist. You can trust Dr. Dawson to take time to answer your 
-                    questions, and give you honest and professional answers to any concerns you may have.
+                    questions and give you honest and professional answers to any concerns you may have.
                 </p>
                 <p class="welcome">We understand that going to the dentist isn’t something that most people look forward to, 
                     so we are committed to making each visit as pleasant and worry-free as possible. Whether you’re in pain, 
                     interested in Invisalign, or are looking for someone who can help you improve your routine oral health, 
-                    you can relax, knowing you’re in good hands. At Northwind Dental you can expect to be treated like family, 
+                    you can relax, knowing you’re in good hands. At Northwind Dental you can expect to be treated like family 
                     because seeing you is the best part of our day!
                 </p>
-                <p class="welcome">If you’re looking for a remarkable dentist in Wasilla, who is gentle, compassionate and will 
+                <p class="welcome">If you’re looking for a remarkable dentist in Wasilla who is gentle, compassionate, and will 
                     listen to your concerns, you will find it with Dr. Dawson.
                 </p>
                 <p class="welcome">We welcome new patients and look forward to meeting you</p>
-                </div>
             </div>
         </div>
     </section>
     <div class="info-buttons">
         <button class="modal-button special-button info-btn" data-modal="insurance-modal">
-            <div class="inside-circle">INSURANCE</div>
+            <span class="inside-circle">INSURANCE</span>
         </button>
         <button class="modal-button special-button info-btn" data-modal="google-reviews-modal">
-            <div class="inside-circle">GOOGLE REVIEWS</div>
+            <span class="inside-circle">GOOGLE REVIEWS</span>
         </button>
         <a href="./services.html" class="modal-button special-button info-btn" id="services-link">
             <div class="inside-circle">
@@ -187,11 +239,18 @@
                 MEET OUR TEAM
             </div></a>
         <button class="modal-button special-button info-btn" data-modal="request-appt-modal">
-            <div class="inside-circle">CONTACT US</div>
+            <span class="inside-circle">CONTACT US</span>
         </button>
     </div>
     <!-- INSURANCE MODAL PLACEHOLDER -->
-    <div id="insurance-modal" class="modal hidden" aria-hidden="true">
+    <div 
+        id="insurance-modal" 
+        class="modal hidden" 
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="insuranceModal"
+        tab-index="-1"
+        >
         <div class="modal-content">
             <span class="close-modal" role="button" aria-label="Close model">&times;</span>
             <div class="ins-headers">
@@ -202,8 +261,18 @@
         </div>
     </div>
     <!-- GOOGLE REVIEWS MODAL PLACEHOLDER -->
-    <div id="google-reviews-modal" class="modal hidden" aria-hidden="true">
+    <div 
+        id="google-reviews-modal" 
+        class="modal hidden" 
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="insuranceModal"
+        tabindex="-1"
+        >
         <div class="modal-content">
+            <!-- google map -->
+             <div id="google-reviews-map" class="map" style="min-height: 320px;height:clamp(320px, 50vh, 520px);flex:0 0 auto;outline:2px solid red;background:#eee"></div>
+             <!-- google reviews -->
             <span class="close-modal" role="button" aria-label="Close modal">&times;</span>
             <h2 id="g-rev">Google Reviews</h2>
             <div id="reviews-container">
@@ -212,33 +281,46 @@
         </div>
     </div>
     <!-- SERVICES OFFERED -->
-     <div id="services-offered" class="modal hidden" aria-hidden="true">
+     <div 
+        id="services-offered" 
+        class="modal hidden" 
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="insuranceModal"
+        tabindex="-1"
+        >
         <div class="modal-content" id="services-container"></div>
      </div>
     <!-- REQUEST AN APPOINTMENT MODAL -->
-     <div id="request-appt-modal" class="modal hidden" aria-hidden="true">
+     <div 
+        id="request-appt-modal" 
+        class="modal hidden"
+        role="dialog" 
+        aria-modal="true"
+        aria-labelledby="request-appt-modal"
+        tabindex="-1"
+        >
         <div class="modal-content" id="appointment-form-container"></div>
      </div>
      <!-- RESNIK SECTION -->
-    <section class="resnik-wrapper">
-        <div class="resnik-modal-c-band">
-            <div class="resnik-modal-content initial-state">
-                <img src="/images/resnik/resnik-logo.png" alt="Resnik Implant Institute logo" id="resnik-img">
+    <section class="resnik-section" aria-labelledby="resnik-title">
+        <div class="resnik-track">
+            <figure class="resnik-pane resnik-left resnik-drs">
+                <img src="/images/resnik/resnik-cropped.png" alt="Dr. Dawson receiving from Resnik Implant Institute with Dr. Randy Resnik and Dr. Jon Suzuki" id="resnik-dr-img">
+            </figure>
+            <div class="resnik-pane resnik-right">
+                <h2 id="resnik-title" class="visually-hidden">Resnik Implant Fellowship</h2>
                 <p class="resnik">Dr. Dawson has completed his fellowship in the Resnik Implant Institute. 
                     This rigorous program is recognized by both the Academy of General Dentistry, 
-                    and the ADA-CERP Continuing Education Recognition Program. 
+                    and the ADA-CERP Continuing Education Recognition Program.
                     Dr. Dawson has been able to implement this hands-on training in our practice over the past three years, 
-                    enabling us to better serve our patients with dental implant surgical and restoration needs. 
-                <!-- read more button -->
-                    <button class="read-more-resnik" id="read-more-resnik-toggle" role="button" aria-expanded="false">...Read more</button>
-                </p><br>
-
-                <div id="more-text-resnik" class="more-text-resnik hidden">
-                    <p class="resnik-p">Dr. Dawson will implement this hands-on training into our practice, 
-                        enabling us to better serve our patients dental implant surgical and restoration needs. 
-                        We congratulate Dr. Dawson on this major accomplishment!
-                    </p>
-                </div>
+                    enabling us to better serve our patients with dental implant surgical and restoration needs. </p> 
+                <p class="resnik-p"> 
+                    We congratulate Dr. Dawson on this major accomplishment!
+                </p>
+                <figure class="resnik-logo">
+                    <img src="/images/resnik/resnik-logo.png" alt="Resnik Implant Institute logo" id="resnik-img">
+                </figure>
             </div>
         </div>
     </section>
@@ -257,19 +339,43 @@
                     Wednesday: 9AM-5PM<br>
                     Thursday: 9AM-5PM<br>
                     Friday: CLOSED<br>
-                    Saturday: CLOSED<br></p>
+                    Saturday: CLOSED<br>
                 </p>
             </div>
             <div class="footer-right">
                 <button class="modal-button" data-modal="request-appt-modal" id="appt-req-footer" aria-label="Request an appointment button">
-                    <div class="appt-request">CONTACT US</div>
+                    <span class="appt-request">CONTACT US</span>
                 </button>
-                <img src="/images/logos/logo.jpg" alt="Northwind dental logo" id="footer-logo">
+                <nav class="social-media" aria-label="Social media">
+                    <a class="sm ig" href="https://www.instagram.com/northwinddental/" target="_blank" rel="noopener">
+                        <i class="fa-brands fa-instagram"></i>
+                    </a>
+                    <a class="sm fb" href="https://www.facebook.com/northwinddental" target="_blank" rel="noopener">
+                        <i class="fa-brands fa-facebook"></i>
+                    </a>
+                    <a class="sm gg" href="https://g.page/northwinddental" target="_blank" rel="noopener">
+                        <i class="fa-brands fa-google"></i>
+                    </a>
+                </nav>
             </div>
         </div>
         <div class="copyright">
             <p id="copyright">&copy; 2025 Northwind Dental. All Rights Reserved.</p>
         </div>
     </footer>
+     <!-- FLOATING CHAT BUBBLE -->
+    <button
+        id="chat-bubble"
+        class="modal-button"
+        data-open-modal="request-appt-modal"
+        aria-haspopup="dialog"
+        aria-controls="request-appt-modal"
+        aria-expanded="false"
+        >
+        <!-- icon -->
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M21 15a3 3 0 0 1-3 3H9l-4 3v-3H6a3 3 0 0 1-3-3V7a3 3 0 0 1 3-3h12a3 3 0 0 1 3 3v8Z" fill="currentColor"/>
+        </svg>
+    </button>
 </body>
 </html>

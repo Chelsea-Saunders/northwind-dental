@@ -11,8 +11,8 @@ export function validateForm(form) {
         if (!value) fieldValue = false;
 
         // email validation
-        if (fieldValid && field.type === "email" && !validateEmail(field.value)) {
-            isValid = false;
+        if (fieldValue && field.type === "email" && !validateEmail(value)) {
+            fieldValue = false;
         } 
         // phone number formatting
         if (fieldValue && field.type === "tel") {
@@ -20,7 +20,7 @@ export function validateForm(form) {
             if (digits.length < 10) fieldValue = false;
         }
         field.classList.toggle("error", !fieldValue);
-        field.setAttribute("aria-invalid", String(!fieldValie));
+        field.setAttribute("aria-invalid", String(!fieldValue));
 
         if (!fieldValue) isValid = false;
     });

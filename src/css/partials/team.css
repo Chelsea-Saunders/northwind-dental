@@ -19,6 +19,7 @@ h2.meet-our-team {
 }
 .team-photo {
     width: 70%;
+    max-width: 750px;
     margin: 0 auto;
     display: flex;
     flex-direction: column;
@@ -46,6 +47,9 @@ h2.meet-our-team {
     justify-content: center;
     padding: 5rem 2rem;
 }
+.h3 {
+    padding-top: 0.5rem;
+}
 .dr-thayne,
 .hyg, 
 .assist-1,
@@ -68,6 +72,10 @@ h2.meet-our-team {
 }
 .wrap:hover {
     transform: scale(1.05);
+}
+.wrap .modal-button[data-modal="hygienist"],
+.wrap .modal-button[data-modal="dentist"] {
+    margin: 0 2rem;
 }
 .modal-button[data-modal] {
     box-shadow: var(--bs-box-shadow-buttons);
@@ -115,6 +123,17 @@ h2.meet-our-team {
 .carousel-track {
     display: flex;
     transition: transform 0.5s ease-in-out;
+    will-change: transform;
+}
+.carousel-track img, 
+.team-modal-content img {
+    border-radius: var(--bs-border-radius-large);
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    object-position: center-top;
+    display: block;
+    background-color: rgba(0, 0, 128, 0.072);
 }
 .carousel-slide {
     flex: 0 0 100%;
@@ -136,10 +155,6 @@ h2.meet-our-team {
         inset 0 0 8px rgba(255, 255, 255, 0.5),
         0 4px 8px rgba(0, 0, 0, 0.3),
         0 0 18px rgba(1, 4, 60, 0.852); */
-}
-.carousel-dots {
-    text-align: center;
-    margin-top: 1rem;
 }
 .next {
     position: absolute;

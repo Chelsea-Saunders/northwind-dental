@@ -153,8 +153,67 @@ textarea#appt-form-message {
     color: #008080;
     text-decoration: none;
 }
+
+/* HONEYPOT TRAP */
+.honeypot-trap {
+    position: absolute;
+    left: -100000px;
+    top: auto;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+}
+
+/* CHAT BUBBLE */
+#chat-bubble svg, 
+#chat-bubble icon {
+    width: 1.5rem;
+    height: 1.5rem; /* or %, vw, em */
+}
+#chat-bubble {
+    position: fixed;
+    right: 16px;
+    bottom: 16px;
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    background-color: rgb(183, 214, 226);
+    color: white;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 100000000;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+
+    transition: transform 0.2s ease, box-shadow 0.2s ease filter 0.2s ease;
+    will-change: transform;
+}
+#chat-bubble:hover,
+#chat-bubble:focus-visible {
+    filter: brightness(1.05);
+    box-shadow: 0 6px 14px rgba(229, 224, 224, 0.503);
+    transform: translateY(-3px);
+}
+
+@media (prefers-reduced-motion: recduce) {
+    #chat-bubble {
+        transition: none;
+    }
+    #chat-bubble:hover, 
+    #chat-bubble:focus-visible {
+        transform: none;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    }
+}
+
 @media (min-width: 500px) {
     #appt-req-homepage {
         margin: 4rem auto;
+    }
+    .icon {
+        width: 2rem;
+        height: 2rem; /* or %, vw, em */
     }
 }

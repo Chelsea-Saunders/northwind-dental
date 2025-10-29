@@ -19,6 +19,13 @@ document.addEventListener("DOMContentLoaded", () => {
     
     // add event listeners for modal buttons
     document.addEventListener("click", (event) => {
+        const a = event.target.closest("a");
+        if (a) {
+            if (a.href && a.href.includes("/pdf-forms/")) return;
+            if (a.getAttribute("target") === "_blank") return;
+            if (a.hasAttribute("download")) return;
+            if (a.hasAttribute("data-bypass")) return;
+        }
         const button = event.target.closest(".modal-button, .contact-button-header");
         if (button) {
             const modalId = button.dataset.modal;
