@@ -137,6 +137,12 @@ export function closeAndReload(modalId, delayMs = 1000) {
     }, delayMs);
 }
 
+// focusable elements within a modal
+function getFocusable(container) {
+    return [...container.querySelectorAll(focusableSelectors)]
+        .filter(element => !element.disabled && element.offsetParent !== null);
+}
+
 // closing modals 
 function closeTopmostModal() {
     const openModals = [...document.querySelectorAll(".modal:not(.hidden)")];
@@ -220,27 +226,6 @@ function untrapFocus(modal) {
         modal._trapHandler = null;
     }
 }
-// // OPEN CHAT BUBBLE MODAL
-// document.addEventListener("click", (event) => {
-//     const opener = event.target.closest("[data-modal], [data-open-modal]");
-//     if (!opener) return;
-
-//     const id = 
-//     opener.getAttribute("data-modal") ||
-//     opener.getAttribute("data-open-modal");
-//     if (!id) return;
-
-//     // if there's an <a>, stop navigation
-//     const a = opener.tagName === "A" || opener.closest("a") === opener;
-//     if (a) event.preventDefault();
-
-//     opener.setAttribute("aria-expanded", "true");
-//     // remember the opener for later focus restoration
-//     const modal = document.getElementById(id);
-//     if (modal) modal._returnTo = opener;
-
-//     toggleModal(id, true);
-// });
 
 // CLOSE (X BUTTON OR EXCAPE KEY)
 document.addEventListener("click", (event) => {

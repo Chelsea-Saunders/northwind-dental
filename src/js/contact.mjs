@@ -13,7 +13,8 @@ export function buildAppointment(container) {
     container.innerHTML = `
         <span class="close-modal" aria-label="Close Modal">&times;</span>
         <h2 id="appt-h2">Contact Us</h2>
-        <form id="appointment-form" novalidate>
+        <form id="appointment-form" action="https://rsceb.org/backend_northwind/sendmail.php" method="POST" novalidate>
+
             <label for="full-name">Full Name:</label>
             <input type="text" id="full-name" name="full-name" autocomplete="name" placeholder="First and Last Name" required>
             
@@ -56,17 +57,17 @@ export function buildAppointment(container) {
     const website = container.querySelector("#website");
     const timestamp = container.querySelector("#timestamp");
     const feedback = container.querySelector("#form-feedback");
-    const contact = container.querySelector(".appt-form-submit-button");
+    const submitButton = container.querySelector(".appt-form-submit-button");
 
     // MODAL HELPERS (LOCAL)
 
     // function to toggle busy state
     function setBusy(isBusy) {
-        if (!contact || !form) return;
-        if (!contact.dataset.label) contact.dataset.label = contact.textContent.trim();
-        contact.disabled = isBusy;
+        if (!submitButton || !form) return;
+        if (!submitButton.dataset.label) submitButton.dataset.label = submitButton.textContent.trim();
+        submitButton.disabled = isBusy;
         form.toggleAttribute("aria-busy", isBusy);
-        contact.textContent = isBusy ? "Sending..." : (contact.dataset.label || "Send");
+        submitButton.textContent = isBusy ? "Sending..." : (submitButton.dataset.label || "Send");
     }
 
     // function to show feedback message
@@ -150,15 +151,15 @@ export function buildAppointment(container) {
 
         if (antiSpamCheck()) {
             clearForm();
-            showFeedback("Message sent. Thank you!");
-            showSubmissionMessage("Message sent. Thank you!");
+            showFeedback("Spam detected. Message not sent!");
+            showSubmissionMessage("Spam detected. Message not sent!");
             return;
         }
 
         setBusy(true);
         try {
             const body = getFormData();
-            const response = await fetch("/backend/sendmail.php", {
+            const response = await fetch("/backend_northwind/sendmail.php", {
                 method: "POST", 
                 body, 
                 headers: { "X-Requested-With": "fetch" }
@@ -180,5 +181,9 @@ export function buildAppointment(container) {
         }
     });
 
-    return() => {};
+    return () => {};
 }
+document.addEventListener("DOMContentLoaded", () => {
+    const container = document.getElementById("appointment-form-container");
+    buildAppointment(container);
+});
