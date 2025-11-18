@@ -344,7 +344,7 @@
         align-items: center;
         padding: 0.25rem 0.5rem !important;
     }
-   a {
+   #global-nav a {
     font-size: 0.9rem !important;
    }
 }

@@ -1,4 +1,14 @@
 
+/* disable safari/chrome from changing font sizes */
+html {
+    -webkit-text-size-adjust: none;
+    text-size-adjust: none;
+}
+
+
+.pdf-container {
+    padding-bottom: none;
+}
 footer {
     background-color: var(--bs-header-background-color);
     color: var(--bs-header-text-color);
@@ -77,6 +87,24 @@ footer h4 {
 .social-media .sm.ig .fa-instagram {
     color: #E1306C;
 }
+/* COPYRIGHT AND HIPAA POLICY */
+#copyright {
+    padding-top: 1rem;
+    grid-column: 1 / -1;
+    font-size: 0.5rem;
+    color: navy;
+}
+.copyright a {
+    font-size: 0.5rem;
+    grid-column: 1 / -1;
+    color: navy;
+    text-decoration: none;
+    cursor: pointer;
+    transition: transform .15s ease, opacity .15s ease;
+}
+.copyright a:hover {
+    transform: translateY(-3px) scale(1.06);
+}
 
 @supports ((background-clip: text) or (-webkit-background-clip: text)) {
     .social-media .sm.ig .fa-instagram {
@@ -101,17 +129,6 @@ footer h4 {
     }
 }
 
-#copyright {
-    padding-top: 1rem;
-    grid-column: 1 / -1;
-    font-size: 0.5rem;
-    color: navy;
-}
-
-#footer-logo {
-    width: min(30%, 140px);
-    height: auto;
-}
 @media (min-width: 500px) {
     .main-footer {
         display: grid;
@@ -128,7 +145,6 @@ footer h4 {
         grid-column: 1 / -1;
         font-size: 0.5rem;
         color: navy;
-
     }
     .footer-right {
         width: 100%;
