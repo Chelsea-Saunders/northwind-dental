@@ -18,11 +18,6 @@
 
     <link rel="stylesheet" href="/src/css/components.css">
     <link rel="stylesheet" href="/src/css/pdf.css"> <!-- only on the 5 PDF pages -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" crossorigin>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto+Flex:opsz,wght@8..144,300..700&display=swap" rel="stylesheet">
-    <script async src="https://www.youtube.com/iframe_api"></script>
 
     <script type="module">
         import "/src/js/pdf.mjs";
@@ -32,7 +27,13 @@
     <header>
         <div class="global-header">
             <a href="index.html" class="logo-link">
-                <img src="/images/logos/logo.jpg" alt="Northwind Dental Logo" class="logo">
+                <img src="/images/logos/logo-85x81.jpg" 
+                    alt="Northwind Dental Logo" 
+                    class="logo"
+                    width="85"
+                    height="81"
+                    fetchpriority="high"
+                    >
             </a>
             <button
                 id="toggle-menu"
