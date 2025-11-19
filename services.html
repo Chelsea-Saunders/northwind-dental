@@ -16,11 +16,6 @@
     <link rel="icon" href="/favicon-16.png" sizes="16x16" type="image/png">
     <link rel="apple-touch-icon" href="/favicon-32.png" sizes="180x180">
 
-    <!-- Preconnects -->
-    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
     <!-- Font Awesome: non-blocking -->
     <link rel="preload"
         href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
@@ -33,12 +28,6 @@
             crossorigin
             integrity="sha512-<same-hash-here>">
     </noscript>
-
-    <!-- Google Fonts (single request; keep only what you actually use) -->
-    <link href="https://fonts.googleapis.com/css2?family=Roboto+Flex:opsz,wght@8..144,300..700&display=swap" rel="stylesheet">
-
-    <!-- YouTube API (async so it doesn't block) -->
-    <script async src="https://www.youtube.com/iframe_api"></script>
 
     <!-- Base CSS -->
     <link rel="stylesheet" href="/src/css/components.css">
@@ -53,7 +42,13 @@
     <header>
         <div class="global-header">
             <a href="index.html" class="logo-link">
-                <img src="/images/logos/logo.jpg" alt="Northwind Dental Logo" class="logo">
+                <img src="/images/logos/logo-85x81.jpg" 
+                    alt="Northwind Dental Logo" 
+                    class="logo"
+                    width="85"
+                    height="81"
+                    fetchpriority="high"
+                >
             </a>
             <button
                 id="toggle-menu"
@@ -146,7 +141,7 @@
         class="modal hidden" 
         role="dialog"
         aria-modal="true"
-        aria-labelledby="preventative-modal"
+        aria-label="preventative-modal"
         tabindex="-1"
         >
         <div class="modal-content">
@@ -159,7 +154,7 @@
         class="modal hidden" 
         role="dialog"
         aria-modal="true"
-        aria-labelledby="restorative-care"
+        aria-label="restorative-care"
         tabindex="-1"
             >
         <div class="modal-content">
@@ -176,7 +171,7 @@
         class="modal hidden" 
         role="dialog"
         aria-modal="true"
-        aria-labelledby="emergency-care"
+        aria-label="emergency-care"
         tabindex="-1"
         >
         <div class="modal-content">
@@ -192,7 +187,7 @@
         class="modal hidden" 
         role="dialog"
         aria-modal="true"
-        aria-labelledby="cosmetic-care"
+        aria-label="cosmetic-care"
         tabindex="-1"
         >
         <div class="modal-content">
@@ -209,7 +204,7 @@
         class="modal hidden"
         role="dialog" 
         aria-modal="true"
-        aria-labelledby="request-appt-modal"
+        aria-label="request-appt-modal"
         tabindex="-1"
         >
         <div class="modal-content" id="appointment-form-container"></div>

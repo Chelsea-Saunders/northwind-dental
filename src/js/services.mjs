@@ -6,8 +6,9 @@ const services = [
     {
         id: "preventative-content", 
         name: "Preventative Care", 
-        img: "/images/img-links/smile.png",
+        img: "/images/img-links/preventative.png",
         alt: "Image of a bright smile", 
+        loading: "lazy",
         description: "Regular exams, cleanings and preventative treatments keep your smile healthy.",
         paragraph: "Click the links below to learn more",
         list: [
@@ -24,6 +25,7 @@ const services = [
         name: "Restorative Care", 
         img: "/images/img-links/implants.png",
         alt: "Image of a dental implant bridge",
+        loading: "lazy",
         description: "Restorative dentistry repairs and restores damaged or missing teeth.", 
         paragraph: "Click the links below to learn more",
         list: [
@@ -38,6 +40,7 @@ const services = [
         name: "Emergency Care",
         img: "/images/img-links/emergency.png",
         alt: "Image of a person with a toothache",
+        loading: "lazy",
         description: "We provide prompt care for dental emergencies to relieve pain and restore function.",
         paragraph: "Click the links below to learn more",
         list: [
@@ -53,8 +56,9 @@ const services = [
     {
         id: "cosmetic-content", 
         name: "Cosmetic Dentistry",
-        img: "/images/img-links/whitening.png",
+        img: "/images/img-links/cosmetic.png",
         alt: "Image of digitally whitened teeth",
+        loading: "lazy",
         description: "Enhance your smile with our cosmetic dentistry services.",
         paragraph: "Click the links below to learn more",
         list: [
@@ -67,6 +71,7 @@ const services = [
         name: "Removable Prosthetics",
         img: "/images/img-links/dentures.png",
         alt: "Image of a set of dentures",
+        loading: "lazy",
         paragraph: "Click the links below to learn more",
         description: "Prosthetics are custom-made dentures or partial dentures which help restore oral function and aesthetics.",
         list: [
@@ -83,139 +88,162 @@ const procedures = {
     "comprehensive-exams": {
         title: "Comprehensive Exams", 
         img: "/images/prev-care/exams.png", 
-        alt: "Image of a tooth with a magnifying glass", 
+        alt: "Image of a tooth with a magnifying glass",
+        loading: "lazy", 
         description: "A comprehensive dental exam is a complete check of your overall oral health. During this visit, Dr Dawson will look at your teeth, gums, bite, and soft tissues, checking for cavities, gum disease, jaw issues, and early signs of oral cancer. X-rays or digital images may also be taken to see what’s happening below the surface, such as tooth roots or bone health. This exam gives Dr. Dawson a clear picture of your mouth so we can create a personalized plan for care, whether that’s preventive tips, routine cleanings, or treatment recommendations. It’s an important step in protecting both your smile and your overall health."
     },
     "professional-cleanings": {
         title: "Professional Cleanings", 
         img: "/images/prev-care/cleanings.png", 
         alt: "Animated tooth being brushed", 
+        loading: "lazy",
         description: "A professional dental cleaning is a thorough cleaning of your teeth that goes beyond what you can do at home with brushing and flossing. During this visit, our hygienist gently removes plaque and hardened tartar from your teeth, polishes away surface stains, and flosses between your teeth to leave your mouth feeling fresh and healthy. In some cases, a fluoride treatment may be added to give your teeth extra protection. Regular cleanings are an important part of preventing cavities, keeping your gums healthy, and maintaining a bright smile."
     },
     "fluoride-treatments": {
         title: "Fluoride Treatments", 
         img: "/images/prev-care/fluoride.png",
         alt: "Animated tooth with fluoride being applied", 
+        loading: "lazy",
         description: "A fluoride treatment is a quick and simple way to strengthen your teeth and help prevent cavities. Our hygienist applies a concentrated form of fluoride—usually as a varnish, foam, or gel—that soaks into the enamel and makes your teeth more resistant to decay. It only takes a few minutes and is especially helpful for children, but adults at higher risk for cavities can benefit too. Think of it as a protective shield for your teeth that adds an extra layer of defense against everyday wear and acids."
     },
     "dental-sealants": {
         title: "Dental Sealants", 
         img: "images/prev-care/sealant.png", 
         alt: "Animated tooth showing its groove being sealed",
+        loading: "lazy",
         description: "Dental sealants are a thin, protective coating placed on the chewing surfaces of the back teeth to keep food and bacteria out of the deep grooves where cavities often start. The process is quick and painless: the tooth is cleaned, prepared, and then painted with a tooth-colored resin that’s hardened with a special light. Once applied, sealants act like a shield, making it easier to keep those hard-to-reach teeth healthy. Sealants are especially useful for children and teens, but adults with deep grooves in their teeth can benefit too."
     },
     "oral-cancer-screenings": {
         title: "Oral Cancer Screenings", 
         img: "/images/prev-care/cancer.png", 
         alt: "Animated tooth being inspected with a magnifying glass",
+        loading: "lazy",
         description: "An oral cancer screening is a fast, painless exam that helps detect early signs of cancer or precancer in the mouth. During the screening, Dr. Dawson looks at your lips, tongue, cheeks, and throat for any unusual spots, lumps, or changes, and may gently feel your neck and jaw for swelling. Most of the time nothing is found, but the exam gives peace of mind and ensures that if anything is detected, it’s caught early when it’s easiest to treat. This simple step is an important part of protecting your overall health."
     },
     "x-rays": {
         title: "X-rays", 
         img: "/images/prev-care/xray.png", 
         alt: "Animated Doctor holding an x-ray up to the light", 
+        loading: "lazy",
         description: "Dental X-rays are special images that let Dr. Dawson see what’s happening beneath the surface of your teeth and gums. They help identify hidden problems like cavities between teeth, infections in the bone, impacted teeth, or issues with developing teeth. X-rays are quick and safe. Depending on your age, health, and risk for dental problems, we may take X-rays every year as needed to keep a close eye on your oral health."
     },
     "fillings": {
         title: "Fillings", 
         img: "/images/rest-care/filling.png", 
         alt: "Animated tooth being filled", 
+        loading: "lazy",
         description: "A dental filling is used to restore a tooth that has been damaged by a cavity or minor fracture. After removing the decay, Dr. Dawson places a tooth-colored material that blends naturally with your smile, sealing and protecting the tooth from further damage. Fillings are a simple, effective way to stop cavities from spreading and to keep your teeth healthy and strong."
     },
     "same-day-crowns": {
         title: "Same Day Crowns", 
         img: "/images/rest-care/crown.png",
         alt: "Animated tooth with a crown on top", 
+        loading: "lazy",
         description: "Same day crowns are custom-made restorations designed and placed in a single visit, eliminating the need for temporary crowns and multiple appointments. Using advanced digital technology, Dr. Dawson creates a precise, tooth-colored crown that restores strength, function, and appearance right away. This convenient option means you leave the office with a fully restored smile in just one day."
     },
     "bridges": {
         title: "Bridges", 
         img: "/images/rest-care/bridge.png",
         alt: "Animated dental bridge", 
+        loading: "lazy",
         description: "A dental bridge is used to replace one or more missing teeth by anchoring a false tooth to the natural teeth or crowns on either side of the gap. Bridges not only restore your smile but also help maintain proper bite alignment and make chewing and speaking easier. With modern materials, bridges can look natural and blend seamlessly with your existing teeth."
     },
     "implants": {
         title: "Implants",
         img: "/images/rest-care/implant.png", 
         alt: "Animated tooth with normal root and an implant root", 
+        loading: "lazy",
         description: "Dental implants are a long-lasting solution for missing teeth that look, feel, and function like natural teeth. An implant is a small titanium post placed in the jawbone, which serves as a sturdy foundation for a crown, bridge, or denture. Implants help preserve bone health, restore confidence, and provide a stable and comfortable fit compared to traditional tooth replacements."
     },
     "toothaches": {
         title: "Toothaches", 
         img: "/images/emerg-care/toothache.png",
         alt: "Animated tooth that looks dirty and in pain", 
+        loading: "lazy",
         description: "A toothache is a sign that something is wrong, whether it’s a cavity, infection, or gum problem. During a visit, Dr. Dawson will carefully examine the tooth, take X-rays if needed, and provide the right treatment to relieve pain and address the underlying cause. Prompt care is important, since ignoring tooth pain can allow problems to worsen."
     },
     "chipped-or-broken-teeth": {
         title: "Chipped or Broken Teeth", 
         img: "/images/emerg-care/chipped.png", 
         alt: "animated tooth that looks like a chip is broken off",
+        loading: "lazy",
         description: "If you chip or break a tooth, Dr. Dawson can restore it with treatments like bonding, veneers, crowns, or other restorations depending on the size and location of the damage. These repairs not only improve the appearance of your smile but also protect the tooth from further harm. Quick treatment is key to preventing pain or additional damage."
     },
     "lost-fillings-or-crowns": {
         title: "Lost Fillings or Crowns", 
         img: "/images/emerg-care/lost-filling.png",
         alt: "Animated tooth with a crown floating above the tooth",
+        loading: "lazy",
         description: "If a filling or crown falls out, it leaves your tooth vulnerable to sensitivity, decay, and further damage. Dr. Dawson can quickly restoration the tooth with a new filling or re-cement or replace the crown to protect your tooth and restore normal function. It’s best to address this right away to avoid discomfort or complications."
     },
     "abscesses": {
         title: "Abscesses", 
         img: "/images/emerg-care/abscess.png",
-        alt: "Three animated teeth, the middle one looks like there is a dark spot on it", 
+        alt: "Three animated teeth, the middle one looks like there is a dark spot on it",
+        loading: "lazy", 
         description: "A dental abscess is a serious infection that forms around the root of a tooth or in the gums, often causing pain, swelling, and sensitivity. Dr. Dawson may drain the abscess, prescribe antibiotics, and perform treatments such as a root canal or extraction to remove the source of infection. Because abscesses can spread if left untreated, prompt care is very important."
     }, 
     "oral-trauma": {
         title: "Oral Trauma", 
         img: "/images/emerg-care/trauma.png", 
         alt: "Animated tooth that is crying and has pain radiating from the top", 
+        loading: "lazy",
         description: "Oral trauma, such as a knocked-out tooth, cut, or injury to the jaw, requires immediate attention. Your Dr. Dawson will assess the damage, manage pain, and determine the best treatment to restore your oral health. In emergencies, acting quickly can make a big difference in saving a tooth or preventing complications."
     },
     "root-canals": {
         title: "Root Canals", 
         img: "/images/emerg-care/rCanal.png",
         alt: "animated root canal procedure", 
+        loading: "lazy",
         description: "A root canal is a treatment used to save a tooth that is severely infected or damaged. During the procedure, Dr. Dawson removes the infected pulp from inside the tooth roots, cleans and disinfects the area, and then fills and seals it to prevent further infection. After a root canal, a crown is often placed on the tooth to restore its strength and function. This procedure helps relieve pain and allows you to keep your natural tooth."
     },
     "extractions": {
         title: "Extractions", 
         img: "/images/emerg-care/extraction.png",
         alt: "Animated tooth being gripped by pliers", 
+        loading: "lazy",
         description: "A tooth extraction is the removal of a tooth that is too damaged, decayed, or crowded to be saved. Dr. Dawson will carefully numb the area to keep you comfortable, then remove the tooth and provides instructions for healing. While it’s usually a last resort, an extraction can relieve pain and protect your overall oral health."
     },
     "full-dentures": {
         title: "Full Dentures", 
         img: "/images/removable/denture.png",
         alt: "Shiny, animated set of full dentures", 
+        loading: "lazy",
         description: "Full dentures replace an entire arch of missing teeth, restoring your ability to chew, speak, and smile with confidence. Modern dentures are custom-made for comfort and a natural appearance. They help support your facial structure and are a reliable option for patients who have lost most or all of their teeth."
     },
     "partial-dentures": {
         title: "Partial Dentures", 
         img: "/images/removable/partial.png",
         alt: "animated partial denture", 
+        loading: "lazy",
         description: "Partial dentures are removable appliances that replace several missing teeth while fitting around your natural teeth. They help fill gaps, restore function, and prevent your remaining teeth from shifting out of place. They are designed to match your smile and are a simple and effective solution for multiple tooth loss."
     },
     "implant-supported-dentures": {
         title: "Implant-Supported Dentures", 
         img: "/images/removable/iDenture.png",
         alt: "Animated denture showing how implants support it",
+        loading: "lazy",
         description: "Implant-supported dentures combine the stability of dental implants with the coverage of dentures. Small titanium posts anchor the denture securely in place, preventing slipping or shifting. This option provides better chewing power, comfort, and confidence compared to traditional removable dentures."
     },
     "flippers": {
         title: "Flippers",
         img: "/images/removable/flipper.png", 
         alt: "Animated flipper denture showing flippers can be removed", 
+        loading: "lazy",
         description: "A flipper is a temporary, removable denture used to replace one or more missing teeth while waiting for a permanent solution such as an implant, bridge, or full denture. Lightweight and easy to wear, flippers restore appearance and function in the short term, helping you smile confidently during treatment."
     },
     "teeth-whitening": {
         title: "Teeth Whitening", 
         img: "/images/cosmetic/whitening.png",
         alt: "Shiny, animated white tooth", 
+        loading: "lazy",
         description: "Professional teeth whitening is a safe and effective way to brighten your smile by several shades. Here at Northwind Dental, we can lighten stains caused by coffee, tea, tobacco, or natural aging. The result is a noticeably whiter, refreshed smile in a short amount of time."
     },
     "veneers": {
         title: "Veneers", 
         img: "/images/cosmetic/veneer.png",
         alt: "Animation drawing of half the mouth with perfect vaneers and half without and smaller crooked teeth", 
+        loading: "lazy",
         description: "Veneers are thin, custom-made shells bonded to the front of teeth to improve their shape, size, or color. They’re a popular cosmetic option for fixing chips, gaps, stains, or uneven teeth. Veneers create a natural-looking, bright, and uniform smile that can last for many years with proper care."
     }
 };
@@ -225,32 +253,71 @@ const servicesOfferedModal = `
     <h2 id="services-h2">Services Offered</h2>
     <ul id="services-offered-list">
         <li>
-            <div class="circle-img-wrapper modal-button" data-modal="preventative-content">
-                <img src="/images/img-links/smile.png" alt="Image of a bright smile" id="preventative" class="service-icon">
+            <div 
+                class="circle-img-wrapper modal-button" 
+                data-modal="preventative-content"
+                >
+                <img src="/images/img-links/preventative.png" 
+                    alt="Animated teeth with dental instruments to clean them" 
+                    id="preventative" 
+                    class="service-icon"
+                    >
             </div>
             <h3 class="serv-h3">Preventative Care</h3>
         </li>
         <li>
-            <div class="circle-img-wrapper modal-button" data-modal="restorative-content">
-                <img src="/images/img-links/implants.png" alt="Image of a dental implant bridge" id="restorative" class="service-icon">
+            <div 
+                class="circle-img-wrapper modal-button" 
+                data-modal="restorative-content"
+                >
+                <img 
+                    src="/images/img-links/implants.png" 
+                    alt="Image of a dental implant bridge" 
+                    id="restorative" 
+                    class="service-icon"
+                    >
             </div>
             <h3 class="serv-h3">Restorative Care</h3>
         </li>
         <li>
-            <div class="circle-img-wrapper modal-button" data-modal="emergency-content">
-                <img src="/images/img-links/emergency.png" alt="Image of a person with a toothache" id="emergency" class="service-icon">
+            <div 
+                class="circle-img-wrapper modal-button" 
+                data-modal="emergency-content"
+                >
+                <img 
+                    src="/images/img-links/emergency.png" 
+                    alt="Animated tooth with pain" 
+                    id="emergency" 
+                    class="service-icon"
+                    >
             </div>
             <h3 class="serv-h3">Emergency Care</h3>
         </li>
         <li>
-            <div class="circle-img-wrapper modal-button" data-modal="cosmetic-content">
-                <img src="/images/img-links/whitening.png" alt="Image of digitally whitened teeth" id="whitening" class="service-icon">
+            <div 
+                class="circle-img-wrapper modal-button" 
+                data-modal="cosmetic-content"
+                >
+                <img 
+                    src="/images/img-links/emergency.png" 
+                    alt="Animated smile with white teeth" 
+                    id="whitening" 
+                    class="service-icon"
+                    >
             </div>
             <h3 class="serv-h3">Cosmetic Dentistry</h3>
         </li>
         <li>
-            <div class="circle-img-wrapper modal-button" data-modal="removable-content">
-                <img src="/images/img-links/dentures.png" alt="Image of a set of dentures" id="removable" class="service-icon">
+            <div 
+                class="circle-img-wrapper modal-button" 
+                data-modal="removable-content"
+                >
+                <img 
+                    src="/images/img-links/cosmetic.png" 
+                    alt="Image of a set of dentures" 
+                    id="removable" 
+                    class="service-icon"
+                    >
             </div>
             <h3 class="serv-h3">Removable Prosthetics</h3>
         </li>
