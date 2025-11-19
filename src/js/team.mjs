@@ -41,25 +41,120 @@ const teamMembers = [
             Dr. Dawson is a member of the American Dental Association, the Academy of General Dentistry, 
             the Alaska Dental Society and the Matanuska-Susitna Dental Society.`,
         img: [
-            { src: "/images/team/thayne/1.webp", alt: "Dr. Thayne Dawson" },
-            { src: "/images/team/thayne/2.webp", alt: "Dawson Family" },
-            { src: "/images/team/thayne/3.webp", alt: "Dr. Dawson with patient" },
-            { src: "/images/team/thayne/4.webp", alt: "Dr. Thayne Dawson" },
-            { src: "/images/team/thayne/5.webp", alt: "Dr. Thayne Dawson" },
-            { src: "/images/team/thayne/6.webp", alt: "Dr. Thayne Dawson" },
-            { src: "/images/team/thayne/7.webp", alt: "Dr. Dawson" },
-            { src: "/images/team/thayne/8.webp", alt: "Dr. Thayne Dawson" },
-            { src: "/images/team/thayne/9.webp", alt: "Dr. Thayne Dawson" },
-            { src: "/images/team/thayne/10.webp", alt: "Dr. Thayne Dawson" },
-            { src: "/images/team/thayne/11.webp", alt: "Dr. Thayne Dawson" },
-            { src: "/images/team/thayne/12.webp", alt: "Dr. Thayne Dawson" },
-            { src: "/images/team/thayne/13.webp", alt: "Dr. Thayne Dawson" },
-            { src: "/images/team/thayne/14.webp", alt: "Dr. Thayne Dawson" },
-            { src: "/images/team/thayne/15.webp", alt: "Dr. Thayne Dawson" },
-            { src: "/images/team/thayne/19.webp", alt: "Dr. Thayne Dawson" },
-            { src: "/images/team/thayne/16.webp", alt: "Dr. Thayne Dawson" },
-            { src: "/images/team/thayne/17.webp", alt: "Dr. Thayne Dawson" },
-            { src: "/images/team/thayne/18.webp", alt: "Dr. Thayne Dawson" }
+            { 
+                src: "/images/team/thayne/1.webp", 
+                srcset: "/images/team/thayne/1-200.webp 200w, /images/team/thayne/1-300.webp 300w", 
+                sizes: "300px", 
+                alt: "Dawson Family"
+            },
+            { 
+                src: "/images/team/thayne/2.webp", 
+                srcset: "/images/team/thayne/2-200.webp 200w, /images/team/thayne/2-300.webp 300w", 
+                sizes: "300px",
+                alt: "Dawson Family" 
+            },
+            { 
+                src: "/images/team/thayne/3.webp", 
+                srcset: "/images/team/thayne/3-200.webp 200w, /images/team/thayne/3-300.webp 300w", 
+                sizes: "300px",
+                alt: "Dr. Dawson with patient" 
+            },
+            { 
+                src: "/images/team/thayne/4.webp", 
+                srcset: "/images/team/thayne/4-200.webp 200w, /images/team/thayne/4-300.webp 300w", 
+                sizes: "300px",
+                alt: "Dr. Thayne Dawson" 
+            },
+            { 
+                src: "/images/team/thayne/5.webp",
+                srcset: "/images/team/thayne/5-200.webp 200w, /images/team/thayne/5-300.webp 300w", 
+                sizes: "300px", 
+                alt: "Mrs. Dawson" 
+            },
+            { 
+                src: "/images/team/thayne/6.webp",
+                srcset: "/images/team/thayne/6-200.webp 200w, /images/team/thayne/6-300.webp 300w", 
+                sizes: "300px", 
+                alt: "Dr. Thayne Dawson" 
+            },
+            { 
+                src: "/images/team/thayne/7.webp", 
+                srcset: "/images/team/thayne/7-200.webp 200w, /images/team/thayne/7-300.webp 300w", 
+                sizes: "300px",
+                alt: "Dawson Family ice skating" 
+            },
+            { 
+                src: "/images/team/thayne/8.webp", 
+                srcset: "/images/team/thayne/8-200.webp 200w, /images/team/thayne/8-300.webp 300w", 
+                sizes: "300px",
+                alt: "Dr. Thayne Dawson" 
+            },
+            { 
+                src: "/images/team/thayne/9.webp",
+                srcset: "/images/team/thayne/9-200.webp 200w, /images/team/thayne/9-300.webp 300w", 
+                sizes: "300px", 
+                alt: "Dawson Family" 
+            },
+            { 
+                src: "/images/team/thayne/10.webp", 
+                srcset: "/images/team/thayne/10-200.webp 200w, /images/team/thayne/10-300.webp 300w", 
+                sizes: "300px",
+                alt: "Dawson Family in the fall leaves" 
+            },
+            { 
+                src: "/images/team/thayne/11.webp", 
+                srcset: "/images/team/thayne/11-200.webp 200w, /images/team/thayne/11-300.webp 300w", 
+                sizes: "300px",
+                alt: "Dr. Thayne Dawson backpacking with his son" 
+            },
+            { 
+                src: "/images/team/thayne/12.webp", 
+                srcset: "/images/team/thayne/12-200.webp 200w, /images/team/thayne/12-300.webp 300w", 
+                sizes: "300px",
+                alt: "Dr. and Mrs. Dawson" 
+            },
+            { 
+                src: "/images/team/thayne/13.webp", 
+                srcset: "/images/team/thayne/13-200.webp 200w, /images/team/thayne/13-300.webp 300w", 
+                sizes: "300px",
+                alt: "Happy patient of Dr. Dawson" 
+            },
+            { 
+                src: "/images/team/thayne/14.webp", 
+                srcset: "/images/team/thayne/14-200.webp 200w, /images/team/thayne/14-300.webp 300w", 
+                sizes: "300px",
+                alt: "Dr. Thayne Dawson" 
+            },
+            { 
+                src: "/images/team/thayne/15.webp", 
+                srcset: "/images/team/thayne/15-200.webp 200w, /images/team/thayne/15-300.webp 300w", 
+                sizes: "300px",
+                alt: "Dr. Dawson snow hiking with his son" 
+            },
+            { 
+                src: "/images/team/thayne/16.webp", 
+                srcset: "/images/team/thayne/16-200.webp 200w, /images/team/thayne/16-300.webp 300w", 
+                sizes: "300px",
+                alt: "Dawson Family hiking" 
+            },
+            { 
+                src: "/images/team/thayne/17.webp", 
+                srcset: "/images/team/thayne/17-200.webp 200w, /images/team/thayne/17-300.webp 300w", 
+                sizes: "300px",
+                alt: "Dawson family working together" 
+            },
+            { 
+                src: "/images/team/thayne/18.webp", 
+                srcset: "/images/team/thayne/18-200.webp 200w, /images/team/thayne/18-300.webp 300w", 
+                sizes: "300px",
+                alt: "Dr. Thayne Dawson fly fishing" 
+            },
+            { 
+                src: "/images/team/thayne/19.webp", 
+                srcset: "/images/team/thayne/19-200.webp 200w, /images/team/thayne/19-300.webp 300w", 
+                sizes: "300px",
+                alt: "Dr. Thayne Dawson's graduation with Mrs. Dawson" 
+            }
         ]
     },
     {
