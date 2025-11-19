@@ -10,43 +10,7 @@ import { closeAndReload } from "./modal.mjs";
 
 // REQUEST APPOINTMENT MODAL
 export function buildAppointment(container) {
-    container.innerHTML = `
-        <span class="close-modal" aria-label="Close Modal">&times;</span>
-        <h2 id="appt-h2">Contact Us</h2>
-        <form id="appointment-form" action="https://rsceb.org/backend_northwind/sendmail.php" method="POST" novalidate>
-
-            <label for="full-name">Full Name:</label>
-            <input type="text" id="full-name" name="full-name" autocomplete="name" placeholder="First and Last Name" required>
-            
-            <label for="appt-form-email">Email:</label>
-            <input type="email" id="appt-form-email" name="appt-form-email" autocomplete="email" placeholder="email@email.com" required>
-            
-            <label for="appt-form-phone">Phone Number:</label>
-            <input type="tel" id="appt-form-phone" inputmode="tel" name="appt-form-phone" autocomplete="tel" placeholder="(123)456-7890" required>
-            
-            <label for="appt-form-message">Reason or Comments:</label>
-            <textarea id="appt-form-message" name="appt-form-message" placeholder="Your message here..." required></textarea>
-            
-            <!-- honeypot field -->
-            <div class="honeypot-trap" aria-hidden="true">
-                <label for="website">Website</label>
-                <input type="text" id="website" class="visually-hidden" name="website" tabindex="-1" autocomplete="off" />
-            </div>
-            
-            <!-- submission timetrap -->
-            <input type="hidden" id="timestamp" name="timestamp" />
-
-            <button type="submit" class="appt-form-submit-button">Send</button>
-            <p id="form-feedback" aria-live="polite" class="hidden"></p>
-
-            <p id="contact">
-            You can also contact our office at 
-                <a href="tel:+19073732440" aria-label="Call our office at (907) 373-2440" class="phone-number-link">
-                    (907) 373-2440
-                </a>
-            </p>
-        </form>
-    `;
+    if (!container) return;
 
     // LOOKUPS
     const form = container.querySelector("#appointment-form");
@@ -77,8 +41,8 @@ export function buildAppointment(container) {
         feedback.classList.remove("hidden");
         clearTimeout(showFeedback.timeout);
         showFeedback.timeout = setTimeout(() => {
-            feedback.classList.add("hidden"), 4000;
-        });
+            feedback?.classList.add("hidden");
+        }, 4000);
     }
 
     // function to get form data
@@ -109,13 +73,13 @@ export function buildAppointment(container) {
             const ok = validateEmail(email.value);
             email.classList.toggle("error", !ok);
             email.setAttribute("aria-invalid", String(!ok));
-            feedback.classList.add("hidden");
+            feedback?.classList.add("hidden");
         });
 
         // phone formatting
         phone?.addEventListener("input", (event) => {
             event.target.value = formatPhoneNumber(event.target.value);
-            feedback.classList.add("hidden");
+            feedback?.classList.add("hidden");
         });
 
         // auto-grow message textarea
@@ -159,7 +123,7 @@ export function buildAppointment(container) {
         setBusy(true);
         try {
             const body = getFormData();
-            const response = await fetch("/backend_northwind/sendmail.php", {
+            const response = await fetch("/backend/sendmail.php", {
                 method: "POST", 
                 body, 
                 headers: { "X-Requested-With": "fetch" }
@@ -183,7 +147,3 @@ export function buildAppointment(container) {
 
     return () => {};
 }
-document.addEventListener("DOMContentLoaded", () => {
-    const container = document.getElementById("appointment-form-container");
-    buildAppointment(container);
-});

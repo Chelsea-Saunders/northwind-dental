@@ -41,25 +41,25 @@ const teamMembers = [
             Dr. Dawson is a member of the American Dental Association, the Academy of General Dentistry, 
             the Alaska Dental Society and the Matanuska-Susitna Dental Society.`,
         img: [
-            { src: "/images/team/thayne/1.jpg", alt: "Dr. Thayne Dawson" },
-            { src: "/images/team/thayne/2.jpg", alt: "Dawson Family" },
-            { src: "/images/team/thayne/3.png", alt: "Dr. Dawson with patient" },
-            { src: "/images/team/thayne/4.jpg", alt: "Dr. Thayne Dawson" },
-            { src: "/images/team/thayne/5.jpg", alt: "Dr. Thayne Dawson" },
-            { src: "/images/team/thayne/6.jpg", alt: "Dr. Thayne Dawson" },
-            { src: "/images/team/thayne/7.jpg", alt: "Dr. Dawson" },
-            { src: "/images/team/thayne/8.jpg", alt: "Dr. Thayne Dawson" },
-            { src: "/images/team/thayne/9.jpg", alt: "Dr. Thayne Dawson" },
-            { src: "/images/team/thayne/10.jpg", alt: "Dr. Thayne Dawson" },
-            { src: "/images/team/thayne/11.jpg", alt: "Dr. Thayne Dawson" },
-            { src: "/images/team/thayne/12.jpg", alt: "Dr. Thayne Dawson" },
-            { src: "/images/team/thayne/13.png", alt: "Dr. Thayne Dawson" },
-            { src: "/images/team/thayne/14.png", alt: "Dr. Thayne Dawson" },
-            { src: "/images/team/thayne/15.jpg", alt: "Dr. Thayne Dawson" },
-            { src: "/images/team/thayne/19.jpg", alt: "Dr. Thayne Dawson" },
-            { src: "/images/team/thayne/16.jpg", alt: "Dr. Thayne Dawson" },
-            { src: "/images/team/thayne/17.jpg", alt: "Dr. Thayne Dawson" },
-            { src: "/images/team/thayne/18.jpg", alt: "Dr. Thayne Dawson" }
+            { src: "/images/team/thayne/1.webp", alt: "Dr. Thayne Dawson" },
+            { src: "/images/team/thayne/2.webp", alt: "Dawson Family" },
+            { src: "/images/team/thayne/3.webp", alt: "Dr. Dawson with patient" },
+            { src: "/images/team/thayne/4.webp", alt: "Dr. Thayne Dawson" },
+            { src: "/images/team/thayne/5.webp", alt: "Dr. Thayne Dawson" },
+            { src: "/images/team/thayne/6.webp", alt: "Dr. Thayne Dawson" },
+            { src: "/images/team/thayne/7.webp", alt: "Dr. Dawson" },
+            { src: "/images/team/thayne/8.webp", alt: "Dr. Thayne Dawson" },
+            { src: "/images/team/thayne/9.webp", alt: "Dr. Thayne Dawson" },
+            { src: "/images/team/thayne/10.webp", alt: "Dr. Thayne Dawson" },
+            { src: "/images/team/thayne/11.webp", alt: "Dr. Thayne Dawson" },
+            { src: "/images/team/thayne/12.webp", alt: "Dr. Thayne Dawson" },
+            { src: "/images/team/thayne/13.webp", alt: "Dr. Thayne Dawson" },
+            { src: "/images/team/thayne/14.webp", alt: "Dr. Thayne Dawson" },
+            { src: "/images/team/thayne/15.webp", alt: "Dr. Thayne Dawson" },
+            { src: "/images/team/thayne/19.webp", alt: "Dr. Thayne Dawson" },
+            { src: "/images/team/thayne/16.webp", alt: "Dr. Thayne Dawson" },
+            { src: "/images/team/thayne/17.webp", alt: "Dr. Thayne Dawson" },
+            { src: "/images/team/thayne/18.webp", alt: "Dr. Thayne Dawson" }
         ]
     },
     {
@@ -70,10 +70,10 @@ const teamMembers = [
             Jessica was born and raised in Wenatchee, WA, which is known for being the apple capital of the world. She grew up always playing outside and climbing the tall pine trees.
             The Oregon coast was one of her favorite places to explore until she discovered Alaska and moved here in 2020 with her husband. They are living life to the fullest and checking off their bucket-list, climbing glaciers and discovering the beauty of Alaska.`,
         img: [
-            { src: "/images/team/jessica-receptionist/jessica2.jpg", alt: "Jessica" },
-            { src: "/images/team/jessica-receptionist/jessica3.jpg", alt: "Jessica" },
-            { src: "/images/team/jessica-receptionist/Jessica1.jpg", alt: "Jessica" },
-            { src: "/images/team/jessica-receptionist/jessica11.jpg", alt: "Jessica" },
+            { src: "/images/team/jessica-receptionist/jessica2.webp", alt: "Jessica" },
+            { src: "/images/team/jessica-receptionist/jessica3.webp", alt: "Jessica" },
+            { src: "/images/team/jessica-receptionist/Jessica1.webp", alt: "Jessica" },
+            { src: "/images/team/jessica-receptionist/jessica11.webp", alt: "Jessica" },
         ]
     },
     {
@@ -82,7 +82,7 @@ const teamMembers = [
         role: "Dental Hygienist", 
         description: `Alyssa was born in Minnesota and raised in Wasilla, Alaska. She graduated from the University of Alaska Anchorage. When she isn’t cleaning teeth, she enjoys spending time with her husband and dogs, gardening, and traveling. `,
         img: [
-            { src: "/images/team/alyssa-hygienist/Alyssa3.png", alt: "Alyssa" }
+            { src: "/images/team/alyssa-hygienist/Alyssa3.webp", alt: "Alyssa" }
         ]
     },
     {
@@ -108,7 +108,7 @@ const teamMembers = [
              and volunteering for projects in the community. Her passion is travel and she 
              hopes to do much more of it once she retires.`,
         img: [
-            { src: "/images/team/beth-assistant/beth.jpg", alt: "Beth" }
+            { src: "/images/team/beth-assistant/beth.webp", alt: "Beth" }
         ]
     },
     {
@@ -117,7 +117,7 @@ const teamMembers = [
         role: "Dental Assistant",
         description: `Shania has been a dental assistant for about 3 years in Hawaii and Alaska! Shania was born and raised in Alaska between Fairbanks and Wasilla. She loves traveling with her family and sitting on a warm beach with a poke bowl. She enjoys getting to know patients of all ages and can’t wait to see you all in our office!`,
         img: [
-            { src: "/images/team/shania-assistant/shania.png", alt: "Shania" }
+            { src: "/images/team/shania-assistant/shania.webp", alt: "Shania" }
         ]
     }
 ]

@@ -261,6 +261,7 @@ const servicesOfferedModal = `
                     alt="Animated teeth with dental instruments to clean them" 
                     id="preventative" 
                     class="service-icon"
+                    fetchpriority="high"
                     >
             </div>
             <h3 class="serv-h3">Preventative Care</h3>
