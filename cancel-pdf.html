@@ -67,11 +67,7 @@
                     <li><a href="team.html">OUR TEAM</a></li>
                     <li><a href="forms.html">FORMS</a></li>
                     <li>
-                        <button 
-                            class="contact-button-header" 
-                            data-modal="request-appt-modal" 
-                            aria-label="Contact Us"
-                        >
+                        <button class="contact-button-header" data-modal="request-appt-modal" aria-label="Contact Us">
                             CONTACT US
                         </button>
                     </li>
@@ -171,7 +167,99 @@
             <p id="copyright">&copy; 2025 Northwind Dental. All Rights Reserved.</p>
         </div>
     </footer>
-    <!-- FLOATING CHAT BUBBLE -->
+    <!-- REQUEST AN APPOINTMENT MODAL -->
+    <div 
+        id="request-appt-modal" 
+        class="modal hidden"
+        role="dialog" 
+        aria-modal="true"
+        aria-label="Contact form"
+        tabindex="-1"
+        >
+        <div class="modal-content" id="appointment-form-container">
+            <span class="close-modal" aria-label="Close Modal">&times;</span>
+            <h2 id="appt-h2">Contact Us</h2>
+
+            <form 
+                id="appointment-form" 
+                action="/backend/sendmail.php" 
+                method="POST" 
+                novalidate
+                >
+                <label for="full-name">Full Name:</label>
+                <input 
+                    type="text" 
+                    id="full-name" 
+                    name="full-name" 
+                    autocomplete="name" 
+                    placeholder="First and Last Name" 
+                    required
+                >
+
+                <label for="appt-form-email">Email:</label>
+                <input
+                    type="email"
+                    id="appt-form-email"
+                    name="appt-form-email"
+                    autocomplete="email"
+                    placeholder="email@email.com"
+                    required
+                >
+
+                <label for="appt-form-phone">Phone Number:</label>
+                <input 
+                    type="tel"
+                    id="appt-form-phone" 
+                    inputmode="tel"
+                    name="appt-form-phone" 
+                    placeholder="(123)456-7890"
+                    required
+                >
+
+                <label for="appt-form-message">Reason or Comments:</label>
+                <textarea 
+                    id="appt-form-message"
+                    name="appt-form-message"
+                    placeholder="Your message here..."
+                    required
+                ></textarea>
+
+                <!-- honeypot field -->
+                <div class="honeypot-trap" aria-hidden="true">
+                    <label for="website">Website</label>
+                    <input type="text" 
+                        id="website"
+                        class="visually-hidden"
+                        name="website"
+                        tabindex="-1"
+                        autocomplete="off"
+                    >
+                </div>
+
+                <!-- submission timetrap -->
+                <input type="hidden" id="timestamp" name="timestamp">
+
+                <button type="submit"
+                    class="appt-form-submit-button">
+                    Send
+                </button>
+
+                <p id="form-feedback" aria-live="polite" class="hidden"></p>
+
+                <p id="contact">
+                    You can also contact our office at
+                    <a href="tel:19073732440"
+                        aria-label="Call our office at (907) 373-2440"
+                        class="phone-number-link"
+                    >
+                    (907) 373-2440
+                    </a> 
+                </p>
+            </form>
+        </div>
+    </div>
+     <!-- FLOATING CHAT BUBBLE -->
+    </div>
     <button
         type="button"
         id="chat-bubble"
