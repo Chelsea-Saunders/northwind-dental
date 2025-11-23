@@ -69,7 +69,7 @@ const services = [
     {
         id: "removable-content",
         name: "Removable Prosthetics",
-        img: "/images/img-links/dentures.webp",
+        img: "/images/removable/denture.webp",
         alt: "Image of a set of dentures",
         loading: "lazy",
         paragraph: "Click the links below to learn more",

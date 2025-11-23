@@ -11,11 +11,12 @@ export default defineConfig({
         services: resolve(__dirname, 'services.html'),
         team:     resolve(__dirname, 'team.html'),
         forms:    resolve(__dirname, 'forms.html'),
-        // 4 pdf related pages
+        // 5 pdf related pages
         cancelPdf: resolve(__dirname, 'cancel-pdf.html'),
         healthformPdf: resolve(__dirname, 'hf-pdf.html'),
         newpatientPdf: resolve(__dirname, 'np-pdf.html'),
         hipaaPdf: resolve(__dirname, 'hipaa-pdf.html'),
+        hipaaPolicy: resolve(__dirname, 'hipaa-policy.html'),
       },
     },
   },

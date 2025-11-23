@@ -4,8 +4,6 @@ html {
     -webkit-text-size-adjust: none;
     text-size-adjust: none;
 }
-
-
 .pdf-container {
     padding-bottom: none;
 }
@@ -67,10 +65,10 @@ footer h4 {
     text-decoration: none;
     transition: transform .15s ease, opacity .15s ease;
 }
-/* base icon sizing */
-.social-media .sm .fa-brands {
-    font-size: 30px;
-    line-height: 1;
+.social-media .sm .sm-icon {
+    width: 30px;
+    height: 30px;
+    display: block;
 }
 /* hover/focus motion */
 .social-media .sm:hover {
@@ -83,13 +81,7 @@ footer h4 {
 .social-media .sm.fb {
     background: #1877F2;
 }
-.social-media .sm.fb .fa-facebook { 
-    color: #fff;
-}
-/* instagram gradient  */
-.social-media .sm.ig .fa-instagram {
-    color: #E1306C;
-}
+
 /* COPYRIGHT AND HIPAA POLICY */
 #copyright {
     padding-top: 1rem;
@@ -108,29 +100,6 @@ footer h4 {
 }
 .copyright a:hover {
     transform: translateY(-3px) scale(1.06);
-}
-
-@supports ((background-clip: text) or (-webkit-background-clip: text)) {
-    .social-media .sm.ig .fa-instagram {
-        background: linear-gradient(45deg, #feda75, #fa7e1e, #d62976, #962fbf, #4f5bd5);
-        -webkit-background-clip: text;
-        background-clip: text;
-        -webkit-text-fill-color: transparent;
-        color: transparent;
-    }
-}
-/* google gradient */
-.social-media .sm.gg .fa-google {
-     color: #4285F4;
-}
-@supports ((background-clip: text) or (-webkit-background-clip: text)) {
-    .social-media .sm.gg .fa-google {
-        background: linear-gradient(90deg, #4285F4,#34A853, #FBBC05, #EA4335);
-        -webkit-background-clip: text;
-        background-clip: text;
-        -webkit-text-fill-color: transparent;
-        color: transparent;
-    }
 }
 
 @media (min-width: 500px) {
@@ -185,7 +154,8 @@ footer h4 {
         width: 40px;
         height: 40px;
     }
-    .social-media .sm .fa-brands {
-        font-size: 34px;
+    .social-media .sm .sm-icon {
+        width: 35px;
+        height: 35px;
     }
 }

@@ -7,7 +7,7 @@
     <meta name="author" content="Chelsea Saunders">
     <meta property="og:title" content="Meet-the-team page - Northwind Dental, Wasilla Alaska">
     <meta property="og:description" content="Meet the team at Northwind Dental, Wasilla, Alaska">
-    <meta property="og:image" content="https://northwinddentalak.com/images/images/logos/logo.webp">
+    <meta property="og:image" content="https://northwinddentalak.com/images/images/logos/logo-85x81.jpg">
     <meta property="og:url" content="https://www.northwinddentalak.com">
     <meta property="og:type" content="website">
     <meta name="robots" content="index, follow">
@@ -17,9 +17,9 @@
     <link rel="apple-touch-icon" href="/favicon-32.png" sizes="180x180">
 
     <!-- Preconnects -->
-    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+    <!-- <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> -->
 
     <!-- Base CSS -->
     <link rel="stylesheet" href="/src/css/components.css">
@@ -32,30 +32,21 @@
         import "/src/js/team.mjs";
     </script>
 
-    <!-- Font Awesome: non-blocking -->
-    <link rel="preload"
-        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
-        as="style" crossorigin
-        integrity="sha512-<paste-cdnjs-hash-here>"
-        onload="this.onload=null;this.rel='stylesheet'">
-    <noscript>
-    <link rel="stylesheet"
-            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
-            crossorigin
-            integrity="sha512-<same-hash-here>">
-    </noscript>
-
     <!-- Google Fonts (single request; keep only what you actually use) -->
-    <link href="https://fonts.googleapis.com/css2?family=Roboto+Flex:opsz,wght@8..144,300..700&display=swap" rel="stylesheet">
+    <!-- <link href="https://fonts.googleapis.com/css2?family=Roboto+Flex:opsz,wght@8..144,300..700&display=swap" rel="stylesheet"> -->
 
-    <!-- YouTube API (async so it doesn't block) -->
-    <script async src="https://www.youtube.com/iframe_api"></script>
 </head>
 <body>
     <header>
         <div class="global-header">
             <a href="index.html" class="logo-link">
-                <img src="/images85x81.webp" alt="Northwind Dental Logo" class="logo">
+                <img src="/images/logos/logo-85x81.jpg" 
+                    alt="Northwind Dental Logo" 
+                    class="logo"
+                    width="85"
+                    height="81"
+                    fetchpriority="high"
+                >
             </a>
             <button
                 id="toggle-menu"
@@ -99,36 +90,64 @@
     </header>
     <main>
         <h1 class="meet-your-nw-dental-team">Meet Your Northwind Dental Team</h1>
-
-        <img src="/images/team/team.webp" alt="Northwind Dental Team Photo" class="team-photo">
+        <!-- adjust large image to be compatable for small or large screens -->
+         <picture>
+            <!-- webp first -->
+            <source 
+                srcset="
+                    /images/team/team-350.webp 350w, 
+                    /images/team/team-600.webp 600w,
+                    /images/team/team-800.webp 800w, 
+                    /images/team/team-1000.webp 1000w
+                    "
+                sizes="(min-width: 900px) 750px, 100vw"
+                type="image/webp"
+            >
+            <!-- jpeg fallback -->
+            <source
+                srcset="
+                    /images/team/team-350.jpg 350w,
+                    /images/team/team-600.jpg 600w,
+                    /images/team/team-800.jpeg 800w,
+                    /images/team/team-1000.jpg 1000w
+                    "
+                sizes="(min-width: 900px) 750px, 100vw"
+                type="image/jpeg"
+            >
+            <img 
+                src="/images/team/team-600.jpg" 
+                alt="Northwind Dental Team Photo" 
+                class="team-photo"
+            >
+         </picture>
         <div class="meet-the-team-button-container">
             <div class="wrap">
                 <button class="modal-button" data-modal="dentist">
-                    <img src="/images/team/thayne/8.webp" alt="Dentist: Dr. Thayne Dawson DDS" class="dr-thayne">
+                    <img src="/images/team/thayne/t250.jpeg" alt="Dentist: Dr. Thayne Dawson DDS" class="dr-thayne">
                 </button>
                 <h3 id="dr" class="h3">Dr. Thayne Dawson</h3>
             </div>
             <div class="wrap">
                 <button class="modal-button" data-modal="hygienist">
-                    <img src="/images/team/alyssa-hygienist/Alyssa3.png" alt="Image of Hygienist: Alyssa" class="hyg">
+                    <img src="/images/team/alyssa-hygienist/alyssa250.jpg" alt="Image of Hygienist: Alyssa" class="hyg">
                 </button>
                 <h3 id="hyg-1" class="h3">Hygienist: Alyssa</h3>
             </div>
             <div class="wrap">
                 <button class="modal-button" data-modal="assistant-1">
-                    <img src="/images/team/beth-assistant/beth.webp" alt="Image of Dental Assistant: Beth" class="assist-1">
+                    <img src="/images/team/beth-assistant/beth250.jpg" alt="Image of Dental Assistant: Beth" class="assist-1">
                 </button>
                 <h3 id="assist-1" class="h3">Dental Assistant: Beth</h3>
             </div>
             <div class="wrap">
                 <button class="modal-button" data-modal="assistant-2">
-                    <img src="/images/team/shania-assistant/shania.png" alt="Image of Dental Assistant: Shania" class="assist-2">
+                    <img src="/images/team/shania-assistant/3shania.png" alt="Image of Dental Assistant: Shania" class="assist-2">
                 </button>
                 <h3 id="assist-2" class="h3">Dental Assistant: Shania</h3>
             </div>
             <div class="wrap">
                 <button class="modal-button" data-modal="receptionist">
-                    <img src="/images/team/jessica-receptionist/jessica2.webp" alt="Image of Receptionist: Jessica" class="recept">
+                    <img src="/images/team/jessica-receptionist/jessica2.jpg" alt="Image of Receptionist: Jessica" class="recept">
                 </button>
                 <h3 id="recept" class="h3">Receptionist: Jessica</h3>
             </div>
@@ -158,13 +177,25 @@
                 </button>
                 <nav class="social-media" aria-label="Social media">
                     <a class="sm ig" href="https://www.instagram.com/northwinddental/" target="_blank" rel="noopener">
-                        <i class="fa-brands fa-instagram"></i>
+                        <img 
+                            src="/images/social-media/instagram.svg" 
+                            alt="Instagram"
+                            class="sm-icon"
+                        >
                     </a>
                     <a class="sm fb" href="https://www.facebook.com/northwinddental" target="_blank" rel="noopener">
-                        <i class="fa-brands fa-facebook"></i>
+                        <img 
+                            src="/images/social-media/facebook.svg" 
+                            alt="Facebook"
+                            class="sm-icon"
+                            >
                     </a>
                     <a class="sm gg" href="https://g.page/northwinddental" target="_blank" rel="noopener">
-                        <i class="fa-brands fa-google"></i>
+                        <img 
+                            src="/images/social-media/google.svg" 
+                            alt="Google"
+                            class="sm-icon"
+                        >
                     </a>
                 </nav>
                 
@@ -201,7 +232,98 @@
         <div class="modal-content" id="appointment-form-container"></div>
      </div>
      
+      <!-- REQUEST AN APPOINTMENT MODAL -->
+    <div 
+        id="request-appt-modal" 
+        class="modal hidden"
+        role="dialog" 
+        aria-modal="true"
+        aria-label="Contact form"
+        tabindex="-1"
+        >
+        <div class="modal-content" id="appointment-form-container"></div>
+            <span class="close-modal" aria-label="Close Modal">&times;</span>
+            <h2 id="appt-h2">Contact Us</h2>
+
+            <form 
+                id="appointment-form" 
+                action="/backend/sendmail.php" 
+                method="POST" 
+                novalidate
+                >
+                <label for="full-name">Full Name:</label>
+                <input 
+                    type="text" 
+                    id="full-name" 
+                    name="full-name" 
+                    autocomplete="name" 
+                    placeholder="First and Last Name" 
+                    required
+                >
+
+                <label for="appt-form-email">Email:</label>
+                <input
+                    type="email"
+                    id="appt-form-email"
+                    name="appt-form-email"
+                    autocomplete="email"
+                    placeholder="email@email.com"
+                    required
+                >
+
+                <label for="appt-form-phone">Phone Number:</label>
+                <input 
+                    type="tel"
+                    id="appt-form-phone" 
+                    inputmode="tel"
+                    name="appt-form-phone" 
+                    placeholder="(123)456-7890"
+                    required
+                >
+
+                <label for="appt-form-message">Reason or Comments:</label>
+                <textarea 
+                    id="appt-form-message"
+                    name="appt-form-message"
+                    placeholder="Your message here..."
+                    required
+                ></textarea>
+
+                <!-- honeypot field -->
+                <div class="honeypot-trap" aria-hidden="true">
+                    <label for="website">Website</label>
+                    <input type="text" 
+                        id="website"
+                        class="visually-hidden"
+                        name="website"
+                        tabindex="-1"
+                        autocomplete="off"
+                    >
+                </div>
+
+                <!-- submission timetrap -->
+                <input type="hidden" id="timestamp" name="timestamp">
+
+                <button type="submit"
+                    class="appt-form-submit-button">
+                    Send
+                </button>
+
+                <p id="form-feedback" aria-live="polite" class="hidden"></p>
+
+                <p id="contact">
+                    You can also contact our office at
+                    <a href="tel:19073732440"
+                        aria-label="Call our office at (907) 373-2440"
+                        class="phone-number-link"
+                    >
+                    (907) 373-2440
+                    </a> 
+                </p>
+            </form>
+        </div>
      <!-- FLOATING CHAT BUBBLE -->
+    </div>
     <button
         type="button"
         id="chat-bubble"

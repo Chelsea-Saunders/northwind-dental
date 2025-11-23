@@ -7,7 +7,7 @@
     <meta name="author" content="Chelsea Saunders">
     <meta property="og:title" content="Services Offered Page - Northwind Dental, Wasilla Alaska">
     <meta property="og:description" content="Services offered at Northwind Dental Office and descriptions of those services - Northwind Dental, Wasilla Alaska">
-    <meta property="og:image" content="https://northwinddentalak.com/images/images/logos/logo.webp">
+    <meta property="og:image" content="https://northwinddentalak.com/images/images/logos/logo-85x81.jpg">
     <meta property="og:url" content="https://www.northwinddentalak.com">
     <meta property="og:type" content="website">
     <meta name="robots" content="index, follow">
@@ -15,19 +15,6 @@
     <link rel="icon" href="/favicon-32.png" sizes="32x32" type="image/png">
     <link rel="icon" href="/favicon-16.png" sizes="16x16" type="image/png">
     <link rel="apple-touch-icon" href="/favicon-32.png" sizes="180x180">
-
-    <!-- Font Awesome: non-blocking -->
-    <link rel="preload"
-        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
-        as="style" crossorigin
-        integrity="sha512-<paste-cdnjs-hash-here>"
-        onload="this.onload=null;this.rel='stylesheet'">
-    <noscript>
-    <link rel="stylesheet"
-            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
-            crossorigin
-            integrity="sha512-<same-hash-here>">
-    </noscript>
 
     <!-- Base CSS -->
     <link rel="stylesheet" href="/src/css/components.css">
@@ -42,7 +29,7 @@
     <header>
         <div class="global-header">
             <a href="index.html" class="logo-link">
-                <img src="/images/logos/logo-85x81.webp" 
+                <img src="/images/logos/logo-85x81.jpg" 
                     alt="Northwind Dental Logo" 
                     class="logo"
                     width="85"
@@ -117,13 +104,25 @@
                 </button>
                 <nav class="social-media" aria-label="Social media">
                     <a class="sm ig" href="https://www.instagram.com/northwinddental/" target="_blank" rel="noopener">
-                        <i class="fa-brands fa-instagram"></i>
+                        <img 
+                            src="/images/social-media/instagram.svg" 
+                            alt="Instagram"
+                            class="sm-icon"
+                        >
                     </a>
                     <a class="sm fb" href="https://www.facebook.com/northwinddental" target="_blank" rel="noopener">
-                        <i class="fa-brands fa-facebook"></i>
+                        <img 
+                            src="/images/social-media/facebook.svg" 
+                            alt="Facebook"
+                            class="sm-icon"
+                            >
                     </a>
                     <a class="sm gg" href="https://g.page/northwinddental" target="_blank" rel="noopener">
-                        <i class="fa-brands fa-google"></i>
+                        <img 
+                            src="/images/social-media/google.svg" 
+                            alt="Google"
+                            class="sm-icon"
+                        >
                     </a>
                 </nav>
             </div>
@@ -197,7 +196,7 @@
         </div>
      </div>
      <!-- REQUEST AN APPOINTMENT MODAL -->
-     <div 
+    <div 
         id="request-appt-modal" 
         class="modal hidden"
         role="dialog" 
@@ -287,6 +286,7 @@
             </form>
         </div>
      <!-- FLOATING CHAT BUBBLE -->
+    </div>
     <button
         type="button"
         id="chat-bubble"

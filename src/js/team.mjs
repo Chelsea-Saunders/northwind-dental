@@ -42,117 +42,79 @@ const teamMembers = [
             the Alaska Dental Society and the Matanuska-Susitna Dental Society.`,
         img: [
             { 
-                src: "/images/team/thayne/1.webp", 
-                srcset: "/images/team/thayne/1-200.webp 200w, /images/team/thayne/1-300.webp 300w", 
-                sizes: "300px", 
+                src: "/images/team/thayne/1.jpg", 
                 alt: "Dawson Family"
             },
             { 
-                src: "/images/team/thayne/2.webp", 
-                srcset: "/images/team/thayne/2-200.webp 200w, /images/team/thayne/2-300.webp 300w", 
-                sizes: "300px",
+                src: "/images/team/thayne/2.jpg", 
                 alt: "Dawson Family" 
             },
             { 
-                src: "/images/team/thayne/3.webp", 
-                srcset: "/images/team/thayne/3-200.webp 200w, /images/team/thayne/3-300.webp 300w", 
-                sizes: "300px",
+                src: "/images/team/thayne/3.jpg", 
                 alt: "Dr. Dawson with patient" 
             },
             { 
-                src: "/images/team/thayne/4.webp", 
-                srcset: "/images/team/thayne/4-200.webp 200w, /images/team/thayne/4-300.webp 300w", 
-                sizes: "300px",
+                src: "/images/team/thayne/4.jpg", 
                 alt: "Dr. Thayne Dawson" 
             },
             { 
-                src: "/images/team/thayne/5.webp",
-                srcset: "/images/team/thayne/5-200.webp 200w, /images/team/thayne/5-300.webp 300w", 
-                sizes: "300px", 
+                src: "/images/team/thayne/5.jpg",
                 alt: "Mrs. Dawson" 
             },
             { 
-                src: "/images/team/thayne/6.webp",
-                srcset: "/images/team/thayne/6-200.webp 200w, /images/team/thayne/6-300.webp 300w", 
-                sizes: "300px", 
+                src: "/images/team/thayne/6.jpg",
                 alt: "Dr. Thayne Dawson" 
             },
             { 
-                src: "/images/team/thayne/7.webp", 
-                srcset: "/images/team/thayne/7-200.webp 200w, /images/team/thayne/7-300.webp 300w", 
-                sizes: "300px",
+                src: "/images/team/thayne/7.jpg", 
                 alt: "Dawson Family ice skating" 
             },
             { 
-                src: "/images/team/thayne/8.webp", 
-                srcset: "/images/team/thayne/8-200.webp 200w, /images/team/thayne/8-300.webp 300w", 
-                sizes: "300px",
+                src: "/images/team/thayne/8.jpg", 
                 alt: "Dr. Thayne Dawson" 
             },
             { 
-                src: "/images/team/thayne/9.webp",
-                srcset: "/images/team/thayne/9-200.webp 200w, /images/team/thayne/9-300.webp 300w", 
-                sizes: "300px", 
+                src: "/images/team/thayne/9.jpg",
                 alt: "Dawson Family" 
             },
             { 
-                src: "/images/team/thayne/10.webp", 
-                srcset: "/images/team/thayne/10-200.webp 200w, /images/team/thayne/10-300.webp 300w", 
-                sizes: "300px",
+                src: "/images/team/thayne/10.jpg", 
                 alt: "Dawson Family in the fall leaves" 
             },
             { 
-                src: "/images/team/thayne/11.webp", 
-                srcset: "/images/team/thayne/11-200.webp 200w, /images/team/thayne/11-300.webp 300w", 
-                sizes: "300px",
+                src: "/images/team/thayne/11.jpg", 
                 alt: "Dr. Thayne Dawson backpacking with his son" 
             },
             { 
-                src: "/images/team/thayne/12.webp", 
-                srcset: "/images/team/thayne/12-200.webp 200w, /images/team/thayne/12-300.webp 300w", 
-                sizes: "300px",
+                src: "/images/team/thayne/12.jpg", 
                 alt: "Dr. and Mrs. Dawson" 
             },
             { 
-                src: "/images/team/thayne/13.webp", 
-                srcset: "/images/team/thayne/13-200.webp 200w, /images/team/thayne/13-300.webp 300w", 
-                sizes: "300px",
+                src: "/images/team/thayne/13.jpg", 
                 alt: "Happy patient of Dr. Dawson" 
             },
             { 
-                src: "/images/team/thayne/14.webp", 
-                srcset: "/images/team/thayne/14-200.webp 200w, /images/team/thayne/14-300.webp 300w", 
-                sizes: "300px",
+                src: "/images/team/thayne/14.jpg", 
                 alt: "Dr. Thayne Dawson" 
             },
             { 
-                src: "/images/team/thayne/15.webp", 
-                srcset: "/images/team/thayne/15-200.webp 200w, /images/team/thayne/15-300.webp 300w", 
-                sizes: "300px",
+                src: "/images/team/thayne/15.jpg", 
                 alt: "Dr. Dawson snow hiking with his son" 
             },
             { 
-                src: "/images/team/thayne/16.webp", 
-                srcset: "/images/team/thayne/16-200.webp 200w, /images/team/thayne/16-300.webp 300w", 
-                sizes: "300px",
+                src: "/images/team/thayne/16.jpg", 
                 alt: "Dawson Family hiking" 
             },
             { 
-                src: "/images/team/thayne/17.webp", 
-                srcset: "/images/team/thayne/17-200.webp 200w, /images/team/thayne/17-300.webp 300w", 
-                sizes: "300px",
+                src: "/images/team/thayne/17.jpg", 
                 alt: "Dawson family working together" 
             },
             { 
-                src: "/images/team/thayne/18.webp", 
-                srcset: "/images/team/thayne/18-200.webp 200w, /images/team/thayne/18-300.webp 300w", 
-                sizes: "300px",
+                src: "/images/team/thayne/18.jpg", 
                 alt: "Dr. Thayne Dawson fly fishing" 
             },
             { 
-                src: "/images/team/thayne/19.webp", 
-                srcset: "/images/team/thayne/19-200.webp 200w, /images/team/thayne/19-300.webp 300w", 
-                sizes: "300px",
+                src: "/images/team/thayne/19.jpg", 
                 alt: "Dr. Thayne Dawson's graduation with Mrs. Dawson" 
             }
         ]
@@ -165,10 +127,22 @@ const teamMembers = [
             Jessica was born and raised in Wenatchee, WA, which is known for being the apple capital of the world. She grew up always playing outside and climbing the tall pine trees.
             The Oregon coast was one of her favorite places to explore until she discovered Alaska and moved here in 2020 with her husband. They are living life to the fullest and checking off their bucket-list, climbing glaciers and discovering the beauty of Alaska.`,
         img: [
-            { src: "/images/team/jessica-receptionist/jessica2.webp", alt: "Jessica" },
-            { src: "/images/team/jessica-receptionist/jessica3.webp", alt: "Jessica" },
-            { src: "/images/team/jessica-receptionist/Jessica1.webp", alt: "Jessica" },
-            { src: "/images/team/jessica-receptionist/jessica11.webp", alt: "Jessica" },
+            { 
+                src: "/images/team/jessica-receptionist/jessica2.jpg", 
+                alt: "Jessica" 
+            },
+            { 
+                src: "/images/team/jessica-receptionist/jessica3.jpg", 
+                alt: "Jessica" 
+            },
+            { 
+                src: "/images/team/jessica-receptionist/jessica1.jpg", 
+                alt: "Jessica" 
+            },
+            { 
+                src: "/images/team/jessica-receptionist/jessica11.jpg", 
+                alt: "Jessica" 
+            },
         ]
     },
     {
@@ -177,7 +151,10 @@ const teamMembers = [
         role: "Dental Hygienist", 
         description: `Alyssa was born in Minnesota and raised in Wasilla, Alaska. She graduated from the University of Alaska Anchorage. When she isn’t cleaning teeth, she enjoys spending time with her husband and dogs, gardening, and traveling. `,
         img: [
-            { src: "/images/team/alyssa-hygienist/Alyssa3.webp", alt: "Alyssa" }
+            { 
+                src: "/images/team/alyssa-hygienist/Alyssa3.png", 
+                alt: "Alyssa" 
+            }
         ]
     },
     {
@@ -203,7 +180,10 @@ const teamMembers = [
              and volunteering for projects in the community. Her passion is travel and she 
              hopes to do much more of it once she retires.`,
         img: [
-            { src: "/images/team/beth-assistant/beth.webp", alt: "Beth" }
+            { 
+                src: "/images/team/beth-assistant/beth.jpg", 
+                alt: "Beth" 
+            }
         ]
     },
     {
@@ -212,7 +192,10 @@ const teamMembers = [
         role: "Dental Assistant",
         description: `Shania has been a dental assistant for about 3 years in Hawaii and Alaska! Shania was born and raised in Alaska between Fairbanks and Wasilla. She loves traveling with her family and sitting on a warm beach with a poke bowl. She enjoys getting to know patients of all ages and can’t wait to see you all in our office!`,
         img: [
-            { src: "/images/team/shania-assistant/shania.webp", alt: "Shania" }
+            { 
+                src: "/images/team/shania-assistant/3shania.png", 
+                alt: "Shania" 
+            }
         ]
     }
 ]
