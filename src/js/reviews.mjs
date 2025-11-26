@@ -28,7 +28,12 @@ async function fetchPlaceDetails(
   const url = `/backend/config.php?place_id=${encodeURIComponent(placeId)}&fields=${encodeURIComponent(fields)}`;
   const res = await fetch(url, { credentials: "omit" });
   if (!res.ok) throw new Error(`places proxy request failed (${res.status})`);
-  return res.json(); // <— back to this
+
+  const data = await res.json();
+  if (data.status && data.status !== "OK") {
+    throw new Error(data.error_message || data.status);
+  }
+  return data; // <— back to this
 }
 
 

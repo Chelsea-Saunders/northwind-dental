@@ -56,64 +56,9 @@
     <link rel="icon" href="/favicon-16.png" sizes="16x16" type="image/png">
     <link rel="apple-touch-icon" href="/favicon-32.png" sizes="180x180">
     <!-- css -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"><!-- social media -->
     <link rel="stylesheet" href="/src/css/components.css">
     <link rel="stylesheet" href="/src/css/index.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&family=Inconsolata:wght@200..900&family=Roboto:ital,wght@0,100..900;1,100..900&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto+Flex:opsz,wght@8..144,100..1000&display=swap" rel="stylesheet">
-    <!-- YouTube IFrame API -->
-    <script src="https://www.youtube.com/iframe_api" async defer></script>
-    <script>
-        let player;
-
-        window.onYouTubeIframeAPIReady = function () {
-        player = new YT.Player("youtube-video", {
-            events: {
-            onReady: () => {
-                try { player.mute(); } catch (e) {}
-                try { player.playVideo(); } catch (e) {}
-
-                try {
-                const iframe = player.getIframe();
-                if (iframe?.setAttribute) {
-                    iframe.setAttribute("allow", "autoplay; encrypted-media; picture-in-picture; fullscreen");
-                }
-                } catch (e) {}
-
-                // Speaker toggle 
-                const speakerToggle = document.querySelector("#speaker-toggle");
-
-                if (speakerToggle) {
-                const syncUI = () => {
-                    const muted = player.isMuted();
-                    speakerToggle.classList.toggle("muted", muted);
-                    speakerToggle.setAttribute("aria-pressed", String(!muted));
-                };
-                syncUI();
-
-                const toggleMute = () => {
-                    if (player.isMuted()) {
-                    player.unMute();
-                    try { player.playVideo(); } catch (e) {}
-                    } else {
-                    player.mute();
-                    }
-                    syncUI();
-                };
-
-                speakerToggle.addEventListener("click", toggleMute);
-                speakerToggle.addEventListener("keydown", (e) => {
-                    if (e.key === "Enter" || e.key === " ") {
-                    e.preventDefault();
-                    toggleMute();
-                    }
-                });
-                }
-            }
-            }
-        });
-        };
-        </script>
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;700&display=swap" rel="stylesheet">
    
     <script type="module">
         import "/src/js/main.mjs";
@@ -127,11 +72,16 @@
     <header>
         <div class="global-header">
             <a href="index.html" class="logo-link">
-                <img src="/images/logos/logo-85x81.jpg" 
+                <img 
+                    src="/images/logos/logo-85x81.jpg" 
+                    srcset="/images/logos/logo-85x81.jpg 1x,
+                            /images/logos/logo.webp 2x"
                     alt="Northwind Dental Logo" 
                     class="logo"
                     width="85"
                     height="81"
+                    loading="lazy"
+                    decoding="async"
                     fetchpriority="high"
                 >
             </a>
@@ -181,17 +131,7 @@
     </header>
     <section class="hero-video-section" aria-label="Introduction to Northwind Dental office and staff">
         <div class="hero-wrapper">
-            <!-- YouTube IFrame Embed -->
-            <!-- <div id="player"></div> -->
-
-            <!-- CHANGE RSCEB.ORG AT THE END OF SRC BELOW TO NWD WHEN PUBLISHED -->
-
-            <iframe
-                id="youtube-video"
-                src="https://www.youtube-nocookie.com/embed/zyYbDoMD_1o?autoplay=1&mute=1&controls=0&loop=1&playlist=zyYbDoMD_1o&modestbranding=1&rel=0&showinfo=0&enablejsapi=1&playsinline=1&origin=https://www.rsceb.org" 
-                allow="autoplay; encrypted-media; picture-in-picture; fullscreen" 
-                title="Northwind Dental intro"
-                ></iframe>
+            <div id="youtube-video"></div>
         </div>
         <!-- Speaker Icon -->
         <div class="speaker-icon" id="speaker-toggle" aria-label="sound on/off" role="button" tabindex="0">
@@ -311,22 +251,18 @@
             <h2 id="services-container">Services Offered</h2>
         </div>
      </div>
-    <!-- REQUEST AN APPOINTMENT MODAL -->
-     <!-- <div 
-        id="request-appt-modal" 
-        class="modal hidden"
-        role="dialog" 
-        aria-modal="true"
-        aria-labelledby="request-appt-modal"
-        tabindex="-1"
-        >
-        <div class="modal-content" id="appointment-form-container"></div>
-     </div> -->
+
      <!-- RESNIK SECTION -->
     <section class="resnik-section" aria-labelledby="resnik-title">
         <div class="resnik-track">
             <figure class="resnik-pane resnik-left resnik-drs">
-                <img src="/images/resnik/resnik-cropped.png" alt="Dr. Dawson receiving from Resnik Implant Institute with Dr. Randy Resnik and Dr. Jon Suzuki" id="resnik-dr-img">
+                <img 
+                    src="/images/resnik/resnik-cropped.png" 
+                    alt="Dr. Dawson receiving from Resnik Implant Institute with Dr. Randy Resnik and Dr. Jon Suzuki" 
+                    id="resnik-dr-img"
+                    loading="lazy"
+                    decoding="async"
+                    >
             </figure>
             <div class="resnik-pane resnik-right">
                 <h2 id="resnik-title" class="visually-hidden">Resnik Implant Fellowship</h2>
@@ -339,7 +275,13 @@
                     We congratulate Dr. Dawson on this major accomplishment!
                 </p>
                 <figure class="resnik-logo">
-                    <img src="/images/resnik/resnik-logo.png" alt="Resnik Implant Institute logo" id="resnik-img">
+                    <img 
+                        src="/images/resnik/resnik-logo.png" 
+                        alt="Resnik Implant Institute logo" 
+                        id="resnik-img"
+                        loading="lazy"
+                        decoding="async"
+                        >
                 </figure>
             </div>
         </div>
@@ -377,6 +319,8 @@
                             src="/images/social-media/instagram.svg" 
                             alt="Instagram"
                             class="sm-icon"
+                            loading="lazy"
+                            decoding="async"
                         >
                     </a>
                     <a class="sm fb" href="https://www.facebook.com/northwinddental" target="_blank" rel="noopener">
@@ -384,6 +328,8 @@
                             src="/images/social-media/facebook.svg" 
                             alt="Facebook"
                             class="sm-icon"
+                            loading="lazy"
+                            decoding="async"
                             >
                     </a>
                     <a class="sm gg" href="https://g.page/northwinddental" target="_blank" rel="noopener">
@@ -391,6 +337,8 @@
                             src="/images/social-media/google.svg" 
                             alt="Google"
                             class="sm-icon"
+                            loading="lazy"
+                            decoding="async"
                         >
                     </a>
                 </nav>

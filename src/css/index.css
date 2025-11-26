@@ -143,17 +143,24 @@ html {
 .speaker-icon.muted::after {
     display: none;
 }
-
+/* CHAT BUBBLE */
+.info-buttons button[data-modal] {
+    background-color: var(--bs-link-color);
+    color: var(--bs-text-color-light);
+    padding: 0.5rem 1rem;
+    border: 5px solid rgb(98, 190, 230);
+    cursor: pointer;
+    border-radius: 50%;
+ }
 /* WELCOME MODAL WITH PARALLAX EFFECT */
+/* heading styling */
 #welcome {
     text-align: center;
     font-family: "Montserrat Alternates", "Arial Narrow";
     font-weight: 800;
     padding: clamp(0.25rem, 2vh, 0.5rem);
     width: 90%;
-
     display: inline-block;
-
     font-size: clamp(1.2rem, 7vh, 3.5rem);
 
     /* gradient text */
@@ -161,10 +168,12 @@ html {
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
+
     /* letter glow/shadow */
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2),
-        0 0 2px rgba(139, 174, 185, 0.3);
+    text-shadow: 1px 1px 2px rgba(4, 4, 4, 0.033),
+        0 0 2px rgba(150, 185, 139, 0.77);
 }
+/* layout, margin and overflow (hidden) */
 .welcome-wrapper {
     padding-top: 0;
     border: none;
@@ -172,43 +181,63 @@ html {
     position: relative;
     margin: 5rem 0;
 }
+/* paragraph font/line-height/color */
 .welcome-wrapper p {
     font-size: 0.7rem;
     line-height: 1.5;
     margin: 0.5rem 0;
     color: var(--bs-text-color-light);
 }
+/* background image and fade-in */
 .modal-c-band {
     position: relative;
     overflow: hidden;
     z-index: 0;
     color: var(--bs-text-color-light);
-}
-.modal-c-band::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background-image: url("/images/alaska-sunset.jpg");
+
+    /* static background image that stays */
+    background-image: url("/images/alaska-sunset.webp");
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    z-index: -1;
+
+    min-height: 100vh;
+    padding: 0;
+
+    /* start invisible */
+    opacity: 1;
+    transition: opacity 200ms ease;
+}
+.modal-c-band::before {
+    content: none;
 }
 
 .welcome-modal-content {
     position: relative;
     z-index: 1;
     background-color: rgba(26, 35, 54, 0.419);
-    padding: 2rem;
     font-family: var(--bs-body-font);
-    padding: 6rem 4rem;
+
+    max-width: 60rem;
+    margin: 0 auto;
+    padding: 20rem 2rem;
+
+    /* start slightly lower and hidden */
+    opacity: 0;
+    transform: translateY(60px);
+    transition: 
+        opacity 600ms ease, 
+        transform 600ms ease;
+}
+/* when welcome-in is added, slide/fade text into place */
+.welcome-wrapper.welcome-in .welcome-modal-content {
+    opacity: 1;
+    transform: translateY(0);
+}
+.welcome-wrapper.welcome-in .modal-c-band {
+    opacity: 1;
 }
 
-#welcome {
-    font-size: 2rem;
-    font-weight: 900;
-    margin-bottom: 1rem;
-}
 /* initial centered layout: before ...read more is clicked */
 .welcome-modal-content.initial-state {
     display: flex;
@@ -217,7 +246,8 @@ html {
     justify-content: center;
     min-height: 80vh;
     text-align: center;
-    padding: 6rem 2rem;
+    padding: 2rem 2rem;
+    margin-top: 700px;
 }
 
 /* when expanded, revert back to normal block flow */
@@ -259,6 +289,7 @@ html {
     font-family: var(--bs-body-font);
     color: #035a54;
     margin-top: 0.5rem;
+    text-align: center;
 }
 #services-link {
     text-decoration: none;
@@ -390,8 +421,8 @@ html {
     --overlap: clamp(0px, 1vw, 12px);
     background: #fff;
     color: rgb(5, 5, 86);
-    padding-block: 6vh 8vh;
-    min-height: calc(100vh + 28vh);
+    padding-bottom: 3vh;
+    min-height: calc(100vh + 8vh);
 }
 /* grid that will hold both sticky panes */
 .resnik-track {
@@ -462,7 +493,7 @@ html {
     padding: 0.5rem;
 }
 .resnik-section.resnik-in {
-    padding-bottom: 6rem;
+    padding: 1rem 0;
 }
 /* Typogrophy */
 .resnik, 
@@ -470,6 +501,7 @@ html {
     font-size: clamp(1rem, 2.2vw, 1.25rem);
     line-height: 1.6;
     margin-bottom: 0 !important;
+    width: 100%;
 }
 .resnik-pane.resnik-right {
     font-family: var(--bs-body-font);
@@ -504,7 +536,15 @@ html {
     opacity: 1;
     transform: translateY(0);
 }
-
+/* override chat-bubble size */
+/* #chat-bubble {
+    width: 56px !important;
+    height: 56px !important;
+}
+#chat-bubble svg {
+    width: 1.5rem !important;
+    height: 1.5rem !important;
+} */
 /* Respect reduced motion */
 @media (prefers-reduced-motion: reduce) {
     .resnik-left, 
@@ -518,15 +558,8 @@ html {
 @media (min-width: 500px) {
     /* Welcome message/image */
     .modal-c-band {
-        background-image: url("/images/alaska-sunset.jpg");
         background-attachment: fixed;
-        background-size: cover;
-        background-position: center;
-        background-repeat: no-repeat;
-        min-height: 100vh;
-        /* overflow: auto; */
-        padding: 0;
-        color: var(--bs-text-color-light);
+        min-height: 170vh;
     }
     .modal-c-band::before {
         content: none;
@@ -534,13 +567,19 @@ html {
     #welcome {
         font-size: 3rem
     }
-    button[data-modal] {
-        width: 120px;
-        /* height: 120px; */
+    .welcome-modal-content.initial-state {
+        margin-top: 350px;
+    }
+    .info-buttons button[data-modal] {
+        background-color: var(--bs-link-color);
+        color: var(--bs-text-color-light);
+        padding: 0.5rem 1rem;
+        border: 5px solid rgb(98, 190, 230);
+        cursor: pointer;
+        /* width: 120px;
         padding: 0;
-        /* font-size: 0.8rem; */
         align-items: center;
-        justify-content: center;
+        justify-content: center; */
         border-radius: 50%;
     }
     .welcome-wrapper p {
@@ -549,7 +588,7 @@ html {
         margin: 0.5rem 0;
         color: var(--bs-text-color-light);
     }
-    
+
     /* for the modal buttons on index.html only */
     .inside-circle {
         width: 110px;
@@ -587,29 +626,10 @@ html {
     /* RESNIK MODAL WITH PARALLAX EFFECT */
     .resnik-section {
         padding-block: 4vh 6vh;
-        min-height: 110vh;
+        min-height: 100vh;
     }
 }
-/* Responsive: stack on narrow screen */
-@media (max-width: 820px) {
-    .resnik-section {
-        padding-block: 4vh 6vh;
-        min-height: auto;
-    }
-    .resnik-track {
-        grid-template-columns: 1fr;
-    }
-    .resnik-right {
-        margin-left: 0;
-        margin-top: 1rem;
-    }
-    .resnik-left {
-        justify-content: center;
-    }
-    .resnik-left img {
-        width: min(420px, 80vw);
-    }
-}
+
 @media screen and (min-width: 768px) {
     .hero-content h1, 
     .hero-content h2 {
@@ -643,24 +663,18 @@ html {
         max-width: 70%;
         gap: 2rem;
         margin: 2rem auto;
-        margin-bottom: 6rem;
+        /* margin-bottom: 6rem; */
     }
     /* Welcome message/image */
     .modal-c-band {
-        background-image: url("/images/alaska-sunset.jpg");
         background-attachment: fixed;
-        background-size: cover;
-        background-position: center;
-        background-repeat: no-repeat;
-        min-height: 100vh;
-        padding: 0;
-        color: var(--bs-text-color-light);
+        min-height: 170vh;
     }
     .modal-c-band::before {
         content: none;
     }
     /* each button */
-    button[data-modal] {
+    .info-button button[data-modal] {
         background-color: var(--bs-link-color);
         color: var(--bs-text-color-light);
         padding: 0.5rem 1rem;
@@ -668,7 +682,7 @@ html {
         border-radius: var(--bs-border-radius-large);
         cursor: pointer;
     }
-    button[data-modal]:hover {
+    .info-button button[data-modal]:hover {
         background-color: var(--bs-link-hover-color);
         color: var(--bs-text-color-light);
     }
@@ -727,6 +741,26 @@ html {
     }
     .footer-right {
         margin: 0;
+    }
+}
+/* Responsive: stack on narrow screen */
+@media (max-width: 820px) {
+    .resnik-section {
+        padding-block: 4vh 6vh;
+        min-height: auto;
+    }
+    .resnik-track {
+        grid-template-columns: 1fr;
+    }
+    .resnik-right {
+        margin-left: 0;
+        margin-top: 1rem;
+    }
+    .resnik-left {
+        justify-content: center;
+    }
+    .resnik-left img {
+        width: min(420px, 80vw);
     }
 }
 @media (min-width: 1200px) {

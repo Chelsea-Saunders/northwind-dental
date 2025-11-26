@@ -167,8 +167,8 @@ textarea#appt-form-message {
 /* CHAT BUBBLE */
 #chat-bubble svg, 
 #chat-bubble icon {
-    width: 1.5rem;
-    height: 1.5rem; /* or %, vw, em */
+    width: 1.5rem !important;
+    height: 1.5rem !important; /* or %, vw, em */
 }
 #chat-bubble {
     position: fixed;
