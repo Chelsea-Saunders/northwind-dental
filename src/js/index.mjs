@@ -7,6 +7,43 @@ function onDomReady(fn) {
     }
 }
 
+// PROMO MODAL
+function promo() {
+    const modal = document.getElementById("promo-modal");
+    const overlay = document.getElementById("promo-overlay");
+    if (!modal || !overlay) return;
+
+    const closeButton = modal.querySelector("[data-promo-close]");
+
+    function openPromo() {
+        modal.removeAttribute("hidden");
+        overlay.removeAttribute("hidden");
+        document.body.style.overflow = "hidden"; // prevent background scroll
+    }
+    function closePromo() {
+        modal.setAttribute("hidden", "");
+        overlay.setAttribute("hidden", "");
+        document.body.style.overflow = ""; // restore scroll
+    }
+
+    // automatically open promo on page load
+    setTimeout(openPromo, 1500);
+
+    // close handlers
+    if (closeButton) {
+        closeButton.addEventListener("click", closePromo);
+    }
+    // also close when clicking outside modal
+    overlay.addEventListener("click", closePromo);
+
+    // close on escape key
+    document.addEventListener("keydown", (event) => {
+        if (event.key === "Escape") {
+            closePromo();
+        }
+    });
+}
+
 // Insurance Logos
 const  premera = '/images/insurance-logos/premera-bluecross.png';
 const cigna = '/images/insurance-logos/cigna-dental.png';
@@ -158,6 +195,7 @@ window.addEventListener("load", () => {
 });
 
 onDomReady(() => {
+    promo();
     insuranceModal();
     welcomeReveal();
 });

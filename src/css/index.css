@@ -9,6 +9,91 @@ body {
     padding: 0;
     margin: 0;
 }
+/* PROMOTIONAL/ADVERTISEMENT SPECIAL */
+#promo-overlay[hidden], 
+#promo-modal[hidden] {
+    display: none;
+}
+/* overlay */
+.promo-overlay {
+    position: fixed;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.55);
+    z-index: 1000;
+}
+/* modal box for promo */
+.promo-modal {
+    position: fixed;
+    inset: 25% auto auto 50%;
+    transform: translate(-50%, -50%);
+    max-width: 28rem;
+    width: 90%;
+    background-color: #dddddd;
+    border-radius: var(--bs-border-radius-large);
+    box-shadow: 0 18px 45px rgba(0, 0, 0, 0.25);
+    z-index: 1001;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    padding: 1rem;
+}
+/* close button */
+.promo-close-button {
+    position: absolute;
+    top: 0.5rem;
+    right: 0.75rem;
+    background: transparent;
+    font-size: 1.25rem;
+    font-weight: 700;
+    line-height: 1;
+    cursor: pointer;
+    color: navy;
+    border: none;
+    transition: transform 0.3s ease, 
+        color 0.2s ease;
+}
+.promo-close-button:hover, 
+.promo-close-button:focus-visible {
+    color: #7ea9d8;
+    transform: translateY(-3px);
+}
+/* heading and text and button */
+.promo-heading {
+    font-size: 1.5rem;
+    margin: 0 1.5rem 0.25rem 0;
+    text-align: center;
+    color: navy;
+}
+.promo-text {
+    margin: 0 0 0.75rem;
+    font-size: 0.95rem;
+    line-height: 1.5;
+    color: navy;
+}
+.promo-contact {
+    align-self: center;
+    padding: 0.6rem 1.25rem;
+    border-radius: 999px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.95rem;
+    border: none;
+    cursor: pointer;
+
+    background: navy;
+    color: #ffffff;
+
+    transition: transform 0.3s ease, 
+        background 0.2s ease,
+        color 0.2s ease;
+}
+.promo-contact:hover, 
+.promo-contact:focus-visible {
+    text-decoration: none;
+    background: #7ea9d8;
+    color: rgb(8, 8, 94);
+    transform: translateY(-3px);
+}
 /* HERO VIDEO */
 .hero-video-section {
     position: relative;
@@ -249,10 +334,10 @@ body {
 }
 /* off screen starting position */
 .welcome-background {
-    transform: translateX(-8%);
+    transform: translateX(-18%);
 }
 .welcome-content {
-    transform: translateX(8%);
+    transform: translateX(18%);
 }
 /* wehn .welcome-in is added, slide into view */
 .welcome-wrapper.welcome-in .welcome-background, 
@@ -287,6 +372,7 @@ body {
     justify-content: center;
     gap: 0.9rem;
     margin: 1rem auto;
+    padding-top: 5rem;
 }
 
 .ins-headers {
@@ -446,6 +532,7 @@ body {
     color: rgb(5, 5, 86);
     padding-bottom: 3vh;
     min-height: calc(100vh + 8vh);
+    margin-bottom: 2rem;
 }
 /* grid that will hold both sticky panes */
 .resnik-track {
