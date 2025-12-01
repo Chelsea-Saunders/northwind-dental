@@ -3,7 +3,8 @@
     background-color: var(--bs-body-background-color);
     margin: 0;
 }
-html {
+html, 
+body {
     width: 100%;
     padding: 0;
     margin: 0;
@@ -152,19 +153,21 @@ html {
     cursor: pointer;
     border-radius: 50%;
  }
+
 /* WELCOME MODAL WITH PARALLAX EFFECT */
 /* heading styling */
 #welcome {
-    text-align: center;
+    text-align: left;
     font-family: "Montserrat Alternates", "Arial Narrow";
     font-weight: 800;
-    padding: clamp(0.25rem, 2vh, 0.5rem);
-    width: 90%;
-    display: inline-block;
-    font-size: clamp(1.2rem, 7vh, 3.5rem);
+    padding: clamp(0.25rem, 1vh, 0.75rem);
+    font-size: clamp(1.8rem, 3vh, 2.6rem);
 
     /* gradient text */
-    background: linear-gradient(180deg, #ccedec, #035a54, #0095b3, #03b2be, #78bfb7, #8ff1f4, #cceced);
+    background: linear-gradient(
+        180deg, 
+        #ccedec, #035a54, #0095b3, #03b2be, #78bfb7, #8ff1f4, #cceced);
+
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -173,88 +176,108 @@ html {
     text-shadow: 1px 1px 2px rgba(4, 4, 4, 0.033),
         0 0 2px rgba(150, 185, 139, 0.77);
 }
-/* layout, margin and overflow (hidden) */
+/* WRAPPER */
 .welcome-wrapper {
-    padding-top: 0;
-    border: none;
-    overflow: hidden;
     position: relative;
-    margin: 5rem 0;
-}
-/* paragraph font/line-height/color */
-.welcome-wrapper p {
-    font-size: 0.7rem;
-    line-height: 1.5;
-    margin: 0.5rem 0;
+    min-height: 180vh;
+    /* overflow-x: hidden; */
+    overflow-y: visible;
     color: var(--bs-text-color-light);
 }
-/* background image and fade-in */
-.modal-c-band {
-    position: relative;
-    overflow: hidden;
+.welcome-background {
+    position: sticky;
+    inset: 0;
     z-index: 0;
-    color: var(--bs-text-color-light);
-
-    /* static background image that stays */
-    background-image: url("/images/alaska-sunset.webp");
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-
-    min-height: 100vh;
-    padding: 0;
-
-    /* start invisible */
-    opacity: 1;
-    transition: opacity 200ms ease;
+    margin: 0;
+    height: 100vh;
 }
-.modal-c-band::before {
-    content: none;
-}
+.welcome-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    display: block;
 
-.welcome-modal-content {
-    position: relative;
-    z-index: 1;
-    background-color: rgba(26, 35, 54, 0.419);
-    font-family: var(--bs-body-font);
-
-    max-width: 60rem;
-    margin: 0 auto;
-    padding: 20rem 2rem;
-
-    /* start slightly lower and hidden */
     opacity: 0;
-    transform: translateY(60px);
+    transform: translateY(12px);
     transition: 
-        opacity 600ms ease, 
-        transform 600ms ease;
+        opacity 900ms ease 150ms, 
+        transform 900ms ease 150ms;
 }
-/* when welcome-in is added, slide/fade text into place */
-.welcome-wrapper.welcome-in .welcome-modal-content {
+/* TOP: text card */
+.welcome-content {
+    position: sticky;
+    top: clamp(56px, 10vh, 96px);
+    z-index: 1;
+
+    max-width: 38rem;
+    margin: 0 auto;
+
+    padding: clamp(1rem, 2.5vw, 2rem);
+    margin-top: clamp(2rem, 12vh, 8rem);
+    margin-bottom: clamp(10rem, 30vh, 16rem);
+
+    background: rgba(11, 27, 51, 0.061);
+    border-radius: var(--bs-border-radius-medium);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+    
+    display: flex;
+    flex-direction: column;
+    gap: clamp(0.5rem, 1.5vw, 1rem);
+    font-family: var(--bs-body-font);
+}
+.welcome-lead {
+    font-size: clamp(1.05rem, 2.2vw, 1.3rem);
+    font-weight: 600;
+    color: var(--bs-text-color-light);
+    margin: 0;
+    text-align: center;
+}
+.welcome {
+    font-size: clamp(0.95rem, 2vw, 1.1rem);
+    line-height: 1.7;
+    margin: 0;
+    color: var(--bs-text-color-light);
+}
+/* slide-in animation */
+.welcome-background, 
+.welcome-content {
+    opacity: 0;
+    transform: translateX(0);
+    transition: transform 1000ms ease, opacity 1000ms ease;
+    will-change: transform, opacity;
+}
+/* off screen starting position */
+.welcome-background {
+    transform: translateX(-8%);
+}
+.welcome-content {
+    transform: translateX(8%);
+}
+/* wehn .welcome-in is added, slide into view */
+.welcome-wrapper.welcome-in .welcome-background, 
+.welcome-wrapper.welcome-in .welcome-content {
+    opacity: 1;
+    transform: translateX(0);
+}
+.welcome-wrapper.welcome-in .welcome-img {
     opacity: 1;
     transform: translateY(0);
 }
-.welcome-wrapper.welcome-in .modal-c-band {
-    opacity: 1;
-}
-
-/* initial centered layout: before ...read more is clicked */
-.welcome-modal-content.initial-state {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    min-height: 80vh;
-    text-align: center;
-    padding: 2rem 2rem;
-    margin-top: 700px;
-}
-
-/* when expanded, revert back to normal block flow */
-.welcome-modal-content.expanded-state {
-    display: block;
-    text-align: left;
-    min-height: auto;
+/* soft fade-out at bottom before buttons */
+.welcome-wrapper::after {
+    content: "";
+    position: absolute;
+    inset-inline: 0;
+    bottom: 0;
+    height: 160px;
+    z-index: 2;
+    pointer-events: none;
+    background: linear-gradient(
+        to bottom, 
+        rgba(0, 0, 0, 0) 0%, 
+        #020917 100%
+    );
 }
 
 /* INFO BUTTONS MODALS */
@@ -553,40 +576,31 @@ html {
         opacity: 1;
         transform: none;
     }
+    .welcome-back, 
+    .welcome-front, 
+    .welcome-img {
+        transition: none;
+        opacity: 1;
+        transform: none;
+    }
+    .welcome-pane {
+        position: static;
+        margin-top :2rem;
+    }
+    .welcome-wrapper {
+        min-height: auto;
+    }
 }
 /* Mid Size screens */
 @media (min-width: 500px) {
     /* Welcome message/image */
-    .modal-c-band {
-        background-attachment: fixed;
-        min-height: 170vh;
-    }
-    .modal-c-band::before {
-        content: none;
+    .welcome-content {
+        margin-top: clamp(2rem, 6vh, 3rem);
+        margin-bottom: clamp(6rem, 18vh, 10rem);
+        padding-inline: 1.5rem;
     }
     #welcome {
-        font-size: 3rem
-    }
-    .welcome-modal-content.initial-state {
-        margin-top: 350px;
-    }
-    .info-buttons button[data-modal] {
-        background-color: var(--bs-link-color);
-        color: var(--bs-text-color-light);
-        padding: 0.5rem 1rem;
-        border: 5px solid rgb(98, 190, 230);
-        cursor: pointer;
-        /* width: 120px;
-        padding: 0;
-        align-items: center;
-        justify-content: center; */
-        border-radius: 50%;
-    }
-    .welcome-wrapper p {
-        font-size: 1rem;
-        line-height: 1.5;
-        margin: 0.5rem 0;
-        color: var(--bs-text-color-light);
+        text-align: center;
     }
 
     /* for the modal buttons on index.html only */
@@ -663,15 +677,6 @@ html {
         max-width: 70%;
         gap: 2rem;
         margin: 2rem auto;
-        /* margin-bottom: 6rem; */
-    }
-    /* Welcome message/image */
-    .modal-c-band {
-        background-attachment: fixed;
-        min-height: 170vh;
-    }
-    .modal-c-band::before {
-        content: none;
     }
     /* each button */
     .info-button button[data-modal] {
@@ -705,19 +710,7 @@ html {
         aspect-ratio: 1 / 1;
         border: 5px solid rgb(98, 190, 230);
     }
-    /* WELCOME SECTION */
-    .welcome {
-        font-size: 1rem !important;
-    }
-    .welcome-wrapper p {
-        font-size: 1rem;
-        line-height: 1.5;
-        margin: 0.5rem 0;
-        color: var(--bs-text-color-light);
-    }
-    .welcome-wrapper h3 {
-        font-size: 3rem;
-    }
+    
     /* RESNIK MODAL WITH PARALLAX EFFECT */
     .resnik-modal-c-band {
         background-image: url("/images/resnik/resnik-fullscreen.png");

@@ -52,79 +52,79 @@ const teamMembers = [
              .replace(/$/, '</p>'), // wrap end
         img: [
             { 
-                src: "/images/team/thayne/1.jpg", 
+                src: "/images/team/thayne/1.webp", 
                 alt: "Dawson Family"
             },
             { 
-                src: "/images/team/thayne/2.jpg", 
+                src: "/images/team/thayne/2.webp", 
                 alt: "Dawson Family" 
             },
             { 
-                src: "/images/team/thayne/3.jpg", 
+                src: "/images/team/thayne/3.webp", 
                 alt: "Dr. Dawson with patient" 
             },
             { 
-                src: "/images/team/thayne/4.jpg", 
+                src: "/images/team/thayne/4.webp", 
                 alt: "Dr. Thayne Dawson" 
             },
             { 
-                src: "/images/team/thayne/5.jpg",
+                src: "/images/team/thayne/5.webp",
                 alt: "Mrs. Dawson" 
             },
             { 
-                src: "/images/team/thayne/6.jpg",
+                src: "/images/team/thayne/6.webp",
                 alt: "Dr. Thayne Dawson" 
             },
             { 
-                src: "/images/team/thayne/7.jpg", 
+                src: "/images/team/thayne/7.webp", 
                 alt: "Dawson Family ice skating" 
             },
             { 
-                src: "/images/team/thayne/8.jpg", 
+                src: "/images/team/thayne/8.webp", 
                 alt: "Dr. Thayne Dawson" 
             },
             { 
-                src: "/images/team/thayne/9.jpg",
+                src: "/images/team/thayne/9.webp",
                 alt: "Dawson Family" 
             },
             { 
-                src: "/images/team/thayne/10.jpg", 
+                src: "/images/team/thayne/10.webp", 
                 alt: "Dawson Family in the fall leaves" 
             },
             { 
-                src: "/images/team/thayne/11.jpg", 
+                src: "/images/team/thayne/11.webp", 
                 alt: "Dr. Thayne Dawson backpacking with his son" 
             },
             { 
-                src: "/images/team/thayne/12.jpg", 
+                src: "/images/team/thayne/12.webp", 
                 alt: "Dr. and Mrs. Dawson" 
             },
             { 
-                src: "/images/team/thayne/13.jpg", 
+                src: "/images/team/thayne/13.webp", 
                 alt: "Happy patient of Dr. Dawson" 
             },
             { 
-                src: "/images/team/thayne/14.jpg", 
+                src: "/images/team/thayne/14.webp", 
                 alt: "Dr. Thayne Dawson" 
             },
             { 
-                src: "/images/team/thayne/15.jpg", 
+                src: "/images/team/thayne/15.webp", 
                 alt: "Dr. Dawson snow hiking with his son" 
             },
             { 
-                src: "/images/team/thayne/16.jpg", 
+                src: "/images/team/thayne/16.webp", 
                 alt: "Dawson Family hiking" 
             },
             { 
-                src: "/images/team/thayne/17.jpg", 
+                src: "/images/team/thayne/17.webp", 
                 alt: "Dawson family working together" 
             },
             { 
-                src: "/images/team/thayne/18.jpg", 
+                src: "/images/team/thayne/18.webp", 
                 alt: "Dr. Thayne Dawson fly fishing" 
             },
             { 
-                src: "/images/team/thayne/19.jpg", 
+                src: "/images/team/thayne/19.webp", 
                 alt: "Dr. Thayne Dawson's graduation with Mrs. Dawson" 
             }
         ]
@@ -146,19 +146,19 @@ const teamMembers = [
              .replace(/$/, '</p>'), // wrap end
         img: [
             { 
-                src: "/images/team/jessica-receptionist/jessica2.jpg", 
+                src: "/images/team/jessica-receptionist/jessica2.webp", 
                 alt: "Jessica" 
             },
             { 
-                src: "/images/team/jessica-receptionist/jessica3.jpg", 
+                src: "/images/team/jessica-receptionist/jessica3.webp", 
                 alt: "Jessica" 
             },
             { 
-                src: "/images/team/jessica-receptionist/jessica1.jpg", 
+                src: "/images/team/jessica-receptionist/jessica1.webp", 
                 alt: "Jessica" 
             },
             { 
-                src: "/images/team/jessica-receptionist/jessica11.jpg", 
+                src: "/images/team/jessica-receptionist/jessica11.webp", 
                 alt: "Jessica" 
             },
         ]
@@ -177,7 +177,7 @@ const teamMembers = [
              .replace(/$/, '</p>'), // wrap end
         img: [
             { 
-                src: "/images/team/alyssa-hygienist/Alyssa3.png", 
+                src: "/images/team/alyssa-hygienist/Alyssa3.webp", 
                 alt: "Alyssa" 
             }
         ]
@@ -392,7 +392,9 @@ document.addEventListener("DOMContentLoaded", () => {
     const modal = document.getElementById("team-modal");
     const modalContent = modal?.querySelector(".modal-content");
 
-    document.querySelectorAll(".modal-button").forEach(button => {
+    document
+    .querySelectorAll(".meet-the-team-button-container .modal-button")
+    .forEach(button => {
         button.addEventListener("click", () => {
 
             const modalId = button.dataset.modal;

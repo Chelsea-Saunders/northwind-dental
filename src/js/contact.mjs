@@ -4,7 +4,8 @@ import {
     autoGrowTextarea,
     validateEmail,
     formatPhoneNumber,
-    showSubmissionMessage
+    showSubmissionMessage,
+    clearFormFields
 } from "./form-utilities.mjs";
 import { closeAndReload } from "./modal.mjs";
 
@@ -89,19 +90,14 @@ export function buildAppointment(container) {
                 autoGrowTextarea(message);
             });
         }
-
-        // clear form
-        function clearForm() {
-            form?.reset();
-            if (message) autoGrowTextarea(message);
-        }
-        return { clearForm };
     }
 
     // INITIALIZE FORM
     if (timestamp && !timestamp.value) timestamp.value = String(Date.now());
     
-    const { clearForm } = validateFormFields();
+    validateFormFields();
+
+    const clearForm = () => clearFormFields(form);
 
     // SUBMIT HANDLER
     form?.addEventListener("submit", async (event) => {
@@ -144,6 +140,4 @@ export function buildAppointment(container) {
             setBusy(false);
         }
     });
-
-    return () => {};
 }

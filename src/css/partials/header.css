@@ -68,7 +68,15 @@
 
 /* MAKE OPEN AND CLOSE HIDDEN */
 .visually-hidden {
-    display: none;
+    position: absolute !important;
+    width: 1px !important;
+    height: 1px !important;
+    padding: 0 !important;
+    margin: -1px !important;
+    overflow: hidden !important;
+    clip: rect(0, 0, 0, 0) !important;
+    white-space: nowrap !important;
+    border: 0 !important;
 }
 /* HAMBURGER MENU ICON */
 .hamburger {
@@ -183,16 +191,6 @@
     outline-offset: 2px;
 }
 
-/* HIDE/SHOW TOGGLE LOGIC */
-.global-nav__toggle-menu-closed {
-    display: none;
-}
-.global-nav__toggle[data-menu-open="true"] .global-nav__toggle-menu-open {
-    display: none;
-}
-.global-nav__toggle[data-menu-open="true"] .global-nav__toggle-menu-closed {
-    display: inline-block;
-}
 /* BY DEFAULT, SHOW HAMBURGER ICON, HIDE X ICON */
 .global-nav__toggle-menu-open {
     display: inline-flex;
@@ -226,29 +224,10 @@
 }
 /* MID-SIZE SCREENS */
 @media (min-width: 460px) {
-    .global-header {
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        justify-content: space-between;
-    }
-    .global-header > ul {
-        max-width: 810px;
-        margin: 0 auto;
-        padding: 0 12px;
-        width: 100%;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-    }
     .logo-link {
-        display: flex;
-        align-items: center;
         justify-content: flex-start;
         padding-top: 0;
         margin: 0;
-        padding: 0;
-        padding: 0;
     }
     .logo {
         height: auto;
@@ -283,12 +262,6 @@
         padding: 0;
         font-size: 0.7rem;
     }
-    
-   #contact-header {
-        padding: 0 0.5rem !important;
-        margin: 0;
-        font-size: 0.6rem !important;
-   }
 }
 /* SCREEN ADJUSTMENT FOR HEADER LAYOUT IN MID SIZE SCREENS */
 @media (max-width: 530px) {
@@ -303,20 +276,10 @@
     #toggle-menu {
         display: none;
     }
-    .global-header {
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        justify-content: space-between;
-    }
     .logo-link {
-        display: flex;
-        align-items: center;
         justify-content: flex-start;
         padding-top: 0;
         margin: 0;
-        padding: 0;
-        padding: 0;
     }
     .logo {
         height: 90px;

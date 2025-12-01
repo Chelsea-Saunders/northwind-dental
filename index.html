@@ -58,14 +58,16 @@
     <!-- css -->
     <link rel="stylesheet" href="/src/css/components.css">
     <link rel="stylesheet" href="/src/css/index.css">
+    <!-- preconnect with google fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com"> 
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+   <!-- google font stylesheet -->
     <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;700&display=swap" rel="stylesheet">
-   
     <script type="module">
         import "/src/js/main.mjs";
         import "/src/js/index.mjs";
         import "/src/js/reviews.mjs";
         import "/src/js/pdf.mjs";
-        import "/src/js/contact.mjs"
     </script> 
 </head>
 <body>
@@ -156,26 +158,36 @@
     >
         <span class="appt-request">CALL US TODAY! (907) 373-2440</span>
     </button>
-    <section class="welcome-wrapper">
-        <div class="modal-c-band">
-            <div class="welcome-modal-content initial-state">
-                <h3 id="welcome">Welcome</h3>
-                <p class="welcome">We're happy you found us!</p>
-                <p class="welcome">​We love to see patients of all ages at Northwind Dental and we take special interest 
-                    in making it fun for kids to go to the dentist. You can trust Dr. Dawson to take time to answer your 
-                    questions and give you honest and professional answers to any concerns you may have.
-                </p>
-                <p class="welcome">We understand that going to the dentist isn’t something that most people look forward to, 
-                    so we are committed to making each visit as pleasant and worry-free as possible. Whether you’re in pain, 
-                    interested in Invisalign, or are looking for someone who can help you improve your routine oral health, 
-                    you can relax, knowing you’re in good hands. At Northwind Dental you can expect to be treated like family 
-                    because seeing you is the best part of our day!
-                </p>
-                <p class="welcome">If you’re looking for a remarkable dentist in Wasilla who is gentle, compassionate, and will 
-                    listen to your concerns, you will find it with Dr. Dawson.
-                </p>
-                <p class="welcome">We welcome new patients and look forward to meeting you</p>
-            </div>
+    <section class="welcome-wrapper" aria-labelledby="welcome">
+        <!-- BACKGROUND IMAGE -->
+        <figure class="welcome-background">
+            <img    
+                src="/images/alaska-sunset.webp"
+                alt="Alaskan northern lights over mountains and water"
+                class="welcome-img"
+                loading="lazy"
+                decoding="async"
+            >
+        </figure>
+
+        <!-- TEXT CONTENT ON TOP -->
+        <div class="welcome-content">
+            <h3 id="welcome">Welcome</h3>
+            <p class="welcome-lead">We're happy you found us!</p>
+            <p class="welcome">​We love to see patients of all ages at Northwind Dental and we take special interest 
+                in making it fun for kids to go to the dentist. You can trust Dr. Dawson to take time to answer your 
+                questions and give you honest and professional answers to any concerns you may have.
+            </p>
+            <p class="welcome">We understand that going to the dentist isn’t something that most people look forward to, 
+                so we are committed to making each visit as pleasant and worry-free as possible. Whether you’re in pain, 
+                interested in Invisalign, or are looking for someone who can help you improve your routine oral health, 
+                you can relax, knowing you’re in good hands. At Northwind Dental you can expect to be treated like family 
+                because seeing you is the best part of our day!
+            </p>
+            <p class="welcome">If you’re looking for a remarkable dentist in Wasilla who is gentle, compassionate, and will 
+                listen to your concerns, you will find it with Dr. Dawson.
+            </p>
+            <p class="welcome">We welcome new patients and look forward to meeting you</p>
         </div>
     </section>
     <div class="info-buttons">
@@ -238,20 +250,6 @@
             </div>
         </div>
     </div>
-    <!-- SERVICES OFFERED -->
-     <div 
-        id="services-offered" 
-        class="modal hidden" 
-        role="dialog"
-        aria-modal="true"
-        aria-labelledby="services-container"
-        tabindex="-1"
-        >
-        <div class="modal-content">
-            <h2 id="services-container">Services Offered</h2>
-        </div>
-     </div>
-
      <!-- RESNIK SECTION -->
     <section class="resnik-section" aria-labelledby="resnik-title">
         <div class="resnik-track">
@@ -359,7 +357,7 @@
         tabindex="-1"
         >
         <div class="modal-content" id="appointment-form-container">
-            <span class="close-modal" aria-label="Close Modal">&times;</span>
+            <button class="close-modal" aria-label="Close Modal">&times;</button>
             <h2 id="appt-h2">Contact Us</h2>
 
             <form 

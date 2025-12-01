@@ -16,19 +16,12 @@
     <link rel="icon" href="/favicon-16.png" sizes="16x16" type="image/png">
     <link rel="apple-touch-icon" href="/favicon-32.png" sizes="180x180">
 
-    <!-- Preconnects -->
-    <!-- <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> -->
-
     <!-- Base CSS -->
     <link rel="stylesheet" href="/src/css/components.css">
 
     <!-- JavaScript -->
      <script type="module">
         import "/src/js/main.mjs";
-        import "/src/js/modal.mjs";
-        import "/src/js/contact.mjs";
         import "/src/js/team.mjs";
     </script>
 
@@ -123,13 +116,13 @@
         <div class="meet-the-team-button-container">
             <div class="wrap">
                 <button class="modal-button" data-modal="dentist">
-                    <img src="/images/team/thayne/t250.jpeg" alt="Dentist: Dr. Thayne Dawson DDS" class="dr-thayne">
+                    <img src="/images/team/thayne/8.webp" alt="Dentist: Dr. Thayne Dawson DDS" class="dr-thayne">
                 </button>
                 <h3 id="dr" class="h3">Dr. Thayne Dawson</h3>
             </div>
             <div class="wrap">
                 <button class="modal-button" data-modal="hygienist">
-                    <img src="/images/team/alyssa-hygienist/alyssa250.jpg" alt="Image of Hygienist: Alyssa" class="hyg">
+                    <img src="/images/team/alyssa-hygienist/Alyssa3.webp" alt="Image of Hygienist: Alyssa" class="hyg">
                 </button>
                 <h3 id="hyg-1" class="h3">Hygienist: Alyssa</h3>
             </div>
@@ -147,7 +140,7 @@
             </div>
             <div class="wrap">
                 <button class="modal-button" data-modal="receptionist">
-                    <img src="/images/team/jessica-receptionist/jessica2.jpg" alt="Image of Receptionist: Jessica" class="recept">
+                    <img src="/images/team/jessica-receptionist/jessica2.webp" alt="Image of Receptionist: Jessica" class="recept">
                 </button>
                 <h3 id="recept" class="h3">Receptionist: Jessica</h3>
             </div>
@@ -214,7 +207,7 @@
         class="modal hidden" 
         role="dialog"
         aria-modal="true"
-        aria-labelledby="team-modal-name"
+        aria-label="Team Member Details"
         tabindex="-1"
         >
         <div class="modal-content"></div>
@@ -230,7 +223,7 @@
         tabindex="-1"
         >
         <div class="modal-content" id="appointment-form-container">
-            <span class="close-modal" aria-label="Close Modal">&times;</span>
+            <button class="close-modal" aria-label="Close Modal">&times;</button>
             <h2 id="appt-h2">Contact Us</h2>
 
             <form 

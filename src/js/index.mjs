@@ -1,5 +1,3 @@
-import { registerModal } from "./modal.mjs";
-import { buildAppointment } from "./contact.mjs";
 
 function onDomReady(fn) {
     if (document.readyState === "loading") {
@@ -18,11 +16,6 @@ const delta = '/images/insurance-logos/delta-dental.jpg';
 const united = '/images/insurance-logos/united-concordia-dental.png';
 const metlife = '/images/insurance-logos/metlife.png';
 const aetna = '/images/insurance-logos/aetna.svg';
-
-registerModal("request-appt-modal", buildAppointment);
-
-// used for google reviews (API)
-// const API_KEY = import.meta.env.VITE_GOOGLE_PLACES_API_KEY;
 
 // INSURANCE MODAL
 function insuranceModal() {
@@ -165,7 +158,6 @@ window.addEventListener("load", () => {
 });
 
 onDomReady(() => {
-    registerModal("request-appt-modal", insuranceModal);
-    requestAnimationFrame(insuranceModal);
+    insuranceModal();
     welcomeReveal();
 });

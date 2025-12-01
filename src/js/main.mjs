@@ -27,7 +27,7 @@ document.addEventListener("DOMContentLoaded", () => {
         if (a.hasAttribute("download")) return;
         if (a.hasAttribute("data-bypass")) return;
 
-        const opener = event.target.closest('data-modal="request-appt-modal"]');
+        const opener = event.target.closest('[data-modal="request-appt-modal"]');
         if (opener) {
             if (opener.tagName === "A") {
                 event.preventDefault();

@@ -15,12 +15,6 @@ export function registerModal(modalId, builder) {
 * @param {(container:HTMLElement) => (void|function)} builder
 */
 
-// ESCAPE KEY HANDLER
-
-export function registerModalBuilder(modalId, builder) {
-    registry.set(modalId, builder);
-}
-
 // TOGGLE MODALS
 export function toggleModal (modalId, show = true, opts = {}) {
     const asChild = opts?.asChild ?? false;

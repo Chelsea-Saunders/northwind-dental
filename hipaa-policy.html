@@ -3,11 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Friendly and professional dental care for the whole family in Wasilla, Alaska. Offering gentle, compassionate, restorative, and advanced dentistry with personalized care for patients of all ages. With comprehensive dental services: cleanings, fillings, implants, cosmetic dentistry and emergency care for everyone.">
+    <meta name="description" content="Northwind Dental HIPAA Policy PDF">
     <meta name="author" content="Chelsea Saunders"> <!-- OPEN GRAPH: social sharing -->
     <meta property="og:title" content="Northwind Dental HIPAA Privacy Policy">
     <meta property="og:description" content="Privacy Policy for Northwind Dental, Wasilla Alaska">
-    <meta property="og:image" content="https://northwinddentalak.com/images/images/logos/logo-85x81.jpg">
+    <meta property="og:image" content="https://northwinddentalak.com/images/logos/logo-85x81.jpg">
     <meta property="og:url" content="https://www.northwinddentalak.com">
     <meta property="og:type" content="website">
     <meta name="robots" content="index, follow"> <!-- This will help search engins know if they should index your page -->
@@ -23,10 +23,12 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto+Flex:opsz,wght@8..144,300..700&display=swap" rel="stylesheet">
 
     <script type="module">
+        import "/src/js/main.mjs";
+        import "/src/js/contact.mjs";
         import "/src/js/pdf.mjs";
     </script>
 </head>
-<body>
+<body class="pdf-page">
     <header>
         <div class="global-header">
             <a href="index.html" class="logo-link">
@@ -89,7 +91,6 @@
                 <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" focusable="false">
                     <path d="M6 9V3h12v6H6zm11 1h1a3 3 0 013 3v3h-4v4H7v-4H3v-3a3 3 0 013-3h1v2H6a1 1 0 00-1 1v2h3v4h8v-4h3v-2a1 1 0 00-1-1h-1v-2zM8 5v2h8V5H8z"/>
                 </svg>
-                <span class="screen-reader">Print</span>
             </button> 
             <!-- CLOSE FORM BUTTON -->
             <button 
@@ -102,20 +103,9 @@
         <div class="pdf-container">
             <iframe 
                 src="/pdf-forms/hipaa-privacy.pdf" 
-                aria-label="Hipaa privacy practice"
+                aria-label="Hipaa privacy policy PDF"
                 ></iframe>
         </div>
-        <!-- REQUEST AN APPOINTMENT MODAL -->
-        <!-- <div 
-            id="request-appt-modal" 
-            class="modal hidden"
-            role="dialog" 
-            aria-modal="true"
-            aria-labelledby="request-appt-modal"
-            tabindex="-1"
-            >
-            <div class="modal-content" id="appointment-form-container"></div>
-        </div> -->
     </main>
     <footer>
         <div class="main-footer">
@@ -179,7 +169,7 @@
         tabindex="-1"
         >
         <div class="modal-content" id="appointment-form-container">
-            <span class="close-modal" aria-label="Close Modal">&times;</span>
+            <button class="close-modal" aria-label="Close Modal">&times;</button>
             <h2 id="appt-h2">Contact Us</h2>
 
             <form 

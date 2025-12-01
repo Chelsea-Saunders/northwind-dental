@@ -1,11 +1,11 @@
 
 /* disable safari/chrome from changing font sizes */
 html {
-    -webkit-text-size-adjust: none;
-    text-size-adjust: none;
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
 }
 .pdf-container {
-    padding-bottom: none;
+    padding-bottom: 0;
 }
 footer {
     background-color: var(--bs-header-background-color);
@@ -134,22 +134,11 @@ footer h4 {
     .social-media .sm:hover {
         transform: none;
     }
-    #footer-logo {
-        width: 40%;
-        margin: auto;
-    }
-    #contact-header {
-        margin-top: 0;
-    }
     #appt-req-homepage {
         margin: 0 1rem;
     }
 }
 @media (min-width: 768px) {
-    #footer-logo {
-        width: 100px;
-        margin: auto;
-    }
     .social-media .sm {
         width: 40px;
         height: 40px;

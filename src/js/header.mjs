@@ -21,4 +21,4 @@ export function toggleMenuHandler() {
     header.classList.toggle("menu-open", next);
 }
 // // run dom
-document.getElementById("toggle-menu")?.addEventListener("click", toggleMenuHandler);
+// document.getElementById("toggle-menu")?.addEventListener("click", toggleMenuHandler);

@@ -51,10 +51,6 @@
     align-items: start;
 }
 
-body.modal-open {
-    overflow: hidden;
-}
-
 /* CLOSE MODAL BUTTON */
 .close-modal {
     position: absolute;
@@ -223,37 +219,7 @@ body.modal-open {
     }
 }
 @media (min-width: 500px) {
-    #appt-req-footer.modal-button {
-        margin-bottom: 0.75rem;
-        background: linear-gradient(180deg, #05407b, #025ab2, #00bfff, #025ab2, #05407b);
-        color: var(--bs-text-color-light);
-        border: none;
-        border-radius: 1.5rem;
-        padding: 0.5rem 1rem;
-        font-size: 0.9rem;
-        text-align: center;
-        cursor: pointer;
-        
-        box-shadow:
-            inset 0 0 8px rgba(255, 255, 255, 0.5),
-            0 4px 8px rgba(0, 0, 0, 0.3),
-            0 0 12px rgba(0, 191, 255, 0.7);
-
-        transition: all 0.3s ease;
-        width: fit-content;
-        height: fit-content;
-        margin: auto;
-        border: 5px solid rgba(0, 191, 255, 0.561);
-    }
     #appt-req-footer.modal-button:hover {
-        background: var(--bs-gradient-buttons-hover);
-        color: var(--bs-text-color-dark);
-        box-shadow:
-            inset 0 0 8px rgba(255, 255, 255, 0.5),
-            0 4px 8px rgba(0, 0, 0, 0.597),
-            0 0 12px rgba(0, 191, 255, 0.83);
-        transform: translateY(-2px);
-        border: 5px solid rgba(88, 190, 238, 0.672);
         border-radius: 1.5rem;
     }
     #global-nav .contact-button-header {
