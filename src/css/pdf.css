@@ -1,7 +1,6 @@
 
 body.pdf-page {
     display: block !important;
-    min-height: auto !important;
 }
 body.pdf-page main {
     flex: none !important;

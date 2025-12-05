@@ -117,6 +117,9 @@ export function buildAppointment(container) {
         }
 
         setBusy(true);
+
+        // ----- Network and backend validation -----
+        let json;
         try {
             const body = getFormData();
             const response = await fetch("/backend/sendmail.php", {
@@ -124,18 +127,32 @@ export function buildAppointment(container) {
                 body, 
                 headers: { "X-Requested-With": "fetch" }
             });
-            let json = {};
-            try { json = await response.json(); } catch {}
-            if (!response.ok || !json.ok) throw new Error(json?.error || "Send failed");
 
-            // success
+            try {
+                json = await response.json(); 
+            } catch {
+                json = null;
+            }
+
+            if (!response.ok || !json || !json.ok) {
+                console.error("Sendmail backend error:", { response, json });
+                throw new Error(json?.error || "Send failed");
+            }
+        } catch (error) {
+            console.error("Contact form submission error:", error);
+            showFeedback("Something went wrong. Please try again.");
+            showSubmissionMessage("Something went wrong. Please try again.");
+            setBusy(false);
+            return;
+        }
+
+        // ----- UI after success: no errors if this part fails -----
+        try {
             showFeedback("Message Sent. Thank you!");
             showSubmissionMessage("Message Sent. Thank you!");
             clearForm();
-            closeAndReload("request-appt-modal", 1000);
-        } catch (error) {
-            showFeedback("Something went wrong. Please try again.");
-            showSubmissionMessage("Something went wrong. Please try again.");
+            
+            closeAndReload("request-apointment-modal", 1000);
         } finally {
             setBusy(false);
         }

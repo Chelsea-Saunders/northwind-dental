@@ -14,6 +14,7 @@ function promo() {
     if (!modal || !overlay) return;
 
     const closeButton = modal.querySelector("[data-promo-close]");
+    const promoCloseModal = modal.querySelector(".promo-contact");
 
     function openPromo() {
         modal.removeAttribute("hidden");
@@ -25,6 +26,10 @@ function promo() {
         overlay.setAttribute("hidden", "");
         document.body.style.overflow = ""; // restore scroll
     }
+
+    promoCloseModal.addEventListener("click", () => {
+        closePromo();
+    });
 
     // automatically open promo on page load
     setTimeout(openPromo, 1500);
@@ -98,9 +103,13 @@ function welcomeReveal() {
     const io = new IntersectionObserver(([entry]) => {
         if (entry.isIntersecting) {
             welcome.classList.add("welcome-in");
-            io.unobserve(welcome); // only animate once
+        } else {
+            welcome.classList.remove("welcome-in");
         }
-    }, { threshold: 0.3 });
+
+    }, { 
+        threshold: 0.3 
+    });
 
     io.observe(welcome);
 }
@@ -117,6 +126,25 @@ function loadYouTubeAPI() {
     tag.defer = true;
     tag.dataset.ytApi = "true";
     document.head.appendChild(tag);
+}
+
+// buttons toggle
+function observeInfoButtons() {
+    const section = document.querySelector(".info-buttons");
+    if (!section) return;
+
+    const io = new IntersectionObserver(
+        ([entry]) => {
+            if (entry.isIntersecting) {
+                section.classList.add("in-view");
+            } else {
+                section.classList.remove("in-view");
+            }
+        },
+        { threshold: 0.25 } // about 25% visibility
+    );
+
+    io.observe(section);
 }
 
 // youtube player initialization 
@@ -150,7 +178,10 @@ window.onYouTubeIframeAPIReady = function() {
             try {
                 const iframe = player.getIframe();
                 if (iframe) {
-                    iframe.setAttribute("allow", "autoplay; encrypted-media; picture-in-picture; fullscreen");
+                    iframe.setAttribute(
+                        "allow", 
+                        "autoplay; encrypted-media; picture-in-picture;"
+                    );
                 }
             } catch {}
 
@@ -198,4 +229,5 @@ onDomReady(() => {
     promo();
     insuranceModal();
     welcomeReveal();
+    observeInfoButtons();
 });

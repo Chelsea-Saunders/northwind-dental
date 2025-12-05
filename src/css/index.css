@@ -242,7 +242,7 @@ body {
 /* WELCOME MODAL WITH PARALLAX EFFECT */
 /* heading styling */
 #welcome {
-    text-align: left;
+    text-align: center;
     font-family: "Montserrat Alternates", "Arial Narrow";
     font-weight: 800;
     padding: clamp(0.25rem, 1vh, 0.75rem);
@@ -264,17 +264,15 @@ body {
 /* WRAPPER */
 .welcome-wrapper {
     position: relative;
-    min-height: 180vh;
-    /* overflow-x: hidden; */
-    overflow-y: visible;
+    overflow-y: hidden;
     color: var(--bs-text-color-light);
 }
 .welcome-background {
-    position: sticky;
-    inset: 0;
-    z-index: 0;
-    margin: 0;
-    height: 100vh;
+    position: relative;
+    opacity: 0;
+    transform: translateX(-18%);
+    transition: transform 1000ms ease, opacity 1000ms ease;
+    will-change: transform, opacity;
 }
 .welcome-img {
     width: 100%;
@@ -289,28 +287,27 @@ body {
         opacity 900ms ease 150ms, 
         transform 900ms ease 150ms;
 }
-/* TOP: text card */
+/* TEXT CARD OVERLAY */
 .welcome-content {
-    position: sticky;
-    top: clamp(56px, 10vh, 96px);
-    z-index: 1;
-
-    max-width: 38rem;
+    position: absolute;
+    inset-inline: 0;
+    bottom: 10%;
+    max-width: 90%;
     margin: 0 auto;
 
-    padding: clamp(1rem, 2.5vw, 2rem);
-    margin-top: clamp(2rem, 12vh, 8rem);
-    margin-bottom: clamp(10rem, 30vh, 16rem);
-
-    background: rgba(11, 27, 51, 0.061);
+    /* mobile look */
+    background: rgba(11, 27, 51, 0.61); /* made it darker */
     border-radius: var(--bs-border-radius-medium);
-    box-shadow: 0 10px 30px rgba(0,0,0,0.25);
-    
-    display: flex;
-    flex-direction: column;
-    gap: clamp(0.5rem, 1.5vw, 1rem);
-    font-family: var(--bs-body-font);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.35);
+    padding: 1rem 1.25rem;
+
+    /* animation start state */
+    opacity: 0;
+    transform: translateX(100%);
+    transition: transform 1000ms ease, opacity 1000ms ease;
+    will-change: transform, opacity;
 }
+
 .welcome-lead {
     font-size: clamp(1.05rem, 2.2vw, 1.3rem);
     font-weight: 600;
@@ -320,27 +317,16 @@ body {
 }
 .welcome {
     font-size: clamp(0.95rem, 2vw, 1.1rem);
-    line-height: 1.7;
+    line-height: 1;
     margin: 0;
     color: var(--bs-text-color-light);
 }
-/* slide-in animation */
-.welcome-background, 
-.welcome-content {
-    opacity: 0;
+
+/* when .welcome-in is added, slide into view */
+.welcome-wrapper.welcome-in .welcome-background {
+    opacity: 1;
     transform: translateX(0);
-    transition: transform 1000ms ease, opacity 1000ms ease;
-    will-change: transform, opacity;
 }
-/* off screen starting position */
-.welcome-background {
-    transform: translateX(-18%);
-}
-.welcome-content {
-    transform: translateX(18%);
-}
-/* wehn .welcome-in is added, slide into view */
-.welcome-wrapper.welcome-in .welcome-background, 
 .welcome-wrapper.welcome-in .welcome-content {
     opacity: 1;
     transform: translateX(0);
@@ -366,7 +352,32 @@ body {
 }
 
 /* INFO BUTTONS MODALS */
-.info-buttons {
+/* staggered pop-in for each button: starting state */
+.info-btn {
+    opacity: 0;
+    transform: translateY(30px) scale(0.9);
+}
+/* when container is in view, animate each button */
+.info-buttons.in-view .info-btn {
+    animation: info-pop-in 1000ms ease-out forwards;
+}
+/* staggered delays for each button */
+.info-buttons.in-view .info-btn:nth-child(1) {
+    animation-delay: 0.0s;
+}
+.info-buttons.in-view .info-btn:nth-child(2) {
+    animation-delay: 0.08s;
+}
+.info-buttons.in-view .info-btn:nth-child(3) {
+    animation-delay: 0.16s;
+}
+.info-buttons.in-view .info-btn:nth-child(4) {
+    animation-delay: 0.24s;
+}
+.info-buttons.in-view .info-btn:nth-child(5) {
+    animation-delay: 0.32s;
+}
+.info-buttons { 
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -374,38 +385,11 @@ body {
     margin: 1rem auto;
     padding-top: 5rem;
 }
-
-.ins-headers {
-    font-family: var(--bs-header-font);
-    margin: 1rem 0;
-    color: var(--bs-text-color-dark);
-    background-color: transparent;
-    text-align: center;
-    width: 100%;
-}
-#ins-h2 {
-    /* gradient text */
-    background: linear-gradient(180deg, #ccedec, #035a54, #0095b3, #03b2be, #78bfb7);
-    background-clip: text;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    /* letter glow/shadow */
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2),
-        0 0 2px rgba(139, 174, 185, 0.3);
-}
-#prefered {
-    font-size: 0.9rem;
-    font-family: var(--bs-body-font);
-    color: #035a54;
-    margin-top: 0.5rem;
-    text-align: center;
-}
-#services-link {
-    text-decoration: none;
-    color: var(--bs-text-color-light);
-    font-family: var(--bs-body-font);
-    font-size: var(--bs-body-font-size);
-}
+/* bring buttons into view */
+/* .info-buttons.in-view {
+    opacity: 1;
+    transform: translateY(0);
+} */
 
 .modal-button.special-button.info-btn {
     border-radius: var(--bs-border-radius-large) !important;
@@ -466,6 +450,8 @@ body {
     cursor: pointer;
     border-radius: 50%;
 }
+
+/* LOGO */
 .logo-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
@@ -646,15 +632,21 @@ body {
     opacity: 1;
     transform: translateY(0);
 }
-/* override chat-bubble size */
-/* #chat-bubble {
-    width: 56px !important;
-    height: 56px !important;
+/* keyframes for soft pop and slide up */
+@keyframes info-pop-in {
+    0% {
+        opacity: 0;
+        transform: translateY(30px) scale(0.9);
+    }
+    60% {
+        opacity: 1;
+        transform: translateY(-4px) scale(1.03);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
 }
-#chat-bubble svg {
-    width: 1.5rem !important;
-    height: 1.5rem !important;
-} */
 /* Respect reduced motion */
 @media (prefers-reduced-motion: reduce) {
     .resnik-left, 
@@ -663,65 +655,125 @@ body {
         opacity: 1;
         transform: none;
     }
-    .welcome-back, 
-    .welcome-front, 
     .welcome-img {
         transition: none;
         opacity: 1;
         transform: none;
     }
-    .welcome-pane {
-        position: static;
-        margin-top :2rem;
-    }
-    .welcome-wrapper {
-        min-height: auto;
-    }
 }
 /* Mid Size screens */
 @media (min-width: 500px) {
     /* Welcome message/image */
+    .welcome-wrapper {
+        min-height: 180vh;
+        position: relative;
+        overflow: visible;
+    }
+    /* off screen starting position */
+    .welcome-background {
+        position: sticky;
+        top: 0;
+        height: 100vh;
+        opacity: 0;
+        transform: translateX(-18%);
+        transition: transform 500ms ease, opacity 500ms ease;
+        will-change: transform, opacity;
+        z-index: 0;
+    }
+    .welcome-img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
+        display: block;
+
+        opacity: 0;
+        transform: translateY(12px);
+        transition: 
+            opacity 900ms ease 150ms, 
+            transform 900ms ease 150ms;
+    }
+
+    /* TOP: text card */
     .welcome-content {
+        position: relative;
+        inset: auto;
+        max-width: 38rem;
+
+        margin: 0 auto;
         margin-top: clamp(2rem, 6vh, 3rem);
         margin-bottom: clamp(6rem, 18vh, 10rem);
-        padding-inline: 1.5rem;
+        padding: clamp(1rem, 2.5vw, 2rem);
+
+        background: rgba(20, 55, 107, 0.478);
+        border-radius: var(--bs-border-radius-medium);
+        box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+        
+        display: flex;
+        flex-direction: column;
+        gap: clamp(0.5rem, 1.5vw, 1rem);
+        font-family: var(--bs-body-font);
+
+        opacity: 0;
+        transform: translateX(18%);
+        transition: transform 1000ms ease, opacity 1000ms ease;
+        will-change: transform, opacity;
+        z-index: 1;
     }
-    #welcome {
+    .welcome-lead {
+        font-size: clamp(1.05rem, 2.2vw, 1.3rem);
+        font-weight: 600;
+        color: var(--bs-text-color-light);
+        margin: 0;
         text-align: center;
+    }
+    .welcome {
+        font-size: clamp(0.95rem, 2vw, 1.1rem);
+        line-height: 1.7;
+        margin: 0;
+        color: var(--bs-text-color-light);
+    }
+    /* slide-in animation */
+    .welcome-background, 
+    .welcome-content {
+        opacity: 0;
+        transition: transform 1000ms ease, opacity 1000ms ease;
+        will-change: transform, opacity;
+    }
+    
+    /* wehn .welcome-in is added, slide into view */
+    .welcome-wrapper.welcome-in .welcome-background, 
+    .welcome-wrapper.welcome-in .welcome-content {
+        opacity: 1;
+        transform: translateX(0);
+    }
+    .welcome-wrapper.welcome-in .welcome-img {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    /* soft fade-out at bottom before buttons */
+    .welcome-wrapper::after {
+        content: "";
+        position: absolute;
+        inset-inline: 0;
+        bottom: 0;
+        height: 160px;
+        z-index: 2;
+        pointer-events: none;
+        background: linear-gradient(
+            to bottom, 
+            rgba(0, 0, 0, 0) 0%, 
+            #020917 100%
+        );
     }
 
     /* for the modal buttons on index.html only */
     .inside-circle {
-        width: 110px;
-        height: 110px;
-        border-radius: 50%;
-        background: linear-gradient(145deg, #00bfff, #025ab2, #05407b);
-        color: var(--bs-text-color-light);
-        display: flex;
-        align-items: center;
-        justify-content: center;
         font-size: 0.8rem;
-        text-align: center;
-        padding: 10px;
-        white-space: normal;
-        word-break: break-word;
-        line-height: 1.2;
-        aspect-ratio: 1 / 1;
-        border: 5px solid rgb(98, 190, 230);
-        box-shadow: 
-            inset 0 0 10px rgba(255, 255, 255, 0.41), 
-            0 0 12px rgba(0, 191, 255, 0.5);
-        transition: all 0.3s ease;
     }
     /* force the map element to keep size inside of this modal */
     #google-reviews-modal .modal-content #google-reviews-map.map {
-        display: block;
-        flex: 0 0 auto;
-        width: 90%;
-        min-height: 200px;
         height: clamp(200px, 45vh, 520px) !important;
-        outline: none !important;
-        background: transparent !important;
     }
     
     /* RESNIK MODAL WITH PARALLAX EFFECT */
@@ -734,18 +786,10 @@ body {
 @media screen and (min-width: 768px) {
     .hero-content h1, 
     .hero-content h2 {
-        margin: 0;
         font-size: var(--bs-title-font-size);
-        color: var(--bs-text-color-dark);
     }
     .hero-content h1 {
         font-size: 1.1rem;
-    }
-    .hero-msg {
-        padding: 1rem 2rem;
-        font-size: 1rem;
-        line-height: 1;
-        max-width: 90%;
     }
     .hero-section {
         max-width: 1200px;
@@ -758,6 +802,8 @@ body {
         margin: 1rem auto;
         font-size: 1.25rem;
         line-height: 1.2;
+        padding: 1rem 2rem;
+        max-width: 90%;
     }
     /* INFO MODAL BUTTONS */
     .info-buttons {
@@ -765,37 +811,11 @@ body {
         gap: 2rem;
         margin: 2rem auto;
     }
-    /* each button */
-    .info-button button[data-modal] {
-        background-color: var(--bs-link-color);
-        color: var(--bs-text-color-light);
-        padding: 0.5rem 1rem;
-        border: 5px solid rgb(98, 190, 230);
-        border-radius: var(--bs-border-radius-large);
-        cursor: pointer;
-    }
-    .info-button button[data-modal]:hover {
-        background-color: var(--bs-link-hover-color);
-        color: var(--bs-text-color-light);
-    }
     
     .inside-circle {
         width: 125px;
         height: 125px;
-        border-radius: 50%;
-        background-color: var(--bs-button-background-color);
-        color: var(--bs-text-color-light);
-        display: flex;
-        align-items: center;
-        justify-content: center;
         font-size: 0.8rem;
-        text-align: center;
-        padding: 10px;
-        white-space: normal;
-        word-break: break-word;
-        line-height: 1.2;
-        aspect-ratio: 1 / 1;
-        border: 5px solid rgb(98, 190, 230);
     }
     
     /* RESNIK MODAL WITH PARALLAX EFFECT */
@@ -825,10 +845,6 @@ body {
 }
 /* Responsive: stack on narrow screen */
 @media (max-width: 820px) {
-    .resnik-section {
-        padding-block: 4vh 6vh;
-        min-height: auto;
-    }
     .resnik-track {
         grid-template-columns: 1fr;
     }

@@ -161,7 +161,7 @@ body.modal-open {
 }
 #appt-req-footer.modal-button {
     margin-bottom: 0.75rem;
-    background: linear-gradient(145deg, #05407b, #025ab2, #00bfff, #025ab2, #05407b);
+    background: linear-gradient(180deg, #05407b, #025ab2, #00bfff, #025ab2, #05407b);
     color: var(--bs-text-color-light);
     border: none;
     border-radius: 1.5rem;
