@@ -174,6 +174,58 @@ h2.meet-our-team {
     justify-content: center;
 }
 
+/* main img: fade in */
+.team-photo {
+    opacity: 0;
+    transform: scale(0.98);
+    transition: opacity 600ms ease-out, transform 600ms ease-out;
+}
+.team-photo.loaded {
+    opacity: 1;
+    transform: scale(1);
+}
+
+.meet-the-team-button-container img {
+    opacity: 0;
+    transform: translateX(60px);
+}
+.meet-the-team-button-container img.slide-in {
+    animation: teamSlideIn 600ms ease-out forwards;
+}
+@keyframes teamSlideIn {
+    0% {
+        opacity: 0;
+        transform: translateX(60px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes pslideIn {
+    0% {
+        opacity: 0;
+        transform: translateX(100%);
+    }
+    70% {
+        opacity: 1;
+        transform: translateX(-25px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+/* base state */
+.team-modal-content .team-member-description {
+    opacity: 0;
+}
+/* animated state */
+.team-modal-content .team-member-description.slide-in {
+    animation: pslideIn 650ms ease-out forwards;
+}
+
 @media (min-width: 500px) {
     .meet-the-team-button-container {
         flex-direction: row;

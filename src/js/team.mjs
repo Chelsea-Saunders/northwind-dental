@@ -250,7 +250,7 @@ registerModal("team-modal", (container) => {
         <div class="team-modal-content">
             <h2 class="team-member-name" id="team-member-name" tabindex="-1"></h2>
             <h3 class="team-member-role"></h3>
-            <div class=team-member-description></div>
+            <div class="team-member-description"></div>
         </div>
         <div class="carousel" role="region" aria-label="Team member photo gallery">
             <div class="carousel-window">
@@ -296,6 +296,18 @@ registerModal("team-modal", (container) => {
         memberName.textContent = member.name;
         memberRole.textContent = member.role;
         memberDescription.innerHTML = member.description.replace(/\n/g, "<br>");
+
+        // trigger side in animation
+        memberDescription.classList.remove("slide-in");
+
+        const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+        if (!reduceMotion) {
+            void memberDescription.offsetWidth;
+            memberDescription.classList.add("slide-in");
+        } else {
+            memberDescription.style.opacity = "1";
+            memberDescription.style.transform = "none";
+        }
 
         // clear old slides 
         track.innerHTML = "";
@@ -391,6 +403,41 @@ registerModal("team-modal", (container) => {
 document.addEventListener("DOMContentLoaded", () => {
     const modal = document.getElementById("team-modal");
     const modalContent = modal?.querySelector(".modal-content");
+    const teamPhoto = document.querySelector(".team-photo");
+    const imgs = document.querySelectorAll(".meet-the-team-button-container img");
+
+    // --- Main image team photo fade in ---
+    if(!teamPhoto) return;
+    // if already cached
+    if (teamPhoto.complete) {
+        requestAnimationFrame(() => {
+            teamPhoto.classList.add("loaded");
+        });
+    } else {
+        teamPhoto.addEventListener("load", () => {
+            teamPhoto.classList.add("loaded");
+        });
+    }
+
+    // --- team member buttons slide in ---
+    const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+    if (reduceMotion) {
+        imgs.forEach(img => {
+            img.style.opacity = "1";
+            img.style.transform = "none";
+        });
+    } else {
+        imgs.forEach(img => {
+            if (img.complete) {
+                requestAnimationFrame(()=> img.classList.add("slide-in"));
+            } else {
+                img.addEventListener("load", () => {
+                    img.classList.add("slide-in");
+                });
+            }
+        });
+    }
 
     document
     .querySelectorAll(".meet-the-team-button-container .modal-button")

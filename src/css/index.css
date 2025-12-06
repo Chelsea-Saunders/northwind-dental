@@ -24,7 +24,7 @@ body {
 /* modal box for promo */
 .promo-modal {
     position: fixed;
-    inset: 25% auto auto 50%;
+    inset: 50% auto auto 50%;
     transform: translate(-50%, -50%);
     max-width: 28rem;
     width: 90%;
@@ -264,15 +264,16 @@ body {
 /* WRAPPER */
 .welcome-wrapper {
     position: relative;
-    overflow-y: hidden;
+    min-height: 180vh;
+    overflow-y: visible;
     color: var(--bs-text-color-light);
 }
 .welcome-background {
-    position: relative;
-    opacity: 0;
-    transform: translateX(-18%);
-    transition: transform 1000ms ease, opacity 1000ms ease;
-    will-change: transform, opacity;
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    opacity: 1;
+    transform: none;
 }
 .welcome-img {
     width: 100%;
@@ -280,20 +281,14 @@ body {
     object-fit: cover;
     object-position: center;
     display: block;
-
-    opacity: 0;
-    transform: translateY(12px);
-    transition: 
-        opacity 900ms ease 150ms, 
-        transform 900ms ease 150ms;
+    opacity: 1;
+    transform: none;
 }
 /* TEXT CARD OVERLAY */
 .welcome-content {
-    position: absolute;
-    inset-inline: 0;
-    bottom: 10%;
+    position: relative;
     max-width: 90%;
-    margin: 0 auto;
+    margin: -40vh auto 4rem;
 
     /* mobile look */
     background: rgba(11, 27, 51, 0.61); /* made it darker */
@@ -322,19 +317,11 @@ body {
     color: var(--bs-text-color-light);
 }
 
-/* when .welcome-in is added, slide into view */
-.welcome-wrapper.welcome-in .welcome-background {
-    opacity: 1;
-    transform: translateX(0);
-}
 .welcome-wrapper.welcome-in .welcome-content {
     opacity: 1;
     transform: translateX(0);
 }
-.welcome-wrapper.welcome-in .welcome-img {
-    opacity: 1;
-    transform: translateY(0);
-}
+
 /* soft fade-out at bottom before buttons */
 .welcome-wrapper::after {
     content: "";
@@ -632,6 +619,29 @@ body {
     opacity: 1;
     transform: translateY(0);
 }
+
+#insurance-modal .logo-grid img {
+    opacity: 0;
+    transform: scale(0.9);
+}
+#insurance-modal:not(.hidden) .logo-grid img {
+    animation: insurancePop 500ms ease forwards;
+}
+/* insurance pop */
+@keyframes insurancePop {
+    0% {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+    60% {
+        opacity: 1;
+        transform: scale(1.08);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
 /* keyframes for soft pop and slide up */
 @keyframes info-pop-in {
     0% {
@@ -660,9 +670,17 @@ body {
         opacity: 1;
         transform: none;
     }
+    #insurance-modal .logo-grid img {
+        animation: none !important;
+        opacity: 1;
+        transform: none;
+    }
 }
 /* Mid Size screens */
 @media (min-width: 500px) {
+    #welcome {
+        font-size: clamp(2.2rem, 4vh, 3.2rem);
+    }
     /* Welcome message/image */
     .welcome-wrapper {
         min-height: 180vh;
@@ -674,10 +692,8 @@ body {
         position: sticky;
         top: 0;
         height: 100vh;
-        opacity: 0;
-        transform: translateX(-18%);
-        transition: transform 500ms ease, opacity 500ms ease;
-        will-change: transform, opacity;
+        opacity: 1;
+        transform: none;
         z-index: 0;
     }
     .welcome-img {
@@ -687,11 +703,8 @@ body {
         object-position: center;
         display: block;
 
-        opacity: 0;
-        transform: translateY(12px);
-        transition: 
-            opacity 900ms ease 150ms, 
-            transform 900ms ease 150ms;
+        opacity: 1;
+        transform: none;
     }
 
     /* TOP: text card */
@@ -734,7 +747,6 @@ body {
         color: var(--bs-text-color-light);
     }
     /* slide-in animation */
-    .welcome-background, 
     .welcome-content {
         opacity: 0;
         transition: transform 1000ms ease, opacity 1000ms ease;

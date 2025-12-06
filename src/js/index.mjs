@@ -32,7 +32,7 @@ function promo() {
     });
 
     // automatically open promo on page load
-    setTimeout(openPromo, 1500);
+    setTimeout(openPromo, 500);
 
     // close handlers
     if (closeButton) {
@@ -113,21 +113,6 @@ function welcomeReveal() {
 
     io.observe(welcome);
 }
-
-// LAZY LOAD YOUTUBE WITH AUTOPLAY
-// load api script on demand
-function loadYouTubeAPI() {
-    // don't double load
-    if (window.YT || document.querySelector("script[data-yt-api]")) return;
-
-    const tag = document.createElement("script");
-    tag.src = "https://www.youtube.com/iframe_api";
-    tag.async = true;
-    tag.defer = true;
-    tag.dataset.ytApi = "true";
-    document.head.appendChild(tag);
-}
-
 // buttons toggle
 function observeInfoButtons() {
     const section = document.querySelector(".info-buttons");
@@ -145,6 +130,20 @@ function observeInfoButtons() {
     );
 
     io.observe(section);
+}
+
+// LAZY LOAD YOUTUBE WITH AUTOPLAY
+// load api script on demand
+function loadYouTubeAPI() {
+    // don't double load
+    if (window.YT || document.querySelector("script[data-yt-api]")) return;
+
+    const tag = document.createElement("script");
+    tag.src = "https://www.youtube.com/iframe_api";
+    tag.async = true;
+    tag.defer = true;
+    tag.dataset.ytApi = "true";
+    document.head.appendChild(tag);
 }
 
 // youtube player initialization 

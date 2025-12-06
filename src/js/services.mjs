@@ -314,7 +314,7 @@ const servicesOfferedModal = `
                 data-modal="removable-content"
                 >
                 <img 
-                    src="/images/img-links/dentures.webp" 
+                    src="/images/removable/denture.webp" 
                     alt="Image of a set of dentures" 
                     id="removable" 
                     class="service-icon"
@@ -355,9 +355,9 @@ function buildProcedureModal(procedureId) {
     return `
         <button class="close-modal" data-close aria-label="Close">&times;</button>
         <h2 id="${procedureId}-title" tabindex="-1">${p.title}</h2>
-        ${p.img ? `<img src="${p.img}" alt="${p.alt || ""}" class="procedure-img">` : ""}
-        ${lead ? `<p>${lead}</p>` : ""}
-        ${p.description ? `<p>${p.description}</p>` : "" }
+        ${p.img ? `<img src="${p.img}" alt="${p.alt || ""}" class="procedure-img modal-img-fade">` : ""}
+        ${lead ? `<p class="p-lead">${lead}</p>` : ""}
+        ${p.description ? `<p class="p-description">${p.description}</p>` : "" }
         ${
             hasLinks 
             ? `<ul>${p.links.map(l => `<li><a href="${l.href}">${l.text}</a></li>`).join("")}</ul>`
@@ -381,7 +381,7 @@ function buildModal(service) {
   return `
     <span class="close-modal" role="button" aria-label="Close Modal" data-close>&times;</span>
     <h2 id="${service.id}-title">${service.name}</h2>
-    <img src="${service.img}" alt="${service.alt}" class="service-img">
+    <img src="${service.img}" alt="${service.alt}" class="service-img modal-img-fade">
     <p>${service.description}</p>
     ${service.paragraph ? `<p class="modal-note">${service.paragraph}</p>` : ""} 
     <ul class="feature-list">
@@ -420,6 +420,24 @@ services.forEach(service => {
     `);
 });
 
+// BUTTONS SLIDING IN AND OUT ON PAGE LOAD
+function observeServicesGrid() {
+    const list = document.getElementById("services-offered-list");
+    if (!list) return;
+
+    const io = new IntersectionObserver(
+        ([entry]) => {
+            if (entry.isIntersecting) {
+                list.classList.add("services-in-view");
+                io.unobserve(list);
+            }
+        },
+        { threshold: 0.25 } // about 25% visibility
+    );
+
+    io.observe(list);
+}
+
 // OPEN CHILD (PROCEDURE) MODAL AS A STACK (PAGE-LOCAL CONTROL)
 document.addEventListener("click", (event) => {
     // ignore clicks on pdf links
@@ -449,6 +467,21 @@ document.addEventListener("click", (event) => {
     const child = ensureModalContainer(childId);
     child.querySelector(".modal-content").innerHTML = buildProcedureModal(childId);
 
+    // animate fade in on description
+    const imgFade = child.querySelector(".modal-img-fade");
+    if (imgFade) {
+        imgFade.classList.remove("modal-img-fade");
+        void imgFade.offsetWidth;
+        imgFade.classList.add("modal-img-fade");
+    }
+
+    const description = child.querySelector(".p-description");
+    if (description) {
+        description.classList.remove("slide-description");
+        void description.offsetWidth;
+        description.classList.add("slide-description");
+    }
+
     // give <h2> an id that matches aria-labelledby
     const h2 = child.querySelector("h2");
     if (h2 && !h2.id) h2.id = `${childId}-title`;
@@ -476,6 +509,7 @@ document.addEventListener("click", (event) => {
     toggleModal(childId, true);
 });
 
+
 document.addEventListener("DOMContentLoaded", () => {
     // create service list
     const container = document.getElementById("services-offered-container");
@@ -496,6 +530,26 @@ document.addEventListener("DOMContentLoaded", () => {
                 // build modal content dynamcially
                 modalContent.innerHTML = buildModal(service);
 
+                // animate fade in on images
+                const img = modalContent.querySelector(".modal-img-fade");
+                if (img) {
+                    img.classList.remove("modal-img-fade");
+                    void img.offsetWidth;
+                    img.classList.add("modal-img-fade");
+                }
+
+                const buttons = modalContent.querySelectorAll(".procedure-link");
+                buttons.forEach(button => {
+                    // remove class if it exists from prior modal use
+                    button.classList.remove("pop-procedure");
+
+                    // force reflow so animation starts
+                    void button.offsetWidth;
+
+                    // add animation class to make it pop
+                    button.classList.add("pop-procedure");
+                });
+
                 // open the modal
                 toggleModal(modalId, true);
 
@@ -507,4 +561,5 @@ document.addEventListener("DOMContentLoaded", () => {
             }
         });
     });
+    observeServicesGrid();
 });
