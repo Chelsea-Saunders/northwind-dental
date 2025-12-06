@@ -221,7 +221,7 @@ window.onYouTubeIframeAPIReady = function() {
 // wait until page has loaded, then delay YouTube load slightly
 window.addEventListener("load", () => {
     // lazy load youtube api after window load
-    setTimeout(loadYouTubeAPI, 8000);
+    setTimeout(loadYouTubeAPI, 500);
 });
 
 onDomReady(() => {
